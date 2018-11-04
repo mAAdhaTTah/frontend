@@ -1,23 +1,41 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { format } from 'date-fns';
+import { format, startOfWeek, compareDesc } from 'date-fns';
 import { Layout, Week } from '../components';
 
 const timestampToDate = value => new Date(+value * 1000);
 
+const getWeekOf = readAt => format(startOfWeek(new Date(readAt)), 'X');
+
+const mergeSources = ({ allPocketArticle, allWordpressPfPfPosted }) =>
+  allPocketArticle.group.map(({ weekOf, edges }) => {
+    const wpArticles = allWordpressPfPfPosted.edges
+      .filter(({ node }) => getWeekOf(node.readAt) === weekOf)
+      .map(({ node }) => ({ node: { ...node } }));
+
+    return { weekOf, edges: [...edges, ...wpArticles].sort(compareDesc) };
+  });
+
+const nodeToLink = ({ node }) => ({
+  id: node.id,
+  url: node.url,
+  title: node.title,
+  excerpt: (node.excerpt || '').trim(),
+  readAt: format(
+    typeof node.readAt === 'number'
+      ? timestampToDate(node.readAt)
+      : node.readAt,
+    'hh:mm a, MMM Do'
+  ),
+});
+
 const IndexPage = ({ data }) => (
   <Layout>
-    {data.allPocketArticle.group.map(({ fieldValue, edges }) => (
+    {mergeSources(data).map(({ weekOf, edges }) => (
       <Week
-        key={fieldValue}
-        weekOf={format(timestampToDate(fieldValue), 'MMM Do, YYYY')}
-        links={edges.map(({ node }) => ({
-          id: node.id,
-          url: node.url,
-          title: node.title,
-          excerpt: node.excerpt,
-          readAt: format(timestampToDate(node.time_read), 'hh:mm a, MMM Do'),
-        }))}
+        key={weekOf}
+        weekOf={format(timestampToDate(weekOf), 'MMM Do, YYYY')}
+        links={edges.map(nodeToLink)}
       />
     ))}
   </Layout>
@@ -25,16 +43,27 @@ const IndexPage = ({ data }) => (
 
 export const pageQuery = graphql`
   query PageQuery {
+    allWordpressPfPfPosted {
+      edges {
+        node {
+          id
+          url: guid
+          title: post_title
+          excerpt: stripped_post_content
+          readAt: post_date
+        }
+      }
+    }
     allPocketArticle(sort: { fields: [time_read], order: DESC }) {
       group(field: readWeek) {
-        fieldValue
+        weekOf: fieldValue
         edges {
           node {
             id
             url
             title
             excerpt
-            time_read
+            readAt: time_read
           }
         }
       }

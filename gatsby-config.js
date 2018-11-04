@@ -49,6 +49,19 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-wordpress',
+      options: {
+        baseUrl: 'reads.jamesdigioia.com',
+        protocol: 'https',
+        hostingWPCOM: false,
+        useACF: false,
+        verboseOutput: false,
+        concurrentRequests: 10,
+        perPage: 100,
+        includedRoutes: ['/pf/v1/stats/pf_posted'],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: ['Lora', 'Roboto'],

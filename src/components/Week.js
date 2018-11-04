@@ -9,7 +9,9 @@ const ReadLink = ({ url, title, excerpt, readAt }) => (
     >
       {title}
     </a>
-    <p className="bg-primary-color p-3 rounded mb-2">{excerpt}</p>
+    <div className="bg-primary-color p-3 rounded mb-2">
+      <p className="max-h-4 overflow-hidden">{excerpt}</p>
+    </div>
     <p className="bg-accent-dark rounded text-secondary-color p-2">
       Read at {readAt}
     </p>

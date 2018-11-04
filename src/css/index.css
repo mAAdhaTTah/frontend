@@ -30,3 +30,10 @@
 a {
   color: inherit;
 }
+
+/* @TODO(James) respond to line-heights */
+@for $i from 1 to 6 {
+  .max-h-$i {
+    max-height: $i * 1.15rem;
+  }
+}
