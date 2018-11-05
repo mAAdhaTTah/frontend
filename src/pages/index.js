@@ -8,13 +8,17 @@ const timestampToDate = value => new Date(+value * 1000);
 const getWeekOf = readAt => format(startOfWeek(new Date(readAt)), 'X');
 
 const mergeSources = ({ allPocketArticle, allWordpressPfPfPosted }) =>
-  allPocketArticle.group.map(({ weekOf, edges }) => {
-    const wpArticles = allWordpressPfPfPosted.edges
-      .filter(({ node }) => getWeekOf(node.readAt) === weekOf)
-      .map(({ node }) => ({ node: { ...node } }));
+  allPocketArticle.group
+    .map(({ weekOf, edges }) => {
+      const wpArticles = allWordpressPfPfPosted.edges
+        .filter(({ node }) => getWeekOf(node.readAt) === weekOf)
+        .map(({ node }) => ({ node: { ...node } }));
 
-    return { weekOf, edges: [...edges, ...wpArticles].sort(compareDesc) };
-  });
+      return { weekOf, edges: [...edges, ...wpArticles].sort(compareDesc) };
+    })
+    .sort((a, b) =>
+      compareDesc(timestampToDate(a.weekOf), timestampToDate(b.weekOf))
+    );
 
 const nodeToLink = ({ node }) => ({
   id: node.id,
