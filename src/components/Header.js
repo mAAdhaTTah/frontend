@@ -17,7 +17,7 @@ const HeaderLink = ({ to, children, className }) =>
   );
 
 const Header = ({ siteTitle }) => (
-  <header className="py-2 bg-secondary-color">
+  <header className="py-2 bg-secondary-color px-3">
     <div className="container mx-auto flex flex-row items-center justify-between">
       <Logo title={siteTitle} />
       <div>

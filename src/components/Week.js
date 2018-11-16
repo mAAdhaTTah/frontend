@@ -28,7 +28,7 @@ ReadLink.propTypes = {
 
 const Week = ({ weekOf, links }) => (
   <div className="max-w-md mx-auto">
-    <h2 className="font-header mb-3 text-2xl">Week of {weekOf}</h2>
+    <h2 className="font-header my-3 text-2xl px-3">Week of {weekOf}</h2>
     <ul className="font-body list-reset">
       {links.map(link => (
         <ReadLink key={link.id} {...link} />

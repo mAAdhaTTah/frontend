@@ -32,7 +32,7 @@ const Layout = ({ children }) => (
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div className="bg-primary-color">
-          <div className="container mx-auto pt-3">{children}</div>
+          <div className="container mx-auto">{children}</div>
         </div>
       </>
     )}
