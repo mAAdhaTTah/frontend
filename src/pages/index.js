@@ -51,7 +51,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          url: guid
+          url: item_link
           title: post_title
           excerpt: stripped_post_content
           readAt: post_date
