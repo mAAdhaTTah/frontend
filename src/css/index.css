@@ -31,9 +31,41 @@ a {
   color: inherit;
 }
 
-/* @TODO(James) respond to line-heights */
 @for $i from 1 to 6 {
   .max-h-$i {
+    /* TODO(James) use config values */
     max-height: $i * 1.15rem;
   }
+
+  .pin-b-$i {
+    /* TODO(James) use config values */
+    bottom: $i * 1em * 1.25;
+  }
+}
+
+.pin-y-50 {
+  top: 50%;
+}
+
+.pin-x-50 {
+  left: 50%;
+}
+
+.pin-50 {
+  @apply pin-x-50 pin-y-50;
+}
+
+.pin-y-center {
+  @apply mx-auto pin-y-50;
+  transform: translateY(-50%);
+}
+
+.pin-x-center {
+  @apply my-auto pin-x-50;
+  transform: translateX(-50%);
+}
+
+.pin-center {
+  @apply m-auto pin-50;
+  transform: translate(-50%, -50%);
 }

@@ -43,7 +43,7 @@ let defaultConfig = require('tailwindcss/defaultConfig')();
 */
 
 let colors = {
-  transparent: 'transparent',
+  'etched-glass': 'hsla(0, 0%, 100%, .35)',
   'primary-color': '#FFF3C9',
   'secondary-color': '#DBD1AD',
   'accent-dark': '#24331E',
@@ -87,9 +87,10 @@ module.exports = {
   */
 
   screens: {
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
+    sm: '320px',
+    md: '576px',
+    lg: '768px',
+    xl: '992px',
   },
 
   /*
@@ -111,8 +112,8 @@ module.exports = {
   */
 
   fonts: {
-    header: ['Roboto'],
-    body: ['Lora'],
+    header: ['Unica One'],
+    body: ['Vollkorn'],
   },
 
   /*
@@ -316,9 +317,9 @@ module.exports = {
 
   borderRadius: {
     none: '0',
-    sm: '.125rem',
-    default: '.25rem',
-    lg: '.5rem',
+    sm: '.25rem',
+    default: '.5rem',
+    lg: '2rem',
     full: '9999px',
   },
 
@@ -406,6 +407,8 @@ module.exports = {
     '32': '8rem',
     '48': '12rem',
     '64': '16rem',
+    '72': '18rem',
+    '80': '20rem',
     full: '100%',
     screen: '100vh',
   },

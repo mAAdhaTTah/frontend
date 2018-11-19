@@ -4,12 +4,14 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "classcat": "^3.2.3",
     "date-fns": "^1.29.0",
     "gatsby": "^2.0.19",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-icons": "^3.2.2"
   },
   "keywords": [
     "gatsby"

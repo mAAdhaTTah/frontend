@@ -5,13 +5,14 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import Header from './Header';
 
-const Layout = ({ children }) => (
+const Layout = ({ isHome = false, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {
           siteMetadata {
             title
+            description
           }
         }
       }
@@ -30,7 +31,11 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header
+          title={data.site.siteMetadata.title}
+          description={data.site.siteMetadata.description}
+          isHome={isHome}
+        />
         <div className="bg-primary-color">
           <div className="container mx-auto">{children}</div>
         </div>
@@ -40,7 +45,8 @@ const Layout = ({ children }) => (
 );
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  isHome: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 export default Layout;
