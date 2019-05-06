@@ -12,8 +12,15 @@ import {
 } from 'react-icons/fa';
 import { BackgroundImage, AvatarImage } from './images';
 
-const headerClass =
-  'no-underline text-accent-dark hover:bg-accent-light text-lg p-5 font-body leading-tight';
+const headerClass = cc([
+  'no-underline',
+  'text-accent-dark',
+  'hover:bg-accent-light',
+  'text-lg',
+  'p-5',
+  'font-body',
+  'leading-tight',
+]);
 
 const titleClassName = cc(['text-4xl', 'md:text-5xl', 'font-bold', 'my-3']);
 
