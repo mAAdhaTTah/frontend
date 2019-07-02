@@ -46,7 +46,7 @@ const IndexPage = ({ data }) => (
 );
 
 export const pageQuery = graphql`
-  query PageQuery {
+  query ReadsQuery {
     allWordpressPfPfPosted {
       edges {
         node {

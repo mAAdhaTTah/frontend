@@ -1,0 +1,79 @@
+[
+  {
+    "companyName": "Stella.ai",
+    "positions": [
+      {
+        "title": "Engineering Lead",
+        "start": "2019-04",
+        "end": "",
+        "responsibilities": [
+          "Lead NYC team in coordination with Sydney, Australia team",
+          "Implemented complex search & filter page with React Hooks",
+          "Improved search API with Flask, SQLAlchemy, & Marshmallow",
+          "Rebuilt enterprise-facing dashboard for improved usability & stability"
+        ]
+      },
+      {
+        "title": "Senior Front-End Engineer",
+        "start": "2018-09",
+        "end": "2019-04",
+        "responsibilities": [
+          "Architected & lead the front-end development of B2B platform to comply with pay equity laws",
+          "Refactored unstable multi-step onboarding flow, improving app stability and performance ",
+          "Enforced React/Redux & TypeScript best practices through regular peer code review ",
+          "Implemented charting and graphing with Victory library"
+        ]
+      }
+    ]
+  },
+  {
+    "companyName": "Stellar",
+    "positions": [
+      {
+        "title": "Engineer",
+        "start": "2018-08",
+        "end": "2018-11",
+        "responsibilities": [
+          "Developed MVP patient care app with Node.js, Express, Passport, and Objection.js",
+          "Managed product lifecycle, feature triage, & AWS deployments",
+          "Integrated API tests with supertest & Jest, enabling rapid iteration",
+          "Implemented live chat feature with Redis and websockets"
+        ]
+      }
+    ]
+  },
+  {
+    "companyName": "Valtech",
+    "positions": [
+      {
+        "title": "Senior Front-End Engineer",
+        "start": "2015-03",
+        "end": "2018-09",
+        "responsibilities": [
+          "Junior- to mid-level in <9 months; project lead in ~2.5 years; account lead in 3 years",
+          "Managed team of developers across multiple projects and brands for L’Oréal account",
+          "Lead development team on agile ecommerce project built with Vue.js and Sitecore",
+          "Architected Hybris checkout for stability and performance with Redux, Handlebars, and Kefir",
+          "Redesigned product page using vanilla JavaScript and component-based architecture"
+        ]
+      }
+    ]
+  },
+  {
+    "companyName": "World Science Festival",
+    "positions": [
+      {
+        "title": "Social Media Manager",
+        "start": "2013-12",
+        "end": "2015-03",
+        "responsibilities": [
+          "Managed social media accounts for multiple brands",
+          "Built a replicable, automatable weekly report in JavaScript with Highcharts to aid monitoring of social media and web content metrics",
+          "Developed and assisted in maintaining WordPress-based website, implementing YouTube integration to aid channel cleanup",
+          "Migrated WordPress site to Composer-based Bedrock stack for simplified full-site management",
+          "Integrated DeployHQ and Bitbucket to facilitate automatic deployments to both staging and production sites"
+        ]
+      }
+    ]
+  }
+]

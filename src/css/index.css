@@ -41,6 +41,14 @@ a {
     /* TODO(James) use config values */
     bottom: $i * 1em * 1.25;
   }
+
+  .basis-$i {
+    flex-basis: 1em * 10 * $i;
+  }
+}
+
+.basis-100 {
+  flex-basis: 100%;
 }
 
 .pin-y-50 {

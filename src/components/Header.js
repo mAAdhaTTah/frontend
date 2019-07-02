@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import cc from 'classcat';
 import {
   FaFacebook,
@@ -10,30 +9,10 @@ import {
   FaTumblrSquare,
   FaGithubSquare,
 } from 'react-icons/fa';
+import Nav from './Nav';
 import { BackgroundImage, AvatarImage } from './images';
 
-const headerClass = cc([
-  'no-underline',
-  'text-accent-dark',
-  'hover:bg-accent-light',
-  'text-lg',
-  'p-5',
-  'font-body',
-  'leading-tight',
-]);
-
 const titleClassName = cc(['text-4xl', 'md:text-5xl', 'font-bold', 'my-3']);
-
-const HeaderLink = ({ to, children }) =>
-  to.includes('http') ? (
-    <a href={to} className={headerClass}>
-      {children}
-    </a>
-  ) : (
-    <Link to={to} className={headerClass}>
-      {children}
-    </Link>
-  );
 
 const SocialIcon = ({ icon, to, color }) => (
   <a
@@ -48,7 +27,6 @@ const SocialIcon = ({ icon, to, color }) => (
 const Header = ({ title, description, isHome }) => (
   <header
     className={cc([
-      'relative',
       {
         'h-screen': isHome,
         'h-72': !isHome,
@@ -135,23 +113,7 @@ const Header = ({ title, description, isHome }) => (
         </div>
       </div>
     </div>
-    <nav
-      className={cc([
-        'bg-secondary-color',
-        'pin-b-3',
-        'relative',
-        'h-16',
-        {
-          relative: isHome,
-        },
-      ])}
-    >
-      <div className="container mx-auto flex flex-row justify-end">
-        <HeaderLink to="/">Home</HeaderLink>
-        <HeaderLink to="/reads/">Reading</HeaderLink>
-        <HeaderLink to="https://jamesdigioia.com/">Writing</HeaderLink>
-      </div>
-    </nav>
+    <Nav />
   </header>
 );
 
