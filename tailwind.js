@@ -91,6 +91,8 @@ module.exports = {
     md: '576px',
     lg: '768px',
     xl: '992px',
+    '2xl': '1120px',
+    print: { raw: 'print' },
   },
 
   /*
