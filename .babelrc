@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "@babel/proposal-optional-chaining",
+    "@babel/proposal-nullish-coalescing-operator",
+    ["@babel/proposal-pipeline-operator", { "proposal": "minimal" }]
+  ],
+  "presets": [
+    [
+      "babel-preset-gatsby",
+      {
+        "targets": {
+          "browsers": [">0.25%", "not dead"]
+        }
+      }
+    ]
+  ]
+}
