@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "jamesdigioia.com",
   "description": "Gatsby default starter",
   "version": "1.0.0",
   "author": "James DiGioia <jamesorodig@gmail.com>",
@@ -23,7 +23,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "prettier --check \"src/**/*.js\""
   },
   "devDependencies": {
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
@@ -46,7 +46,7 @@
     "postcss-for": "^2.1.1",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.1.0",
-    "prettier": "^1.14.2",
+    "prettier": "^1.18.2",
     "tailwindcss": "^0.7.0"
   },
   "repository": {
