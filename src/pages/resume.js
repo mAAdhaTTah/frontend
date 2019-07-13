@@ -2,7 +2,7 @@ import React from 'react';
 import cc from 'classcat';
 import { graphql } from 'gatsby';
 import { format } from 'date-fns';
-import { Nav } from '../components';
+import { Layout } from '../components';
 
 const h1Class = cc(['font-header', 'text-4xl', 'py-1', 'mb-2', 'print:mb-1']);
 const h2Class = cc(['font-body', 'text-base', 'py-1', 'mb-1']);
@@ -234,10 +234,7 @@ const Sidebar = ({ skills }) => (
 );
 
 const Resume = ({ data }) => (
-  <>
-    <header className="relative">
-      <Nav />
-    </header>
+  <Layout isHome={false}>
     <div className="bg-primary-color text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
         <h1 className={h1Class}>James DiGioia</h1>
@@ -256,7 +253,7 @@ const Resume = ({ data }) => (
         </div>
       </div>
     </div>
-  </>
+  </Layout>
 );
 
 export const pageQuery = graphql`

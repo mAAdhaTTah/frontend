@@ -27,13 +27,17 @@ const SocialIcon = ({ icon, to, color }) => (
 const Header = ({ title, description, isHome }) => (
   <header
     className={cc([
+      'flex',
+      'flex-col',
       {
         'h-screen': isHome,
-        'h-72': !isHome,
+        'print:hidden': !isHome,
       },
     ])}
   >
-    <BackgroundImage className={cc([{ 'h-72': !isHome, 'h-full': isHome }])} />
+    <BackgroundImage
+      className={cc([{ 'h-64': !isHome, 'flex-grow': isHome }])}
+    />
     <div
       className={cc([
         'absolute',
@@ -45,8 +49,12 @@ const Header = ({ title, description, isHome }) => (
         'lg:max-w-md',
         'flex',
         'flex-row',
+        'h-64',
+        'items-center',
+        'justify-center',
         {
           'pin-center': isHome,
+          'm-auto': !isHome,
           'pin-t': !isHome,
           'pin-x-center': !isHome,
         },
@@ -54,10 +62,11 @@ const Header = ({ title, description, isHome }) => (
     >
       <div
         className={cc([
-          'm-5',
           'w-full',
           'flex',
           'flex-row',
+          'items-center',
+          'justify-center',
           { 'h-48': !isHome },
         ])}
       >

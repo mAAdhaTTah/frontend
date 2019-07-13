@@ -37,7 +37,9 @@ const Layout = ({ isHome = false, children }) => (
           isHome={isHome}
         />
         <div className="bg-primary-color">
-          <div className="container mx-auto">{children}</div>
+          <div className="container mx-auto print:mx-0 print:max-w-full">
+            {children}
+          </div>
         </div>
       </>
     )}

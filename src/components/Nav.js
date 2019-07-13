@@ -24,7 +24,7 @@ const HeaderLink = ({ to, children }) =>
     </Link>
   );
 
-const navClass = cc(['bg-secondary-color', 'pin-b-3', 'h-16', 'print:hidden']);
+const navClass = cc(['bg-secondary-color', 'h-16']);
 
 const Nav = ({ isHome }) => (
   <nav className={navClass}>
