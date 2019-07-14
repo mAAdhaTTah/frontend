@@ -1,23 +1,23 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { format, startOfWeek, compareDesc } from 'date-fns';
-import { Layout, Week } from '../components';
+import { format, startOfDay, compareDesc } from 'date-fns';
+import { Layout, Day } from '../components';
 
 const timestampToDate = value => new Date(+value * 1000);
 
-const getWeekOf = readAt => format(startOfWeek(new Date(readAt)), 'X');
+const getDayOf = readAt => format(startOfDay(new Date(readAt)), 'X');
 
 const mergeSources = ({ allPocketArticle, allWordpressPfPfPosted }) =>
   allPocketArticle.group
-    .map(({ weekOf, edges }) => {
+    .map(({ dayOf, edges }) => {
       const wpArticles = allWordpressPfPfPosted.edges
-        .filter(({ node }) => getWeekOf(node.readAt) === weekOf)
+        .filter(({ node }) => getDayOf(node.readAt) === dayOf)
         .map(({ node }) => ({ node: { ...node } }));
 
-      return { weekOf, edges: [...edges, ...wpArticles].sort(compareDesc) };
+      return { dayOf, edges: [...edges, ...wpArticles].sort(compareDesc) };
     })
     .sort((a, b) =>
-      compareDesc(timestampToDate(a.weekOf), timestampToDate(b.weekOf))
+      compareDesc(timestampToDate(a.dayOf), timestampToDate(b.dayOf))
     );
 
 const nodeToLink = ({ node }) => ({
@@ -33,12 +33,12 @@ const nodeToLink = ({ node }) => ({
   ),
 });
 
-const IndexPage = ({ data }) => (
+const ReadsPage = ({ data }) => (
   <Layout>
-    {mergeSources(data).map(({ weekOf, edges }) => (
-      <Week
-        key={weekOf}
-        weekOf={format(timestampToDate(weekOf), 'MMM Do, YYYY')}
+    {mergeSources(data).map(({ dayOf, edges }) => (
+      <Day
+        key={dayOf}
+        dayOf={format(timestampToDate(dayOf), 'MMM Do, YYYY')}
         links={edges.map(nodeToLink)}
       />
     ))}
@@ -46,12 +46,12 @@ const IndexPage = ({ data }) => (
 );
 
 export const pageQuery = graphql`
-  query ReadsQuery {
-    allWordpressPfPfPosted {
+  query ReadQuery {
+    allWordpressPfPfPosted(limit: 50) {
       edges {
         node {
           id
-          url: guid
+          url: item_link
           title: post_title
           excerpt: stripped_post_content
           readAt: post_date
@@ -59,8 +59,8 @@ export const pageQuery = graphql`
       }
     }
     allPocketArticle(sort: { fields: [time_read], order: DESC }) {
-      group(field: readWeek) {
-        weekOf: fieldValue
+      group(field: readDay) {
+        dayOf: fieldValue
         edges {
           node {
             id
@@ -75,4 +75,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default IndexPage;
+export default ReadsPage;
