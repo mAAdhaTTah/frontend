@@ -27,19 +27,6 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: 'James Reads: A Linkblog of my Daily Reading',
-        short_name: 'James Reads',
-        start_url: '/',
-        background_color: '#fff3c9',
-        theme_color: '#78af52',
-        display: 'minimal-ui',
-        icon: 'src/images/avatar.jpg', // This path is relative to the root of the site.
-      },
-    },
-    'gatsby-plugin-offline',
     'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-source-pocket',
