@@ -34,7 +34,7 @@ const nodeToLink = ({ node }) => ({
 });
 
 const IndexPage = ({ data }) => (
-  <Layout isHome={false}>
+  <Layout>
     {mergeSources(data).map(({ weekOf, edges }) => (
       <Week
         key={weekOf}

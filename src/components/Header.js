@@ -24,19 +24,19 @@ const SocialIcon = ({ icon, to, color }) => (
   </a>
 );
 
-const Header = ({ title, description, isHome }) => (
+const Header = ({ title, description, fullScreen }) => (
   <header
     className={cc([
       'flex',
       'flex-col',
       {
-        'h-screen': isHome,
-        'print:hidden': !isHome,
+        'h-screen': fullScreen,
+        'print:hidden': !fullScreen,
       },
     ])}
   >
     <BackgroundImage
-      className={cc([{ 'h-64': !isHome, 'flex-grow': isHome }])}
+      className={cc([{ 'h-64': !fullScreen, 'flex-grow': fullScreen }])}
     />
     <div
       className={cc([
@@ -53,10 +53,10 @@ const Header = ({ title, description, isHome }) => (
         'items-center',
         'justify-center',
         {
-          'pin-center': isHome,
-          'm-auto': !isHome,
-          'pin-t': !isHome,
-          'pin-x-center': !isHome,
+          'pin-center': fullScreen,
+          'm-auto': !fullScreen,
+          'pin-t': !fullScreen,
+          'pin-x-center': !fullScreen,
         },
       ])}
     >
@@ -67,7 +67,7 @@ const Header = ({ title, description, isHome }) => (
           'flex-row',
           'items-center',
           'justify-center',
-          { 'h-48': !isHome },
+          { 'h-48': !fullScreen },
         ])}
       >
         <div className="w-48 rounded-full overflow-hidden hidden lg:block">
@@ -76,7 +76,7 @@ const Header = ({ title, description, isHome }) => (
         <div
           className={cc(['font-header', 'ml-5', 'mt-2', 'w-full', 'lg:w-auto'])}
         >
-          {isHome ? (
+          {fullScreen ? (
             <h1 className={titleClassName}>{title}</h1>
           ) : (
             <div className={titleClassName}>{title}</div>

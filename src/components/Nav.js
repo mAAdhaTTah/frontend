@@ -26,19 +26,15 @@ const HeaderLink = ({ to, children }) =>
 
 const navClass = cc(['bg-secondary-color', 'h-16']);
 
-const Nav = ({ isHome }) => (
+const Nav = () => (
   <nav className={navClass}>
     <div className="container mx-auto flex flex-row justify-end">
       <HeaderLink to="/">Home</HeaderLink>
+      <HeaderLink to="/writing/">Writing</HeaderLink>
       <HeaderLink to="/reads/">Reading</HeaderLink>
       <HeaderLink to="/resume/">Resume</HeaderLink>
-      <HeaderLink to="https://jamesdigioia.com/">Writing</HeaderLink>
     </div>
   </nav>
 );
-
-Nav.propTypes = {
-  isHome: PropTypes.bool,
-};
 
 export default Nav;

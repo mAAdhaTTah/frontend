@@ -234,7 +234,7 @@ const Sidebar = ({ skills }) => (
 );
 
 const Resume = ({ data }) => (
-  <Layout isHome={false}>
+  <Layout>
     <div className="bg-primary-color text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
         <h1 className={h1Class}>James DiGioia</h1>

@@ -3,5 +3,9 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+require = require('esm')(module);
+const create = require(`./src/create`);
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ actions, graphql }) => {
+  await create.posts({ actions, graphql });
+};

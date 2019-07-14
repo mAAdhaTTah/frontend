@@ -2,7 +2,9 @@
   "plugins": [
     "@babel/proposal-optional-chaining",
     "@babel/proposal-nullish-coalescing-operator",
-    ["@babel/proposal-pipeline-operator", { "proposal": "minimal" }]
+    "@babel/proposal-export-namespace-from",
+    "@babel/proposal-export-default-from",
+    ["@babel/proposal-pipeline-operator", { "proposal": "fsharp" }]
   ],
   "presets": [
     [

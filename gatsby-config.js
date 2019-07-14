@@ -78,8 +78,16 @@ module.exports = {
         useACF: false,
         verboseOutput: true,
         concurrentRequests: 10,
-        perPage: 40,
-        includedRoutes: ['/pf/v1/stats/pf_posted'],
+        perPage: 10,
+        includedRoutes: [
+          '/wp/v2/posts',
+          // '**/pages',
+          // '/wp/v2/media',
+          // '**/categories',
+          // '**/tags',
+          // '**/taxonomies',
+          // '**/users',
+        ],
       },
     },
     {
