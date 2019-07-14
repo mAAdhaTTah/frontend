@@ -9,4 +9,5 @@ const create = require(`./src/create`);
 exports.createPages = async ({ actions, graphql }) => {
   await create.posts({ actions, graphql });
   await create.pages({ actions, graphql });
+  await create.categories({ actions, graphql });
 };

@@ -82,10 +82,10 @@ module.exports = {
         includedRoutes: [
           '/wp/v2/posts',
           '/wp/v2/pages',
+          '/wp/v2/categories',
+          '/wp/v2/tags',
+          '/wp/v2/taxonomies',
           // '/wp/v2/media',
-          // '**/categories',
-          // '**/tags',
-          // '**/taxonomies',
           // '**/users',
         ],
       },

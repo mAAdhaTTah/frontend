@@ -36,6 +36,7 @@ const Nav = () => (
       <HeaderLink to="/resume/">Resume</HeaderLink>
       <HeaderLink to="/projects/">Projects</HeaderLink>
       <HeaderLink to="/about-me/">About</HeaderLink>
+      <HeaderLink to="/category/photographs/">Photographs</HeaderLink>
     </div>
   </nav>
 );

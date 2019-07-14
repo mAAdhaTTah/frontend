@@ -8,8 +8,12 @@ export default `
     link
     content
     format
-    categories
-    tags
+    categories {
+      id
+    }
+    tags {
+      id
+    }
     author
   }
 `;

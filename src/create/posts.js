@@ -1,4 +1,5 @@
 import { PostTemplateFragment } from '../fragments';
+import creator from './creator';
 
 const PostSingleTemplate = require.resolve(`../templates/Post/Single.js`);
 const PostArchiveTemplate = require.resolve(`../templates/Post/Archive.js`);
@@ -20,44 +21,41 @@ const GetPosts = `
   ${PostTemplateFragment}
 `;
 
-const edgeToSinglePost = ({ node }) => ({
-  path: `/${node.slug}/`,
-  component: PostSingleTemplate,
-  context: {
-    post: node,
-  },
-});
-
-const fetchPosts = async ({ graphql, page, pages }) => {
-  const {
+const modify = (
+  {
     data: {
       allWordpressPost: {
         edges,
         pageInfo: { hasNextPage },
       },
     },
-  } = await graphql(GetPosts, { skip: (page - 1) * 10 });
-  const ids = posts.map(({ node }) => node.id);
-
-  pages = [
-    ...pages,
-    ...edges.map(edgeToSinglePost),
-    {
+  },
+  { page }
+) => ({
+  add: edges
+    .map(({ node }) => ({
+      path: `/${node.slug}/`,
+      component: PostSingleTemplate,
+      context: {
+        post: node,
+      },
+    }))
+    .concat({
       path: page === 1 ? '/writing/' : '/writing/page/' + page,
       component: PostArchiveTemplate,
       context: {
-        ids,
-        posts,
-        page,
+        ids: edges.map(({ node }) => node.id),
+        posts: edges,
+        pageNumber: page,
         hasNextPage,
       },
-    },
-  ];
+    }),
+  hasNextPage,
+});
 
-  return hasNextPage ? fetchPosts({ graphql, page: page + 1, pages }) : pages;
-};
+export default creator(GetPosts, modify);
 
-export default async ({ actions, graphql }) => {
+async ({ actions, graphql }) => {
   const { createPage } = actions;
   const pages = await fetchPosts({ graphql, page: 1 });
 
