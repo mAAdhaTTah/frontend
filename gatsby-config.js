@@ -3,11 +3,6 @@ require('dotenv').config({
 });
 
 module.exports = {
-  siteMetadata: {
-    title: 'James Reads',
-    description: 'A Linkblog of my Daily Reading',
-    keywords: 'James DiGioia',
-  },
   plugins: [
     'gatsby-plugin-react-helmet',
     {

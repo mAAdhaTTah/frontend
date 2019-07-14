@@ -69,7 +69,7 @@ a {
 }
 
 .pin-x-center {
-  @apply my-auto pin-x-50;
+  @apply pin-x-50;
   transform: translateX(-50%);
 }
 

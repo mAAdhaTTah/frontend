@@ -9,31 +9,28 @@ const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            description
-          }
+        wordpressSiteMetadata {
+          name
+          description
         }
       }
     `}
     render={data => (
       <>
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={data.wordpressSiteMetadata.name}
           meta={[
             {
               name: 'description',
-              content: data.site.siteMetadata.description,
+              content: data.wordpressSiteMetadata.description,
             },
-            { name: 'keywords', content: data.site.siteMetadata.keywords },
           ]}
         >
           <html lang="en" />
         </Helmet>
         <Header
-          title={data.site.siteMetadata.title}
-          description={data.site.siteMetadata.description}
+          title={data.wordpressSiteMetadata.name}
+          description={data.wordpressSiteMetadata.description}
           fullScreen={!children}
         />
         {children ? (
