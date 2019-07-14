@@ -54,12 +54,3 @@ const modify = (
 });
 
 export default creator(GetPosts, modify);
-
-async ({ actions, graphql }) => {
-  const { createPage } = actions;
-  const pages = await fetchPosts({ graphql, page: 1 });
-
-  pages.forEach(page => {
-    createPage(page);
-  });
-};

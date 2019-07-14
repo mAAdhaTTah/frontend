@@ -85,6 +85,7 @@ module.exports = {
           '/wp/v2/categories',
           '/wp/v2/tags',
           '/wp/v2/taxonomies',
+          '/intraxia/v1/gistpen/repos',
           // '/wp/v2/media',
           // '**/users',
         ],
