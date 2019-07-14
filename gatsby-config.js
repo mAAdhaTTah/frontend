@@ -81,7 +81,7 @@ module.exports = {
         perPage: 10,
         includedRoutes: [
           '/wp/v2/posts',
-          // '**/pages',
+          '/wp/v2/pages',
           // '/wp/v2/media',
           // '**/categories',
           // '**/tags',

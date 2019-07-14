@@ -29,10 +29,13 @@ const navClass = cc(['bg-secondary-color', 'h-16']);
 const Nav = () => (
   <nav className={navClass}>
     <div className="container mx-auto flex flex-row justify-end">
+      {/* @TODO(mAAdhaTTah) get menus from BE */}
       <HeaderLink to="/">Home</HeaderLink>
       <HeaderLink to="/writing/">Writing</HeaderLink>
       <HeaderLink to="/reads/">Reading</HeaderLink>
       <HeaderLink to="/resume/">Resume</HeaderLink>
+      <HeaderLink to="/projects/">Projects</HeaderLink>
+      <HeaderLink to="/about-me/">About</HeaderLink>
     </div>
   </nav>
 );
