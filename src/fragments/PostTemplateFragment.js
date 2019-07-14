@@ -14,6 +14,8 @@ export default `
     tags {
       id
     }
-    author
+    author {
+      id
+    }
   }
 `;

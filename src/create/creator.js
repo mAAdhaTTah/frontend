@@ -1,8 +1,12 @@
 const fetchPosts = async ({ graphql, query, modify, page = 1, pages = [] }) => {
-  const { add, hasNextPage } = modify(
-    await graphql(query, { skip: (page - 1) * 10 }),
-    { page }
-  );
+  const results = await graphql(query, { skip: (page - 1) * 10 });
+
+  if (results.errors) {
+    const message = results.errors.map(error => error.message).join('\n\n');
+    throw new Error(message);
+  }
+
+  const { add, hasNextPage } = modify(results, { page });
 
   pages = [...pages, ...add];
 
