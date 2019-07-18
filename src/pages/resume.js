@@ -235,7 +235,7 @@ const Sidebar = ({ skills }) => (
 
 const Resume = ({ data }) => (
   <Layout>
-    <div className="bg-primary-color text-2xl print:text-base">
+    <div className="bg-primary text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
         <h1 className={h1Class}>James DiGioia</h1>
         <h2 className={h2Class}>New York, NY</h2>

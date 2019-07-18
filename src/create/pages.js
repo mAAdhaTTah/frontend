@@ -28,13 +28,15 @@ const modify = ({
     },
   },
 }) => ({
-  add: edges.map(({ node }) => ({
-    path: `/${node.slug}/`,
-    component: PageTemplate,
-    context: {
-      page: node,
-    },
-  })),
+  add: edges
+    .filter(({ node }) => node.slug !== 'writing')
+    .map(({ node }) => ({
+      path: `/${node.slug}/`,
+      component: PageTemplate,
+      context: {
+        page: node,
+      },
+    })),
   hasNextPage,
 });
 

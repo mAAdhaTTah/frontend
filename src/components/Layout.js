@@ -34,7 +34,7 @@ const Layout = ({ children }) => (
           fullScreen={!children}
         />
         {children ? (
-          <div className="bg-primary-color">
+          <div className="bg-primary pt-5">
             <div className="container mx-auto print:mx-0 print:max-w-full">
               {children}
             </div>

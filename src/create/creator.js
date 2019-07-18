@@ -6,7 +6,7 @@ const fetchPosts = async ({ graphql, query, modify, page = 1, pages = [] }) => {
     throw new Error(message);
   }
 
-  const { add, hasNextPage } = modify(results, { page });
+  const { add, hasNextPage } = await modify(results, { page });
 
   pages = [...pages, ...add];
 

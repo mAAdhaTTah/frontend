@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 const headerClass = cc([
   'no-underline',
-  'text-accent-dark',
-  'hover:bg-accent-light',
+  'text-darkg',
+  'hover:bg-lightg',
   'text-lg',
   'p-5',
   'font-body',
@@ -24,7 +24,7 @@ const HeaderLink = ({ to, children }) =>
     </Link>
   );
 
-const navClass = cc(['bg-secondary-color', 'h-16']);
+const navClass = cc(['bg-secondary', 'h-16']);
 
 const Nav = () => (
   <nav className={navClass}>

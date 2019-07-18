@@ -2,7 +2,9 @@ import { GistpenTemplateFragment } from '../fragments';
 import creator from './creator';
 
 const GistpenSingleTemplate = require.resolve(`../templates/Gistpen/Single.js`);
-const GistpenArchiveTemplate = require.resolve(`../templates/Gistpen/Archive.js`);
+const GistpenArchiveTemplate = require.resolve(
+  `../templates/Gistpen/Archive.js`
+);
 
 const GetGistpens = `
   query GetGistpens($skip: Int) {

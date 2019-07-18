@@ -41,7 +41,7 @@ const Header = ({ title, description, fullScreen }) => (
     <div
       className={cc([
         'absolute',
-        'bg-etched-glass',
+        'bg-etched',
         'rounded-lg',
         'text-center',
         'lg:text-left',

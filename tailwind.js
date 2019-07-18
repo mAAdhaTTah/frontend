@@ -43,12 +43,13 @@ let defaultConfig = require('tailwindcss/defaultConfig')();
 */
 
 let colors = {
-  'etched-glass': 'hsla(0, 0%, 100%, .35)',
-  'primary-color': '#FFF3C9',
-  'secondary-color': '#DBD1AD',
-  'accent-dark': '#24331E',
-  'accent-light': '#78af52',
-  'font-color-dark': '#000',
+  'etched': 'hsla(0, 0%, 100%, .35)',
+  'primary': '#FFF3C9',
+  'secondary': '#DBD1AD',
+  'tertiary': '#D0C394',
+  'darkg': '#24331E',
+  'lightg': '#78af52',
+  'black': '#000',
 };
 
 module.exports = {

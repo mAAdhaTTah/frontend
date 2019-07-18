@@ -5,7 +5,7 @@ const Article = ({ title, date, author, content }) => {
     <article>
       <h1>{title}</h1>
       <p>Posted: {date}</p>
-      <p>{author}</p>
+      <p>{author.name}</p>
       <p>TODO comments count</p>
       <img src="#" alt="TODO featured image" />
       <div dangerouslySetInnerHTML={{ __html: content }} />
