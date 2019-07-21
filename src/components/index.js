@@ -7,3 +7,4 @@ export Page from './Page';
 export { default as Tag } from './Tag';
 export { default as Day } from './Day';
 export * from './typography';
+export Snippet from './Snippet';

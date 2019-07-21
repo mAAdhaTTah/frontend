@@ -3,5 +3,9 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
+import React from 'react';
+import { Provider as PrismProvider } from './src/components/Prism';
 
-// You can delete this file if you're not using it
+export const wrapRootElement = ({ element }) => (
+  <PrismProvider>{element}</PrismProvider>
+)

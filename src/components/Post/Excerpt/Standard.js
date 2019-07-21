@@ -27,18 +27,20 @@ const StandardFormat = ({
   title,
   date,
   dateTime,
-  comment_count,
+  commentCount,
   author,
   excerpt,
 }) => (
   <Article>
     <header>
       {/* @TODO(mAAdhaTTah) building the slug here is bad */}
-      <LinkedArticleHeader href={`/${slug}/`}>{useParseHTML(title)}</LinkedArticleHeader>
+      <LinkedArticleHeader href={`/${slug}/`}>
+        {useParseHTML(title)}
+      </LinkedArticleHeader>
       <EntryMeta
         date={date}
         dateTime={dateTime}
-        comment_count={comment_count}
+        commentCount={commentCount}
         author={author.name}
       />
     </header>

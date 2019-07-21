@@ -19,7 +19,7 @@ const pageClass = cc([
   'font-body',
   'no-underline',
   'flex',
-  'align-center'
+  'align-center',
 ]);
 
 const PostArchive = ({ pageContext }) => {
@@ -48,7 +48,7 @@ const PostArchive = ({ pageContext }) => {
             to={`/writing/page/${pageContext.pageNumber + 1}/`}
             className={cc([pageClass, 'float-right'])}
           >
-            Next <FaLongArrowAltRight className="ml-3"  />
+            Next <FaLongArrowAltRight className="ml-3" />
           </Link>
         )}
       </div>

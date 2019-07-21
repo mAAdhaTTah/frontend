@@ -25,10 +25,11 @@ const LinkFormat = ({
   slug,
   date,
   dateTime,
-  comment_count,
+  commentCount,
   author,
   fields,
   content,
+  meta,
   embedlyRetrieved,
   embedlyProviderUrl,
   embedlyProviderName,
@@ -38,7 +39,7 @@ const LinkFormat = ({
     <Article variant="lightg">
       <div className="mb-3">{useParseHTML(content)}</div>
       <div className="link-meta">
-        <Link href={`/${slug}/`} className={linkClass}>
+        <Link href={meta.linkUrl} className={linkClass}>
           <FaLink className={iconClass} /> {useParseHTML(title)}
         </Link>
         {embedlyRetrieved && (
@@ -57,7 +58,7 @@ const LinkFormat = ({
       <EntryMeta
         date={date}
         dateTime={dateTime}
-        comment_count={comment_count}
+        commentCount={commentCount}
         author={author.name}
       />
     </Article>

@@ -10,34 +10,35 @@ const OEmbed = ({
   slug,
   date,
   dateTime,
-  comment_count,
+  commentCount,
   author,
   fields,
   content,
+  meta,
 }) => {
-  const embed = useParseHTML(
-    fields.oembed.audio?.html ?? fields.oembed.video?.html
-  );
-  const parsedContent = useParseHTML(content);
+  const { html } = fields.oembed.audio ?? fields.oembed.video;
+  const embed = useParseHTML(html);
 
   return (
     <Article variant="tertiary">
       <header>
         {/* @TODO(mAAdhaTTah) building the slug here is bad */}
-        <LinkedArticleHeader href={`/${slug}/`}>{title}</LinkedArticleHeader>
+        <LinkedArticleHeader href={meta.audioEmbed || meta.videoEmbed}>
+          {useParseHTML(title)}
+        </LinkedArticleHeader>
+        <EntryMeta
+          date={date}
+          dateTime={dateTime}
+          commentCount={commentCount}
+          author={author.name}
+        />
       </header>
-      {fields.oembed.audio?.html ? (
-        <EmbedContainer markup={fields.oembed.audio.html}>
-          {embed}
-        </EmbedContainer>
+      {html ? (
+        <div className="mb-5">
+          <EmbedContainer markup={html}>{embed}</EmbedContainer>
+        </div>
       ) : null /* TODO(mAAdhaTTah) render error */}
-      <EntryMeta
-        date={date}
-        dateTime={dateTime}
-        comment_count={comment_count}
-        author={author.name}
-      />
-      {parsedContent}
+      {useParseHTML(content)}
     </Article>
   );
 };
