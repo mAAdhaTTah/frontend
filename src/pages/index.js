@@ -14,7 +14,12 @@ const mergeSources = ({ allPocketArticle, allWordpressPfPfPosted }) =>
         .filter(({ node }) => getDayOf(node.readAt) === dayOf)
         .map(({ node }) => ({ node: { ...node } }));
 
-      return { dayOf, edges: [...edges, ...wpArticles].sort(compareDesc) };
+      return {
+        dayOf,
+        edges: [...edges, ...wpArticles].sort((a, b) =>
+          compareDesc(a.node.readAt, b.node.readAt)
+        ),
+      };
     })
     .sort((a, b) =>
       compareDesc(timestampToDate(a.dayOf), timestampToDate(b.dayOf))
@@ -38,7 +43,7 @@ const IndexPage = ({ data }) => (
     {mergeSources(data).map(({ dayOf, edges }) => (
       <Day
         key={dayOf}
-        dayOf={format(timestampToDate(dayOf), 'MMM Do, YYYY')}
+        dayOf={format(timestampToDate(dayOf), 'MMM Do, yyyy')}
         links={edges.map(nodeToLink)}
       />
     ))}
