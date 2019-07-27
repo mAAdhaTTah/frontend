@@ -43,7 +43,7 @@ const IndexPage = ({ data }) => (
     {mergeSources(data).map(({ dayOf, edges }) => (
       <Day
         key={dayOf}
-        dayOf={format(timestampToDate(dayOf), 'MMM Do, yyyy')}
+        dayOf={format(timestampToDate(dayOf), 'MMM Do, YYYY')}
         links={edges.map(nodeToLink)}
       />
     ))}
