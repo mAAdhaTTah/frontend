@@ -36,8 +36,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-pocket',
       options: {
-        consumerKey: process.env.consumerKey,
-        accessToken: process.env.accessToken,
+        consumerKey: process.env.POCKET_CONSUMER_KEY,
+        accessToken: process.env.POCKET_ACCESS_TOKEN,
         weeksOfHistory: 1,
         apiMaxRecordsToReturn: 3000,
         getCurrentWeekOnly: `y`,
