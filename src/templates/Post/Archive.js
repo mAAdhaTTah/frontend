@@ -24,7 +24,7 @@ const pageClass = cc([
 
 const PostArchive = ({ pageContext }) => {
   return (
-    <Layout>
+    <>
       <div className="max-w-xl mx-auto">
         {pageContext.posts.map(({ node }) => (
           <Post.Excerpt key={node.id} {...node} />
@@ -52,7 +52,7 @@ const PostArchive = ({ pageContext }) => {
           </Link>
         )}
       </div>
-    </Layout>
+    </>
   );
 };
 

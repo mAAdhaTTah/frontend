@@ -4,14 +4,7 @@ import EntryMeta from '../../EntryMeta';
 import { useParseHTML } from '../../../hooks';
 import { Blockquote, Link } from '../../typography';
 
-const Quote = ({
-  content,
-  date,
-  dateTime,
-  commentCount,
-  author,
-  meta
-}) => {
+const Quote = ({ content, date, dateTime, commentCount, author, meta }) => {
   return (
     <Article variant="lightg">
       <div className="entry-content">

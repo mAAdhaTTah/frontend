@@ -234,7 +234,7 @@ const Sidebar = ({ skills }) => (
 );
 
 const Resume = ({ data }) => (
-  <Layout>
+  <>
     <div className="bg-primary text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
         <h1 className={h1Class}>James DiGioia</h1>
@@ -253,7 +253,7 @@ const Resume = ({ data }) => (
         </div>
       </div>
     </div>
-  </Layout>
+  </>
 );
 
 export const pageQuery = graphql`

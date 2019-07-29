@@ -64,7 +64,7 @@ a {
 }
 
 .pin-y-center {
-  @apply mx-auto pin-y-50;
+  @apply pin-y-50;
   transform: translateY(-50%);
 }
 
@@ -74,7 +74,7 @@ a {
 }
 
 .pin-center {
-  @apply m-auto pin-50;
+  @apply pin-50;
   transform: translate(-50%, -50%);
 }
 

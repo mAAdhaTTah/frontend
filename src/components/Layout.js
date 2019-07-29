@@ -5,11 +5,11 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import Header from './Header';
 
-const Layout = ({ children }) => (
+const Layout = ({ path, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
-        wordpressSiteMetadata(home: {eq: "https://jamesdigioia.com"}) {
+        wordpressSiteMetadata(home: { eq: "https://jamesdigioia.com" }) {
           name
           description
         }
@@ -31,9 +31,9 @@ const Layout = ({ children }) => (
         <Header
           title={data.wordpressSiteMetadata.name}
           description={data.wordpressSiteMetadata.description}
-          fullScreen={!children}
+          fullScreen={path === '/'}
         />
-        {children ? (
+        {path !== '/' ? (
           <div className="bg-primary pt-5">
             <div className="container mx-auto print:mx-0 print:max-w-full">
               {children}

@@ -39,7 +39,7 @@ const nodeToLink = ({ node }) => ({
 });
 
 const ReadsPage = ({ data }) => (
-  <Layout>
+  <>
     {mergeSources(data).map(({ dayOf, edges }) => (
       <Day
         key={dayOf}
@@ -47,7 +47,7 @@ const ReadsPage = ({ data }) => (
         links={edges.map(nodeToLink)}
       />
     ))}
-  </Layout>
+  </>
 );
 
 export const pageQuery = graphql`

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { animated } from 'react-spring';
 
 const BackgroundImage = ({ className }) => (
   <StaticQuery
@@ -25,4 +26,4 @@ const BackgroundImage = ({ className }) => (
   />
 );
 
-export default BackgroundImage;
+export default BackgroundImage |> animated;
