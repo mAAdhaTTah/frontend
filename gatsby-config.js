@@ -61,11 +61,10 @@ module.exports = {
           '/wp/v2/categories',
           '/wp/v2/tags',
           '/wp/v2/taxonomies',
-          '/intraxia/v1/gistpen/repos',
-          // @TODO(mAAdhaTTah) readd media – currently hanging while downloading
-          // '/wp/v2/media',
+          '/wp/v2/media',
           '/wp/v2/users',
           '/wp/v2/comments',
+          '/intraxia/v1/gistpen/repos',
         ],
       },
     },

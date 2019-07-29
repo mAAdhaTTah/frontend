@@ -9,7 +9,7 @@ const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
-        wordpressSiteMetadata {
+        wordpressSiteMetadata(home: {eq: "https://jamesdigioia.com"}) {
           name
           description
         }
