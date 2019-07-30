@@ -71,7 +71,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        fonts: ['Unica One', 'Vollkorn'],
+        fonts: ['Ovo', 'Muli'],
       },
     },
   ],

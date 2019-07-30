@@ -10,6 +10,7 @@ import {
   FaTumblrSquare,
   FaGithubSquare,
 } from 'react-icons/fa';
+import TypeIt from 'typeit';
 import Nav from './Nav';
 import { BackgroundImage, AvatarImage } from './images';
 
@@ -30,6 +31,9 @@ const animationConfig = { mass: 1, tension: 150, friction: 30 };
 const Header = ({ title, description, fullScreen }) => {
   const header = useRef(null);
   const banner = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+
   const [headerProps, setHeader] = useSpring(() => ({}));
 
   useLayoutEffect(() => {
@@ -41,6 +45,29 @@ const Header = ({ title, description, fullScreen }) => {
     });
     header.current.style.height = currentHeight;
   }, [fullScreen]);
+
+  useLayoutEffect(() => {
+    titleRef.current.innerText = '';
+    const subtitleType = new TypeIt(subtitleRef.current, {
+      lifeLike: true,
+      cursor: false,
+    });
+
+    const titleType = new TypeIt(titleRef.current, {
+      lifeLike: true,
+      cursor: false,
+      afterComplete: () => subtitleType.go(),
+    })
+      .type('James Dig')
+      .pause(750)
+      .delete(1)
+      .pause(500)
+      .type('G')
+      .pause(350)
+      .type('ioia');
+
+    titleType.go();
+  }, []);
 
   return (
     <animated.header
@@ -101,9 +128,13 @@ const Header = ({ title, description, fullScreen }) => {
             ])}
           >
             {fullScreen ? (
-              <h1 className={titleClassName}>{title}</h1>
+              <h1 className={titleClassName} ref={titleRef}>
+                {title}
+              </h1>
             ) : (
-              <div className={titleClassName}>{title}</div>
+              <div className={titleClassName} ref={titleRef}>
+                {title}
+              </div>
             )}
             <div className={cc(['text-xl', 'md:text-3xl', 'mb-3'])}>
               <SocialIcon
@@ -142,7 +173,9 @@ const Header = ({ title, description, fullScreen }) => {
                 to="https://github.com/mAAdhaTTah/"
               />
             </div>
-            <h2 className={`text-xl md:text-3xl font-medium`}>{description}</h2>
+            <h2 ref={subtitleRef} className={`text-xl md:text-3xl font-medium`}>
+              {description}
+            </h2>
           </div>
         </div>
       </animated.div>

@@ -115,8 +115,8 @@ module.exports = {
   */
 
   fonts: {
-    header: ['Unica One'],
-    body: ['Vollkorn'],
+    header: ['Muli'],
+    body: ['Ovo'],
   },
 
   /*
