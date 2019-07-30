@@ -83,5 +83,5 @@ body {
 }
 
 .toolbar {
-  @apply font-body font-light;
+  @apply font-header font-light;
 }

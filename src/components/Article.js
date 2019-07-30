@@ -2,7 +2,15 @@ import React from 'react';
 import cc from 'classcat';
 import PropTypes from 'prop-types';
 
-const articleClass = cc(['p-5', 'clearfix', 'rounded', 'pb-3', 'mb-5']);
+const articleClass = cc([
+  'p-5',
+  'clearfix',
+  'rounded',
+  'pb-3',
+  'mb-5',
+  'max-w-xl',
+  'mx-auto',
+]);
 
 const Article = ({ variant = 'primary', children }) => {
   return (
