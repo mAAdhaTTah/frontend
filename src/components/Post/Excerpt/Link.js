@@ -37,7 +37,7 @@ const LinkFormat = ({
 }) => {
   return (
     <Article variant="lightg">
-      <div className="mb-3">{useParseHTML(content)}</div>
+      <div className="">{useParseHTML(content)}</div>
       <div className="link-meta">
         <Link href={meta.linkUrl} className={linkClass}>
           <FaLink className={iconClass} /> {useParseHTML(title)}
