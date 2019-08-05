@@ -8,15 +8,15 @@
     "keywords": ["React.js", "Redux", "Vue"]
   },
   {
-    "name": "Functional, Reactive Programming",
-    "keywords": ["RxJS", "Kefir", "Ramda", "Elm"]
+    "name": "Functional, Reactive",
+    "keywords": ["RxJS", "Kefir", "Ramda"]
   },
   {
     "name": "Build Tools",
     "keywords": ["Webpack", "babel", "Grunt", "Gulp", "Rollup", "Browserify"]
   },
   {
-    "name": "CSS, Preprocessors, & Frameworks",
+    "name": "CSS",
     "keywords": [
       "SASS",
       "LESS",

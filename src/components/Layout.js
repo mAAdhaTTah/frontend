@@ -34,10 +34,8 @@ const Layout = ({ path, children }) => (
           fullScreen={path === '/'}
         />
         {path !== '/' ? (
-          <div className="bg-primary pt-5">
-            <div className="container mx-auto print:mx-0 print:max-w-full">
-              {children}
-            </div>
+          <div className="container mx-auto pt-5 print:pt-0 print:mx-0 print:max-w-full">
+            {children}
           </div>
         ) : null}
       </>

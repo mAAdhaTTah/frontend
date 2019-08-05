@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import Helmet from 'react-helmet';
 
-const Context = createContext(null);
+const Context = createContext(window.Prism ?? null);
 
 export const usePrism = () => useContext(Context);
 
@@ -9,8 +9,8 @@ export const Provider = ({ children }) => {
   const [Prism, setPrism] = useState(null);
 
   useEffect(() => {
-    if (window.Prism && Prism == null) {
-      setPrism(window.Prism);
+    if (window.Prism) {
+      Prism !== window.Prism && setPrism(window.Prism);
       return;
     }
 

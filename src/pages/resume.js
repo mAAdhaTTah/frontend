@@ -2,24 +2,35 @@ import React from 'react';
 import cc from 'classcat';
 import { graphql } from 'gatsby';
 import { format } from 'date-fns';
-import { Layout } from '../components';
 
-const h1Class = cc(['font-header', 'text-4xl', 'py-1', 'mb-2', 'print:mb-1']);
+const h1Class = cc([
+  'font-header',
+  'text-4xl',
+  'py-1',
+  'mb-2',
+  'print:mb-1',
+  'print:py-0',
+]);
 const h2Class = cc(['font-body', 'text-base', 'py-1', 'mb-1']);
 
 const expH3Class = cc(['font-header', 'text-center', 'py-1']);
-const expH4Class = cc(['font-body', 'text-lg', 'py-1']);
-const expH5Class = cc(['font-body', 'text-base', 'py-1']);
+const expH4Class = cc(['font-header', 'text-lg', 'py-1', 'print:text-md']);
+const expH5Class = cc(['font-body', 'text-base', 'py-1', 'print:text-sm']);
 const expLiClass = cc(['font-body', 'text-base', 'mb-1', 'print:text-sm']);
 
-const sidebarH3Class = cc(['font-header', 'text-lg', 'text-center', 'py-3']);
+const sidebarH3Class = cc([
+  'font-header',
+  'text-lg',
+  'text-center',
+  'py-3',
+  'print:py-0',
+]);
 const sidebarH4Class = cc([
   'font-body',
   'text-sm',
   'font-normal',
   'py-1',
   'print:py-0',
-  'print:text-xs',
 ]);
 const sidebarLiClass = cc(['font-body', 'text-sm', 'py-1', 'ml-1']);
 const sidebarSubLiClass = cc(['font-body', 'text-xs', 'py-1']);
@@ -29,24 +40,28 @@ const ExpLi = ({ children }) => <li className={expLiClass}>{children}</li>;
 const Experience = ({ experiences }) => (
   <div className="mx-auto">
     <h3 className={expH3Class}>Experience</h3>
-    {experiences.edges.map(({ node }) => (
-      <div className="mb-3">
+    {experiences.edges.map(({ node }, key) => (
+      <div className="mb-3" key={key}>
         <div className="mb-2">
-          <h4 className={expH4Class}>{node.companyName}</h4>
-          {node.positions.map(({ title, start, end, responsibilities }) => (
-            <div className="mb-3">
-              <h5 className={expH5Class}>{title}</h5>
-              <div className="font-body text-base mb-3">
-                {format(start, 'MMMM YYYY')} to{' '}
-                {end ? format(end, 'MMMM YYYY') : 'Present'}
+          <h4 className={expH4Class}>
+            {node.companyName} - <small>{node.description}</small>
+          </h4>
+          {node.positions.map(
+            ({ title, start, end, responsibilities }, key) => (
+              <div className="mb-3" key={key}>
+                <h5 className={expH5Class}>{title}</h5>
+                <div className="font-body text-base mb-3">
+                  {format(start, 'MMMM YYYY')} to{' '}
+                  {end ? format(end, 'MMMM YYYY') : 'Present'}
+                </div>
+                <ul className="pl-5">
+                  {responsibilities.map((text, key) => (
+                    <ExpLi key={key}>{text}</ExpLi>
+                  ))}
+                </ul>
               </div>
-              <ul className="pl-5">
-                {responsibilities.map(text => (
-                  <ExpLi>{text}</ExpLi>
-                ))}
-              </ul>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     ))}
@@ -60,6 +75,8 @@ const SidebarUl = ({ children }) => (
 const SidebarLi = ({ children, className }) => (
   <li className={cc([sidebarLiClass, className])}>{children}</li>
 );
+
+const SidebarSubUl = ({ children }) => <ul className="pl-5">{children}</ul>;
 
 const SidebarSubLi = ({ children }) => (
   <li className={sidebarSubLiClass}>{children}</li>
@@ -89,7 +106,7 @@ const SidebarH4 = ({ children, className = '' }) => (
 );
 
 const Sidebar = ({ skills }) => (
-  <div className="flex lg:flex-col print:flex-col flex-row">
+  <div className="flex flex-col">
     <SidebarItem>
       <SidebarH3>Projects</SidebarH3>
       <SidebarUl>
@@ -97,19 +114,18 @@ const Sidebar = ({ skills }) => (
           <SidebarH4>
             <ExternalLink href="https://github.com/tc39/proposal-pipeline-operator/">
               Pipeline Operator
-            </ExternalLink>{' '}
-            TC39, Community Advocate
+            </ExternalLink>
+            , Community Advocate
           </SidebarH4>
-          <ul>
+          <SidebarSubUl>
             <SidebarSubLi>
-              Advocate for introduction of new syntax into ECMAScript
-              specification with TC39
+              Advocate for new syntax into ECMAScript specification with TC39
             </SidebarSubLi>
             <SidebarSubLi>
               Developing babel plugins for competing proposals to gather user
               feedback
             </SidebarSubLi>
-          </ul>
+          </SidebarSubUl>
         </SidebarLi>
         <SidebarLi>
           <SidebarH4>
@@ -118,14 +134,14 @@ const Sidebar = ({ skills }) => (
             </ExternalLink>
             , Lead Maintainer
           </SidebarH4>
-          <ul>
+          <SidebarSubUl>
             <SidebarSubLi>
               React/Redux framework for building streaming web applications
             </SidebarSubLi>
             <SidebarSubLi>
               Integrates functional reactive programming principles with Kefir
             </SidebarSubLi>
-          </ul>
+          </SidebarSubUl>
         </SidebarLi>
         <SidebarLi>
           <SidebarH4>
@@ -138,10 +154,9 @@ const Sidebar = ({ skills }) => (
             </ExternalLink>
             , Maintainer
           </SidebarH4>
-          <ul>
+          <SidebarSubUl>
             <SidebarSubLi>
-              Invited to join team after repeated quality contributions &
-              engagement
+              Joined teams after repeated quality contributions & engagement
             </SidebarSubLi>
             <SidebarSubLi>
               Extracted and released chai-kefir to enable unit testing Kefir
@@ -150,7 +165,7 @@ const Sidebar = ({ skills }) => (
             <SidebarSubLi>
               Implemented copy-to-clipboard plugin to copy PrismJS code snippets
             </SidebarSubLi>
-          </ul>
+          </SidebarSubUl>
         </SidebarLi>
         <SidebarLi>
           <SidebarH4>
@@ -159,16 +174,16 @@ const Sidebar = ({ skills }) => (
             </ExternalLink>
             , Lead Maintainer
           </SidebarH4>
-          <ul>
+          <SidebarSubUl>
             <SidebarSubLi>
               WordPress plugin to save user's code snippets to their personal
               site
             </SidebarSubLi>
             <SidebarSubLi>
-              Implemented syntax-highlighted text editor with brookjs, React,
-              Redux, Kefir, and PrismJS
+              Implemented syntax-highlighted editor with brookjs, React, Kefir,
+              and PrismJS
             </SidebarSubLi>
-          </ul>
+          </SidebarSubUl>
         </SidebarLi>
       </SidebarUl>
     </SidebarItem>
@@ -176,21 +191,21 @@ const Sidebar = ({ skills }) => (
       <SidebarH3>Talks</SidebarH3>
       <SidebarUl>
         <SidebarLi>
-          <SidebarH4>
+          <SidebarH4 className="print:text-xs">
             <ExternalLink href="http://talks.jamesdigioia.com/brookjs-at-reactnyc">
               Meet <code>brookjs</code>
             </ExternalLink>
           </SidebarH4>
         </SidebarLi>
         <SidebarLi>
-          <SidebarH4>
+          <SidebarH4 className="print:text-xs">
             <ExternalLink href="http://talks.jamesdigioia.com/using-vuejs-in-server-rendered-environments#/">
               Using Vue.js in Server Rendered Environments
             </ExternalLink>
           </SidebarH4>
         </SidebarLi>
         <SidebarLi>
-          <SidebarH4>
+          <SidebarH4 className="print:text-xs">
             <ExternalLink href="http://talks.jamesdigioia.com/wpgistpen-a-gist-clone-for-wordpress">
               WP-Gistpen: A Gist Clone for WordPress
             </ExternalLink>
@@ -203,28 +218,31 @@ const Sidebar = ({ skills }) => (
       <SidebarUl>
         <SidebarLi>
           <SidebarH4>Code Nation</SidebarH4>
-          <ul>
+          <SidebarSubUl>
             <SidebarSubLi>
               Taught web development to students at under-resourced high schools
             </SidebarSubLi>
-            <SidebarSubLi>
-              Lead team of students at competitive hackathon
-            </SidebarSubLi>
+            <SidebarSubLi>Mentored student hackathon team</SidebarSubLi>
             <SidebarSubLi>
               Mentored interns on internal projects at Valtech Summer of 2017 &
               2018
             </SidebarSubLi>
-          </ul>
+          </SidebarSubUl>
         </SidebarLi>
       </SidebarUl>
     </SidebarItem>
-    <div className="print:h-32" />
     <SidebarItem>
       <SidebarH3>Skills</SidebarH3>
       <SidebarUl>
-        {skills.edges.map(({ node }) => (
-          <SidebarLi>
-            <SidebarH4>{node.name}</SidebarH4>
+        {skills.edges.map(({ node }, key) => (
+          <SidebarLi
+            key={key}
+            className={cc(['print:py-0', 'print:ml-1', 'print:inline'])}
+          >
+            <SidebarH4 className={cc(['print:inline', 'print:font-bold'])}>
+              {node.name}
+            </SidebarH4>
+            <span className={cc(['hidden', 'print:inline'])}>, </span>
             {node.keywords?.join(', ')}
           </SidebarLi>
         ))}
@@ -262,6 +280,7 @@ export const pageQuery = graphql`
       edges {
         node {
           companyName
+          description
           positions {
             title
             start
