@@ -5,6 +5,7 @@ import Standard from './Standard';
 import Link from './Link';
 import Status from './Status';
 import Quote from './Quote';
+import Image from './Image';
 
 const Excerpt = ({ format, ...props }) => {
   switch (format) {
@@ -13,7 +14,7 @@ const Excerpt = ({ format, ...props }) => {
     case 'gallery':
       return <UnsupportedFormat format={format} />;
     case 'image':
-      return <UnsupportedFormat format={format} />;
+      return <Image {...props} />;
     case 'link':
       return <Link {...props} />;
     case 'quote':

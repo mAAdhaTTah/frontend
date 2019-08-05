@@ -1,4 +1,13 @@
+// @TODO(mAAdhaTTah) dedupe from gatsby-transformer-sharp
 export default `
+  fragment GatsbyImageSharpFluid on ImageSharpFluid {
+    base64
+    aspectRatio
+    src
+    srcSet
+    sizes
+  }
+
   fragment PostTemplateFragment on wordpress__POST {
     id: wordpress_id
     title
@@ -67,6 +76,18 @@ export default `
           type
           url
           cache_age
+        }
+      }
+    }
+    media: featured_media {
+      id: wordpress_id
+      alt: caption
+      src: localFile {
+        name
+        image: childImageSharp {
+          fluid(maxWidth: 960) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }

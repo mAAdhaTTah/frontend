@@ -21,7 +21,13 @@ const Article = ({ variant = 'primary', children }) => {
 };
 
 Article.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'lightg']),
+  variant: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'tertiary',
+    'lightg',
+    'darkg',
+  ]),
 };
 
 export default Article;
