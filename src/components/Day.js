@@ -26,9 +26,9 @@ ReadLink.propTypes = {
   readAt: PropTypes.string.isRequired,
 };
 
-const Day = ({ dayOf, links }) => (
+const Day = ({ day, links }) => (
   <div className="max-w-md mx-auto">
-    <h2 className="font-header py-3 text-2xl px-3">Day of {dayOf}</h2>
+    <h2 className="font-header py-3 text-2xl px-3">Day of {day}</h2>
     <ul className="font-body list-reset">
       {links.map(link => (
         <ReadLink key={link.id} {...link} />
@@ -38,7 +38,7 @@ const Day = ({ dayOf, links }) => (
 );
 
 Day.propTypes = {
-  dayOf: PropTypes.string.isRequired,
+  day: PropTypes.string.isRequired,
   links: PropTypes.array.isRequired,
 };
 
