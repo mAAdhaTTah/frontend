@@ -6,7 +6,10 @@
 require = require('esm')(module);
 const axios = require('axios');
 const create = require(`./src/create`);
+const onCreateNode = require('./src/create/node').onCreateNode;
 
+exports.createSchemaCustomization = require('./src/create/schema').createSchemaCustomization;
+exports.sourceNodes = require('./src/create/node').sourceNodes;
 exports.createPages = async ({ actions, graphql }) => {
   await create.posts({ actions, graphql });
   await create.pages({ actions, graphql });
@@ -68,7 +71,10 @@ const getOembed = async (linkUrl, providers, reporter) => {
   }
 };
 
-exports.onCreateNode = async ({ node, actions, reporter }) => {
+exports.onCreateNode = async args => {
+  await onCreateNode(args);
+
+  const { node, actions, reporter } = args;
   const { createNodeField } = actions;
 
   if (node.internal.type !== 'wordpress__POST') {
