@@ -4,4 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
+exports.sourceNodes = require('./src/create/node').sourceNodes;
+exports.onCreateNode = require('./src/create/node').onCreateNode;
+exports.createSchemaCustomization = require('./src/create/schema').createSchemaCustomization;
