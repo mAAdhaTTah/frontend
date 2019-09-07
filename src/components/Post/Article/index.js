@@ -1,6 +1,8 @@
 import React from 'react';
 import UnsupportedFormat from '../../UnsupportedFormat';
 import OEmbed from './OEmbed';
+import Image from './Image';
+import Gallery from './Gallery';
 import Standard from './Standard';
 import Link from './Link';
 import Status from './Status';
@@ -11,9 +13,9 @@ const Excerpt = ({ format, ...props }) => {
     case 'audio':
       return <OEmbed {...props} />;
     case 'gallery':
-      return <UnsupportedFormat format={format} />;
+      return <Gallery {...props} />;
     case 'image':
-      return <UnsupportedFormat format={format} />;
+      return <Image {...props} />;
     case 'link':
       return <Link {...props} />;
     case 'quote':

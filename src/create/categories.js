@@ -21,10 +21,12 @@ const GetCategories = `
 `;
 
 const modify = ({
-  data: {
-    allWordpressCategory: {
-      edges,
-      pageInfo: { hasNextPage },
+  results: {
+    data: {
+      allWordpressCategory: {
+        edges,
+        pageInfo: { hasNextPage },
+      },
     },
   },
 }) => ({

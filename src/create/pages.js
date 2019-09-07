@@ -21,10 +21,12 @@ const GetPages = `
 `;
 
 const modify = ({
-  data: {
-    allWordpressPage: {
-      edges,
-      pageInfo: { hasNextPage },
+  results: {
+    data: {
+      allWordpressPage: {
+        edges,
+        pageInfo: { hasNextPage },
+      },
     },
   },
 }) => ({

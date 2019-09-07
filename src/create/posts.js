@@ -1,4 +1,4 @@
-import { PostTemplateFragment } from '../fragments';
+import { PostTemplateFragment, GatsbyImageSharpFluid } from '../fragments';
 import creator from './creator';
 
 const PostSingleTemplate = require.resolve(`../templates/Post/Single.js`);
@@ -21,36 +21,98 @@ const GetPosts = `
   ${PostTemplateFragment}
 `;
 
-const modify = (
+const GetGallery = `
+  query GetGallery($post: Int) {
+    images: allWordpressWpMedia(filter: {post: {eq: $post}}) {
+      edges {
+        node {
+          id: wordpress_id
+          alt: alt_text
+          src: localFile {
+            name
+            image: childImageSharp {
+              fluid(maxWidth: 960) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ${GatsbyImageSharpFluid}
+`;
+
+const modify = async (
   {
-    data: {
-      allWordpressPost: {
-        edges,
-        pageInfo: { hasNextPage },
+    results: {
+      data: {
+        allWordpressPost: {
+          edges,
+          pageInfo: { hasNextPage },
+        },
       },
     },
+    page,
   },
-  { page }
-) => ({
-  add: edges
-    .map(({ node }) => ({
-      path: `/${node.slug}/`,
-      component: PostSingleTemplate,
-      context: {
-        post: node,
+  { graphql, reporter }
+) => {
+  const posts = await Promise.all(
+    edges.map(async ({ node }) => {
+      if (node != null && node.format === 'gallery') {
+        try {
+          const response = await graphql(GetGallery, { post: node.id });
+
+          if (response.errors) {
+            console.error(
+              `Error fetching gallery: ${response.errors
+                .map(
+                  ({ message, locations, path }) =>
+                    `${message} Locations: ${JSON.stringify(
+                      locations
+                    )} Path: ${JSON.stringify(path)}`
+                )
+                .join(', ')}`,
+              response
+            );
+          }
+
+          node.images =
+            (response.data &&
+              response.data.images.edges.map(({ node }) => node)) ||
+            [];
+        } catch (e) {
+          console.error('Error updating node.', e);
+        }
+      }
+
+      return {
+        path: `/${node.slug}/`,
+        component: PostSingleTemplate,
+        context: {
+          post: node,
+        },
+      };
+    })
+  );
+
+  return {
+    add: [
+      ...posts,
+      {
+        path: page === 1 ? '/writing/' : '/writing/page/' + page,
+        component: PostArchiveTemplate,
+        context: {
+          ids: edges.map(({ node }) => node.id),
+          posts: edges,
+          pageNumber: page,
+          hasNextPage,
+        },
       },
-    }))
-    .concat({
-      path: page === 1 ? '/writing/' : '/writing/page/' + page,
-      component: PostArchiveTemplate,
-      context: {
-        ids: edges.map(({ node }) => node.id),
-        posts: edges,
-        pageNumber: page,
-        hasNextPage,
-      },
-    }),
-  hasNextPage,
-});
+    ],
+    hasNextPage,
+  };
+};
 
 export default creator(GetPosts, modify);

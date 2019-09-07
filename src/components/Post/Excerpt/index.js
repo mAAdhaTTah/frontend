@@ -6,13 +6,14 @@ import Link from './Link';
 import Status from './Status';
 import Quote from './Quote';
 import Image from './Image';
+import Gallery from './Gallery';
 
 const Excerpt = ({ format, ...props }) => {
   switch (format) {
     case 'audio':
       return <OEmbed {...props} />;
     case 'gallery':
-      return <UnsupportedFormat format={format} />;
+      return <Gallery {...props} />;
     case 'image':
       return <Image {...props} />;
     case 'link':

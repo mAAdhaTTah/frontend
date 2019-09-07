@@ -8,11 +8,11 @@ const create = require(`./src/create`);
 
 exports.createSchemaCustomization = create.createSchemaCustomization;
 exports.sourceNodes = create.sourceNodes;
-exports.createPages = async ({ actions, graphql }) => {
-  await create.posts({ actions, graphql });
-  await create.pages({ actions, graphql });
-  await create.categories({ actions, graphql });
-  await create.tags({ actions, graphql });
-  await create.gistpens({ actions, graphql });
+exports.createPages = async args => {
+  await create.posts(args);
+  await create.pages(args);
+  await create.categories(args);
+  await create.tags(args);
+  await create.gistpens(args);
 };
 exports.onCreateNode = create.onCreateNode;

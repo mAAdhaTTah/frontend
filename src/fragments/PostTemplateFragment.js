@@ -1,12 +1,7 @@
-// @TODO(mAAdhaTTah) dedupe from gatsby-transformer-sharp
+import GatsbyImageSharpFluid from './GatsbyImageSharpFluid';
+
 export default `
-  fragment GatsbyImageSharpFluid on ImageSharpFluid {
-    base64
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
+  ${GatsbyImageSharpFluid}
 
   fragment PostTemplateFragment on wordpress__POST {
     id: wordpress_id
@@ -81,7 +76,7 @@ export default `
     }
     media: featured_media {
       id: wordpress_id
-      alt: caption
+      alt: alt_text
       src: localFile {
         name
         image: childImageSharp {

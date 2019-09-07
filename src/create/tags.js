@@ -21,10 +21,12 @@ const GetTags = `
 `;
 
 const modify = ({
-  data: {
-    allWordpressTag: {
-      edges,
-      pageInfo: { hasNextPage },
+  results: {
+    data: {
+      allWordpressTag: {
+        edges,
+        pageInfo: { hasNextPage },
+      },
     },
   },
 }) => ({

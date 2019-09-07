@@ -23,8 +23,8 @@ const GetGistpens = `
   ${GistpenTemplateFragment}
 `;
 
-const modify = (
-  {
+const modify = ({
+  results: {
     data: {
       allWordpressIntraxiaRepos: {
         edges,
@@ -32,8 +32,8 @@ const modify = (
       },
     },
   },
-  { page }
-) => ({
+  page,
+}) => ({
   add: edges
     .map(({ node }) => ({
       path: `/gistpens/${node.description}/`,

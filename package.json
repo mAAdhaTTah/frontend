@@ -46,8 +46,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "GATSBY_CONCURRENT_DOWNLOAD=50 gatsby build",
-    "develop": "GATSBY_CONCURRENT_DOWNLOAD=50 gatsby develop",
+    "build": "GATSBY_CONCURRENT_DOWNLOAD=25 gatsby build",
+    "develop": "GATSBY_CONCURRENT_DOWNLOAD=25 gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "prettier --check \"src/**/*.js\""
