@@ -1,6 +1,6 @@
-const { isEqual, compareDesc } = require('date-fns');
+import { isEqual, compareDesc } from 'date-fns';
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
+export const createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
 
   const typeDefs = [

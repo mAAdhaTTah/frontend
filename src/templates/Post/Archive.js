@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import cc from 'classcat';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
-import { Layout, Post } from '../../components';
+import { Post } from '../../components';
 
 const paginationClass = cc([
   'clearfix',
