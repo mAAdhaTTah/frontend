@@ -14,7 +14,7 @@ import TypeIt from 'typeit';
 import Nav from './Nav';
 import { BackgroundImage, AvatarImage } from './images';
 
-const titleClassName = cc(['text-4xl', 'md:text-5xl', 'font-bold', 'my-3']);
+const titleClassName = cc(['text-4xl', 'md:text-5xl', 'font-bold', 'mb-3']);
 
 const SocialIcon = ({ icon, to, color }) => (
   <a
@@ -30,7 +30,6 @@ const animationConfig = { mass: 1, tension: 150, friction: 30 };
 
 const Header = ({ title, description, fullScreen }) => {
   const header = useRef(null);
-  const banner = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
 
@@ -84,9 +83,8 @@ const Header = ({ title, description, fullScreen }) => {
         },
       ])}
     >
-      <BackgroundImage />
-      <animated.div
-        ref={banner}
+      <BackgroundImage className={'h-screen'} />
+      <div
         className={cc([
           'absolute',
           'bg-etched',
@@ -118,15 +116,7 @@ const Header = ({ title, description, fullScreen }) => {
           <div className="w-48 rounded-full overflow-hidden hidden lg:block">
             <AvatarImage />
           </div>
-          <div
-            className={cc([
-              'font-header',
-              'ml-5',
-              'mt-2',
-              'w-full',
-              'lg:w-auto',
-            ])}
-          >
+          <div className={cc(['font-header', 'ml-5', 'w-full', 'lg:w-auto'])}>
             {fullScreen ? (
               <h1 className={titleClassName} ref={titleRef}>
                 {title}
@@ -178,7 +168,7 @@ const Header = ({ title, description, fullScreen }) => {
             </h2>
           </div>
         </div>
-      </animated.div>
+      </div>
       <Nav />
     </animated.header>
   );
