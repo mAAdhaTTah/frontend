@@ -1,15 +1,19 @@
 import React from 'react';
+import { useParseHTML } from '../hooks';
+import { ArticleHeader } from './typography';
+import Article from './Article';
+import EntryMeta from './EntryMeta';
 
 const Page = ({ title, date, author, content }) => {
   return (
-    <article>
-      <h1>{title}</h1>
-      <p>Posted: {date}</p>
-      <p>{author}</p>
-      <p>TODO comments count</p>
-      <img src="#" alt="TODO featured image" />
+    <Article>
+      <header>
+        <ArticleHeader>{useParseHTML(title)}</ArticleHeader>
+        <img src="#" alt="TODO featured image" />
+        <EntryMeta />
+      </header>
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </article>
+    </Article>
   );
 };
 

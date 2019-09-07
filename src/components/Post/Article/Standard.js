@@ -15,7 +15,6 @@ const StandardFormat = ({
 }) => (
   <Article>
     <header>
-      {/* @TODO(mAAdhaTTah) building the slug here is bad */}
       <ArticleHeader>{useParseHTML(title)}</ArticleHeader>
       <EntryMeta
         date={date}
