@@ -7,10 +7,11 @@ import { Blockquote, Link } from '../../typography';
 const Quote = ({ content, date, dateTime, commentCount, author, meta }) => {
   return (
     <Article variant="lightg">
-      <div className="entry-content">
+      <div className="entry-content mb-3">
         <Blockquote>
           {useParseHTML(content)}
-          <cite>
+          <cite className="font-body">
+            &mdash;{' '}
             <Link href={meta.quoteSourceUrl}>{meta.quoteSourceName}</Link>
           </cite>
         </Blockquote>
