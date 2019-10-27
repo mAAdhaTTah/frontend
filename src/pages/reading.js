@@ -2,17 +2,17 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Day } from '../components';
 
-const ReadsPage = ({ data }) => (
+const ReadingPage = ({ data }) => (
   <>
-    {data.reads.nodes.map(({ day, links }) => (
+    {data.reading.nodes.map(({ day, links }) => (
       <Day key={day} day={day} links={links} />
     ))}
   </>
 );
 
 export const pageQuery = graphql`
-  query ReadsPageQuery {
-    reads: allReadDay {
+  query ReadingPageQuery {
+    reading: allReadDay {
       nodes {
         day(formatString: "MMM Do, YYYY")
         links {
@@ -27,4 +27,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default ReadsPage;
+export default ReadingPage;
