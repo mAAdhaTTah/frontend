@@ -11,11 +11,9 @@ const Snippet = ({ code, language, filename }) => {
   }, [codeRef.current, Prism]);
 
   return (
-    <div className="mb-5">
-      <pre className={cc([`language-${language}`])} data-filename={filename}>
-        <code ref={codeRef}>{code}</code>
-      </pre>
-    </div>
+    <pre className={cc([`language-${language}`])} data-filename={filename}>
+      <code ref={codeRef}>{code}</code>
+    </pre>
   );
 };
 

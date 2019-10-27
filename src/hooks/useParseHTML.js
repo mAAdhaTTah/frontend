@@ -30,14 +30,16 @@ export default (string, { p = '', h2 = '', a = '' } = {}) =>
           case 'pre':
             if (node.attribs.class === 'gistpen') {
               return (
-                <Snippet
-                  code={node.children[0].children[0].data}
-                  language={node.children[0].attribs.class.replace(
-                    'language-',
-                    ''
-                  )}
-                  filename={node.attribs['data-filename']}
-                />
+                <div className="mb-5">
+                  <Snippet
+                    code={node.children[0].children[0].data}
+                    language={node.children[0].attribs.class.replace(
+                      'language-',
+                      ''
+                    )}
+                    filename={node.attribs['data-filename']}
+                  />
+                </div>
               );
             }
 

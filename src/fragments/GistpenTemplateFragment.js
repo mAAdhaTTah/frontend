@@ -3,9 +3,10 @@ export default `
     id: wordpress_id
     description
     status
+    slug
+    created: created_at(formatString: "MMMM Do, YYYY")
     blobs {
       id: wordpress_id
-      size
       raw_url
       filename
       code

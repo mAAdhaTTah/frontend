@@ -9,3 +9,4 @@ export { default as Day } from './Day';
 export * from './typography';
 export Snippet from './Snippet';
 export Pagination from './Pagination';
+export Gistpen from './Gistpen';

@@ -1,12 +1,19 @@
 import React from 'react';
-import { Layout, Post } from '../../components';
+import { Pagination, Gistpen } from '../../components';
 
-const PostSingle = ({ pageContext }) => {
+const GistpenSingle = ({ pageContext }) => {
   return (
     <>
-      <Post.Article {...pageContext.post} />
+      {pageContext.posts.map(({ node }) => (
+        <Gistpen key={node.id} {...node} />
+      ))}
+      <Pagination
+        pageNumber={pageContext.pageNumber}
+        hasNextPage={pageContext.hasNextPage}
+        slug="gistpens"
+      />
     </>
   );
 };
 
-export default PostSingle;
+export default GistpenSingle;

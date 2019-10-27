@@ -1,14 +1,19 @@
 import React from 'react';
-import { Layout, Post } from '../../components';
+import { Pagination, Gistpen } from '../../components';
 
-const PostArchive = ({ pageContext }) => {
+const GistpenArchive = ({ pageContext }) => {
   return (
     <>
       {pageContext.posts.map(({ node }) => (
-        <Post.Excerpt key={node.id} {...node} />
+        <Gistpen key={node.id} {...node} />
       ))}
+      <Pagination
+        pageNumber={pageContext.pageNumber}
+        hasNextPage={pageContext.hasNextPage}
+        slug="gistpens"
+      />
     </>
   );
 };
 
-export default PostArchive;
+export default GistpenArchive;
