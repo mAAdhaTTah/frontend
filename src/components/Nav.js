@@ -13,7 +13,7 @@ const headerClass = cc([
 ]);
 
 const HeaderLink = ({ to, children }) => (
-  <Link to={to} className={headerClass}>
+  <Link to={to} className={headerClass} activeClassName="bg-tertiary">
     {children}
   </Link>
 );
