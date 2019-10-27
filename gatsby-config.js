@@ -63,7 +63,6 @@ module.exports = {
           '/wp/v2/taxonomies',
           '/wp/v2/media',
           '/wp/v2/users',
-          '/wp/v2/comments',
           '/intraxia/v1/gistpen/repos',
         ],
       },

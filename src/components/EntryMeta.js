@@ -13,18 +13,17 @@ const entryMetaClass = cc([
 ]);
 const metaClass = cc(['font-body']);
 
-const EntryMeta = ({ date, dateTime, commentCount, author }) => (
+const EntryMeta = ({ date, dateTime, author }) => (
   <div className={entryMetaClass}>
     <time className={cc([metaClass, 'published'])} dateTime={dateTime}>
       Posted: {date}
     </time>
     <Spacer />
     <p className={metaClass}>{author}</p>
-    <Spacer />
     {/* @TODO(mAAdhaTTah) comments aren't retreived */}
-    <p className={metaClass}>
+    {/* <Spacer /> <p className={metaClass}>
       {commentCount ? `${commentCount} comments` : 'No comments'}
-    </p>
+    </p> */}
   </div>
 );
 
