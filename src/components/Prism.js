@@ -32,6 +32,8 @@ export const Provider = ({ children }) => {
       mounted = false;
       head.removeChild(script);
     };
+    // We don't need Prism as a dep here.
+    // eslint-disable-next-line
   }, []);
 
   // @TODO(mAAdhaTTah) get properties from query

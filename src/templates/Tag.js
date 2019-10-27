@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Tag } from '../components';
+import { Tag } from '../components';
 
 const SingleTag = ({ pageContext }) => {
   return (

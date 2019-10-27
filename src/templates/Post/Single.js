@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Post } from '../../components';
+import { Post } from '../../components';
 
 const PostSingle = ({ pageContext }) => {
   return (

@@ -60,4 +60,4 @@ export default (string, { p = '', h2 = '', h3 = '', a = '' } = {}) =>
     };
 
     return parse(string, options);
-  }, [string, h2, a]);
+  }, [string, p, h2, h3, a]);

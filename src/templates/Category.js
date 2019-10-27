@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Category } from '../components';
+import { Category } from '../components';
 
 const SingleCategory = ({ pageContext }) => {
   return (

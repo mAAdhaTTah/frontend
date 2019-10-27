@@ -7,8 +7,9 @@ const Snippet = ({ code, language, filename }) => {
   const Prism = usePrism();
 
   useLayoutEffect(() => {
+    // eslint-disable-next-line
     Prism?.highlightElement(codeRef.current);
-  }, [codeRef.current, Prism]);
+  }, [Prism]);
 
   return (
     <pre className={cc([`language-${language}`])} data-filename={filename}>

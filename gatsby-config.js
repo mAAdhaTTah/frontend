@@ -4,6 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-eslint',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,

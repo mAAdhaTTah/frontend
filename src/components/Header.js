@@ -43,7 +43,7 @@ const Header = ({ title, description, fullScreen }) => {
       height: header.current.offsetHeight,
     });
     header.current.style.height = currentHeight;
-  }, [fullScreen]);
+  }, [fullScreen, setHeader]);
 
   useLayoutEffect(() => {
     titleRef.current.innerText = '';

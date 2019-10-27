@@ -6,7 +6,7 @@ const Category = ({ title, date, author, content }) => {
       <h1>{title}</h1>
       <p>Posted: {date}</p>
       <p>{author}</p>
-      <img src="#" alt="TODO featured image" />
+      {/* <img src="#" alt="TODO featured image" /> */}
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </article>
   );
