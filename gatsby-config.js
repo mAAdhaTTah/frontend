@@ -1,8 +1,26 @@
+const request = require('sync-request');
 require('dotenv').config({
   path: `.env`,
 });
 
+const {
+  WP_API_DOMAIN = 'jamesdigioia.com',
+  POCKET_CONSUMER_KEY,
+  POCKET_ACCESS_TOKEN,
+} = process.env;
+
+// @TODO(mAAdhaTTah) any way to do this to not need sync-request?
+const wpMetaBody = request('GET', `https://${WP_API_DOMAIN}/wp-json/`).getBody(
+  'utf-8'
+);
+const wpMeta = JSON.parse(wpMetaBody);
+
 module.exports = {
+  siteMetadata: {
+    name: wpMeta.name,
+    description: wpMeta.description,
+    url: `https://${WP_API_DOMAIN}`,
+  },
   plugins: [
     'gatsby-plugin-eslint',
     'gatsby-plugin-react-helmet',
@@ -27,8 +45,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-pocket',
       options: {
-        consumerKey: process.env.POCKET_CONSUMER_KEY,
-        accessToken: process.env.POCKET_ACCESS_TOKEN,
+        consumerKey: POCKET_CONSUMER_KEY,
+        accessToken: POCKET_ACCESS_TOKEN,
         weeksOfHistory: 1,
         apiMaxRecordsToReturn: 3000,
         getCurrentWeekOnly: `y`,
@@ -42,7 +60,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'reads.jamesdigioia.com',
+        baseUrl: `reads.${WP_API_DOMAIN}`,
         protocol: 'https',
         hostingWPCOM: false,
         useACF: false,
@@ -52,7 +70,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'jamesdigioia.com',
+        baseUrl: WP_API_DOMAIN,
         protocol: 'https',
         hostingWPCOM: false,
         useACF: false,

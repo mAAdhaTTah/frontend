@@ -9,28 +9,31 @@ const Layout = ({ path, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
-        wordpressSiteMetadata(home: { eq: "https://jamesdigioia.com" }) {
-          name
-          description
+        site {
+          siteMetadata {
+            name
+            description
+          }
         }
       }
     `}
-    render={data => (
+    // Assign site.siteMetadata to site
+    render={({ site: { siteMetadata: site } }) => (
       <>
         <Helmet
-          title={data.wordpressSiteMetadata.name}
+          title={site.name}
           meta={[
             {
               name: 'description',
-              content: data.wordpressSiteMetadata.description,
+              content: site.description,
             },
           ]}
         >
           <html lang="en" />
         </Helmet>
         <Header
-          title={data.wordpressSiteMetadata.name}
-          description={data.wordpressSiteMetadata.description}
+          title={site.name}
+          description={site.description}
           fullScreen={path === '/'}
         />
         {path !== '/' ? (

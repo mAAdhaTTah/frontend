@@ -46,6 +46,7 @@
     "react-icons": "^3.2.2",
     "react-oembed-container": "^0.3.0",
     "react-spring": "^8.0.27",
+    "sync-request": "^6.1.0",
     "tailwindcss": "^0.7.0",
     "typeit": "^6.0.3"
   },
