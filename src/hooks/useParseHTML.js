@@ -1,23 +1,23 @@
 import React, { useMemo } from 'react';
 import parse, { domToReact } from 'html-react-parser';
 import cc from 'classcat';
-import { Body, H2, Link, Snippet } from '../components';
+import { Body, H2, H3, Link, Snippet } from '../components';
 
 const linkClass = cc(['text-darkg', 'font-bold']);
 
-export default (string, { p = '', h2 = '', a = '' } = {}) =>
+export default (string, { p = '', h2 = '', h3 = '', a = '' } = {}) =>
   useMemo(() => {
     const options = {
-      replace: function replace(node) {
+      replace(node) {
         switch (node.name) {
           case 'p':
             return (
               <Body className={p}>{domToReact(node.children, options)}</Body>
             );
           case 'h2':
-            return (
-              <H2 className={h2 ?? ''}>{domToReact(node.children, options)}</H2>
-            );
+            return <H2 className={h2}>{domToReact(node.children, options)}</H2>;
+          case 'h3':
+            return <H3 className={h3}>{domToReact(node.children, options)}</H3>;
           case 'a':
             return (
               <Link
@@ -42,8 +42,17 @@ export default (string, { p = '', h2 = '', a = '' } = {}) =>
                 </div>
               );
             }
-
             return;
+          case 'ul':
+            return (
+              <ul className="mb-5">{domToReact(node.children, options)}</ul>
+            );
+          case 'li':
+            return (
+              <li className="mb-1 font-body text-xl">
+                {domToReact(node.children, options)}
+              </li>
+            );
           default:
             return; // initially undefined
         }

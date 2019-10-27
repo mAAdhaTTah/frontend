@@ -1,18 +1,17 @@
 import React from 'react';
+import Img from 'gatsby-image';
 import { useParseHTML } from '../hooks';
 import { ArticleHeader } from './typography';
 import Article from './Article';
-import EntryMeta from './EntryMeta';
 
-const Page = ({ title, date, author, content }) => {
+const Page = ({ title, author, content, media }) => {
   return (
     <Article>
-      <header>
+      <header className="mb-5">
         <ArticleHeader>{useParseHTML(title)}</ArticleHeader>
-        <img src="#" alt="TODO featured image" />
-        <EntryMeta />
       </header>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      {media && <Img fluid={media.src.image.fluid} alt={media.alt} />}
+      {useParseHTML(content)}
     </Article>
   );
 };
