@@ -1,4 +1,5 @@
 import React from 'react';
+import { withSEO } from '../decorators';
 
 const NotFoundPage = () => (
   <>
@@ -7,4 +8,7 @@ const NotFoundPage = () => (
   </>
 );
 
-export default NotFoundPage;
+export default NotFoundPage
+  |> withSEO(() => ({
+    title: 'Page Not Found',
+  }));

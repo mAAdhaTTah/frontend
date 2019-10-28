@@ -36,7 +36,7 @@ const modify = ({
 }) => ({
   add: edges
     .map(({ node }) => ({
-      path: `/gistpens/${node.description}/`,
+      path: `/gistpens/${node.slug}/`,
       component: GistpenSingleTemplate,
       context: {
         post: node,

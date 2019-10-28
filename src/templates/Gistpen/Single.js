@@ -1,19 +1,12 @@
 import React from 'react';
-import { Pagination, Gistpen } from '../../components';
+import { withSEO } from '../../decorators';
+import { Gistpen } from '../../components';
 
-const GistpenSingle = ({ pageContext }) => {
-  return (
-    <>
-      {pageContext.posts.map(({ node }) => (
-        <Gistpen key={node.id} {...node} />
-      ))}
-      <Pagination
-        pageNumber={pageContext.pageNumber}
-        hasNextPage={pageContext.hasNextPage}
-        slug="gistpens"
-      />
-    </>
-  );
+const GistpenSingle = ({ pageContext: { post } }) => {
+  return <Gistpen {...post} />;
 };
 
-export default GistpenSingle;
+export default GistpenSingle
+  |> withSEO(({ pageContext }) => ({
+    title: pageContext.post.description,
+  }));

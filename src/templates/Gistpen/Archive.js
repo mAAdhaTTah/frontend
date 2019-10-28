@@ -1,4 +1,5 @@
 import React from 'react';
+import { withSEO } from '../../decorators';
 import { Pagination, Gistpen } from '../../components';
 
 const GistpenArchive = ({ pageContext }) => {
@@ -16,4 +17,7 @@ const GistpenArchive = ({ pageContext }) => {
   );
 };
 
-export default GistpenArchive;
+export default GistpenArchive
+  |> withSEO(({ pageContext: { pageNumber } }) => ({
+    title: `Code${pageNumber > 1 ? ` | Page ${pageNumber}` : ''}`,
+  }));

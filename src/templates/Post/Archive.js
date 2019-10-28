@@ -1,4 +1,5 @@
 import React from 'react';
+import { withSEO } from '../../decorators';
 import { Post, Pagination } from '../../components';
 
 const PostArchive = ({ pageContext, hasNextPage }) => {
@@ -18,4 +19,7 @@ const PostArchive = ({ pageContext, hasNextPage }) => {
   );
 };
 
-export default PostArchive;
+export default PostArchive
+  |> withSEO(({ pageContext: { pageNumber } }) => ({
+    title: `Writing${pageNumber > 1 ? ` | Page ${pageNumber}` : ''}`,
+  }));

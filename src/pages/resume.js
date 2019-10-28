@@ -2,6 +2,7 @@ import React from 'react';
 import cc from 'classcat';
 import { graphql } from 'gatsby';
 import { format } from 'date-fns';
+import { withSEO } from '../decorators';
 
 const h1Class = cc([
   'font-header',
@@ -302,4 +303,7 @@ export const pageQuery = graphql`
   }
 `;
 
-export default Resume;
+export default Resume
+  |> withSEO(() => ({
+    title: 'Resume',
+  }));

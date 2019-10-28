@@ -1,12 +1,12 @@
 import React from 'react';
+import { withSEO } from '../../decorators';
 import { Post } from '../../components';
 
 const PostSingle = ({ pageContext }) => {
-  return (
-    <>
-      <Post.Article {...pageContext.post} />
-    </>
-  );
+  return <Post.Article {...pageContext.post} />;
 };
 
-export default PostSingle;
+export default PostSingle
+  |> withSEO(({ pageContext }) => ({
+    title: pageContext.post.title,
+  }));

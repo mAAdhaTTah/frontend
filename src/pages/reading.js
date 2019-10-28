@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Day } from '../components';
+import { withSEO } from '../decorators';
 
 const ReadingPage = ({ data }) => (
   <>
@@ -27,4 +28,7 @@ export const pageQuery = graphql`
   }
 `;
 
-export default ReadingPage;
+export default ReadingPage
+  |> withSEO(() => ({
+    title: 'Reading',
+  }));

@@ -20,16 +20,10 @@ const Layout = ({ path, children }) => (
     // Assign site.siteMetadata to site
     render={({ site: { siteMetadata: site } }) => (
       <>
-        <Helmet
-          title={site.name}
-          meta={[
-            {
-              name: 'description',
-              content: site.description,
-            },
-          ]}
-        >
+        <Helmet titleTemplate={`%s | ${site.name}`} defaultTitle={site.name}>
           <html lang="en" />
+          <meta name="description" content={site.description} />
+          <meta charSet="utf-8" />
         </Helmet>
         <Header
           title={site.name}

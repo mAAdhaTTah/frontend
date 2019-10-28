@@ -1,0 +1,1 @@
+export withSEO from './withSEO';
