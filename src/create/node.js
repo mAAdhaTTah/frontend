@@ -45,56 +45,30 @@ export const sourceNodes = async ({
   }
 };
 
-let providersP = null;
-
-const getProviders = async () => {
-  const response = await axios.get('https://oembed.com/providers.json');
-
-  return response.data;
-};
-
-const getProviderEndpointForLinkUrl = (linkUrl, providers) => {
-  let transformedEndpoint = {};
-
-  for (const provider of providers || []) {
-    for (const endpoint of provider.endpoints || []) {
-      for (let schema of endpoint.schemes || []) {
-        schema = schema.replace('*', '.*');
-        const regExp = new RegExp(schema);
-        if (regExp.test(linkUrl)) {
-          transformedEndpoint.url = endpoint.url;
-          transformedEndpoint.params = {
-            url: linkUrl,
-            ...provider.params,
-          };
-        }
-      }
-    }
-  }
-
-  return transformedEndpoint;
-};
-
 const getOembed = async (linkUrl, reporter) => {
-  const providers = await providersP;
-  const endpoint = getProviderEndpointForLinkUrl(linkUrl, providers);
-
-  if (!endpoint.url) {
-    reporter.error(`endpoint not found for url: ${linkUrl}`);
-    return null;
-  }
-
   try {
-    const response = await axios.get(endpoint.url, {
-      params: {
-        format: 'json',
-        ...endpoint.params,
-      },
-    });
+    const {
+      WP_API_DOMAIN = 'jamesdigioia.com',
+      WP_API_USERNAME,
+      WP_API_PASSWORD,
+    } = process.env;
+    const { data } = await axios.get(
+      `https://${WP_API_DOMAIN}/wp-json/oembed/1.0/proxy?url=${encodeURIComponent(
+        linkUrl
+      )}`,
+      {
+        headers: {
+          Authorization: `Basic ${Buffer.from(
+            `${WP_API_USERNAME}:${WP_API_PASSWORD}`,
+            'binary'
+          ).toString('base64')}`,
+        },
+      }
+    );
 
-    return response.data;
+    return data;
   } catch (e) {
-    reporter.error(`Request failed for ${endpoint.url}`, e);
+    reporter.error(`Request failed for ${linkUrl}`, e);
     return null;
   }
 };
@@ -162,10 +136,6 @@ export const onCreateNode = async ({
         });
         break;
       case 'wordpress__POST':
-        if (providersP == null) {
-          providersP = getProviders();
-        }
-
         const {
           _format_audio_embed: audioUrl,
           _format_video_embed: videoUrl,
