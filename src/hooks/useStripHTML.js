@@ -1,6 +1,4 @@
 import { useMemo } from 'react';
-
-const stripHTML = html =>
-  new DOMParser().parseFromString(html, 'text/html').body.textContent ?? '';
+import stripHTML from 'string-strip-html';
 
 export default string => useMemo(() => stripHTML(string), [string]);

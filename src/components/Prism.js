@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import Helmet from 'react-helmet';
 
-const Context = createContext(window.Prism ?? null);
+const Context = createContext(null);
 
 export const usePrism = () => useContext(Context);
 
