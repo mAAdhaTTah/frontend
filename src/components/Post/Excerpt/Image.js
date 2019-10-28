@@ -1,5 +1,5 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import MediaImage from '../../MediaImage';
 import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';
 import { ArticleHeader } from '../../typography';
@@ -26,9 +26,11 @@ const Image = ({
           author={author.name}
         />
       </header>
-      <Img fluid={media.src.image.fluid} alt={media.alt} />
+      <MediaImage media={media} />
 
-      {useParseHTML(content)}
+      {useParseHTML(content, {
+        p: 'text-primary',
+      })}
     </Article>
   );
 };

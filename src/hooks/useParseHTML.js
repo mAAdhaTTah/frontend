@@ -53,6 +53,8 @@ export default (string, { p = '', h2 = '', h3 = '', a = '' } = {}) =>
                 {domToReact(node.children, options)}
               </li>
             );
+          case '--': // fix for /maadhattahwriting/
+            return <>{'<-->'}</>;
           default:
             return; // initially undefined
         }

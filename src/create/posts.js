@@ -1,4 +1,8 @@
-import { PostTemplateFragment, GatsbyImageSharpFluid } from '../fragments';
+import {
+  PostTemplateFragment,
+  GatsbyImageSharpFluid,
+  MediaImageFragment,
+} from '../fragments';
 import creator from './creator';
 
 const PostSingleTemplate = require.resolve(`../templates/Post/Single.js`);
@@ -19,6 +23,7 @@ const GetPosts = `
   }
 
   ${PostTemplateFragment}
+  ${MediaImageFragment}
 `;
 
 const GetGallery = `
@@ -26,21 +31,13 @@ const GetGallery = `
     images: allWordpressWpMedia(filter: {post: {eq: $post}}) {
       edges {
         node {
-          id: wordpress_id
-          alt: alt_text
-          src: localFile {
-            name
-            image: childImageSharp {
-              fluid(maxWidth: 960) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
+          ...MediaImage
         }
       }
     }
   }
 
+  ${MediaImageFragment}
   ${GatsbyImageSharpFluid}
 `;
 
@@ -66,7 +63,7 @@ const modify = async (
 
           if (response.errors) {
             console.error(
-              `Error fetching gallery: ${response.errors
+              `Error fetching gallery for ${node.slug}: ${response.errors
                 .map(
                   ({ message, locations, path }) =>
                     `${message} Locations: ${JSON.stringify(
@@ -80,7 +77,9 @@ const modify = async (
 
           node.images =
             (response.data &&
-              response.data.images.edges.map(({ node }) => node)) ||
+              response.data.images.edges
+                .map(({ node }) => node)
+                .filter(Boolean)) ||
             [];
         } catch (e) {
           console.error('Error updating node.', e);
