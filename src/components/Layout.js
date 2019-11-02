@@ -6,19 +6,8 @@ import { StaticQuery, graphql } from 'gatsby';
 import Header from './Header';
 
 const Layout = ({ path, children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            name
-            description
-          }
-        }
-      }
-    `}
-    // Assign site.siteMetadata to site
-    render={({ site: { siteMetadata: site } }) => (
+  <SiteMeta
+    render={site => (
       <>
         <Helmet titleTemplate={`%s | ${site.name}`} defaultTitle={site.name}>
           <html lang="en" />
