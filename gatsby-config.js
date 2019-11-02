@@ -45,6 +45,14 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-postcss',
     {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        tailwind: true,
+        develop: true,
+      },
+    },
+    {
       resolve: 'gatsby-source-pocket',
       options: {
         consumerKey: POCKET_CONSUMER_KEY,
