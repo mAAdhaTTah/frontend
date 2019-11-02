@@ -2,12 +2,16 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import getDisplayName from 'react-display-name';
+import { SiteMeta } from '../components';
 
 const SEO = ({ title, children }) => (
   <>
-    <Helmet>
-      <title>{title}</title>
-    </Helmet>
+    <SiteMeta
+      render={site => (
+        // @TODO(James) get SEO title from BE
+        <Helmet title={`${title} | ${site.name}`} />
+      )}
+    />
     {children}
   </>
 );

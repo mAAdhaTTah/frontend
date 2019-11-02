@@ -2,14 +2,14 @@ import '../css/index.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
 import Header from './Header';
+import SiteMeta from './SiteMeta';
 
 const Layout = ({ path, children }) => (
   <SiteMeta
     render={site => (
       <>
-        <Helmet titleTemplate={`%s | ${site.name}`} defaultTitle={site.name}>
+        <Helmet>
           <html lang="en" />
           <meta name="description" content={site.description} />
           <meta charSet="utf-8" />
