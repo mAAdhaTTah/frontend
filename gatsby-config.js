@@ -2,6 +2,7 @@ const request = require('sync-request');
 require('dotenv').config({
   path: `.env`,
 });
+const normalizer = require('./src/normalizer');
 
 const {
   WP_API_DOMAIN = 'jamesdigioia.com',
@@ -65,6 +66,7 @@ module.exports = {
         hostingWPCOM: false,
         useACF: false,
         includedRoutes: ['/pf/v1/stats/pf_posted'],
+        normalizer,
       },
     },
     {
@@ -74,6 +76,7 @@ module.exports = {
         protocol: 'https',
         hostingWPCOM: false,
         useACF: false,
+        perPage: 10,
         includedRoutes: [
           '/wp/v2/posts',
           '/wp/v2/pages',
@@ -84,6 +87,7 @@ module.exports = {
           '/wp/v2/users',
           '/intraxia/v1/gistpen/repos',
         ],
+        normalizer,
       },
     },
     {
