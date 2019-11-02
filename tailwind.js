@@ -12,20 +12,6 @@ we've done our very best to explain each section.
 
 View the full documentation at https://tailwindcss.com.
 
-
-|-------------------------------------------------------------------------------
-| The default config
-|-------------------------------------------------------------------------------
-|
-| This variable contains the default Tailwind config. You don't have
-| to use it, but it can sometimes be helpful to have available. For
-| example, you may choose to merge your custom configuration
-| values with some of the Tailwind defaults.
-|
-*/
-
-let defaultConfig = require('tailwindcss/defaultConfig')();
-
 /*
 |-------------------------------------------------------------------------------
 | Colors                                    https://tailwindcss.com/docs/colors
@@ -43,13 +29,13 @@ let defaultConfig = require('tailwindcss/defaultConfig')();
 */
 
 let colors = {
-  'etched': 'hsla(0, 0%, 100%, .35)',
-  'primary': '#FFF3C9',
-  'secondary': '#DBD1AD',
-  'tertiary': '#D0C394',
-  'darkg': '#24331E',
-  'lightg': '#78af52',
-  'black': '#000',
+  etched: 'hsla(0, 0%, 100%, .35)',
+  primary: '#FFF3C9',
+  secondary: '#DBD1AD',
+  tertiary: '#D0C394',
+  darkg: '#24331E',
+  lightg: '#78af52',
+  black: '#000',
 };
 
 module.exports = {
