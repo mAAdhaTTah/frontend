@@ -3,6 +3,7 @@ import cc from 'classcat';
 import { graphql } from 'gatsby';
 import { format } from 'date-fns';
 import { withSEO } from '../decorators';
+import { Main } from '../components';
 
 const h1Class = cc([
   'font-header',
@@ -253,7 +254,7 @@ const Sidebar = ({ skills }) => (
 );
 
 const Resume = ({ data }) => (
-  <>
+  <Main>
     <div className="bg-primary text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
         <h1 className={h1Class}>James DiGioia</h1>
@@ -272,7 +273,7 @@ const Resume = ({ data }) => (
         </div>
       </div>
     </div>
-  </>
+  </Main>
 );
 
 export const pageQuery = graphql`
@@ -300,10 +301,21 @@ export const pageQuery = graphql`
         }
       }
     }
+
+    page: wordpressPage(wordpress_id: { eq: 5943 }) {
+      metas: yoast_meta {
+        name
+        property
+        content
+      }
+      schema: yoast_json_ld
+    }
   }
 `;
 
 export default Resume
-  |> withSEO(() => ({
+  |> withSEO(({ data }) => ({
     title: 'Resume',
+    metas: data.page.metas,
+    schema: data.page.schema,
   }));

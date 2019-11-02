@@ -77,5 +77,11 @@ export default `
     media: featured_media {
       ...MediaImage
     }
+    metas: yoast_meta {
+      name
+      property
+      content
+    }
+    schema: yoast_json_ld
   }
 `;

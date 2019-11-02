@@ -11,3 +11,4 @@ export Snippet from './Snippet';
 export Pagination from './Pagination';
 export Gistpen from './Gistpen';
 export SiteMeta from './SiteMeta';
+export Main from './Main';

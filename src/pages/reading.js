@@ -1,14 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Day } from '../components';
+import { Day, Main } from '../components';
 import { withSEO } from '../decorators';
 
 const ReadingPage = ({ data }) => (
-  <>
+  <Main>
     {data.reading.nodes.map(({ day, links }) => (
       <Day key={day} day={day} links={links} />
     ))}
-  </>
+  </Main>
 );
 
 export const pageQuery = graphql`
@@ -25,10 +25,21 @@ export const pageQuery = graphql`
         }
       }
     }
+    page: wordpressPage(wordpress_id: { eq: 5941 }) {
+      metas: yoast_meta {
+        name
+        property
+        content
+      }
+      schema: yoast_json_ld
+    }
   }
 `;
 
 export default ReadingPage
-  |> withSEO(() => ({
+  |> withSEO(({ data }) => ({
     title: 'Reading',
+    // @TODO(mAAdhaTTah) shouldn't need to check...
+    metas: data.page?.metas ?? [],
+    schema: data.page?.schema ?? '',
   }));

@@ -9,4 +9,7 @@ const SinglePage = ({ pageContext }) => {
 export default SinglePage
   |> withSEO(({ pageContext }) => ({
     title: pageContext.page.title,
+    // @TODO(mAAdhaTTah) correctly fetch data
+    metas: pageContext.page.metas ?? [],
+    schema: pageContext.page.schema ?? '',
   }));

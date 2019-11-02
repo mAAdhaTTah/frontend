@@ -9,4 +9,7 @@ const SingleTag = ({ pageContext }) => {
 export default SingleTag
   |> withSEO(({ pageContext }) => ({
     title: pageContext.tag.name,
+    // @TODO(mAAdhaTTah) correctly fetch data
+    metas: pageContext.tag.metas ?? [],
+    schema: pageContext.tag.schema ?? '',
   }));

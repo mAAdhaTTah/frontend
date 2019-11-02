@@ -9,4 +9,7 @@ const GistpenSingle = ({ pageContext: { post } }) => {
 export default GistpenSingle
   |> withSEO(({ pageContext }) => ({
     title: pageContext.post.description,
+    // @TODO(mAAdhaTTah) correctly fetch data
+    metas: pageContext.post.metas ?? [],
+    schema: pageContext.post.schema ?? '',
   }));

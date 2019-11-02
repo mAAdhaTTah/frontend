@@ -9,4 +9,7 @@ const SingleCategory = ({ pageContext }) => {
 export default SingleCategory
   |> withSEO(({ pageContext }) => ({
     title: pageContext.category.name,
+    // @TODO(mAAdhaTTah) correctly fetch data
+    metas: pageContext.category.metas ?? [],
+    schema: pageContext.category.schema ?? '',
   }));

@@ -28,49 +28,77 @@ const nominators = noms => {
   return noms;
 };
 
-const cleanup = (target, key) => {
-  if (target == null) {
-    return null;
-  }
-
-  if (key === '@type') {
-    return typeof target === 'string' ? [target] : target;
-  }
-
-  if (numberKeys.includes(key)) {
-    return !target ? null : Number(target);
-  }
-
-  if (key === 'nominators') {
-    return nominators(target);
-  }
-
-  if (key === 'smush') {
-    return target === 'Not processed' ? null : target;
-  }
-
-  if (Array.isArray(target)) {
-    return target.map((val, i) => cleanup(val, `${key}[${i}]`));
-  }
-
-  if (typeof target === 'object') {
-    const ret = {};
-
-    for (const [key, value] of Object.entries(target)) {
-      if (key === 'image_meta') {
-        continue;
+module.exports = ({ entities }) =>
+  entities.map(entity => {
+    const cleanup = (target, key) => {
+      if (target == null) {
+        return null;
       }
 
-      const newKey =
-        key !== 'wordpress_id' ? key.replace('wordpress_', '') : key;
-      ret[newKey] = cleanup(value, newKey);
-    }
+      if (numberKeys.includes(key)) {
+        return !target ? null : Number(target);
+      }
 
-    return ret;
-  }
+      switch (key) {
+        case '@type':
+          return typeof target === 'string' ? [target] : target;
+        case 'nominators':
+          return nominators(target);
+        case 'smush':
+          return target === 'Not processed' ? null : target;
+        case 'yoast_meta':
+          return target.map(meta => {
+            let content = meta.content;
 
-  return target;
-};
+            if (!content) {
+              const media = entities.find(
+                entity =>
+                  entity.__type === 'wordpress__wp_media' &&
+                  meta.content___NODE === entity.id
+              );
 
-module.exports = ({ entities }) =>
-  entities.map(entity => cleanup(entity, 'entity'));
+              if (media) {
+                content = media.source_url;
+              } else {
+                console.warn(`No media found for ${JSON.stringify(meta)}`);
+                content = '';
+              }
+            }
+
+            return {
+              name: meta.name,
+              property: meta.property,
+              content,
+            };
+          });
+        default:
+          if (Array.isArray(target)) {
+            return target.map((val, i) => cleanup(val, `${key}[${i}]`));
+          }
+
+          if (typeof target === 'object') {
+            const ret = {};
+
+            for (const [key, value] of Object.entries(target)) {
+              if (key === 'image_meta') {
+                continue;
+              }
+
+              const newKey =
+                key !== 'wordpress_id' ? key.replace('wordpress_', '') : key;
+              ret[newKey] = cleanup(value, newKey);
+            }
+
+            if (key === 'yoast_json_ld') {
+              return JSON.stringify(ret);
+            }
+
+            return ret;
+          }
+
+          return target;
+      }
+    };
+
+    return cleanup(entity, 'entity');
+  });

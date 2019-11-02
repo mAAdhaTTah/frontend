@@ -9,4 +9,6 @@ const PostSingle = ({ pageContext }) => {
 export default PostSingle
   |> withSEO(({ pageContext }) => ({
     title: pageContext.post.title,
+    metas: pageContext.post.metas ?? [],
+    schema: pageContext.post.schema ?? '',
   }));
