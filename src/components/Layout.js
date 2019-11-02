@@ -13,6 +13,20 @@ const Layout = ({ path, children }) => (
           <html lang="en" />
           <meta name="description" content={site.description} />
           <meta charSet="utf-8" />
+          <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+          <link rel="dns-prefetch" href="//jamesdigioia.s3.amazonaws.com" />
+          <link
+            rel="alternate"
+            type="application/json"
+            title="James DiGioia &raquo; JSON Feed"
+            href="https://jamesdigioia.com/feed/json/"
+          />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="James DiGioia Feed"
+            href="https://jamesdigioia.com/feed/"
+          />
         </Helmet>
         <Header
           title={site.name}
