@@ -20,6 +20,8 @@ const GetPages = `
   ${PageTemplateFragment}
 `;
 
+const blacklist = ['writing', 'home'];
+
 const modify = ({
   results: {
     data: {
@@ -31,7 +33,7 @@ const modify = ({
   },
 }) => ({
   add: edges
-    .filter(({ node }) => node.slug !== 'writing')
+    .filter(({ node }) => !blacklist.includes(node.slug))
     .map(({ node }) => ({
       path: `/${node.slug}/`,
       component: PageTemplate,
