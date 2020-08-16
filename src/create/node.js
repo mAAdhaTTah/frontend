@@ -79,10 +79,15 @@ export const onCreateNode = async ({
   createNodeId,
   reporter,
 }) => {
-  const { createNode, touchNode, createNodeField } = actions;
+  const {
+    createNode,
+    touchNode,
+    createNodeField,
+    createParentChildLink,
+  } = actions;
 
   try {
-    let id, readAt;
+    let id, readAt, childNode;
 
     switch (node.internal.type) {
       case 'PocketArticle':
@@ -94,8 +99,9 @@ export const onCreateNode = async ({
 
         id = createNodeId(`${node.id}-ReadLink-Pocket`);
 
-        await createNode({
+        childNode = {
           id,
+          parent: node.id,
           url: node.url,
           title: node.title,
           excerpt: node.excerpt,
@@ -108,7 +114,7 @@ export const onCreateNode = async ({
               .update(JSON.stringify(node))
               .digest(`hex`),
           },
-        });
+        };
         break;
       case 'wordpress__pf_pf_posted':
         readAt = parse(node.post_date);
@@ -119,8 +125,9 @@ export const onCreateNode = async ({
 
         id = createNodeId(`${node.id}-ReadLink-PFPosted`);
 
-        await createNode({
+        childNode = {
           id,
+          parent: node.id,
           url: node.item_link,
           title: node.post_title,
           excerpt: node.stripped_post_content,
@@ -133,7 +140,7 @@ export const onCreateNode = async ({
               .update(JSON.stringify(node))
               .digest(`hex`),
           },
-        });
+        };
         break;
       case 'wordpress__POST':
         const {
@@ -153,6 +160,8 @@ export const onCreateNode = async ({
         return;
     }
 
+    await createNode(childNode);
+    await createParentChildLink({ parent: node, child: childNode });
     await touchNode({ nodeId: id });
   } catch (e) {
     reporter.panicOnBuild(`Failed to build links`, e);
