@@ -24,5 +24,5 @@ export default PostArchive
     title: `Writing${pageNumber > 1 ? ` | Page ${pageNumber}` : ''}`,
     // @TODO(mAAdhaTTah) fetch from BE
     metas: [],
-    schema: '',
+    schemas: [],
   }));

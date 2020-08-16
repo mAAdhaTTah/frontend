@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import getDisplayName from 'react-display-name';
 import { SiteMeta } from '../components';
 
-const SEO = ({ title, metas, schema, children }) => (
+const SEO = ({ title, metas, schemas, children }) => (
   <>
     <SiteMeta
       render={site => (
@@ -14,14 +14,19 @@ const SEO = ({ title, metas, schema, children }) => (
             {title} | {site.name}
           </title>
           {metas.map((meta, i) => (
+            // One of these will be defined.
             <meta
-              key={i}
+              key={meta.name ?? meta.property}
               name={meta.name ?? undefined}
               property={meta.property ?? undefined}
               content={meta.content}
             />
           ))}
-          <script type="application/ld+json">{schema}</script>
+          {schemas.map(schema => (
+            <script type="application/ld+json" key={schema}>
+              {schema}
+            </script>
+          ))}
         </Helmet>
       )}
     />
@@ -38,7 +43,7 @@ SEO.propTypes = {
       content: PropTypes.string.isRequired,
     })
   ).isRequired,
-  schema: PropTypes.string.isRequired,
+  schemas: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const withSEO = getSEOProps => Component => {

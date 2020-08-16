@@ -36,23 +36,23 @@ export const createSchemaCustomization = ({ actions, schema }) => {
       dayOf: Date! @dateformat
     }`,
     `type wordpress__POST implements Node {
-      yoast_json_ld: String
+      yoast_json_ld: [String]
       yoast_meta: [YoastMeta]
     }`,
     `type wordpress__PAGE implements Node {
-      yoast_json_ld: String
+      yoast_json_ld: [String]
       yoast_meta: [YoastMeta]
     }`,
     `type wordpress__CATEGORY implements Node {
-      yoast_json_ld: String
+      yoast_json_ld: [String]
       yoast_meta: [YoastMeta]
     }`,
     `type wordpress__TAG implements Node {
-      yoast_json_ld: String
+      yoast_json_ld: [String]
       yoast_meta: [YoastMeta]
     }`,
     `type wordpress__wp_media implements Node {
-      yoast_json_ld: String
+      yoast_json_ld: [String]
       yoast_meta: [YoastMeta]
     }`,
     `type YoastMeta {

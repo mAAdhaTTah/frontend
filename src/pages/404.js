@@ -14,5 +14,5 @@ export default NotFoundPage
     // @TODO(mAAdhaTTah) get from... somewhere?
     title: 'Page Not Found',
     metas: [],
-    schema: '',
+    schemas: [],
   }));

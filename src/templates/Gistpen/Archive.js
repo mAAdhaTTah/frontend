@@ -22,5 +22,5 @@ export default GistpenArchive
     title: `Code${pageNumber > 1 ? ` | Page ${pageNumber}` : ''}`,
     // @TODO(mAAdhaTTah) correctly fetch data
     metas: [],
-    schema: '',
+    schemas: [],
   }));

@@ -11,7 +11,7 @@ export const pageQuery = graphql`
         property
         content
       }
-      schema: yoast_json_ld
+      schemas: yoast_json_ld
     }
     site {
       siteMetadata {
@@ -28,5 +28,5 @@ export default Home
       ...meta,
       content: meta.content.replace('Home', data.site.siteMetadata.description),
     })),
-    schema: data.page.schema,
+    schemas: data.page.schemas,
   }));

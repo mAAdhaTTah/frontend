@@ -89,7 +89,7 @@ module.exports = ({ entities }) =>
               ret[newKey] = cleanup(value, newKey);
             }
 
-            if (key === 'yoast_json_ld') {
+            if (key.includes('yoast_json_ld')) {
               return JSON.stringify(ret);
             }
 

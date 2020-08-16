@@ -11,5 +11,5 @@ export default SinglePage
     title: pageContext.page.title,
     // @TODO(mAAdhaTTah) correctly fetch data
     metas: pageContext.page.metas ?? [],
-    schema: pageContext.page.schema ?? '',
+    schemas: pageContext.page.schemas ?? '',
   }));

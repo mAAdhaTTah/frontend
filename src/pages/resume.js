@@ -308,7 +308,7 @@ export const pageQuery = graphql`
         property
         content
       }
-      schema: yoast_json_ld
+      schemas: yoast_json_ld
     }
   }
 `;
@@ -317,5 +317,5 @@ export default Resume
   |> withSEO(({ data }) => ({
     title: 'Resume',
     metas: data.page.metas,
-    schema: data.page.schema,
+    schemas: data.page.schemas,
   }));

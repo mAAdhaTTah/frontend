@@ -11,6 +11,6 @@ export default `
       property
       content
     }
-    schema: yoast_json_ld
+    schemas: yoast_json_ld
   }
 `;

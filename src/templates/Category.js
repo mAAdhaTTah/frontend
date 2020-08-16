@@ -11,5 +11,5 @@ export default SingleCategory
     title: pageContext.category.name,
     // @TODO(mAAdhaTTah) correctly fetch data
     metas: pageContext.category.metas ?? [],
-    schema: pageContext.category.schema ?? '',
+    schemas: pageContext.category.schemas ?? [],
   }));
