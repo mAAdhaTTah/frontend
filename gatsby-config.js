@@ -85,7 +85,6 @@ module.exports = {
         protocol: 'https',
         hostingWPCOM: false,
         useACF: false,
-        perPage: 10,
         includedRoutes: [
           '/wp/v2/posts',
           '/wp/v2/pages',
