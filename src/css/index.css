@@ -72,6 +72,11 @@ body {
   transform: translateY(-50%);
 }
 
+.pin-y-bottom {
+  bottom: 0;
+  transform: translateY(-50%);
+}
+
 .pin-x-center {
   @apply pin-x-50;
   transform: translateX(-50%);

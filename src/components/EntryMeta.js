@@ -13,10 +13,10 @@ const entryMetaClass = cc([
 ]);
 const metaClass = cc(['font-body']);
 
-const EntryMeta = ({ date, dateTime, author }) => (
-  <div className={entryMetaClass}>
+const EntryMeta = ({ className = '', date, dateTime, author }) => (
+  <div className={cc([className, entryMetaClass])}>
     <time className={cc([metaClass, 'published'])} dateTime={dateTime}>
-      Posted: {date}
+      {date}
     </time>
     <Spacer />
     <p className={metaClass}>{author}</p>

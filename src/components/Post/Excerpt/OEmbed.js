@@ -22,7 +22,6 @@ const OEmbed = ({
   return (
     <Article variant="tertiary">
       <header>
-        {/* @TODO(mAAdhaTTah) building the slug here is bad */}
         <LinkedArticleHeader href={meta.audioEmbed || meta.videoEmbed}>
           {useParseHTML(title)}
         </LinkedArticleHeader>

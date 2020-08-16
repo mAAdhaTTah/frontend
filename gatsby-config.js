@@ -49,7 +49,7 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true,
-        develop: true,
+        develop: false,
       },
     },
     {
