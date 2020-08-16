@@ -28,7 +28,7 @@ export default (string, { p = '', h2 = '', h3 = '', a = '' } = {}) =>
               </Link>
             );
           case 'pre':
-            if (node.attribs.class === 'gistpen') {
+            if (node.attribs.class.includes('gistpen')) {
               return (
                 <div className="mb-5">
                   <Snippet

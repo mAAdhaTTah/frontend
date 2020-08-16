@@ -20,7 +20,7 @@ export const Provider = ({ children }) => {
     const head = document.getElementsByTagName('head')[0];
     script.defer = true;
     script.src =
-      'https://jamesdigioia.com/app/plugins/wp-gistpen/assets/js/content.min.js';
+      'https://jamesdigioia.com/app/plugins/wp-gistpen/resources/assets/content.min.js';
 
     script.addEventListener('load', () => {
       mounted && setPrism(window.Prism);
@@ -32,7 +32,8 @@ export const Provider = ({ children }) => {
       mounted = false;
       head.removeChild(script);
     };
-    // We don't need Prism as a dep here.
+    // We don't want Prism as a dep here.
+    // It references itself, causing issues.
     // eslint-disable-next-line
   }, []);
 
@@ -47,7 +48,7 @@ export const Provider = ({ children }) => {
         },
         prism: {
           theme: 'twilight',
-          'line-number': true,
+          'line-numbers': true,
           'show-invisibles': true
         }
       }`}</script>

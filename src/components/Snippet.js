@@ -12,7 +12,10 @@ const Snippet = ({ code, language, filename }) => {
   }, [Prism]);
 
   return (
-    <pre className={cc([`language-${language}`])} data-filename={filename}>
+    <pre
+      className={cc(['line-numbers', `language-${language}`])}
+      data-filename={filename}
+    >
       <code ref={codeRef}>{code}</code>
     </pre>
   );
