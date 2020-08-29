@@ -19,7 +19,9 @@ const StandardFormat = ({
       <header className="relative">
         <MediaImage media={media} />
         <div className="absolute pin-x-center pin-y-bottom w-full bg-etched rounded p-5">
-          <ArticleHeader className="text-black text-center mb-5">{useParseHTML(title)}</ArticleHeader>
+          <ArticleHeader className="text-black text-center mb-5">
+            {useParseHTML(title)}
+          </ArticleHeader>
           <div className="flex justify-center">
             <EntryMeta
               date={date}

@@ -36,7 +36,7 @@ module.exports = ({ entities }) =>
       }
 
       if (numberKeys.includes(key)) {
-        return !target ? null : Number(target);
+        return target == null ? null : Number(target);
       }
 
       switch (key) {

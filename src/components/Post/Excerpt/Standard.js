@@ -33,7 +33,6 @@ const StandardFormat = ({
 }) => (
   <Article>
     <header>
-      {/* @TODO(mAAdhaTTah) building the slug here is bad */}
       <LinkedArticleHeader href={`/${slug}/`}>
         {useParseHTML(title)}
       </LinkedArticleHeader>
