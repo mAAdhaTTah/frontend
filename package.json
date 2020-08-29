@@ -30,7 +30,7 @@
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.2.8",
     "gatsby-source-apiserver": "^2.1.7",
-    "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-source-filesystem": "^2.3.27",
     "gatsby-source-pocket": "^2.3.1",
     "gatsby-source-wordpress": "^3.1.10",
     "gatsby-transformer-json": "^2.4.11",
