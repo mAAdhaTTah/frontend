@@ -42,7 +42,7 @@
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.1.0",
     "prettier": "^1.18.2",
-    "prop-types": "^15.6.2",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-display-name": "^0.2.4",
     "react-dom": "^16.8.1",
