@@ -48,7 +48,7 @@ export const Provider = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <>
@@ -56,13 +56,13 @@ export const Provider = ({ children }) => {
       <Helmet>
         <script>{`window.__GISTPEN_CONTENT__ = ${JSON.stringify({
           globals: {
-            url: 'https://jamesdigioia.com/app/plugins/wp-gistpen/'
+            url: 'https://jamesdigioia.com/app/plugins/wp-gistpen/',
           },
           prism: {
             theme: gistpenSite.prism.theme,
             'line-numbers': gistpenSite.prism.line_numbers,
-            'show-invisibles': gistpenSite.prism.show_invisbles
-          }
+            'show-invisibles': gistpenSite.prism.show_invisbles,
+          },
         })};`}</script>
       </Helmet>
     </>

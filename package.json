@@ -55,9 +55,6 @@
     "tailwindcss": "^0.7.0",
     "typeit": "^6.0.3"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
     "postinstall": "patch-package",
@@ -66,9 +63,5 @@
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "prettier --check \"src/**/*.js\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   }
 }
