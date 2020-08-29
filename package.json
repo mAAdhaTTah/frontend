@@ -13,7 +13,7 @@
     "axios": "^0.19.0",
     "babel-eslint": "^10.0.3",
     "babel-preset-gatsby": "^0.2.0",
-    "classcat": "^3.2.3",
+    "classcat": "^4.1.0",
     "date-fns": "^1.29.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.0.0",
