@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import Helmet from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const Context = createContext(null);
 
@@ -37,21 +38,32 @@ export const Provider = ({ children }) => {
     // eslint-disable-next-line
   }, []);
 
-  // @TODO(mAAdhaTTah) get properties from query
+  const { gistpenSite } = useStaticQuery(graphql`
+    query PrismQuery {
+      gistpenSite {
+        prism {
+          line_numbers
+          show_invisibles
+          theme
+        }
+      }
+    }
+  `)
+
   return (
     <>
       <Context.Provider value={Prism}>{children}</Context.Provider>
       <Helmet>
-        <script>{`window.__GISTPEN_CONTENT__ = {
-        globals: {
-          url: 'https://jamesdigioia.com/app/plugins/wp-gistpen/'
-        },
-        prism: {
-          theme: 'twilight',
-          'line-numbers': true,
-          'show-invisibles': true
-        }
-      }`}</script>
+        <script>{`window.__GISTPEN_CONTENT__ = ${JSON.stringify({
+          globals: {
+            url: 'https://jamesdigioia.com/app/plugins/wp-gistpen/'
+          },
+          prism: {
+            theme: gistpenSite.prism.theme,
+            'line-numbers': gistpenSite.prism.line_numbers,
+            'show-invisibles': gistpenSite.prism.show_invisbles
+          }
+        })};`}</script>
       </Helmet>
     </>
   );

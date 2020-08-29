@@ -3,10 +3,11 @@ require('dotenv').config({
   path: `.env`,
 });
 const normalizer = require('./src/normalizer');
-const tailwindConfig = require('./tailwind');
 
 const {
   WP_API_DOMAIN = 'jamesdigioia.com',
+  WP_API_USERNAME,
+  WP_API_PASSWORD,
   POCKET_CONSUMER_KEY,
   POCKET_ACCESS_TOKEN,
 } = process.env;
@@ -99,27 +100,21 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-apiserver',
+      options: {
+        url: `https://${WP_API_DOMAIN}/wp-json/intraxia/v1/gistpen/site`,
+        name: "gistpenSite",
+        auth: {
+          username: WP_API_USERNAME,
+          password: WP_API_PASSWORD
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: ['Ovo', 'Muli'],
       },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: wpMeta.name,
-        short_name: wpMeta.name,
-        start_url: `/`,
-        background_color: tailwindConfig.colors.primary,
-        theme_color: tailwindConfig.colors.darkg,
-        display: `standalone`,
-        // @TODO(mAAdhaTTah) get from BE
-        icon: `src/images/avatar.jpg`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {},
-    },
+    }
   ],
 };
