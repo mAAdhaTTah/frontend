@@ -1,11 +1,17 @@
-const { startOfDay, parse, subDays, isBefore } = require('date-fns');
-const crypto = require('crypto');
+import { startOfDay, parse, subDays, isBefore } from 'date-fns';
+import crypto from 'crypto';
+import axios from 'axios';
 
 // @TODO(mAAdhaTTah) include all and paginate
 const earliest = startOfDay(subDays(new Date(), 7));
 const isIncluded = readAt => isBefore(earliest, readAt);
 
-exports.sourceNodes = async ({ node, actions, createNodeId, reporter }) => {
+export const sourceNodes = async ({
+  node,
+  actions,
+  createNodeId,
+  reporter,
+}) => {
   const { createNode, touchNode } = actions;
   const today = startOfDay(new Date());
   const days = [today];
@@ -39,11 +45,49 @@ exports.sourceNodes = async ({ node, actions, createNodeId, reporter }) => {
   }
 };
 
-exports.onCreateNode = async ({ node, actions, createNodeId, reporter }) => {
-  const { createNode, touchNode } = actions;
+const getOembed = async (linkUrl, reporter) => {
+  try {
+    const {
+      WP_API_DOMAIN = 'jamesdigioia.com',
+      WP_API_USERNAME,
+      WP_API_PASSWORD,
+    } = process.env;
+    const { data } = await axios.get(
+      `https://${WP_API_DOMAIN}/wp-json/oembed/1.0/proxy?url=${encodeURIComponent(
+        linkUrl
+      )}`,
+      {
+        headers: {
+          Authorization: `Basic ${Buffer.from(
+            `${WP_API_USERNAME}:${WP_API_PASSWORD}`,
+            'binary'
+          ).toString('base64')}`,
+        },
+      }
+    );
+
+    return data;
+  } catch (e) {
+    reporter.error(`Request failed for ${linkUrl}`, e);
+    return null;
+  }
+};
+
+export const onCreateNode = async ({
+  node,
+  actions,
+  createNodeId,
+  reporter,
+}) => {
+  const {
+    createNode,
+    touchNode,
+    createNodeField,
+    createParentChildLink,
+  } = actions;
 
   try {
-    let id, readAt;
+    let id, readAt, childNode;
 
     switch (node.internal.type) {
       case 'PocketArticle':
@@ -55,8 +99,9 @@ exports.onCreateNode = async ({ node, actions, createNodeId, reporter }) => {
 
         id = createNodeId(`${node.id}-ReadLink-Pocket`);
 
-        await createNode({
+        childNode = {
           id,
+          parent: node.id,
           url: node.url,
           title: node.title,
           excerpt: node.excerpt,
@@ -69,7 +114,7 @@ exports.onCreateNode = async ({ node, actions, createNodeId, reporter }) => {
               .update(JSON.stringify(node))
               .digest(`hex`),
           },
-        });
+        };
         break;
       case 'wordpress__pf_pf_posted':
         readAt = parse(node.post_date);
@@ -80,8 +125,9 @@ exports.onCreateNode = async ({ node, actions, createNodeId, reporter }) => {
 
         id = createNodeId(`${node.id}-ReadLink-PFPosted`);
 
-        await createNode({
+        childNode = {
           id,
+          parent: node.id,
           url: node.item_link,
           title: node.post_title,
           excerpt: node.stripped_post_content,
@@ -94,13 +140,29 @@ exports.onCreateNode = async ({ node, actions, createNodeId, reporter }) => {
               .update(JSON.stringify(node))
               .digest(`hex`),
           },
-        });
+        };
         break;
+      case 'wordpress__POST':
+        const {
+          _format_audio_embed: audioUrl,
+          _format_video_embed: videoUrl,
+        } = node.meta;
+
+        const name = 'oembed';
+        const value = {
+          audio: audioUrl ? await getOembed(audioUrl, reporter) : null,
+          video: videoUrl ? await getOembed(videoUrl, reporter) : null,
+        };
+
+        createNodeField({ node, name, value });
+        return;
+      default:
+        return;
     }
 
-    if (id != null) {
-      await touchNode({ nodeId: id });
-    }
+    await createNode(childNode);
+    await createParentChildLink({ parent: node, child: childNode });
+    await touchNode({ nodeId: id });
   } catch (e) {
     reporter.panicOnBuild(`Failed to build links`, e);
   }

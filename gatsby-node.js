@@ -3,7 +3,16 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+require = require('esm')(module);
+const create = require(`./src/create`);
 
-exports.sourceNodes = require('./src/create/node').sourceNodes;
-exports.onCreateNode = require('./src/create/node').onCreateNode;
-exports.createSchemaCustomization = require('./src/create/schema').createSchemaCustomization;
+exports.createSchemaCustomization = create.createSchemaCustomization;
+exports.sourceNodes = create.sourceNodes;
+exports.createPages = async args => {
+  await create.posts(args);
+  await create.pages(args);
+  await create.categories(args);
+  await create.tags(args);
+  await create.gistpens(args);
+};
+exports.onCreateNode = create.onCreateNode;

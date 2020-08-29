@@ -12,20 +12,6 @@ we've done our very best to explain each section.
 
 View the full documentation at https://tailwindcss.com.
 
-
-|-------------------------------------------------------------------------------
-| The default config
-|-------------------------------------------------------------------------------
-|
-| This variable contains the default Tailwind config. You don't have
-| to use it, but it can sometimes be helpful to have available. For
-| example, you may choose to merge your custom configuration
-| values with some of the Tailwind defaults.
-|
-*/
-
-let defaultConfig = require('tailwindcss/defaultConfig')();
-
 /*
 |-------------------------------------------------------------------------------
 | Colors                                    https://tailwindcss.com/docs/colors
@@ -43,12 +29,13 @@ let defaultConfig = require('tailwindcss/defaultConfig')();
 */
 
 let colors = {
-  transparent: 'transparent',
-  'primary-color': '#FFF3C9',
-  'secondary-color': '#DBD1AD',
-  'accent-dark': '#24331E',
-  'accent-light': '#78af52',
-  'font-color-dark': '#000',
+  etched: 'hsla(0, 0%, 100%, .35)',
+  primary: '#FFF3C9',
+  secondary: '#DBD1AD',
+  tertiary: '#D0C394',
+  darkg: '#24331E',
+  lightg: '#78af52',
+  black: '#000',
 };
 
 module.exports = {
@@ -87,9 +74,12 @@ module.exports = {
   */
 
   screens: {
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
+    sm: '320px',
+    md: '576px',
+    lg: '768px',
+    xl: '992px',
+    '2xl': '1120px',
+    print: { raw: 'print' },
   },
 
   /*
@@ -111,8 +101,8 @@ module.exports = {
   */
 
   fonts: {
-    header: ['Roboto'],
-    body: ['Lora'],
+    header: ['Muli'],
+    body: ['Ovo'],
   },
 
   /*
@@ -316,9 +306,9 @@ module.exports = {
 
   borderRadius: {
     none: '0',
-    sm: '.125rem',
-    default: '.25rem',
-    lg: '.5rem',
+    sm: '.25rem',
+    default: '.5rem',
+    lg: '2rem',
     full: '9999px',
   },
 
@@ -406,6 +396,8 @@ module.exports = {
     '32': '8rem',
     '48': '12rem',
     '64': '16rem',
+    '72': '18rem',
+    '80': '20rem',
     full: '100%',
     screen: '100vh',
   },
@@ -475,6 +467,7 @@ module.exports = {
     '4xl': '90rem',
     '5xl': '100rem',
     full: '100%',
+    content: 'fit-content',
   },
 
   /*

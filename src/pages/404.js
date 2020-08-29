@@ -1,11 +1,18 @@
 import React from 'react';
-import { Layout } from '../components';
+import { withSEO } from '../decorators';
+import { Main } from '../components';
 
 const NotFoundPage = () => (
-  <Layout>
+  <Main>
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
+  </Main>
 );
 
-export default NotFoundPage;
+export default NotFoundPage
+  |> withSEO(() => ({
+    // @TODO(mAAdhaTTah) get from... somewhere?
+    title: 'Page Not Found',
+    metas: [],
+    schemas: [],
+  }));

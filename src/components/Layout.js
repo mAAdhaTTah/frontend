@@ -2,45 +2,45 @@ import '../css/index.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
 import Header from './Header';
+import SiteMeta from './SiteMeta';
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
+const Layout = ({ path, children }) => (
+  <SiteMeta
+    render={site => (
       <>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {
-              name: 'description',
-              content: data.site.siteMetadata.description,
-            },
-            { name: 'keywords', content: data.site.siteMetadata.keywords },
-          ]}
-        >
+        <Helmet>
           <html lang="en" />
+          <meta name="description" content={site.description} />
+          <meta charSet="utf-8" />
+          <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+          <link rel="dns-prefetch" href="//jamesdigioia.s3.amazonaws.com" />
+          <link
+            rel="alternate"
+            type="application/json"
+            title="James DiGioia &raquo; JSON Feed"
+            href="https://jamesdigioia.com/feed/json/"
+          />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="James DiGioia Feed"
+            href="https://jamesdigioia.com/feed/"
+          />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div className="bg-primary-color">
-          <div className="container mx-auto">{children}</div>
-        </div>
+        <Header
+          title={site.name}
+          description={site.description}
+          fullScreen={path === '/'}
+        />
+        {children}
       </>
     )}
   />
 );
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default Layout;

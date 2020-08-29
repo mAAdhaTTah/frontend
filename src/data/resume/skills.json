@@ -1,0 +1,46 @@
+[
+  {
+    "name": "JavaScript",
+    "keywords": ["TypeScript", "ES6"]
+  },
+  {
+    "name": "Modern Frameworks",
+    "keywords": ["React.js", "Redux", "Vue"]
+  },
+  {
+    "name": "Functional, Reactive",
+    "keywords": ["RxJS", "Kefir", "Ramda"]
+  },
+  {
+    "name": "Build Tools",
+    "keywords": ["Webpack", "babel", "Grunt", "Gulp", "Rollup", "Browserify"]
+  },
+  {
+    "name": "CSS",
+    "keywords": [
+      "SASS",
+      "LESS",
+      "PostCSS",
+      "CSS Modules",
+      "TailwindCSS",
+      "styled-components",
+      "Bootstrap"
+    ]
+  },
+  {
+    "name": "Testing",
+    "keywords": ["Jest", "Mocha", "Chai", "Sinon", "Storybook", "Cypress"]
+  },
+  {
+    "name": "PHP",
+    "keywords": ["WordPress", "Laravel"]
+  },
+  {
+    "name": "Python",
+    "keywords": ["Flask", "SQLAlchemy", "Marshmallow"]
+  },
+  {
+    "name": "DevOps",
+    "keywords": ["Ansible", "Vagrant", "Docker", "PostgreSQL"]
+  }
+]

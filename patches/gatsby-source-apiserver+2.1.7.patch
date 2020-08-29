@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby-source-apiserver/normalize.js b/node_modules/gatsby-source-apiserver/normalize.js
+index b9f1ab7..d2b5ae1 100644
+--- a/node_modules/gatsby-source-apiserver/normalize.js
++++ b/node_modules/gatsby-source-apiserver/normalize.js
+@@ -72,7 +72,7 @@ exports.createNodesFromEntities = ({ entities, entityType, schemaType, devRefres
+       children: [],
+       internal: {
+         type: __type,
+-        mediaType: 'application/json',
++        mediaType: 'text/plain',
+         contentDigest: digest(JSON.stringify(entity))
+       }
+     });
