@@ -11,5 +11,5 @@ export default GistpenSingle
     title: pageContext.post.description,
     // @TODO(mAAdhaTTah) correctly fetch data
     metas: pageContext.post.metas ?? [],
-    schemas: pageContext.post.schemas ?? '',
+    schemas: pageContext.post.schemas ?? [],
   }));

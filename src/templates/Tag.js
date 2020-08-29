@@ -11,5 +11,5 @@ export default SingleTag
     title: pageContext.tag.name,
     // @TODO(mAAdhaTTah) correctly fetch data
     metas: pageContext.tag.metas ?? [],
-    schemas: pageContext.tag.schemas ?? '',
+    schemas: pageContext.tag.schemas ?? [],
   }));
