@@ -26,13 +26,10 @@ jobs:
     - name: Cache build cache
       uses: actions/cache@v2
       with:
-        path: .cache
+        path: |
+          .cache
+          public
         key: v1-build-cache
-    - name: Cache public output
-      uses: actions/cache@v2
-      with:
-        path: public
-        key: v1-build-public
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
