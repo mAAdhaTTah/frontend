@@ -45,7 +45,15 @@ export default (string, { p = '', h2 = '', h3 = '', a = '' } = {}) =>
             return;
           case 'ul':
             return (
-              <ul className="mb-5">{domToReact(node.children, options)}</ul>
+              <ul className="list-disc pl-4 mb-5">
+                {domToReact(node.children, options)}
+              </ul>
+            );
+          case 'ol':
+            return (
+              <ol className="list-decimal pl-4 mb-5">
+                {domToReact(node.children, options)}
+              </ol>
             );
           case 'li':
             return (

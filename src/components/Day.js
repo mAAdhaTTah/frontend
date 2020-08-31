@@ -29,7 +29,7 @@ ReadLink.propTypes = {
 const Day = ({ day, links }) => (
   <div className="max-w-md mx-auto">
     <h2 className="font-header py-3 text-2xl px-3">Day of {day}</h2>
-    <ul className="font-body list-reset">
+    <ul className="font-body">
       {links.map(link => (
         <ReadLink key={link.id} {...link} />
       ))}

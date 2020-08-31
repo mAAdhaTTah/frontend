@@ -5,7 +5,7 @@
  * You can see the styles here:
  * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
  */
-@import 'tailwindcss/preflight';
+@import 'tailwindcss/base';
 
 /**
  * This injects any component classes registered by plugins.
@@ -36,14 +36,8 @@ body {
 }
 
 @for $i from 1 to 6 {
-  .max-h-$i {
-    /* TODO(James) use config values */
-    max-height: $i * 1.15rem;
-  }
-
   .pin-b-$i {
-    /* TODO(James) use config values */
-    bottom: $i * 1em * 1.25;
+    bottom: $i * 1em * theme('line-height.tight');
   }
 
   .basis-$i {

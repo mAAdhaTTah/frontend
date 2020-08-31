@@ -126,7 +126,16 @@ const Header = ({ title, description, fullScreen }) => {
                 {title}
               </div>
             )}
-            <div className={cc(['text-xl', 'md:text-3xl', 'mb-3'])}>
+            <div
+              className={cc([
+                'text-xl',
+                'md:text-3xl',
+                'mb-3',
+                'flex',
+                'flex-row',
+                'align-center',
+              ])}
+            >
               <SocialIcon
                 icon={<FaFacebook />}
                 color="#3b5998"

@@ -56,7 +56,7 @@ const Experience = ({ experiences }) => (
                   {format(start, 'MMMM YYYY')} to{' '}
                   {end ? format(end, 'MMMM YYYY') : 'Present'}
                 </div>
-                <ul className="pl-5">
+                <ul className="list-disc pl-5">
                   {responsibilities.map((text, key) => (
                     <ExpLi key={key}>{text}</ExpLi>
                   ))}
@@ -70,15 +70,15 @@ const Experience = ({ experiences }) => (
   </div>
 );
 
-const SidebarUl = ({ children }) => (
-  <ul className="list-reset pl-1">{children}</ul>
-);
+const SidebarUl = ({ children }) => <ul className="pl-1">{children}</ul>;
 
 const SidebarLi = ({ children, className }) => (
   <li className={cc([sidebarLiClass, className])}>{children}</li>
 );
 
-const SidebarSubUl = ({ children }) => <ul className="pl-5">{children}</ul>;
+const SidebarSubUl = ({ children }) => (
+  <ul className="list-disc pl-5">{children}</ul>
+);
 
 const SidebarSubLi = ({ children }) => (
   <li className={sidebarSubLiClass}>{children}</li>
