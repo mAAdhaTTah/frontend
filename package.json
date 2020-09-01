@@ -19,7 +19,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "^5.0.2",
     "eslint-loader": "^3.0.2",
-    "eslint-plugin-react-hooks": "^2.2.0",
+    "eslint-plugin-react-hooks": "^4.1.0",
     "esm": "^3.2.25",
     "gatsby": "^2.24.52",
     "gatsby-image": "^2.4.16",
