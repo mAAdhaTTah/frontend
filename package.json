@@ -44,7 +44,7 @@
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-display-name": "^0.2.4",
+    "react-display-name": "^0.2.5",
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.11.0",
