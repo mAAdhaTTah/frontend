@@ -5,41 +5,44 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Cache node modules
-      uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: v1-npm-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          v1-npm-
-    - name: Cache build cache
-      uses: actions/cache@v2
-      with:
-        path: |
-          .cache
-          public
-        key: v1-build-cache
-    - name: Setup Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - run: npm ci
-    - run: npm test
-    - run: npm run build
-      env:
-        POCKET_ACCESS_TOKEN: ${{ secrets.POCKET_ACCESS_TOKEN }}
-        POCKET_CONSUMER_KEY: ${{ secrets.POCKET_CONSUMER_KEY }}
-        WP_API_DOMAIN: ${{ secrets.WP_API_DOMAIN }}
-        WP_API_USERNAME: ${{ secrets.WP_API_USERNAME }}
-        WP_API_PASSWORD: ${{ secrets.WP_API_PASSWORD }}
+      - uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: v1-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            v1-npm-
+      - name: Cache build cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            .cache
+            public
+          key: v1-build-cache-${{ hashFiles('gatsby-config.js') }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            v1-build-cache-${{ hashFiles('gatsby-config.js') }}
+            v1-build-cache-
+            v1-build-cache
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+        env:
+          POCKET_ACCESS_TOKEN: ${{ secrets.POCKET_ACCESS_TOKEN }}
+          POCKET_CONSUMER_KEY: ${{ secrets.POCKET_CONSUMER_KEY }}
+          WP_API_DOMAIN: ${{ secrets.WP_API_DOMAIN }}
+          WP_API_USERNAME: ${{ secrets.WP_API_USERNAME }}
+          WP_API_PASSWORD: ${{ secrets.WP_API_PASSWORD }}
