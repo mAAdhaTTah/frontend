@@ -6,6 +6,7 @@ const entryMetaClass = cc([
   'entry-meta',
   'my-2',
   'flex',
+  'items-center',
   'rounded',
   'bg-secondary',
   'p-3',
