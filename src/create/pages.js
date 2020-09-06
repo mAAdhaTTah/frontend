@@ -20,7 +20,7 @@ const GetPages = `
   ${PageTemplateFragment}
 `;
 
-const blacklist = ['writing', 'home', 'reading'];
+const blacklist = ['writing', 'home', 'reading', 'resume'];
 
 const modify = ({
   results: {
