@@ -103,10 +103,10 @@ module.exports = {
       resolve: 'gatsby-source-apiserver',
       options: {
         url: `https://${WP_API_DOMAIN}/wp-json/intraxia/v1/gistpen/site`,
-        name: "gistpenSite",
+        name: 'gistpenSite',
         auth: {
           username: WP_API_USERNAME,
-          password: WP_API_PASSWORD
+          password: WP_API_PASSWORD,
         },
       },
     },
@@ -115,6 +115,6 @@ module.exports = {
       options: {
         fonts: ['Ovo', 'Muli'],
       },
-    }
+    },
   ],
 };
