@@ -6,8 +6,8 @@ import { useTransition, animated } from 'react-spring';
 import Header from './Header';
 import SiteMeta from './SiteMeta';
 
-const Layout = ({ path, children }) => {
-  const transitions = useTransition(children, () => path, {
+const Layout = ({ location, children }) => {
+  const transitions = useTransition(children, () => location.pathname, {
     from: { position: 'absolute', width: '100%', opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -40,7 +40,7 @@ const Layout = ({ path, children }) => {
           <Header
             title={site.name}
             description={site.description}
-            fullScreen={path === '/'}
+            fullScreen={location.pathname === '/'}
           />
           {transitions.map(({ item, key, props }) => (
             <animated.div key={key} style={props}>
