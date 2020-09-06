@@ -4,7 +4,8 @@ export default `
     description
     status
     slug
-    created: created_at(formatString: "MMMM Do, YYYY")
+    date: created_at(formatString: "MMMM Do, YYYY")
+    dateTime: created_at
     blobs {
       id: wordpress_id
       raw_url
