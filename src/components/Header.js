@@ -97,7 +97,7 @@ const Header = ({ title, description, fullScreen }) => {
           'items-center',
           'justify-center',
           'w-full',
-          'max-w-content',
+          'max-w-sm-md',
           'pin-center',
           'm-auto',
           '-mt-8',
@@ -113,10 +113,10 @@ const Header = ({ title, description, fullScreen }) => {
             { 'h-48': !fullScreen },
           ])}
         >
-          <div className="w-48 rounded-full overflow-hidden hidden lg:block">
+          <div className="w-64 rounded-full overflow-hidden hidden lg:block">
             <AvatarImage />
           </div>
-          <div className={cc(['font-header', 'ml-5', 'w-full', 'lg:w-auto'])}>
+          <div className={cc(['font-header', 'ml-5', 'w-full'])}>
             {fullScreen ? (
               <h1 className={titleClassName} ref={titleRef}>
                 {title}
