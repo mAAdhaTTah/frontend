@@ -26,7 +26,7 @@ const Image = ({
           author={author.name}
         />
       </header>
-      <MediaImage media={media} />
+      {media && <MediaImage media={media} />}
 
       {useParseHTML(content, {
         p: 'text-primary',
