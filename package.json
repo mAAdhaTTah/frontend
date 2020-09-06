@@ -46,7 +46,7 @@
     "react": "^16.13.1",
     "react-display-name": "^0.2.4",
     "react-dom": "^16.8.1",
-    "react-helmet": "^5.2.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^3.11.0",
     "react-oembed-container": "^1.0.0",
     "react-spring": "^8.0.27",

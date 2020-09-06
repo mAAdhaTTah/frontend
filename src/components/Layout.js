@@ -1,7 +1,7 @@
 import '../css/index.css';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { useTransition, animated } from 'react-spring';
 import Header from './Header';
 import SiteMeta from './SiteMeta';
