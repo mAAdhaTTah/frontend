@@ -14,7 +14,7 @@
     "babel-eslint": "^10.1.0",
     "babel-preset-gatsby": "^0.5.8",
     "classcat": "^4.1.0",
-    "date-fns": "^1.29.0",
+    "date-fns": "^2.16.1",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "^5.2.1",
