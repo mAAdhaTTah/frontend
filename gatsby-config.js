@@ -77,6 +77,7 @@ module.exports = {
         useACF: false,
         includedRoutes: ['/pf/v1/stats/pf_posted'],
         normalizer,
+        minimizeDeprecationNotice: true,
       },
     },
     {
@@ -97,6 +98,7 @@ module.exports = {
           '/intraxia/v1/gistpen/repos',
         ],
         normalizer,
+        minimizeDeprecationNotice: true,
       },
     },
     {
