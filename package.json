@@ -34,7 +34,7 @@
     "gatsby-source-pocket": "^2.3.1",
     "gatsby-source-wordpress": "^3.3.31",
     "gatsby-transformer-json": "^2.4.11",
-    "gatsby-transformer-sharp": "^2.2.4",
+    "gatsby-transformer-sharp": "^2.5.14",
     "html-react-parser": "^0.9.1",
     "patch-package": "^6.2.2",
     "postcss-arithmetic": "0.0.4",
