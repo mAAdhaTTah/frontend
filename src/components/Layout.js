@@ -36,6 +36,21 @@ const Layout = ({ location, children }) => {
               title="James DiGioia Feed"
               href="https://jamesdigioia.com/feed/"
             />
+            {/* @TODO(James) get from API */}
+            <link
+              rel="icon"
+              href="https://jamesdigioia.s3.amazonaws.com/uploads/2014/07/cropped-new-avatar-90x90.jpg"
+              sizes="32x32"
+            />
+            <link
+              rel="icon"
+              href="https://jamesdigioia.s3.amazonaws.com/uploads/2014/07/cropped-new-avatar.jpg"
+              sizes="192x192"
+            />
+            <link
+              rel="apple-touch-icon"
+              href="https://jamesdigioia.s3.amazonaws.com/uploads/2014/07/cropped-new-avatar.jpg"
+            />
           </Helmet>
           <Header
             title={site.name}
