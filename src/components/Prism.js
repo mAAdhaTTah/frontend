@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
 
 const Context = createContext(null);
 
@@ -38,18 +37,6 @@ export const Provider = ({ children }) => {
     // eslint-disable-next-line
   }, []);
 
-  const { gistpenSite } = useStaticQuery(graphql`
-    query PrismQuery {
-      gistpenSite {
-        prism {
-          line_numbers
-          show_invisibles
-          theme
-        }
-      }
-    }
-  `);
-
   return (
     <>
       <Context.Provider value={Prism}>{children}</Context.Provider>
@@ -59,9 +46,9 @@ export const Provider = ({ children }) => {
             url: 'https://jamesdigioia.com/app/plugins/wp-gistpen/',
           },
           prism: {
-            theme: gistpenSite.prism.theme,
-            'line-numbers': gistpenSite.prism.line_numbers,
-            'show-invisibles': gistpenSite.prism.show_invisbles,
+            theme: 'twilight', // gistpenSite.prism.theme,
+            'line-numbers': true, // gistpenSite.prism.line_numbers,
+            'show-invisibles': true, // gistpenSite.prism.show_invisbles,
           },
         })};`}</script>
       </Helmet>

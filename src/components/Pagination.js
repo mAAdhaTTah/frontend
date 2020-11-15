@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import cc from 'classcat';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 
@@ -24,20 +23,20 @@ const pageClass = cc([
 const Pagination = ({ pageNumber, hasNextPage, slug }) => (
   <div className={paginationClass}>
     {pageNumber > 1 && (
-      <Link
-        to={`/${slug}/${pageNumber !== 2 ? `page/${pageNumber - 1}` : ''}`}
+      <a
+        href={`/${slug}/${pageNumber !== 2 ? `page/${pageNumber - 1}` : ''}`}
         className={cc([pageClass, 'float-left'])}
       >
         <FaLongArrowAltLeft className="mr-3" /> Previous
-      </Link>
+      </a>
     )}
     {hasNextPage && (
-      <Link
-        to={`/${slug}/page/${pageNumber + 1}/`}
+      <a
+        href={`/${slug}/page/${pageNumber + 1}/`}
         className={cc([pageClass, 'float-right'])}
       >
         Next <FaLongArrowAltRight className="ml-3" />
-      </Link>
+      </a>
     )}
   </div>
 );

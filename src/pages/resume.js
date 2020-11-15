@@ -1,6 +1,5 @@
 import React from 'react';
 import cc from 'classcat';
-import { graphql } from 'gatsby';
 import { format } from 'date-fns';
 import { withSEO } from '../decorators';
 import { Main } from '../components';
@@ -275,43 +274,6 @@ const Resume = ({ data }) => (
     </div>
   </Main>
 );
-
-export const pageQuery = graphql`
-  query ResumeQuery {
-    allExperienceJson {
-      edges {
-        node {
-          companyName
-          description
-          positions {
-            title
-            start
-            end
-            responsibilities
-          }
-        }
-      }
-    }
-
-    allSkillsJson {
-      edges {
-        node {
-          name
-          keywords
-        }
-      }
-    }
-
-    page: wordpressPage(wordpress_id: { eq: 5943 }) {
-      metas: yoast_meta {
-        name
-        property
-        content
-      }
-      schemas: yoast_json_ld
-    }
-  }
-`;
 
 export default Resume
   |> withSEO(({ data }) => ({

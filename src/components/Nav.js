@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import cc from 'classcat';
 
 const headerClass = cc([
@@ -13,9 +12,9 @@ const headerClass = cc([
 ]);
 
 const HeaderLink = ({ to, children }) => (
-  <Link to={to} className={headerClass} activeClassName="bg-tertiary">
+  <a href={to} className={headerClass} activeClassName="bg-tertiary">
     {children}
-  </Link>
+  </a>
 );
 
 const navClass = cc(['bg-secondary', 'h-16']);

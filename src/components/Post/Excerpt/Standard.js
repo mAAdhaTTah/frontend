@@ -1,6 +1,5 @@
 import React from 'react';
 import cc from 'classcat';
-import { Link } from 'gatsby';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { useParseHTML, useStripHTML } from '../../../hooks';
 import { LinkedArticleHeader, Body } from '../../typography';
@@ -46,9 +45,9 @@ const StandardFormat = ({
 
     <Body component="span">
       {useStripHTML(excerpt)} &#8230;
-      <Link to={`/${slug}/`} className={linkClass}>
+      <a href={`/${slug}/`} className={linkClass}>
         Read more <FaLongArrowAltRight className={iconClass} />
-      </Link>
+      </a>
     </Body>
   </Article>
 );
