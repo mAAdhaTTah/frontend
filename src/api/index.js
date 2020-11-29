@@ -32,6 +32,61 @@ export const getSeoByPageId = async pageId => {
   };
 };
 
+const SLUG_BLACKLIST = ['writing', 'home', 'reading', 'resume'];
+
+export const isAllowedSlug = slug => !SLUG_BLACKLIST.includes(slug);
+
+export const getPageSlugs = async () => {
+  const { data: pages } = await client.get(
+    `https://${shared.WP_API_DOMAIN}/wp-json/wp/v2/pages`,
+    {
+      data: {
+        posts_per_page: 100,
+      },
+    },
+  );
+
+  return pages
+    .filter(({ slug }) => isAllowedSlug(slug))
+    .map(({ slug }) => ({
+      params: {
+        slug,
+        type: 'page',
+      },
+    }));
+};
+
+/**
+ * @param {string} slug  Post or page slug.
+ * @param {'post' | 'page'} type Type of slug to retrieve.
+ */
+export const getContextBySlug = async (slug, type) => {
+  const { data } = await client.get(
+    `https://${shared.WP_API_DOMAIN}/wp-json/wp/v2/${type}s`,
+    {
+      params: { slug },
+    },
+  );
+
+  if (data.length !== 1) {
+    throw new Error(`Expected to get one result, got ${data.length} results.`);
+  }
+
+  const [obj] = data;
+
+  return {
+    data: {
+      title: obj.title.rendered,
+      content: obj.content.rendered,
+    },
+    seo: {
+      title: obj.title.rendered,
+      metas: obj.yoast_meta,
+      schemas: obj.yoast_json_ld,
+    },
+  };
+};
+
 export const getResume = async () => {
   const experiences = JSON.parse(
     await fs.promises.readFile(

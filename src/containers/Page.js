@@ -1,18 +1,14 @@
 import React from 'react';
 import { useParseHTML } from '../hooks';
-import { ArticleHeader } from './typography';
-import Article from './Article';
+import { ArticleHeader, Article } from '../components';
 
-const Page = ({ title, author, content, media }) => {
+export const Page = ({ title, content }) => {
   return (
     <Article>
       <header className="mb-5">
         <ArticleHeader>{useParseHTML(title)}</ArticleHeader>
       </header>
-      {media && <img src={media.url} alt={media.alt} />}
       {useParseHTML(content)}
     </Article>
   );
 };
-
-export default Page;
