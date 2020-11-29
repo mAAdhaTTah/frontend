@@ -12,8 +12,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default withSEO(({ seo }) => ({
-  title: seo.title,
-  metas: seo.metas,
-  schemas: seo.schemas,
-}))(Home);
+export default withSEO()(Home);

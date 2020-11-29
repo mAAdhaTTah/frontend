@@ -38,7 +38,13 @@ SEO.propTypes = {
   schemas: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-const withSEO = getSEOProps => Component => {
+const defaultGetSEOProps = ({ seo }) => ({
+  title: seo.title,
+  metas: seo.metas,
+  schemas: seo.schemas,
+});
+
+const withSEO = (getSEOProps = defaultGetSEOProps) => Component => {
   const WithSEO = props => {
     return (
       <SEO {...getSEOProps(props)}>
