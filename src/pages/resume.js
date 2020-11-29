@@ -1,8 +1,12 @@
+import fs from 'fs';
+import path from 'path';
 import React from 'react';
 import cc from 'classcat';
 import { format } from 'date-fns';
 import { withSEO } from '../decorators';
 import { Main } from '../components';
+import { getLayoutProps } from '../api';
+import { shared } from '../config';
 
 const h1Class = cc([
   'font-header',
@@ -41,7 +45,7 @@ const ExpLi = ({ children }) => <li className={expLiClass}>{children}</li>;
 const Experience = ({ experiences }) => (
   <div className="mx-auto">
     <h3 className={expH3Class}>Experience</h3>
-    {experiences.edges.map(({ node }, key) => (
+    {experiences.map((node, key) => (
       <div className="mb-3" key={key}>
         <div className="mb-2">
           <h4 className={expH4Class}>
@@ -235,7 +239,7 @@ const Sidebar = ({ skills }) => (
     <SidebarItem>
       <SidebarH3>Skills</SidebarH3>
       <SidebarUl>
-        {skills.edges.map(({ node }, key) => (
+        {skills.map((node, key) => (
           <SidebarLi
             key={key}
             className={cc(['print:py-0', 'print:ml-1', 'print:inline'])}
@@ -252,7 +256,7 @@ const Sidebar = ({ skills }) => (
   </div>
 );
 
-const Resume = ({ data }) => (
+const Resume = ({ skills, experiences }) => (
   <Main>
     <div className="bg-primary text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
@@ -265,19 +269,51 @@ const Resume = ({ data }) => (
       </div>
       <div className="mx-auto px-4 print:mx-2 flex max-w-2xl flex-col lg:flex-row print:flex-row pb-2">
         <div className="flex-grow basis-100">
-          <Experience experiences={data.allExperienceJson} />
+          <Experience experiences={experiences} />
         </div>
         <div className="flex-shrink basis-3 lg:mx-3">
-          <Sidebar skills={data.allSkillsJson} />
+          <Sidebar skills={skills} />
         </div>
       </div>
     </div>
   </Main>
 );
 
-export default Resume
-  |> withSEO(({ data }) => ({
-    title: 'Resume',
-    metas: data.page.metas,
-    schemas: data.page.schemas,
-  }));
+export const getStaticProps = async () => {
+  const response = await fetch(
+    `https://${shared.WP_API_DOMAIN}/wp-json/wp/v2/pages/5943`,
+  );
+  const seo = await response.json();
+
+  const experiences = JSON.parse(
+    await fs.promises.readFile(
+      path.join(process.cwd(), 'src', 'data', 'resume', 'experience.json'),
+      'utf-8',
+    ),
+  );
+  const skills = JSON.parse(
+    await fs.promises.readFile(
+      path.join(process.cwd(), 'src', 'data', 'resume', 'skills.json'),
+      'utf-8',
+    ),
+  );
+
+  return {
+    props: {
+      layout: await getLayoutProps(),
+      seo: {
+        title: seo.title.rendered,
+        metas: seo.yoast_meta,
+        schemas: seo.yoast_json_ld,
+      },
+      experiences,
+      skills,
+    },
+  };
+};
+
+export default withSEO(({ seo }) => ({
+  title: seo.title,
+  metas: seo.metas,
+  schemas: seo.schemas,
+}))(Resume);
