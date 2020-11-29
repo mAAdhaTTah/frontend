@@ -1,6 +1,6 @@
 import React from 'react';
 import { withSEO } from '../../decorators';
-import { Post } from '../../components';
+import { Post } from '../../components'; // eslint-disable-line
 
 const PostSingle = ({ pageContext }) => {
   return <Post.Article {...pageContext.post} />;

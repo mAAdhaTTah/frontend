@@ -1,10 +1,21 @@
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('tailwindcss')('./tailwind.config.js'),
-    require('postcss-nested'),
-    require('postcss-for'),
-    require('postcss-arithmetic'),
-    require('autoprefixer'),
+    'postcss-import',
+    ['tailwindcss', require('./tailwind.config.js')],
+    'postcss-nested',
+    'postcss-for',
+    'postcss-arithmetic',
+    'autoprefixer',
+    'postcss-google-font',
+    [
+      '@fullhuman/postcss-purgecss',
+      {
+        content: [
+          './src/pages/**/*.{js,jsx,ts,tsx}',
+          './src/components/**/*.{js,jsx,ts,tsx}',
+        ],
+        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+      },
+    ],
   ],
 };

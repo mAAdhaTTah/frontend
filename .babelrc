@@ -1,9 +1,13 @@
 {
-  "plugins": [
-    "@babel/proposal-optional-chaining",
-    "@babel/proposal-nullish-coalescing-operator",
-    "@babel/proposal-export-namespace-from",
-    "@babel/proposal-export-default-from",
-    ["@babel/proposal-pipeline-operator", { "proposal": "fsharp" }]
+  "plugins": [["@babel/proposal-pipeline-operator", { "proposal": "fsharp" }]],
+  "presets": [
+    [
+      "next/babel",
+      {
+        "targets": {
+          "browsers": [">0.25%", "not dead"]
+        }
+      }
+    ]
   ]
 }

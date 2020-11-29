@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import cc from 'classcat';
 import {
@@ -10,9 +10,9 @@ import {
   FaTumblrSquare,
   FaGithubSquare,
 } from 'react-icons/fa';
+import Image from 'next/image';
 import TypeIt from 'typeit';
 import Nav from './Nav';
-import { BackgroundImage, AvatarImage } from './images';
 
 const titleClassName = cc(['text-4xl', 'md:text-5xl', 'font-bold', 'mb-3']);
 
@@ -26,16 +26,74 @@ const SocialIcon = ({ icon, to, color }) => (
   </a>
 );
 
+const SocialIcons = () => (
+  <div
+    className={cc([
+      'text-xl',
+      'md:text-3xl',
+      'mb-3',
+      'flex',
+      'flex-row',
+      'align-center',
+      'justify-center',
+      'lg:justify-start',
+      'text-center',
+    ])}
+  >
+    <SocialIcon
+      icon={<FaFacebook />}
+      color="#3b5998"
+      to="https://www.facebook.com/james.digioia"
+    />
+    <SocialIcon
+      icon={<FaTwitterSquare />}
+      color="#3cf"
+      to="https://twitter.com/JamesDiGioia"
+    />
+    <SocialIcon
+      icon={<FaLinkedin />}
+      color="#4875b4"
+      to="https://www.linkedin.com/in/jamesdigioia"
+    />
+    <SocialIcon
+      icon={<FaGooglePlusSquare />}
+      color="#c63d2d"
+      to="https://plus.google.com/+JamesDiGioia"
+    />
+    <SocialIcon
+      icon={<FaInstagram />}
+      color="#4e433c"
+      to="http://instagram.com/jamesdigioia"
+    />
+    <SocialIcon
+      icon={<FaTumblrSquare />}
+      color="#2b4964"
+      to="http://jamesdigioia.tumblr.com/"
+    />
+    <SocialIcon
+      icon={<FaGithubSquare />}
+      color="#333"
+      to="https://github.com/mAAdhaTTah/"
+    />
+  </div>
+);
+
 const animationConfig = { mass: 1, tension: 150, friction: 30 };
 
-const Header = ({ title, description, fullScreen }) => {
+const Header = ({
+  title,
+  description,
+  fullScreen,
+  headerImage,
+  avatarImage,
+}) => {
   const header = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
 
   const [headerProps, setHeader] = useSpring(() => ({}));
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const currentHeight = header.current.style.height;
     header.current.style.height = '';
     setHeader({
@@ -45,7 +103,7 @@ const Header = ({ title, description, fullScreen }) => {
     header.current.style.height = currentHeight;
   }, [fullScreen, setHeader]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     titleRef.current.innerText = '';
     const subtitleType = new TypeIt(subtitleRef.current, {
       lifeLike: true,
@@ -76,14 +134,28 @@ const Header = ({ title, description, fullScreen }) => {
         'flex',
         'flex-col',
         'relative',
+        'print:hidden',
         {
           'h-screen': fullScreen,
           'h-80': !fullScreen,
-          'print:hidden': !fullScreen,
         },
       ])}
     >
-      <BackgroundImage className={'h-screen'} />
+      <div className="h-screen overflow-hidden relative">
+        <img
+          src={headerImage.src}
+          alt={headerImage.alt}
+          style={{
+            position: 'absolute',
+            top: '0px',
+            left: '0px',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center center',
+          }}
+        />
+      </div>
       <div
         className={cc([
           'absolute',
@@ -91,32 +163,40 @@ const Header = ({ title, description, fullScreen }) => {
           'rounded-lg',
           'text-center',
           'lg:text-left',
-          'flex',
+          'inline-flex',
+          'lg:flex',
           'flex-row',
-          'p-5',
           'items-center',
           'justify-center',
+          'lg:justify-start',
           'w-full',
-          'max-w-sm-md',
+          'max-w-xs',
+          'sm:max-w-sm',
+          'lg:max-w-md',
           'pin-center',
-          'm-auto',
           '-mt-8',
+          'm-auto',
         ])}
       >
         <div
           className={cc([
-            'w-full',
             'flex',
             'flex-row',
             'items-center',
             'justify-center',
-            { 'h-48': !fullScreen },
+            'p-3',
+            'sm:p-5',
           ])}
         >
-          <div className="w-64 rounded-full overflow-hidden hidden lg:block">
-            <AvatarImage />
+          <div className="w-48 h-48 rounded-full overflow-hidden hidden lg:block flex-grow-0">
+            <Image
+              src={avatarImage.src}
+              alt={avatarImage.alt}
+              width={360}
+              height={360}
+            />
           </div>
-          <div className={cc(['font-header', 'ml-5', 'w-full'])}>
+          <div className={cc(['font-header', 'lg:ml-5', 'flex-grow'])}>
             {fullScreen ? (
               <h1 className={titleClassName} ref={titleRef}>
                 {title}
@@ -126,53 +206,16 @@ const Header = ({ title, description, fullScreen }) => {
                 {title}
               </div>
             )}
-            <div
+            <SocialIcons />
+            <h2
               className={cc([
+                'relative',
                 'text-xl',
                 'md:text-3xl',
-                'mb-3',
-                'flex',
-                'flex-row',
-                'align-center',
+                'font-medium',
               ])}
+              ref={subtitleRef}
             >
-              <SocialIcon
-                icon={<FaFacebook />}
-                color="#3b5998"
-                to="https://www.facebook.com/james.digioia"
-              />
-              <SocialIcon
-                icon={<FaTwitterSquare />}
-                color="#3cf"
-                to="https://twitter.com/JamesDiGioia"
-              />
-              <SocialIcon
-                icon={<FaLinkedin />}
-                color="#4875b4"
-                to="https://www.linkedin.com/in/jamesdigioia"
-              />
-              <SocialIcon
-                icon={<FaGooglePlusSquare />}
-                color="#c63d2d"
-                to="https://plus.google.com/+JamesDiGioia"
-              />
-              <SocialIcon
-                icon={<FaInstagram />}
-                color="#4e433c"
-                to="http://instagram.com/jamesdigioia"
-              />
-              <SocialIcon
-                icon={<FaTumblrSquare />}
-                color="#2b4964"
-                to="http://jamesdigioia.tumblr.com/"
-              />
-              <SocialIcon
-                icon={<FaGithubSquare />}
-                color="#333"
-                to="https://github.com/mAAdhaTTah/"
-              />
-            </div>
-            <h2 ref={subtitleRef} className={`text-xl md:text-3xl font-medium`}>
               {description}
             </h2>
           </div>

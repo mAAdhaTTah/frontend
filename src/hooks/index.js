@@ -1,2 +1,2 @@
-export useParseHTML from './useParseHTML';
-export useStripHTML from './useStripHTML';
+export { useParseHTML } from './useParseHTML';
+export { useStripHTML } from './useStripHTML';

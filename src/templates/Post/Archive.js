@@ -1,6 +1,6 @@
 import React from 'react';
 import { withSEO } from '../../decorators';
-import { Main, Post, Pagination } from '../../components';
+import { Main, Post, Pagination } from '../../components'; // eslint-disable-line
 
 const PostArchive = ({ pageContext, hasNextPage }) => {
   return (

@@ -1,1 +1,1 @@
-export withSEO from './withSEO';
+export { default as withSEO } from './withSEO';

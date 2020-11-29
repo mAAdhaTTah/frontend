@@ -1,35 +1,27 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import getDisplayName from 'react-display-name';
-import { SiteMeta } from '../components';
 
 const SEO = ({ title, metas, schemas, children }) => (
   <>
-    <SiteMeta
-      render={site => (
-        // @TODO(James) get SEO title from BE
-        <Helmet>
-          <title>
-            {title} | {site.name}
-          </title>
-          {metas.map((meta, i) => (
-            // One of these will be defined.
-            <meta
-              key={meta.name ?? meta.property}
-              name={meta.name ?? undefined}
-              property={meta.property ?? undefined}
-              content={meta.content}
-            />
-          ))}
-          {schemas.map(schema => (
-            <script type="application/ld+json" key={schema}>
-              {schema}
-            </script>
-          ))}
-        </Helmet>
-      )}
-    />
+    <Head>
+      <title>{title}</title>
+      {metas.map(meta => (
+        // One of these will be defined.
+        <meta
+          key={meta.name ?? meta.property}
+          name={meta.name ?? undefined}
+          property={meta.property ?? undefined}
+          content={meta.content}
+        />
+      ))}
+      {schemas.map(schema => (
+        <script type="application/ld+json" key={schema}>
+          {JSON.stringify(schema)}
+        </script>
+      ))}
+    </Head>
     {children}
   </>
 );
@@ -41,9 +33,9 @@ SEO.propTypes = {
       name: PropTypes.string,
       property: PropTypes.string,
       content: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
-  schemas: PropTypes.arrayOf(PropTypes.string).isRequired,
+  schemas: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const withSEO = getSEOProps => Component => {

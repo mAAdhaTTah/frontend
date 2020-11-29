@@ -5,8 +5,8 @@ yarn-error.log
 vendor
 
 # Build directory
-/public
-.DS_Store
+.next
+storybook-static
 
 # Environment variables
 .env

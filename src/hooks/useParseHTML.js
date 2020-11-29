@@ -5,7 +5,10 @@ import { Body, H2, H3, Link, Snippet } from '../components';
 
 const linkClass = cc(['text-darkg', 'font-bold']);
 
-export default (string, { p = '', h2 = '', h3 = '', a = '' } = {}) =>
+export const useParseHTML = (
+  string,
+  { p = '', h2 = '', h3 = '', a = '' } = {},
+) =>
   useMemo(() => {
     const options = {
       replace(node) {
@@ -35,7 +38,7 @@ export default (string, { p = '', h2 = '', h3 = '', a = '' } = {}) =>
                     code={node.children[0].children[0].data}
                     language={node.children[0].attribs.class.replace(
                       'language-',
-                      ''
+                      '',
                     )}
                     filename={node.attribs['data-filename']}
                   />
