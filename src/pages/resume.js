@@ -1,12 +1,9 @@
-import fs from 'fs';
-import path from 'path';
 import React from 'react';
 import cc from 'classcat';
 import { format } from 'date-fns';
 import { withSEO } from '../decorators';
 import { Main } from '../components';
-import { getLayoutProps } from '../api';
-import { shared } from '../config';
+import { getLayoutProps, getResume, getSeoByPageId } from '../api';
 
 const h1Class = cc([
   'font-header',
@@ -256,7 +253,7 @@ const Sidebar = ({ skills }) => (
   </div>
 );
 
-const Resume = ({ skills, experiences }) => (
+const Resume = ({ resume: { skills, experiences } }) => (
   <Main>
     <div className="bg-primary text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
@@ -280,34 +277,11 @@ const Resume = ({ skills, experiences }) => (
 );
 
 export const getStaticProps = async () => {
-  const response = await fetch(
-    `https://${shared.WP_API_DOMAIN}/wp-json/wp/v2/pages/5943`,
-  );
-  const seo = await response.json();
-
-  const experiences = JSON.parse(
-    await fs.promises.readFile(
-      path.join(process.cwd(), 'src', 'data', 'resume', 'experience.json'),
-      'utf-8',
-    ),
-  );
-  const skills = JSON.parse(
-    await fs.promises.readFile(
-      path.join(process.cwd(), 'src', 'data', 'resume', 'skills.json'),
-      'utf-8',
-    ),
-  );
-
   return {
     props: {
       layout: await getLayoutProps(),
-      seo: {
-        title: seo.title.rendered,
-        metas: seo.yoast_meta,
-        schemas: seo.yoast_json_ld,
-      },
-      experiences,
-      skills,
+      seo: await getSeoByPageId(5943),
+      resume: await getResume(),
     },
   };
 };
