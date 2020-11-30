@@ -6,7 +6,7 @@
       {
         "title": "Engineering Lead",
         "start": "2019-04",
-        "end": "",
+        "end": null,
         "responsibilities": [
           "Lead NYC team in coordination with Sydney, Australia team",
           "Implement complex search & filter page with React Hooks",

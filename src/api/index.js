@@ -1,5 +1,16 @@
 import fs from 'fs';
 import path from 'path';
+import https from 'https';
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
+import {
+  subDays,
+  getUnixTime,
+  fromUnixTime,
+  endOfDay,
+  format,
+  parse,
+} from 'date-fns';
 import { shared } from '../config';
 import { client } from './client';
 
@@ -90,16 +101,107 @@ export const getContextBySlug = async (slug, type) => {
 export const getResume = async () => {
   const experiences = JSON.parse(
     await fs.promises.readFile(
-      path.join(process.cwd(), 'src', 'data', 'resume', 'experience.json'),
+      path.join(process.cwd(), 'data', 'resume', 'experience.json'),
       'utf-8',
     ),
-  );
+  ).map(experience => ({
+    ...experience,
+    positions: experience.positions.map(position => ({
+      ...position,
+      start: format(parse(position.start, 'yyyy-MM', new Date()), 'MMMM yyyy'),
+      end: position.end
+        ? format(parse(position.end, 'yyyy-MM', new Date()), 'MMMM yyyy')
+        : null,
+    })),
+  }));
   const skills = JSON.parse(
     await fs.promises.readFile(
-      path.join(process.cwd(), 'src', 'data', 'resume', 'skills.json'),
+      path.join(process.cwd(), 'data', 'resume', 'skills.json'),
       'utf-8',
     ),
   );
 
   return { experiences, skills };
+};
+
+const downloadDb = async dest => {
+  return new Promise((resolve, reject) => {
+    const file = fs.createWriteStream(dest);
+
+    const rejectWithCleanup = err => {
+      file.close();
+      fs.unlink(dest, () => {
+        reject(err);
+      });
+    };
+
+    file.on('finish', () => {
+      resolve();
+    });
+
+    const request = https.get(
+      'https://static.jamesdigioia.com/index.sqlite3',
+      response => {
+        if (response.statusCode === 200) {
+          response.pipe(file);
+        } else {
+          rejectWithCleanup(
+            new Error(
+              `Server responded with ${response.statusCode}: ${response.statusMessage}`,
+            ),
+          );
+        }
+      },
+    );
+
+    request.on('error', err => {
+      rejectWithCleanup(err);
+    });
+
+    file.on('error', err => {
+      rejectWithCleanup(err);
+    });
+  });
+};
+
+export const getReadingProps = async () => {
+  let db;
+  const now = new Date();
+  const dbFile = path.join(process.cwd(), 'data', 'index.sqlite3');
+
+  try {
+    await downloadDb(dbFile);
+    db = await open({
+      filename: dbFile,
+      driver: sqlite3.Database,
+    });
+
+    const days = [];
+
+    for (let i = 0; i < 7; i++) {
+      const targetDay = subDays(now, i);
+      const results = await db.all(
+        'SELECT id, title, url, timestamp FROM core_snapshot WHERE timestamp < :before AND timestamp >= :after ORDER BY timestamp DESC;',
+        {
+          ':before': getUnixTime(endOfDay(targetDay)),
+          ':after': getUnixTime(endOfDay(subDays(targetDay, 1))),
+        },
+      );
+
+      days.push({
+        day: format(targetDay, 'MMM do, yyyy'),
+        links: results.map(link => ({
+          id: link.id,
+          title: link.title,
+          url: link.url,
+          readAt: format(fromUnixTime(link.timestamp), 'hh:mm a'),
+        })),
+      });
+    }
+
+    return days;
+  } finally {
+    await db?.close();
+    await fs.promises.unlink(dbFile);
+  }
 };

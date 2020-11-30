@@ -53,8 +53,7 @@ const Experience = ({ experiences }) => (
               <div className="mb-3" key={key}>
                 <h5 className={expH5Class}>{title}</h5>
                 <div className="font-body text-base mb-3">
-                  {format(start, 'MMMM YYYY')} to{' '}
-                  {end ? format(end, 'MMMM YYYY') : 'Present'}
+                  {start} to {end ?? 'Present'}
                 </div>
                 <ul className="list-disc pl-5">
                   {responsibilities.map((text, key) => (
@@ -253,7 +252,7 @@ const Sidebar = ({ skills }) => (
   </div>
 );
 
-const Resume = ({ resume: { skills, experiences } }) => (
+const ResumePage = ({ resume: { skills, experiences } }) => (
   <Main>
     <div className="bg-primary text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
@@ -286,4 +285,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default withSEO()(Resume);
+export default withSEO()(ResumePage);
