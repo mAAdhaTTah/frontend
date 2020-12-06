@@ -1,5 +1,6 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
-import { Link } from 'gatsby';
 import cc from 'classcat';
 
 const headerClass = cc([
@@ -12,11 +13,20 @@ const headerClass = cc([
   'leading-tight',
 ]);
 
-const HeaderLink = ({ to, children }) => (
-  <Link to={to} className={headerClass} activeClassName="bg-tertiary">
-    {children}
-  </Link>
-);
+const HeaderLink = ({ to, children }) => {
+  const { asPath } = useRouter();
+
+  return (
+    <Link href={to}>
+      <a
+        href={to}
+        className={cc([headerClass, asPath === to && 'bg-tertiary'])}
+      >
+        {children}
+      </a>
+    </Link>
+  );
+};
 
 const navClass = cc(['bg-secondary', 'h-16']);
 

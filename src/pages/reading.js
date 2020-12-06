@@ -1,45 +1,26 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { getLayoutProps, getReadingProps, getSeoByPageId } from '../api';
 import { Day, Main } from '../components';
+import { DEFAULT_REVALIDATE_TIME } from '../constants';
 import { withSEO } from '../decorators';
 
-const ReadingPage = ({ data }) => (
+const ReadingPage = ({ reading }) => (
   <Main>
-    {data.reading.nodes.map(({ day, links }) => (
+    {reading.map(({ day, links }) => (
       <Day key={day} day={day} links={links} />
     ))}
   </Main>
 );
 
-export const pageQuery = graphql`
-  query ReadingPageQuery {
-    reading: allReadDay {
-      nodes {
-        day(formatString: "MMM Do, YYYY")
-        links {
-          id
-          url
-          title
-          excerpt
-          readAt(formatString: "hh:mm a, MMM Do")
-        }
-      }
-    }
-    page: wordpressPage(wordpress_id: { eq: 5941 }) {
-      metas: yoast_meta {
-        name
-        property
-        content
-      }
-      schemas: yoast_json_ld
-    }
-  }
-`;
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: await getLayoutProps(),
+      seo: await getSeoByPageId(5941),
+      reading: await getReadingProps(),
+    },
+    revalidate: DEFAULT_REVALIDATE_TIME,
+  };
+};
 
-export default ReadingPage
-  |> withSEO(({ data }) => ({
-    title: 'Reading',
-    // @TODO(mAAdhaTTah) shouldn't need to check...
-    metas: data.page?.metas ?? [],
-    schemas: data.page?.schemas ?? [],
-  }));
+export default withSEO()(ReadingPage);

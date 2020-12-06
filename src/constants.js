@@ -1,0 +1,1 @@
+export const DEFAULT_REVALIDATE_TIME = 3600;

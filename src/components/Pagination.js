@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import cc from 'classcat';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
+import Link from 'next/link';
 
 const paginationClass = cc([
   'clearfix',
@@ -25,18 +25,18 @@ const Pagination = ({ pageNumber, hasNextPage, slug }) => (
   <div className={paginationClass}>
     {pageNumber > 1 && (
       <Link
-        to={`/${slug}/${pageNumber !== 2 ? `page/${pageNumber - 1}` : ''}`}
-        className={cc([pageClass, 'float-left'])}
+        href={`/${slug}/${pageNumber !== 2 ? `page/${pageNumber - 1}` : ''}`}
       >
-        <FaLongArrowAltLeft className="mr-3" /> Previous
+        <a className={cc([pageClass, 'float-left'])}>
+          <FaLongArrowAltLeft className="mr-3" /> Previous
+        </a>
       </Link>
     )}
     {hasNextPage && (
-      <Link
-        to={`/${slug}/page/${pageNumber + 1}/`}
-        className={cc([pageClass, 'float-right'])}
-      >
-        Next <FaLongArrowAltRight className="ml-3" />
+      <Link href={`/${slug}/page/${pageNumber + 1}/`}>
+        <a className={cc([pageClass, 'float-right'])}>
+          Next <FaLongArrowAltRight className="ml-3" />
+        </a>
       </Link>
     )}
   </div>

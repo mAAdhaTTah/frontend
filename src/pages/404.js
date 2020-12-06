@@ -1,6 +1,7 @@
 import React from 'react';
-import { withSEO } from '../decorators';
+import { getLayoutProps } from '../api';
 import { Main } from '../components';
+import { withSEO } from '../decorators';
 
 const NotFoundPage = () => (
   <Main>
@@ -9,10 +10,17 @@ const NotFoundPage = () => (
   </Main>
 );
 
-export default NotFoundPage
-  |> withSEO(() => ({
-    // @TODO(mAAdhaTTah) get from... somewhere?
-    title: 'Page Not Found',
-    metas: [],
-    schemas: [],
-  }));
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: await getLayoutProps(),
+    },
+  };
+};
+
+export default withSEO(() => ({
+  // @TODO(mAAdhaTTah) get from... somewhere?
+  title: 'Page Not Found',
+  metas: [],
+  schemas: [],
+}))(NotFoundPage);

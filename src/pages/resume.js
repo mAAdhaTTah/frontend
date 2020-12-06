@@ -1,9 +1,9 @@
 import React from 'react';
 import cc from 'classcat';
-import { graphql } from 'gatsby';
 import { format } from 'date-fns';
 import { withSEO } from '../decorators';
 import { Main } from '../components';
+import { getLayoutProps, getResume, getSeoByPageId } from '../api';
 
 const h1Class = cc([
   'font-header',
@@ -42,7 +42,7 @@ const ExpLi = ({ children }) => <li className={expLiClass}>{children}</li>;
 const Experience = ({ experiences }) => (
   <div className="mx-auto">
     <h3 className={expH3Class}>Experience</h3>
-    {experiences.edges.map(({ node }, key) => (
+    {experiences.map((node, key) => (
       <div className="mb-3" key={key}>
         <div className="mb-2">
           <h4 className={expH4Class}>
@@ -53,8 +53,7 @@ const Experience = ({ experiences }) => (
               <div className="mb-3" key={key}>
                 <h5 className={expH5Class}>{title}</h5>
                 <div className="font-body text-base mb-3">
-                  {format(start, 'MMMM YYYY')} to{' '}
-                  {end ? format(end, 'MMMM YYYY') : 'Present'}
+                  {start} to {end ?? 'Present'}
                 </div>
                 <ul className="list-disc pl-5">
                   {responsibilities.map((text, key) => (
@@ -62,7 +61,7 @@ const Experience = ({ experiences }) => (
                   ))}
                 </ul>
               </div>
-            )
+            ),
           )}
         </div>
       </div>
@@ -236,7 +235,7 @@ const Sidebar = ({ skills }) => (
     <SidebarItem>
       <SidebarH3>Skills</SidebarH3>
       <SidebarUl>
-        {skills.edges.map(({ node }, key) => (
+        {skills.map((node, key) => (
           <SidebarLi
             key={key}
             className={cc(['print:py-0', 'print:ml-1', 'print:inline'])}
@@ -253,7 +252,7 @@ const Sidebar = ({ skills }) => (
   </div>
 );
 
-const Resume = ({ data }) => (
+const ResumePage = ({ resume: { skills, experiences } }) => (
   <Main>
     <div className="bg-primary text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
@@ -266,56 +265,24 @@ const Resume = ({ data }) => (
       </div>
       <div className="mx-auto px-4 print:mx-2 flex max-w-2xl flex-col lg:flex-row print:flex-row pb-2">
         <div className="flex-grow basis-100">
-          <Experience experiences={data.allExperienceJson} />
+          <Experience experiences={experiences} />
         </div>
         <div className="flex-shrink basis-3 lg:mx-3">
-          <Sidebar skills={data.allSkillsJson} />
+          <Sidebar skills={skills} />
         </div>
       </div>
     </div>
   </Main>
 );
 
-export const pageQuery = graphql`
-  query ResumeQuery {
-    allExperienceJson {
-      edges {
-        node {
-          companyName
-          description
-          positions {
-            title
-            start
-            end
-            responsibilities
-          }
-        }
-      }
-    }
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: await getLayoutProps(),
+      seo: await getSeoByPageId(5943),
+      resume: await getResume(),
+    },
+  };
+};
 
-    allSkillsJson {
-      edges {
-        node {
-          name
-          keywords
-        }
-      }
-    }
-
-    page: wordpressPage(wordpress_id: { eq: 5943 }) {
-      metas: yoast_meta {
-        name
-        property
-        content
-      }
-      schemas: yoast_json_ld
-    }
-  }
-`;
-
-export default Resume
-  |> withSEO(({ data }) => ({
-    title: 'Resume',
-    metas: data.page.metas,
-    schemas: data.page.schemas,
-  }));
+export default withSEO()(ResumePage);

@@ -1,7 +1,7 @@
-export ArticleHeader from './ArticleHeader';
-export Blockquote from './Blockquote';
-export Body from './Body';
-export H2 from './H2';
-export H3 from './H3';
-export Link from './Link';
-export LinkedArticleHeader from './LinkedArticleHeader';
+export { default as ArticleHeader } from './ArticleHeader';
+export { default as Blockquote } from './Blockquote';
+export { default as Body } from './Body';
+export { default as H2 } from './H2';
+export { default as H3 } from './H3';
+export { default as Link } from './Link';
+export { default as LinkedArticleHeader } from './LinkedArticleHeader';

@@ -22,18 +22,13 @@ const iconClass = cc(['mr-3', 'link-info']);
 
 const LinkFormat = ({
   title,
-  slug,
   date,
   dateTime,
   commentCount,
   author,
-  fields,
   content,
   meta,
-  embedlyRetrieved,
-  embedlyProviderUrl,
-  embedlyProviderName,
-  embedlyDescription,
+  embedly,
 }) => {
   return (
     <Article variant="lightg">
@@ -42,17 +37,6 @@ const LinkFormat = ({
         <Link href={meta.linkUrl} className={linkClass}>
           <FaLink className={iconClass} /> {useParseHTML(title)}
         </Link>
-        {embedlyRetrieved && (
-          <>
-            <p className="link-provider">
-              Source:{' '}
-              <Link href={embedlyProviderUrl} target="_blank">
-                {embedlyProviderName}
-              </Link>
-            </p>
-            <small className="link-description">{embedlyDescription}</small>
-          </>
-        )}
       </div>
 
       <EntryMeta
