@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { shared, server } from '../config';
 
-export const client = axios.create();
+export const wp = axios.create();
 
-client.interceptors.request.use(value => {
+wp.interceptors.request.use(value => {
   if (value.url.includes(shared.WP_API_DOMAIN)) {
     value.headers['Authorization'] = `Basic ${Buffer.from(
       `${server.WP_API_USERNAME}:${server.WP_API_PASSWORD}`,

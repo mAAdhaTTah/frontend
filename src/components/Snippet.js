@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import cc from 'classcat';
 import { usePrism } from './Prism';
 
@@ -6,7 +6,7 @@ const Snippet = ({ code, language, filename }) => {
   const codeRef = useRef();
   const Prism = usePrism();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // eslint-disable-next-line
     Prism?.highlightElement(codeRef.current);
   }, [Prism]);
