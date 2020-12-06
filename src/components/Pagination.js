@@ -33,12 +33,11 @@ const Pagination = ({ pageNumber, hasNextPage, slug }) => (
       </Link>
     )}
     {hasNextPage && (
-      <a
-        href={`/${slug}/page/${pageNumber + 1}/`}
-        className={cc([pageClass, 'float-right'])}
-      >
-        Next <FaLongArrowAltRight className="ml-3" />
-      </a>
+      <Link href={`/${slug}/page/${pageNumber + 1}/`}>
+        <a className={cc([pageClass, 'float-right'])}>
+          Next <FaLongArrowAltRight className="ml-3" />
+        </a>
+      </Link>
     )}
   </div>
 );

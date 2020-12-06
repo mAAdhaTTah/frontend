@@ -5,6 +5,7 @@ import { useParseHTML, useStripHTML } from '../../../hooks';
 import { LinkedArticleHeader, Body } from '../../typography';
 import EntryMeta from '../../EntryMeta';
 import Article from '../../Article';
+import Link from 'next/link';
 
 const linkClass = cc([
   'font-body',
@@ -43,10 +44,12 @@ const StandardFormat = ({
       />
     </header>
     <Body component="span">
-      {useStripHTML(excerpt)} &#8230;
-      <a href={`/${slug}/`} className={linkClass}>
-        Read more <FaLongArrowAltRight className={iconClass} />
-      </a>
+      {useStripHTML(excerpt)}
+      <Link href={`/${slug}/`}>
+        <a className={linkClass}>
+          Read more <FaLongArrowAltRight className={iconClass} />
+        </a>
+      </Link>
     </Body>
   </Article>
 );
