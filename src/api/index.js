@@ -103,8 +103,8 @@ export const isAllowedSlug = slug => !SLUG_BLACKLIST.includes(slug);
 
 export const getPageSlugs = async () => {
   const { data: pages } = await wp.get(`/wp-json/wp/v2/pages`, {
-    data: {
-      posts_per_page: 100,
+    params: {
+      per_page: 100,
     },
   });
 
