@@ -12,7 +12,6 @@ const Image = ({
   commentCount,
   author,
   content,
-  meta,
   media,
 }) => {
   return (

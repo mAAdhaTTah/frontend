@@ -15,6 +15,16 @@ module.exports = {
         destination: '/gistpens/',
         permanent: true,
       },
+      {
+        source: '/writing/page/',
+        destination: '/writing/',
+        permanent: true,
+      },
+      {
+        source: '/writing/page/1/',
+        destination: '/writing/',
+        permanent: true,
+      },
     ];
   },
 };

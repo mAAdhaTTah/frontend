@@ -7,22 +7,20 @@ import { useParseHTML } from '../../../hooks';
 
 const OEmbed = ({
   title,
-  slug,
   date,
   dateTime,
   commentCount,
   author,
-  fields,
+  oembed,
   content,
-  meta,
 }) => {
-  const { html } = fields.oembed.audio ?? fields.oembed.video;
+  const { html } = oembed;
   const embed = useParseHTML(html);
 
   return (
     <Article variant="tertiary">
       <header>
-        <LinkedArticleHeader href={meta.audioEmbed || meta.videoEmbed}>
+        <LinkedArticleHeader href={oembed.url}>
           {useParseHTML(title)}
         </LinkedArticleHeader>
         <EntryMeta

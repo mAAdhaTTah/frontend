@@ -1,5 +1,11 @@
 import React from 'react';
-import { getLayoutProps, getPageSlugs, getContextBySlug } from '../api';
+import {
+  getLayoutProps,
+  getPageSlugs,
+  getPostSlugs,
+  getContextBySlug,
+} from '../api';
+import { Post } from '../components';
 import { DEFAULT_REVALIDATE_TIME } from '../constants';
 import { Page } from '../containers/Page';
 import { withSEO } from '../decorators';
@@ -8,20 +14,20 @@ import { withSEO } from '../decorators';
 /** @typedef {{ layout: any, seo: any; data: import('react').ComponentProps<typeof Page> }} Props */
 
 const Slug = ({ data }) => {
-  return <Page {...data} />;
+  return data.format ? <Post.Article {...data} /> : <Page {...data} />;
 };
 
 /** @type import('next').GetStaticPaths<SlugParams> */
 export const getStaticPaths = async () => {
   return {
-    paths: await getPageSlugs(),
+    paths: [...(await getPageSlugs()), ...(await getPostSlugs())],
     fallback: 'blocking',
   };
 };
 
 /** @type import('next').GetStaticProps<Props, SlugParams> */
 export const getStaticProps = async ({ params }) => {
-  const { data, seo } = await getContextBySlug(params.slug, 'page');
+  const { data, seo } = await getContextBySlug(params.slug);
 
   return {
     props: {

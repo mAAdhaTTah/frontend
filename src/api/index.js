@@ -12,31 +12,83 @@ import {
   parse,
   parseISO,
 } from 'date-fns';
-import { shared } from '../config';
+import Axios from 'axios';
+import parseLinkHeader from 'parse-link-header';
 import { wp } from './wp';
 import * as cache from './cache';
 
-export const getLayoutProps = async () => {
-  const { data: siteMeta } = await wp.get(
-    `https://${shared.WP_API_DOMAIN}/wp-json/`,
-  );
+export * from './layout';
 
-  return {
-    site: {
-      name: siteMeta.name,
-      description: siteMeta.description,
-      url: `https://${shared.WP_API_DOMAIN}`,
-    },
+const mapPostToProps = async post => {
+  const result = {
+    id: post.id,
+    slug: post.slug,
+    format: post.format,
+    title: post.title.rendered,
+    date: format(parseISO(post.date), 'MMMM do, yyyy'),
+    dateTime: post.date,
+    commentCount: 0,
+    author:
+      post._embedded?.author[0] ??
+      (await Axios.get(post._links.author[0].href)).data,
+    excerpt: post.excerpt.rendered,
+    oembed: await getOembed(post),
+    content: post.content.rendered,
   };
+
+  switch (result.format) {
+    case 'standard':
+      if (post.featured_media) {
+        const featured = await wp.get(
+          `/wp-json/wp/v2/media/${post.featured_media}`,
+        );
+        result.media = {
+          url: featured.data.source_url,
+          alt: featured.data.alt_text,
+        };
+      } else {
+        result.media = null;
+      }
+      break;
+    case 'link':
+      result.meta = {
+        linkUrl: post.meta._format_link_url,
+      };
+      break;
+    case 'quote':
+      result.meta = {
+        quoteSourceUrl: post.meta._format_quote_source_url,
+        quoteSourceName: post.meta._format_quote_source_name,
+      };
+      break;
+    case 'image':
+      const image = await wp.get(`/wp-json/wp/v2/media/${post.featured_media}`);
+      result.media = {
+        url: image.data.source_url,
+        alt: image.data.alt_text,
+      };
+      break;
+    case 'gallery':
+      const { data } = await wp.get(post._links['wp:attachment'][0].href, {
+        params: { per_page: 100 },
+      });
+      result.images = data.map(image => ({
+        url: image.source_url,
+        alt: image.alt_text,
+      }));
+      break;
+    default:
+      break;
+  }
+
+  return result;
 };
 
 /**
  * @param {number} pageId
  */
 export const getSeoByPageId = async pageId => {
-  const { data: seo } = await wp.get(
-    `https://${shared.WP_API_DOMAIN}/wp-json/wp/v2/pages/${pageId}`,
-  );
+  const { data: seo } = await wp.get(`/wp-json/wp/v2/pages/${pageId}`);
 
   return {
     title: seo.title.rendered,
@@ -50,14 +102,11 @@ const SLUG_BLACKLIST = ['writing', 'home', 'reading', 'resume', 'gistpens'];
 export const isAllowedSlug = slug => !SLUG_BLACKLIST.includes(slug);
 
 export const getPageSlugs = async () => {
-  const { data: pages } = await wp.get(
-    `https://${shared.WP_API_DOMAIN}/wp-json/wp/v2/pages`,
-    {
-      data: {
-        posts_per_page: 100,
-      },
+  const { data: pages } = await wp.get(`/wp-json/wp/v2/pages`, {
+    data: {
+      posts_per_page: 100,
     },
-  );
+  });
 
   const results = [];
 
@@ -75,17 +124,62 @@ export const getPageSlugs = async () => {
   return results;
 };
 
+export const getPostSlugs = async () => {
+  async function* getPosts(page = 1) {
+    const { data: posts, headers } = await wp.get(`/wp-json/wp/v2/posts`, {
+      params: {
+        per_page: 100,
+        page,
+      },
+    });
+
+    const links = parseLinkHeader(headers['link']);
+
+    yield* posts;
+
+    if (links.next) {
+      yield* await getPosts(page + 1);
+    }
+  }
+
+  const results = [];
+
+  for await (const post of getPosts()) {
+    await cache.add(post.slug, post);
+    results.push({
+      params: {
+        slug: post.slug,
+      },
+    });
+  }
+
+  return results;
+};
+
 /**
  * @param {string} slug  Post or page slug.
  */
 export const getContextBySlug = async slug => {
   const page = await cache.get(slug);
 
+  let data = {};
+
+  switch (page.type) {
+    case 'page':
+      data = {
+        title: page.title.rendered,
+        content: page.content.rendered,
+      };
+      break;
+    case 'post':
+      data = await mapPostToProps(page);
+      break;
+    default:
+      break;
+  }
+
   return {
-    data: {
-      title: page.title.rendered,
-      content: page.content.rendered,
-    },
+    data,
     seo: {
       title: page.title.rendered,
       metas: page.yoast_meta,
@@ -203,12 +297,9 @@ export const getReadingProps = async () => {
 };
 
 export const getGistpens = async ({ page }) => {
-  const { data, headers } = await wp.get(
-    `https://${shared.WP_API_DOMAIN}/wp-json/intraxia/v1/gistpen/repos`,
-    {
-      params: { page },
-    },
-  );
+  const { data, headers } = await wp.get(`/wp-json/intraxia/v1/gistpen/repos`, {
+    params: { page },
+  });
 
   for (const repo of data) {
     await cache.add(repo.slug, repo);
@@ -228,9 +319,15 @@ export const getGistpens = async ({ page }) => {
 };
 
 export const getGistpenArchivePaths = async () => {
-  const { headers } = await wp.head(
-    `https://${shared.WP_API_DOMAIN}/wp-json/intraxia/v1/gistpen/repos`,
-  );
+  const { headers } = await wp.head(`/wp-json/intraxia/v1/gistpen/repos`);
+
+  return [
+    ...Array(Number(headers['x-wp-totalpages']) - 1).fill(2),
+  ].map((num, idx) => ({ params: { number: String(num + idx) } }));
+};
+
+export const getPostArchivePaths = async () => {
+  const { headers } = await wp.head(`/wp-json/wp/v2/posts`);
 
   return [
     ...Array(Number(headers['x-wp-totalpages']) - 1).fill(2),
@@ -238,14 +335,11 @@ export const getGistpenArchivePaths = async () => {
 };
 
 export const getGistpenSlugPaths = async () => {
-  const { data } = await wp.get(
-    `https://${shared.WP_API_DOMAIN}/wp-json/intraxia/v1/gistpen/repos`,
-    {
-      params: {
-        per_page: 100,
-      },
+  const { data } = await wp.get(`/wp-json/intraxia/v1/gistpen/repos`, {
+    params: {
+      per_page: 100,
     },
-  );
+  });
 
   for (const repo of data) {
     await cache.add(repo.slug, repo);
@@ -270,7 +364,7 @@ export const getGistpenBySlug = async ({ slug }) => {
       description: repo.description,
       blobs: await Promise.all(
         repo.blobs.map(async ({ rest_url }) => {
-          const { data } = await wp.get(rest_url);
+          const { data } = await Axios.get(rest_url);
 
           return data;
         }),
@@ -278,5 +372,44 @@ export const getGistpenBySlug = async ({ slug }) => {
       date: format(parseISO(repo.created_at), 'MMMM do, yyyy'),
       dateTime: repo.created_at,
     },
+  };
+};
+
+const getOembed = async post => {
+  const {
+    _format_audio_embed: audioUrl,
+    _format_video_embed: videoUrl,
+  } = post.meta;
+
+  if (!audioUrl && !videoUrl) {
+    return null;
+  }
+
+  try {
+    const url = audioUrl || videoUrl;
+    const { data } = await wp.get(
+      `/wp-json/oembed/1.0/proxy?url=${encodeURIComponent(url)}`,
+    );
+
+    return { ...data, url };
+  } catch {
+    // @TODO(James) ideally return some HTML that "embeds" the error
+    return null;
+  }
+};
+
+export const getPosts = async ({ page }) => {
+  const { data, headers } = await wp.get(`/wp-json/wp/v2/posts`, {
+    params: { page, _embed: 'author' },
+  });
+
+  for (const post of data) {
+    await cache.add(post.slug, post);
+  }
+
+  return {
+    posts: await Promise.all(data.map(mapPostToProps)),
+    page: Number(page),
+    hasNextPage: Number(headers['x-wp-totalpages']) > page,
   };
 };

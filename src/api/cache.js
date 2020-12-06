@@ -32,42 +32,39 @@ const safeOpen = async () => {
   return db;
 };
 
-const runAndClose = async (statement, values) => {
-  let db;
-  try {
-    db = await safeOpen();
+let db;
 
-    return await db.run(statement, values);
-  } finally {
-    await db?.close();
+const openAndRun = async (statement, values) => {
+  if (!db) {
+    db = await safeOpen();
   }
+
+  return await db.run(statement, values);
 };
 
-const getAndClose = async (statement, values) => {
-  let db;
-  try {
+const openAndGet = async (statement, values) => {
+  if (!db) {
     db = await safeOpen();
-
-    return await db.get(statement, values);
-  } finally {
-    await db?.close();
   }
+
+  return await db.get(statement, values);
 };
 
-export const add = async ($key, $value) => {
-  return runAndClose(`INSERT OR REPLACE INTO cache VALUES($key, $value)`, {
-    $key,
+export const add = ($key, $value) => {
+  return openAndRun(`INSERT OR REPLACE INTO cache VALUES($key, $value)`, {
+    $key: encodeURIComponent($key),
     $value: JSON.stringify($value),
   });
 };
 
 export const get = async $key => {
-  const { value } = await getAndClose(
-    `SELECT value FROM cache WHERE key = $key`,
-    {
-      $key,
-    },
-  );
+  const row = await openAndGet(`SELECT value FROM cache WHERE key = $key`, {
+    $key: encodeURIComponent($key),
+  });
 
-  return JSON.parse(value);
+  if (!row) {
+    throw new Error(`Value for slug ${$key} not found.`);
+  }
+
+  return JSON.parse(row.value);
 };

@@ -42,7 +42,6 @@ const StandardFormat = ({
         author={author.name}
       />
     </header>
-
     <Body component="span">
       {useStripHTML(excerpt)} &#8230;
       <a href={`/${slug}/`} className={linkClass}>
