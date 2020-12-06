@@ -342,7 +342,7 @@ export const getGistpenSlugPaths = async () => {
   });
 
   for (const repo of data) {
-    await cache.add(repo.slug, repo);
+    await cache.add(`gistpen-${repo.slug}`, repo);
   }
 
   return data.map(repo => ({
@@ -351,7 +351,7 @@ export const getGistpenSlugPaths = async () => {
 };
 
 export const getGistpenBySlug = async ({ slug }) => {
-  const repo = await cache.get(slug);
+  const repo = await cache.get(`gistpen-${slug}`);
 
   return {
     seo: {
