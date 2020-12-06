@@ -1,11 +1,11 @@
 import React from 'react';
 import cc from 'classcat';
 import { FaLongArrowAltRight } from 'react-icons/fa';
+import Link from 'next/link';
 import { useParseHTML, useStripHTML } from '../../../hooks';
 import { LinkedArticleHeader, Body } from '../../typography';
 import EntryMeta from '../../EntryMeta';
 import Article from '../../Article';
-import Link from 'next/link';
 
 const linkClass = cc([
   'font-body',
