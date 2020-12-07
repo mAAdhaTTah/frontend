@@ -34,20 +34,38 @@ const safeOpen = async () => {
 
 let db;
 
-const openAndRun = async (statement, values) => {
-  if (!db) {
-    db = await safeOpen();
-  }
+const sleep = ms => new Promise(res => setTimeout(res, ms));
 
-  return await db.run(statement, values);
+const openAndRun = async (statement, values, retry = 0) => {
+  try {
+    if (!db) {
+      db = await safeOpen();
+    }
+
+    return await db.run(statement, values);
+  } catch (err) {
+    if (retry < 5) {
+      await sleep(500);
+      return await openAndRun(statement, values, retry + 1);
+    }
+    throw err;
+  }
 };
 
-const openAndGet = async (statement, values) => {
-  if (!db) {
-    db = await safeOpen();
-  }
+const openAndGet = async (statement, values, retry = 0) => {
+  try {
+    if (!db) {
+      db = await safeOpen();
+    }
 
-  return await db.get(statement, values);
+    return await db.get(statement, values);
+  } catch (err) {
+    if (retry < 5) {
+      await sleep(500);
+      return await openAndRun(statement, values, retry + 1);
+    }
+    throw err;
+  }
 };
 
 export const add = ($key, $value) => {
