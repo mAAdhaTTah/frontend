@@ -1,9 +1,39 @@
 name: frontend
+region: nyc
 services:
 - build_command: npm run build
   environment_slug: node-js
+  # envs:
+  # - key: POCKET_ACCESS_TOKEN
+  #   scope: RUN_AND_BUILD_TIME
+  #   type: SECRET
+  #   value: <value>
+  # - key: POCKET_CONSUMER_KEY
+  #   scope: RUN_AND_BUILD_TIME
+  #   type: SECRET
+  #   value: <value>
+  # - key: NEXT_PUBLIC_WP_API_DOMAIN
+  #   scope: RUN_AND_BUILD_TIME
+  #   value: jamesdigioia.com
+  # - key: WP_API_USERNAME
+  #   scope: RUN_AND_BUILD_TIME
+  #   value: JamesDiGioia
+  # - key: WP_API_PASSWORD
+  #   scope: RUN_AND_BUILD_TIME
+  #   type: SECRET
+  #   value: <value>
   github:
     branch: master
     deploy_on_push: true
-    repo: mAAdhaTTah
+    repo: mAAdhaTTah/frontend
+  http_port: 3000
+  instance_count: 1
+  instance_size_slug: basic-xxs
   name: frontend
+  routes:
+  - path: /
+  run_command: npm start
+domains:
+- domain: jamesdigioia.com
+  type: PRIMARY
+  zone: jamesdigioia.com
