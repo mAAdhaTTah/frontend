@@ -28,7 +28,7 @@
     "@babel/plugin-proposal-pipeline-operator": "^7.12.1",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@storybook/addon-actions": "^6.1.8",
-    "@storybook/addon-essentials": "^6.1.8",
+    "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-links": "^6.1.8",
     "@storybook/cli": "^6.1.8",
     "@storybook/react": "^6.1.11",
