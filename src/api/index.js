@@ -219,10 +219,9 @@ const downloadDb = async dest => {
     const file = fs.createWriteStream(dest);
 
     const rejectWithCleanup = err => {
+      reject(err);
       file.close();
-      fs.unlink(dest, () => {
-        reject(err);
-      });
+      fs.unlink(dest, () => {});
     };
 
     file.on('finish', () => {
@@ -385,16 +384,21 @@ const getOembed = async post => {
     return null;
   }
 
+  const url = audioUrl || videoUrl;
+
   try {
-    const url = audioUrl || videoUrl;
     const { data } = await wp.get(
       `/wp-json/oembed/1.0/proxy?url=${encodeURIComponent(url)}`,
     );
 
-    return { ...data, url };
+    if (data.error) {
+      throw new Error(data.error.message);
+    }
+
+    return { html: data.html, url };
   } catch {
-    // @TODO(James) ideally return some HTML that "embeds" the error
-    return null;
+    // @TODO(James) return HTML that "embeds" the error
+    return { url, html: null };
   }
 };
 

@@ -39,7 +39,7 @@ jobs:
         env:
           POCKET_ACCESS_TOKEN: ${{ secrets.POCKET_ACCESS_TOKEN }}
           POCKET_CONSUMER_KEY: ${{ secrets.POCKET_CONSUMER_KEY }}
-          NEXT_PUBLIC_WP_API_DOMAIN: ${{ secrets.WP_API_DOMAIN }}
+          NEXT_PUBLIC_WP_API_DOMAIN: ${{ secrets.NEXT_PUBLIC_WP_API_DOMAIN }}
           WP_API_USERNAME: ${{ secrets.WP_API_USERNAME }}
           WP_API_PASSWORD: ${{ secrets.WP_API_PASSWORD }}
       - run: npm run build:storybook
