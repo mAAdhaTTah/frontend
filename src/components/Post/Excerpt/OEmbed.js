@@ -14,13 +14,13 @@ const OEmbed = ({
   oembed,
   content,
 }) => {
-  const { html } = oembed;
-  const embed = useParseHTML(html);
+  const { html, url } = oembed;
+  const embed = useParseHTML(html ?? '');
 
   return (
     <Article variant="tertiary">
       <header>
-        <LinkedArticleHeader href={oembed.url}>
+        <LinkedArticleHeader href={url}>
           {useParseHTML(title)}
         </LinkedArticleHeader>
         <EntryMeta

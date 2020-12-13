@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
+import { shared } from '../config';
 
 const Context = createContext(null);
 
@@ -19,8 +20,7 @@ export const Provider = ({ children }) => {
     const script = document.createElement('script');
     const head = document.getElementsByTagName('head')[0];
     script.defer = true;
-    script.src =
-      'https://jamesdigioia.com/app/plugins/wp-gistpen/resources/assets/content.min.js';
+    script.src = `https://${shared.WP_API_DOMAIN}/app/plugins/wp-gistpen/resources/assets/content.min.js`;
 
     script.addEventListener('load', () => {
       mounted && setPrism(window.Prism);
@@ -45,7 +45,7 @@ export const Provider = ({ children }) => {
           dangerouslySetInnerHTML={{
             __html: `window.__GISTPEN_CONTENT__ = ${JSON.stringify({
               globals: {
-                url: 'https://jamesdigioia.com/app/plugins/wp-gistpen/',
+                url: `https://${shared.WP_API_DOMAIN}/app/plugins/wp-gistpen/`,
               },
               prism: {
                 theme: 'twilight', // gistpenSite.prism.theme,
