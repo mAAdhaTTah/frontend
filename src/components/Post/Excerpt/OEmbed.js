@@ -30,11 +30,13 @@ const OEmbed = ({
           author={author.name}
         />
       </header>
-      {html ? (
-        <div className="mb-5">
-          <EmbedContainer markup={html}>{embed}</EmbedContainer>
-        </div>
-      ) : null /* TODO(mAAdhaTTah) render error */}
+      {
+        html ? (
+          <div className="mb-5">
+            <EmbedContainer markup={html}>{embed}</EmbedContainer>
+          </div>
+        ) : null /* TODO(mAAdhaTTah) render error */
+      }
       {useParseHTML(content)}
     </Article>
   );
