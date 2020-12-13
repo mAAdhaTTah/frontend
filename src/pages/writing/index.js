@@ -2,6 +2,7 @@ import React from 'react';
 import { withSEO } from '../../decorators';
 import { Pagination, Main, Post } from '../../components';
 import { getPosts, getLayoutProps, getSeoByPageId } from '../../api';
+import { DEFAULT_REVALIDATE_TIME } from '../../constants';
 
 const GistpenArchive = ({ posts, page, hasNextPage }) => {
   return (
@@ -28,6 +29,7 @@ export const getStaticProps = async () => {
       page,
       hasNextPage,
     },
+    revalidate: DEFAULT_REVALIDATE_TIME,
   };
 };
 

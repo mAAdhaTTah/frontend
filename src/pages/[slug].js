@@ -6,7 +6,7 @@ import {
   getContextBySlug,
 } from '../api';
 import { Post } from '../components';
-import { DEFAULT_REVALIDATE_TIME } from '../constants';
+import { DEFAULT_REVALIDATE_TIME, LONG_REVALIDATE_TIME } from '../constants';
 import { Page } from '../containers/Page';
 import { withSEO } from '../decorators';
 
@@ -35,7 +35,7 @@ export const getStaticProps = async ({ params }) => {
       data,
       seo,
     },
-    revalidate: DEFAULT_REVALIDATE_TIME,
+    revalidate: data.format ? DEFAULT_REVALIDATE_TIME : LONG_REVALIDATE_TIME,
   };
 };
 

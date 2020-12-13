@@ -7,6 +7,7 @@ import {
   getPosts,
   getSeoByPageId,
 } from '../../../api';
+import { DEFAULT_REVALIDATE_TIME } from '../../../constants';
 
 const PostArchive = ({ posts, page, hasNextPage }) => {
   return (
@@ -24,7 +25,7 @@ const PostArchive = ({ posts, page, hasNextPage }) => {
 export const getStaticPaths = async () => {
   return {
     paths: await getPostArchivePaths(),
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
@@ -32,6 +33,13 @@ export const getStaticProps = async ({ params }) => {
   const { posts, page, hasNextPage } = await getPosts({
     page: params.number,
   });
+
+  if (posts.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       layout: await getLayoutProps(),
@@ -40,6 +48,7 @@ export const getStaticProps = async ({ params }) => {
       page,
       hasNextPage,
     },
+    revalidate: DEFAULT_REVALIDATE_TIME,
   };
 };
 
