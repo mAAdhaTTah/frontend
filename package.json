@@ -42,7 +42,7 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "postcss-arithmetic": "0.0.4",
     "postcss-for": "^2.1.1",
-    "postcss-google-font": "^1.0.0",
+    "postcss-google-font": "^1.1.0",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.3",
     "prettier": "^2.2.1",
