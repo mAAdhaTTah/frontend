@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "classcat": "^4.1.0",
     "date-fns": "^2.0.0",
     "html-react-parser": "^0.14.3",
