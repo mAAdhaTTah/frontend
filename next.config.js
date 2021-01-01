@@ -27,4 +27,16 @@ module.exports = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/feed/',
+        destination: `https://${process.env.NEXT_PUBLIC_WP_API_DOMAIN}/feed/`,
+      },
+      {
+        source: '/feed/atom/',
+        destination: `https://${process.env.NEXT_PUBLIC_WP_API_DOMAIN}/feed/atom/`,
+      },
+    ];
+  },
 };
