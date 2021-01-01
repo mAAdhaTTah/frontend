@@ -28,15 +28,19 @@ module.exports = {
     ];
   },
   async rewrites() {
+    const feeds = [
+      '/feed/',
+      '/feed/rss/',
+      '/feed/rss2/',
+      '/feed/rdf/',
+      '/feed/atom/',
+    ];
+
     return [
-      {
-        source: '/feed/',
-        destination: `https://${process.env.NEXT_PUBLIC_WP_API_DOMAIN}/feed/`,
-      },
-      {
-        source: '/feed/atom/',
-        destination: `https://${process.env.NEXT_PUBLIC_WP_API_DOMAIN}/feed/atom/`,
-      },
+      ...feeds.map(feed => ({
+        source: feed,
+        destination: `https://${process.env.NEXT_PUBLIC_WP_API_DOMAIN}${feed}`,
+      })),
     ];
   },
 };
