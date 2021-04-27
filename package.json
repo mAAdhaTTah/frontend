@@ -20,7 +20,7 @@
     "sqlite": "^4.0.19",
     "sqlite3": "^5.0.1",
     "string-strip-html": "^7.0.3",
-    "tailwindcss": "^1.9.6",
+    "tailwindcss": "^2.1.2",
     "typeit": "^7.0.4"
   },
   "devDependencies": {
