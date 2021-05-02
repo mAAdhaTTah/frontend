@@ -1,0 +1,1 @@
+export { PrimaryHeading } from './PrimaryHeading';

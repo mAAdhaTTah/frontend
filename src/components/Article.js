@@ -1,10 +1,9 @@
-import React from 'react';
 import cc from 'classcat';
 import PropTypes from 'prop-types';
 
 const articleClass = cc([
   'p-5',
-  'clearfix',
+  'flow-root',
   'rounded',
   'pb-3',
   'mb-5',

@@ -1,4 +1,3 @@
-import React from 'react';
 import cc from 'classcat';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import Link from 'next/link';
@@ -8,7 +7,7 @@ import EntryMeta from '../../EntryMeta';
 import Article from '../../Article';
 
 const linkClass = cc([
-  'font-body',
+  'font-ovo',
   'flex',
   'flex-row',
   'items-center',

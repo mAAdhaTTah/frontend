@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import parse, { domToReact } from 'html-react-parser';
 import cc from 'classcat';
 import { Body, H2, H3, Link, Snippet } from '../components';
@@ -60,7 +60,7 @@ export const useParseHTML = (
             );
           case 'li':
             return (
-              <li className="mb-1 font-body text-xl">
+              <li className="mb-1 font-ovo text-xl">
                 {domToReact(node.children, options)}
               </li>
             );

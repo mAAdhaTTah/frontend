@@ -1,4 +1,3 @@
-import React from 'react';
 import { withSEO } from '../../../decorators';
 import { Pagination, Main, Post } from '../../../components';
 import {

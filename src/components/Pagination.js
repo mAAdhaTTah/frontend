@@ -1,10 +1,9 @@
-import React from 'react';
 import cc from 'classcat';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 import Link from 'next/link';
 
 const paginationClass = cc([
-  'clearfix',
+  'flow-root',
   'max-w-xl',
   'mx-auto',
   'items-stretch',
@@ -15,7 +14,7 @@ const pageClass = cc([
   'p-5',
   'rounded',
   'text-primary',
-  'font-body',
+  'font-ovo',
   'no-underline',
   'flex',
   'align-center',

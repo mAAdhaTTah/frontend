@@ -1,4 +1,3 @@
-import React from 'react';
 import cc from 'classcat';
 import NextLink from 'next/link';
 

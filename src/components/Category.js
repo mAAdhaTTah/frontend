@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Category = ({ title, date, author, content }) => {
   return (
     <article>

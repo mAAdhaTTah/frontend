@@ -1,4 +1,3 @@
-import React from 'react';
 import cc from 'classcat';
 import { FaLink } from 'react-icons/fa';
 import { useParseHTML } from '../../../hooks';
@@ -12,7 +11,7 @@ const linkClass = cc([
   'p-3',
   'flex',
   'text-primary',
-  'font-header',
+  'font-muli',
   'rounded',
   'text-lg',
   'link-title',

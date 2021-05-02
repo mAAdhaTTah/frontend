@@ -1,4 +1,3 @@
-import React from 'react';
 import UnsupportedFormat from '../../UnsupportedFormat';
 import OEmbed from './OEmbed';
 import Standard from './Standard';

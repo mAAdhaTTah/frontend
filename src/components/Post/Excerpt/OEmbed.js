@@ -1,4 +1,3 @@
-import React from 'react';
 import EmbedContainer from 'react-oembed-container';
 import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';

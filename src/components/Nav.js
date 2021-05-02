@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
 import cc from 'classcat';
 
 const headerClass = cc([
@@ -9,7 +8,7 @@ const headerClass = cc([
   'hover:bg-lightg',
   'text-lg',
   'p-5',
-  'font-body',
+  'font-ovo',
   'leading-tight',
 ]);
 

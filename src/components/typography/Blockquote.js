@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaQuoteLeft } from 'react-icons/fa';
 
 const Blockquote = ({ children }) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Body } from './typography';
 
 const UnsupportedFormat = ({ format }) => (

@@ -1,4 +1,3 @@
-import React from 'react';
 import cc from 'classcat';
 import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';
