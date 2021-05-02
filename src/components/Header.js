@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import cc from 'classcat';
 import {
@@ -196,7 +196,7 @@ const Header = ({
               height={360}
             />
           </div>
-          <div className={cc(['font-header', 'lg:ml-5', 'flex-grow'])}>
+          <div className={cc(['font-muli', 'lg:ml-5', 'flex-grow'])}>
             {fullScreen ? (
               <h1 className={titleClassName} ref={titleRef}>
                 {title}

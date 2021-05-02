@@ -1,4 +1,3 @@
-import React from 'react';
 import { withSEO } from '../decorators';
 import { Category } from '../components';
 

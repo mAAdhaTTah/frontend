@@ -1,4 +1,3 @@
-import React from 'react';
 import { getLayoutProps, getReadingProps, getSeoByPageId } from '../api';
 import { Day, Main } from '../components';
 import { DEFAULT_REVALIDATE_TIME } from '../constants';

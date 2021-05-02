@@ -4,8 +4,8 @@ import { withSEO } from '../decorators';
 
 const NotFoundPage = () => (
   <Main>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <h1>SERVER ERROR</h1>
+    <p>Something terrible happened...</p>
   </Main>
 );
 
@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
 
 export default withSEO(() => ({
   // @TODO(mAAdhaTTah) get from... somewhere?
-  title: 'Page Not Found',
+  title: 'Server Error',
   metas: [],
   schemas: [],
 }))(NotFoundPage);

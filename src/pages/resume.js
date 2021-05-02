@@ -1,41 +1,39 @@
-import React from 'react';
 import cc from 'classcat';
-import { format } from 'date-fns';
 import { withSEO } from '../decorators';
 import { Main } from '../components';
 import { getLayoutProps, getResume, getSeoByPageId } from '../api';
 
 const h1Class = cc([
-  'font-header',
+  'font-muli',
   'text-4xl',
   'py-1',
   'mb-2',
   'print:mb-1',
   'print:py-0',
 ]);
-const h2Class = cc(['font-body', 'text-base', 'py-1', 'mb-1']);
+const h2Class = cc(['font-ovo', 'text-base', 'py-1', 'mb-1']);
 
-const expH3Class = cc(['font-header', 'text-center', 'py-1']);
-const expH4Class = cc(['font-header', 'text-lg', 'py-1', 'print:text-md']);
-const expH5Class = cc(['font-body', 'text-base', 'py-1', 'print:text-sm']);
-const expLiClass = cc(['font-body', 'text-base', 'mb-1', 'print:text-sm']);
+const expH3Class = cc(['font-muli', 'text-center', 'py-1']);
+const expH4Class = cc(['font-muli', 'text-lg', 'py-1', 'print:text-md']);
+const expH5Class = cc(['font-ovo', 'text-base', 'py-1', 'print:text-sm']);
+const expLiClass = cc(['font-ovo', 'text-base', 'mb-1', 'print:text-sm']);
 
 const sidebarH3Class = cc([
-  'font-header',
+  'font-muli',
   'text-lg',
   'text-center',
   'py-3',
   'print:py-0',
 ]);
 const sidebarH4Class = cc([
-  'font-body',
+  'font-ovo',
   'text-sm',
   'font-normal',
   'py-1',
   'print:py-0',
 ]);
-const sidebarLiClass = cc(['font-body', 'text-sm', 'py-1', 'ml-1']);
-const sidebarSubLiClass = cc(['font-body', 'text-xs', 'py-1']);
+const sidebarLiClass = cc(['font-ovo', 'text-sm', 'py-1', 'ml-1']);
+const sidebarSubLiClass = cc(['font-ovo', 'text-xs', 'py-1']);
 
 const ExpLi = ({ children }) => <li className={expLiClass}>{children}</li>;
 
@@ -52,7 +50,7 @@ const Experience = ({ experiences }) => (
             ({ title, start, end, responsibilities }, key) => (
               <div className="mb-3" key={key}>
                 <h5 className={expH5Class}>{title}</h5>
-                <div className="font-body text-base mb-3">
+                <div className="font-ovo text-base mb-3">
                   {start} to {end ?? 'Present'}
                 </div>
                 <ul className="list-disc pl-5">
@@ -258,7 +256,7 @@ const ResumePage = ({ resume: { skills, experiences } }) => (
       <div className="mx-auto text-center mb-2">
         <h1 className={h1Class}>James DiGioia</h1>
         <h2 className={h2Class}>New York, NY</h2>
-        <p className="text-sm font-body">
+        <p className="text-sm font-ovo">
           I am a Senior Front-End Engineer with experience in modern web
           frameworks & team leadership.
         </p>

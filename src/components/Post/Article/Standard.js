@@ -1,4 +1,3 @@
-import React from 'react';
 import cc from 'classcat';
 import { useParseHTML } from '../../../hooks';
 import { ArticleHeader } from '../../typography';

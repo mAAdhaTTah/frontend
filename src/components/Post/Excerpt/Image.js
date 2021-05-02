@@ -1,4 +1,3 @@
-import React from 'react';
 import MediaImage from '../../MediaImage';
 import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';

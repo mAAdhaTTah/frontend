@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParseHTML } from '../hooks';
 import { ArticleHeader, Article } from '../components';
 

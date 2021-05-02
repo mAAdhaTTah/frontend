@@ -1,10 +1,9 @@
-import React from 'react';
 import cc from 'classcat';
 import Article from './Article';
 import EntryMeta from './EntryMeta';
 import Snippet from './Snippet';
 
-const h3Class = cc(['text-4xl', 'text-lightg', 'font-header', 'mb-3']);
+const h3Class = cc(['text-4xl', 'text-lightg', 'font-muli', 'mb-3']);
 
 const Gistpen = ({ description, date, dateTime, blobs }) => (
   <Article>

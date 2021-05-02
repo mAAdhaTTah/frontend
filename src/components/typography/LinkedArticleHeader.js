@@ -1,4 +1,3 @@
-import React from 'react';
 import ArticleHeader from './ArticleHeader';
 import Link from './Link';
 
