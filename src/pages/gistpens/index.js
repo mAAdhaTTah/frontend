@@ -6,7 +6,7 @@ const GistpenArchive = ({ posts, page, hasNextPage }) => {
   return (
     <Main>
       {posts.map(node => (
-        <Gistpen key={node.id} {...node} />
+        <Gistpen key={node.id} {...node} linkHeader />
       ))}
       <Pagination pageNumber={page} hasNextPage={hasNextPage} slug="gistpens" />
     </Main>

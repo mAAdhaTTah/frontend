@@ -301,12 +301,13 @@ export const getGistpens = async ({ page }) => {
   });
 
   for (const repo of data) {
-    await cache.add(repo.slug, repo);
+    await cache.addRepo(repo);
   }
 
   return {
     posts: data.map(repo => ({
       id: repo.ID,
+      slug: repo.slug,
       description: repo.description,
       blobs: repo.blobs,
       date: format(parseISO(repo.created_at), 'MMMM do, yyyy'),
@@ -341,7 +342,7 @@ export const getGistpenSlugPaths = async () => {
   });
 
   for (const repo of data) {
-    await cache.add(`gistpen-${repo.slug}`, repo);
+    await cache.addRepo(repo);
   }
 
   return data.map(repo => ({
@@ -350,7 +351,7 @@ export const getGistpenSlugPaths = async () => {
 };
 
 export const getGistpenBySlug = async ({ slug }) => {
-  const repo = await cache.get(`gistpen-${slug}`);
+  const repo = await cache.getRepo(slug);
 
   return {
     seo: {
@@ -360,14 +361,9 @@ export const getGistpenBySlug = async ({ slug }) => {
     },
     post: {
       id: repo.ID,
+      slug: repo.slug,
       description: repo.description,
-      blobs: await Promise.all(
-        repo.blobs.map(async ({ rest_url }) => {
-          const { data } = await Axios.get(rest_url);
-
-          return data;
-        }),
-      ),
+      blobs: repo.blobs,
       date: format(parseISO(repo.created_at), 'MMMM do, yyyy'),
       dateTime: repo.created_at,
     },
