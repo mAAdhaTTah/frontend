@@ -1,8 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
-import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
+import Database from 'better-sqlite3';
 import {
   subDays,
   getUnixTime,
@@ -260,22 +259,20 @@ export const getReadingProps = async () => {
 
   try {
     await downloadDb(dbFile);
-    db = await open({
-      filename: dbFile,
-      driver: sqlite3.Database,
-    });
+    db = new Database(dbFile);
 
     const days = [];
 
     for (let i = 0; i < 7; i++) {
       const targetDay = subDays(now, i);
-      const results = await db.all(
-        'SELECT id, title, url, timestamp FROM core_snapshot WHERE timestamp < :before AND timestamp >= :after ORDER BY timestamp DESC;',
-        {
-          ':before': getUnixTime(endOfDay(targetDay)),
-          ':after': getUnixTime(endOfDay(subDays(targetDay, 1))),
-        },
-      );
+      const results = await db
+        .prepare(
+          'SELECT id, title, url, timestamp FROM core_snapshot WHERE timestamp < $before AND timestamp >= $after ORDER BY timestamp DESC;',
+        )
+        .all({
+          before: getUnixTime(endOfDay(targetDay)),
+          after: getUnixTime(endOfDay(subDays(targetDay, 1))),
+        });
 
       days.push({
         day: format(targetDay, 'MMM do, yyyy'),

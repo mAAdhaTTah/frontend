@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
+import Database from 'better-sqlite3';
 
 const CACHE_DB_FILE = path.join(process.cwd(), 'data', 'cache.sqlite3');
 
@@ -17,12 +16,9 @@ const safeOpen = async () => {
     await fs.promises.appendFile(CACHE_DB_FILE, '');
   }
 
-  const db = await open({
-    filename: CACHE_DB_FILE,
-    driver: sqlite3.Database,
-  });
+  const db = new Database(CACHE_DB_FILE);
 
-  await db.run(
+  await db.exec(
     `CREATE TABLE IF NOT EXISTS cache (
       key TEXT UNIQUE PRIMARY KEY,
       value TEXT
@@ -42,7 +38,7 @@ const openAndRun = async (statement, values, retry = 0) => {
       db = await safeOpen();
     }
 
-    return await db.run(statement, values);
+    return db.prepare(statement).run(values);
   } catch (err) {
     if (retry < 5) {
       await sleep(500);
@@ -58,7 +54,7 @@ const openAndGet = async (statement, values, retry = 0) => {
       db = await safeOpen();
     }
 
-    return await db.get(statement, values);
+    return db.prepare(statement).get(values);
   } catch (err) {
     if (retry < 5) {
       await sleep(500);
@@ -70,14 +66,14 @@ const openAndGet = async (statement, values, retry = 0) => {
 
 export const add = ($key, $value) => {
   return openAndRun(`INSERT OR REPLACE INTO cache VALUES($key, $value)`, {
-    $key: encodeURIComponent($key),
-    $value: JSON.stringify($value),
+    key: encodeURIComponent($key),
+    value: JSON.stringify($value),
   });
 };
 
 export const get = async $key => {
   const row = await openAndGet(`SELECT value FROM cache WHERE key = $key`, {
-    $key: encodeURIComponent($key),
+    key: encodeURIComponent($key),
   });
 
   if (!row) {

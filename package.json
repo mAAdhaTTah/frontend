@@ -5,6 +5,7 @@
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
     "axios": "^0.21.1",
+    "better-sqlite3": "^7.1.5",
     "classcat": "^4.1.0",
     "date-fns": "^2.21.1",
     "html-react-parser": "^1.2.4",
@@ -18,8 +19,6 @@
     "react-icons": "^4.2.0",
     "react-oembed-container": "^1.0.0",
     "react-spring": "^8.0.27",
-    "sqlite": "^4.0.19",
-    "sqlite3": "^5.0.2",
     "string-strip-html": "^7.0.3",
     "tailwindcss": "^2.1.1",
     "typeit": "^7.0.4"
