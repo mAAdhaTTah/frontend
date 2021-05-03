@@ -81,7 +81,9 @@ export const get = async $key => {
   });
 
   if (!row) {
-    throw new Error(`Value for slug ${$key} not found.`);
+    const error = new Error(`Value for slug ${$key} not found.`);
+    error.code = 'SLUG_NOT_FOUND';
+    throw error;
   }
 
   return JSON.parse(row.value);

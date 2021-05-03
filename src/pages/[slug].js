@@ -26,16 +26,26 @@ export const getStaticPaths = async () => {
 
 /** @type import('next').GetStaticProps<Props, SlugParams> */
 export const getStaticProps = async ({ params }) => {
-  const { data, seo } = await getContextBySlug(params.slug);
+  try {
+    const { data, seo } = await getContextBySlug(params.slug);
 
-  return {
-    props: {
-      layout: await getLayoutProps(),
-      data,
-      seo,
-    },
-    revalidate: data.format ? DEFAULT_REVALIDATE_TIME : LONG_REVALIDATE_TIME,
-  };
+    return {
+      props: {
+        layout: await getLayoutProps(),
+        data,
+        seo,
+      },
+      revalidate: data.format ? DEFAULT_REVALIDATE_TIME : LONG_REVALIDATE_TIME,
+    };
+  } catch (error) {
+    if (error.code === 'SLUG_NOT_FOUND') {
+      return {
+        notFound: true,
+      };
+    }
+
+    throw error;
+  }
 };
 
 export default withSEO()(Slug);
