@@ -86,3 +86,16 @@ export const get = async $key => {
 
   return JSON.parse(row.value);
 };
+
+export const addRepo = async repo => {
+  await add(`gistpen-${repo.slug}`, repo);
+
+  for (const blob of repo.blobs) {
+    await add(`snippet-${repo.slug}-${blob.filename}`, blob);
+  }
+};
+
+export const getRepo = repoSlug => get(`gistpen-${repoSlug}`);
+
+export const getBlob = (repoSlug, blobSlug) =>
+  get(`snippet-${repoSlug}-${blobSlug}`);
