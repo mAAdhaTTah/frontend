@@ -1,5 +1,16 @@
 import axios from 'axios';
 import { shared, server } from '../config';
+// TODO(James) remove when bumping version up to v16+
+// eslint-disable-next-line
+String.prototype.replaceAll = function replaceAll(str, newStr) {
+  // If a regex pattern
+  if (Object.prototype.toString.call(str).toLowerCase() === '[object regexp]') {
+    return this.replace(str, newStr);
+  }
+
+  // If a string
+  return this.replace(new RegExp(str, 'g'), newStr);
+};
 
 const deepReplaceDomain = value => {
   // Ignore empty strings, null, undefined, functions, & numbers.

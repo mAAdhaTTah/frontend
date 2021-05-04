@@ -19,7 +19,7 @@
     "react-oembed-container": "^1.0.0",
     "react-spring": "^8.0.27",
     "sqlite": "^4.0.19",
-    "sqlite3": "^5.0.2",
+    "sqlite3": "5.0.1",
     "string-strip-html": "^7.0.3",
     "tailwindcss": "^2.1.1",
     "typeit": "^7.0.4"
@@ -47,7 +47,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=14"
   },
   "scripts": {
     "start": "next start",
