@@ -10,7 +10,7 @@
     "html-react-parser": "^1.2.4",
     "next": "^10.1.0",
     "parse-link-header": "^1.0.1",
-    "postcss": "^8.2.13",
+    "postcss": "^8.2.14",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-display-name": "^0.2.5",
