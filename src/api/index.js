@@ -14,6 +14,7 @@ import {
 } from 'date-fns';
 import Axios from 'axios';
 import parseLinkHeader from 'parse-link-header';
+import initSqlJs from 'sql.js';
 import { wp } from './wp';
 import * as cache from './cache';
 
@@ -112,7 +113,7 @@ export const getPageSlugs = async () => {
 
   for (const page of pages) {
     if (isAllowedSlug(page.slug)) {
-      await cache.add(page.slug, page);
+      await cache.addPost(page);
       results.push({
         params: {
           slug: page.slug,
@@ -145,7 +146,7 @@ export const getPostSlugs = async () => {
   const results = [];
 
   for await (const post of getPosts()) {
-    await cache.add(post.slug, post);
+    await cache.addPost(post);
     results.push({
       params: {
         slug: post.slug,
@@ -160,7 +161,7 @@ export const getPostSlugs = async () => {
  * @param {string} slug  Post or page slug.
  */
 export const getContextBySlug = async slug => {
-  const page = await cache.get(slug);
+  const page = await cache.getPost(slug);
 
   let data = {};
 
@@ -214,84 +215,55 @@ export const getResume = async () => {
   return { experiences, skills };
 };
 
-const downloadDb = async dest => {
-  return new Promise((resolve, reject) => {
-    const file = fs.createWriteStream(dest);
-
-    const rejectWithCleanup = err => {
-      reject(err);
-      file.close();
-      fs.unlink(dest, () => {});
-    };
-
-    file.on('finish', () => {
-      resolve();
-    });
-
-    const request = https.get(
-      'https://static.jamesdigioia.com/index.sqlite3',
-      response => {
-        if (response.statusCode === 200) {
-          response.pipe(file);
-        } else {
-          rejectWithCleanup(
-            new Error(
-              `Server responded with ${response.statusCode}: ${response.statusMessage}`,
-            ),
-          );
-        }
-      },
-    );
-
-    request.on('error', err => {
-      rejectWithCleanup(err);
-    });
-
-    file.on('error', err => {
-      rejectWithCleanup(err);
-    });
-  });
-};
-
 export const getReadingProps = async () => {
   let db;
   const now = new Date();
-  const dbFile = path.join(process.cwd(), 'data', 'index.sqlite3');
 
   try {
-    await downloadDb(dbFile);
-    db = await open({
-      filename: dbFile,
-      driver: sqlite3.Database,
-    });
+    const [SQL, buf] = await Promise.all([
+      initSqlJs(),
+      fetch('https://static.jamesdigioia.com/index.sqlite3').then(res =>
+        res.arrayBuffer(),
+      ),
+    ]);
+
+    db = new SQL.Database(new Uint8Array(buf));
+    const dayStmt = db.prepare(
+      'SELECT id, title, url, timestamp FROM core_snapshot WHERE timestamp < $before AND timestamp >= $after ORDER BY timestamp DESC;',
+    );
 
     const days = [];
 
     for (let i = 0; i < 7; i++) {
+      const links = [];
       const targetDay = subDays(now, i);
-      const results = await db.all(
-        'SELECT id, title, url, timestamp FROM core_snapshot WHERE timestamp < :before AND timestamp >= :after ORDER BY timestamp DESC;',
-        {
-          ':before': getUnixTime(endOfDay(targetDay)),
-          ':after': getUnixTime(endOfDay(subDays(targetDay, 1))),
-        },
-      );
+      dayStmt.bind({
+        $before: getUnixTime(endOfDay(targetDay)),
+        $after: getUnixTime(endOfDay(subDays(targetDay, 1))),
+      });
 
-      days.push({
-        day: format(targetDay, 'MMM do, yyyy'),
-        links: results.map(link => ({
+      while (dayStmt.step()) {
+        const link = dayStmt.getAsObject();
+
+        links.push({
           id: link.id,
           title: link.title,
           url: link.url,
-          readAt: format(fromUnixTime(link.timestamp), 'hh:mm a'),
-        })),
+          readAt: format(fromUnixTime(Number(link.timestamp)), 'hh:mm a'),
+        });
+      }
+
+      days.push({
+        day: format(targetDay, 'MMM do, yyyy'),
+        links,
       });
     }
+
+    dayStmt.free();
 
     return days;
   } finally {
     await db?.close();
-    await fs.promises.unlink(dbFile);
   }
 };
 
@@ -404,7 +376,7 @@ export const getPosts = async ({ page }) => {
   });
 
   for (const post of data) {
-    await cache.add(post.slug, post);
+    await cache.addPost(post.slug, post);
   }
 
   return {

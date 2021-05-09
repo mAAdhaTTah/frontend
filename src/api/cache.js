@@ -101,3 +101,9 @@ export const getRepo = repoSlug => get(`gistpen-${repoSlug}`);
 
 export const getBlob = (repoSlug, blobSlug) =>
   get(`snippet-${repoSlug}-${blobSlug}`);
+
+export const addPost = async post => {
+  await add(`post-${post.slug}`, post);
+};
+
+export const getPost = async postSlug => get(`post-${postSlug}`);
