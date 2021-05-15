@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { useTransition, animated } from 'react-spring';
 import Header from './Header';
+import { headerImage, avatarImage } from './images';
 
 export const Layout = ({ pathname, site, children }) => {
-  const transitions = useTransition(children, () => pathname, {
+  const transitions = useTransition(children, {
     from: { position: 'absolute', width: '100%', opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -11,29 +12,20 @@ export const Layout = ({ pathname, site, children }) => {
   });
 
   return (
-    <>
+    <div className="flex flex-row">
       <Header
         title={site.name}
         description={site.description}
         fullScreen={pathname === '/'}
-        headerImage={{
-          // TODO(James) fix these paths
-          src: 'https://static.jamesdigioia.com/uploads/2020/11/header-1.jpg',
-          alt: 'background image',
-        }}
-        avatarImage={{
-          // TODO(James) fix these paths
-          src:
-            'https://static.jamesdigioia.com/uploads/2015/02/new-avatar-sq.jpg',
-          alt: 'avatar',
-        }}
+        headerImage={headerImage}
+        avatarImage={avatarImage}
       />
-      {transitions.map(({ item, key, props }) => (
-        <animated.div key={key} style={props}>
-          {item}
-        </animated.div>
-      ))}
-    </>
+      <div className="relative flex-grow h-screen overflow-scroll">
+        {transitions((props, item) => (
+          <animated.div style={props}>{item}</animated.div>
+        ))}
+      </div>
+    </div>
   );
 };
 

@@ -1,5 +1,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { PrimaryHeading } from './PrimaryHeading';
+import { SecondaryHeading } from './SecondaryHeading';
+import { Icon } from './Icon';
 
 <Meta title="Theme" />
 
@@ -9,5 +11,24 @@ import { PrimaryHeading } from './PrimaryHeading';
   <Story name="PrimaryHeading">
     <PrimaryHeading>A Primary Heading</PrimaryHeading>
     <PrimaryHeading level={3}>A Level 3 Primary Heading</PrimaryHeading>
+  </Story>
+</Canvas>
+
+# SecondaryHeading
+
+<Canvas>
+  <Story name="SecondaryHeading">
+    <SecondaryHeading>A Primary Heading</SecondaryHeading>
+    <SecondaryHeading level={4}>A Level 4 Primary Heading</SecondaryHeading>
+  </Story>
+</Canvas>
+
+# Icon
+
+<Canvas>
+  <Story name="Icon">
+    <Icon icon="facebook" />
+    <Icon icon="linkedin" />
+    <Icon icon="github" />
   </Story>
 </Canvas>

@@ -1,7 +1,7 @@
 import { withSEO } from '../../decorators';
 import { Pagination, Main, Post } from '../../components';
 import { getPosts, getLayoutProps, getSeoByPageId } from '../../api';
-import { DEFAULT_REVALIDATE_TIME } from '../../constants';
+import { server } from '../../config';
 
 const GistpenArchive = ({ posts, page, hasNextPage }) => {
   return (
@@ -28,7 +28,7 @@ export const getStaticProps = async () => {
       page,
       hasNextPage,
     },
-    revalidate: DEFAULT_REVALIDATE_TIME,
+    revalidate: server.DEFAULT_REVALIDATE_TIME,
   };
 };
 

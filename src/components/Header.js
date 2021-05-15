@@ -1,32 +1,28 @@
 import { useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import cc from 'classcat';
-import {
-  FaFacebook,
-  FaTwitterSquare,
-  FaLinkedin,
-  FaGooglePlusSquare,
-  FaInstagram,
-  FaTumblrSquare,
-  FaGithubSquare,
-} from 'react-icons/fa';
 import Image from 'next/image';
 import TypeIt from 'typeit';
+import { PrimaryHeading, Icon, SecondaryHeading } from '../theme';
 import Nav from './Nav';
 
-const titleClassName = cc(['text-4xl', 'md:text-5xl', 'font-bold', 'mb-3']);
-
-const SocialIcon = ({ icon, to, color }) => (
+const SocialIcon = ({ icon, to }) => (
   <a
+    className={cc([
+      'border-2',
+      'border-transparent',
+      'focus:border-primary',
+      'focus:outline-none',
+    ])}
     href={to}
-    style={{ color }}
-    className={cc(['text-4xl', 'rounded-lg', 'border-transparent'])}
+    target="_blank"
+    rel="noopener noreferrer"
   >
     {icon}
   </a>
 );
 
-const SocialIcons = () => (
+const SocialIcons = ({ fullScreen }) => (
   <div
     className={cc([
       'text-xl',
@@ -36,43 +32,20 @@ const SocialIcons = () => (
       'flex-row',
       'align-center',
       'justify-center',
-      'lg:justify-start',
+      { 'lg:justify-start': fullScreen },
       'text-center',
     ])}
   >
     <SocialIcon
-      icon={<FaFacebook />}
-      color="#3b5998"
+      icon={<Icon icon="facebook" alt="Facebook" />}
       to="https://www.facebook.com/james.digioia"
     />
     <SocialIcon
-      icon={<FaTwitterSquare />}
-      color="#3cf"
-      to="https://twitter.com/JamesDiGioia"
-    />
-    <SocialIcon
-      icon={<FaLinkedin />}
-      color="#4875b4"
+      icon={<Icon icon="linkedin" alt="LinkedIn" />}
       to="https://www.linkedin.com/in/jamesdigioia"
     />
     <SocialIcon
-      icon={<FaGooglePlusSquare />}
-      color="#c63d2d"
-      to="https://plus.google.com/+JamesDiGioia"
-    />
-    <SocialIcon
-      icon={<FaInstagram />}
-      color="#4e433c"
-      to="http://instagram.com/jamesdigioia"
-    />
-    <SocialIcon
-      icon={<FaTumblrSquare />}
-      color="#2b4964"
-      to="http://jamesdigioia.tumblr.com/"
-    />
-    <SocialIcon
-      icon={<FaGithubSquare />}
-      color="#333"
+      icon={<Icon icon="github" alt="GitHub" />}
       to="https://github.com/mAAdhaTTah/"
     />
   </div>
@@ -91,17 +64,26 @@ const Header = ({
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
 
-  const [headerProps, setHeader] = useSpring(() => ({}));
+  const [style, animate] = useSpring(() => ({
+    from: { width: 0 },
+    config: animationConfig,
+  }));
 
   useEffect(() => {
-    const currentHeight = header.current.style.height;
-    header.current.style.height = '';
-    setHeader({
-      config: animationConfig,
-      height: header.current.offsetHeight,
-    });
-    header.current.style.height = currentHeight;
-  }, [fullScreen, setHeader]);
+    const handler = () => {
+      const windowWidth = window.document.body.offsetWidth;
+      const minWidth = windowWidth < 768 ? 0 : 352;
+
+      animate.start({
+        to: { width: fullScreen ? windowWidth : minWidth },
+      });
+    };
+
+    handler();
+
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, [fullScreen]);
 
   useEffect(() => {
     titleRef.current.innerText = '';
@@ -127,102 +109,113 @@ const Header = ({
   }, []);
 
   return (
-    <animated.header
-      ref={header}
-      style={{ ...headerProps }}
-      className={cc([
-        'flex',
-        'flex-col',
-        'relative',
-        'print:hidden',
-        {
-          'h-screen': fullScreen,
-          'h-80': !fullScreen,
-        },
-      ])}
-    >
-      <div className="h-screen overflow-hidden relative">
-        <img
-          src={headerImage.src}
-          alt={headerImage.alt}
-          style={{
-            position: 'absolute',
-            top: '0px',
-            left: '0px',
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center center',
-          }}
-        />
-      </div>
-      <div
+    <>
+      <animated.header
+        ref={header}
+        style={{ ...style }}
         className={cc([
-          'absolute',
-          'bg-etched',
-          'rounded-lg',
-          'text-center',
-          'lg:text-left',
-          'inline-flex',
-          'lg:flex',
-          'flex-row',
-          'items-center',
-          'justify-center',
-          'lg:justify-start',
-          'w-full',
-          'max-w-xs',
-          'sm:max-w-sm',
-          'lg:max-w-md',
-          'pin-center',
-          '-mt-8',
-          'm-auto',
+          'flex',
+          'flex-col',
+          'print:hidden',
+          'relative',
+          'h-screen',
+          'overflow-hidden',
         ])}
       >
+        <div className="h-screen overflow-hidden relative">
+          <Image
+            {...headerImage}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center center"
+            style={{
+              position: 'absolute',
+              top: '0px',
+              left: '0px',
+              width: '100%',
+              height: '100%',
+            }}
+          />
+        </div>
         <div
           className={cc([
-            'flex',
+            'absolute',
+            'bg-etched',
+            'rounded-lg',
+            'text-center',
+            { 'lg:text-left': fullScreen },
+            'inline-flex',
+            'lg:flex',
             'flex-row',
             'items-center',
             'justify-center',
-            'p-3',
-            'sm:p-5',
+            'lg:justify-start',
+            'w-full',
+            'max-w-xs',
+            'sm:max-w-sm',
+            'lg:max-w-md',
+            'pin-center',
+            '-mt-8',
+            'm-auto',
+            'w-full',
           ])}
         >
-          <div className="w-48 h-48 rounded-full overflow-hidden hidden lg:block flex-grow-0">
-            <Image
-              src={avatarImage.src}
-              alt={avatarImage.alt}
-              width={360}
-              height={360}
-            />
-          </div>
-          <div className={cc(['font-muli', 'lg:ml-5', 'flex-grow'])}>
-            {fullScreen ? (
-              <h1 className={titleClassName} ref={titleRef}>
-                {title}
-              </h1>
-            ) : (
-              <div className={titleClassName} ref={titleRef}>
-                {title}
-              </div>
-            )}
-            <SocialIcons />
-            <h2
+          <div
+            className={cc([
+              'flex',
+              'flex-row',
+              'items-center',
+              'justify-center',
+              'w-full',
+              {
+                'p-2': !fullScreen,
+                'p-3': fullScreen,
+                'sm:p-5': fullScreen,
+              },
+            ])}
+          >
+            <div
               className={cc([
-                'relative',
-                'text-xl',
-                'md:text-3xl',
-                'font-medium',
+                'w-0',
+                'lg:w-48',
+                'h-48',
+                'rounded-full',
+                'overflow-hidden',
+                'flex-grow-0',
+                'transition-width',
+                'ease-in-out',
+                {
+                  'lg:w-0': !fullScreen,
+                },
               ])}
-              ref={subtitleRef}
             >
-              {description}
-            </h2>
+              <Image
+                src={avatarImage.src}
+                alt={avatarImage.alt}
+                width={360}
+                height={360}
+              />
+            </div>
+            <div className={cc(['font-muli', 'lg:ml-5', 'flex-grow'])}>
+              <PrimaryHeading
+                component={fullScreen ? 'h1' : 'div'}
+                ref={titleRef}
+              >
+                {title}
+              </PrimaryHeading>
+              <SocialIcons fullScreen={fullScreen} />
+              <SecondaryHeading
+                component={fullScreen ? 'h1' : 'div'}
+                ref={subtitleRef}
+              >
+                {description}
+              </SecondaryHeading>
+            </div>
           </div>
         </div>
-      </div>
+      </animated.header>
       <Nav />
-    </animated.header>
+    </>
   );
 };
 

@@ -261,7 +261,7 @@ const ResumePage = ({ resume: { skills, experiences } }) => (
           frameworks & team leadership.
         </p>
       </div>
-      <div className="mx-auto px-4 print:mx-2 flex max-w-2xl flex-col lg:flex-row print:flex-row pb-2">
+      <div className="mx-auto px-4 print:mx-2 flex max-w-2xl flex-col xl:flex-row print:flex-row pb-2">
         <div className="flex-grow basis-100">
           <Experience experiences={experiences} />
         </div>

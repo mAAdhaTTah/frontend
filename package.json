@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
+    "@react-aria/focus": "^3.3.0",
+    "@react-aria/visually-hidden": "^3.2.2",
     "axios": "^0.21.1",
     "classcat": "^4.1.0",
     "date-fns": "^2.21.1",
@@ -17,7 +19,8 @@
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "react-oembed-container": "^1.0.0",
-    "react-spring": "^8.0.27",
+    "react-spring": "^9.2.0-beta.4",
+    "rooks": "^5.0.2",
     "sql.js": "^1.5.0",
     "sqlite": "^4.0.19",
     "sqlite3": "5.0.1",
@@ -44,6 +47,7 @@
     "postcss-import": "^14.0.0",
     "postcss-nested": "^5.0.5",
     "prettier": "^2.2.1",
+    "storybook-addon-next-router": "^2.0.4",
     "typescript": "^4.2.4"
   },
   "license": "MIT",

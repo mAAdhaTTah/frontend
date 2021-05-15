@@ -14,12 +14,12 @@ const ReadLink = ({ url, title, readAt }) => (
 ReadLink.propTypes = {
   id: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   readAt: PropTypes.string.isRequired,
 };
 
 const Day = ({ day, links }) => (
-  <div className="max-w-md mx-auto">
+  <div className="max-w-lg mx-auto">
     <h2 className="font-muli py-3 text-2xl px-3">Day of {day}</h2>
     <ul className="font-ovo">
       {links.map(link => (

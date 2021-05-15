@@ -1,6 +1,6 @@
 import { getLayoutProps, getReadingProps, getSeoByPageId } from '../api';
 import { Day, Main } from '../components';
-import { DEFAULT_REVALIDATE_TIME } from '../constants';
+import { server } from '../config';
 import { withSEO } from '../decorators';
 
 const ReadingPage = ({ reading }) => (
@@ -18,7 +18,7 @@ export const getStaticProps = async () => {
       seo: await getSeoByPageId(5941),
       reading: await getReadingProps(),
     },
-    revalidate: DEFAULT_REVALIDATE_TIME,
+    revalidate: server.DEFAULT_REVALIDATE_TIME,
   };
 };
 

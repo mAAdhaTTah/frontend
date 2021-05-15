@@ -2,6 +2,11 @@ module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    extend: {
+        transitionProperty: {
+         'width': 'width',
+        }
+      },
     colors: {
       etched: 'hsla(0, 0%, 100%, .35)',
       primary: '#FFF3C9',
@@ -10,6 +15,7 @@ module.exports = {
       darkg: '#24331E',
       lightg: '#78af52',
       black: '#000',
+      transparent: 'transparent'
     },
     screens: {
       sm: '320px',
@@ -30,8 +36,8 @@ module.exports = {
       lg: '1.125rem', // 18px
       xl: '1.25rem', // 20px
       '2xl': '1.5rem', // 24px
-      '3xl': '1.875rem', // 30px
-      '4xl': '2.25rem', // 36px
+      '3xl': '2rem', // 32px
+      '4xl': '2.5rem', // 40px
       '5xl': '3rem', // 48px
     },
     fontWeight: {
@@ -84,6 +90,7 @@ module.exports = {
     width: {
       auto: 'auto',
       px: '1px',
+      0: '0rem',
       1: '0.25rem',
       2: '0.5rem',
       3: '0.75rem',
@@ -98,6 +105,9 @@ module.exports = {
       32: '8rem',
       48: '12rem',
       64: '16rem',
+      80: '20rem',
+      88: '22rem',
+      96: '24rem',
       '1/2': '50%',
       '1/3': '33.33333%',
       '2/3': '66.66667%',

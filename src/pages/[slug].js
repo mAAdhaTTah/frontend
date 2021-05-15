@@ -5,7 +5,7 @@ import {
   getContextBySlug,
 } from '../api';
 import { Post } from '../components';
-import { DEFAULT_REVALIDATE_TIME, LONG_REVALIDATE_TIME } from '../constants';
+import { server } from '../config';
 import { Page } from '../containers/Page';
 import { withSEO } from '../decorators';
 
@@ -35,7 +35,9 @@ export const getStaticProps = async ({ params }) => {
         data,
         seo,
       },
-      revalidate: data.format ? DEFAULT_REVALIDATE_TIME : LONG_REVALIDATE_TIME,
+      revalidate: data.format
+        ? server.DEFAULT_REVALIDATE_TIME
+        : server.LONG_REVALIDATE_TIME,
     };
   } catch (error) {
     if (error.code === 'SLUG_NOT_FOUND') {
