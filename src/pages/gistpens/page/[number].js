@@ -6,7 +6,7 @@ import {
   getLayoutProps,
   getSeoByPageId,
 } from '../../../api';
-import { DEFAULT_REVALIDATE_TIME } from '../../../constants';
+import { server } from '../../../config';
 
 const GistpenArchive = ({ posts, page, hasNextPage }) => {
   return (
@@ -45,7 +45,7 @@ export const getStaticProps = async ({ params }) => {
       page,
       hasNextPage,
     },
-    revalidate: DEFAULT_REVALIDATE_TIME,
+    revalidate: server.DEFAULT_REVALIDATE_TIME,
   };
 };
 

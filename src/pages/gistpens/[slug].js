@@ -5,7 +5,7 @@ import {
   getGistpenSlugPaths,
   getLayoutProps,
 } from '../../api';
-import { DEFAULT_REVALIDATE_TIME } from '../../constants';
+import { server } from '../../config';
 
 const GistpenSingle = ({ post }) => {
   return <Gistpen {...post} />;
@@ -31,7 +31,7 @@ export const getStaticProps = async ({ params }) => {
         seo,
         post,
       },
-      revalidate: DEFAULT_REVALIDATE_TIME,
+      revalidate: server.DEFAULT_REVALIDATE_TIME,
     };
   } catch {
     return {
