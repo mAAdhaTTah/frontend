@@ -125,6 +125,7 @@ const Header = ({
         <div className="h-screen overflow-hidden relative">
           <Image
             {...headerImage}
+            priority
             layout="fill"
             objectFit="cover"
             objectPosition="center center"
@@ -190,6 +191,7 @@ const Header = ({
               ])}
             >
               <Image
+                priority
                 src={avatarImage.src}
                 alt={avatarImage.alt}
                 width={360}
