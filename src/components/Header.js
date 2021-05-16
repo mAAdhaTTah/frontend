@@ -65,7 +65,6 @@ const Header = ({
   const subtitleRef = useRef(null);
 
   const [style, animate] = useSpring(() => ({
-    from: { width: 0 },
     config: animationConfig,
   }));
 
@@ -120,6 +119,11 @@ const Header = ({
           'relative',
           'h-screen',
           'overflow-hidden',
+          'w-0',
+          {
+            'lg:w-88': !fullScreen,
+            'lg:w-full': fullScreen
+          }
         ])}
       >
         <div className="h-screen overflow-hidden relative">

@@ -1,15 +1,24 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import { useRef } from 'react';
 import { useTransition, animated } from 'react-spring';
 import Header from './Header';
 import { headerImage, avatarImage } from './images';
 
 export const Layout = ({ pathname, site, children }) => {
+  const opacityRef = useRef(1);
   const transitions = useTransition(children, {
-    from: { position: 'absolute', width: '100%', opacity: 0 },
+    key: pathname,
+    from: { position: 'absolute', width: '100%', opacity: opacityRef.current },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: { mass: 1, tension: 150, friction: 30 },
   });
+
+  useEffect(() => {
+    // Next render, fade in.
+    opacityRef.current = 0;
+  }, [])
 
   return (
     <div className="flex flex-row">
