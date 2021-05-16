@@ -122,8 +122,8 @@ const Header = ({
           'w-0',
           {
             'lg:w-88': !fullScreen,
-            'lg:w-full': fullScreen
-          }
+            'lg:w-full': fullScreen,
+          },
         ])}
       >
         <div className="h-screen overflow-hidden relative">

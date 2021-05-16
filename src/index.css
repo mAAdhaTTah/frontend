@@ -18,9 +18,6 @@
  */
 @tailwind utilities;
 
-@google-font Ovo;
-@google-font Muli;
-
 /**
  * Here you would add any custom utilities you need that don't come out of the
  * box with Tailwind.

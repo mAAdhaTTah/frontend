@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import { useEffect , useRef } from 'react';
 import { useTransition, animated } from 'react-spring';
 import Header from './Header';
 import { headerImage, avatarImage } from './images';
@@ -18,7 +17,7 @@ export const Layout = ({ pathname, site, children }) => {
   useEffect(() => {
     // Next render, fade in.
     opacityRef.current = 0;
-  }, [])
+  }, []);
 
   return (
     <div className="flex flex-row">

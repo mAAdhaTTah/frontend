@@ -26,8 +26,8 @@ module.exports = {
       print: { raw: 'print' },
     },
     fontFamily: {
-      muli: ['Muli'],
-      ovo: ['Ovo'],
+      muli: ['Muli', 'sans-serif'],
+      ovo: ['Ovo', 'serif'],
     },
     fontSize: {
       xs: '.75rem', // 12px

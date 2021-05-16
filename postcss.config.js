@@ -6,6 +6,5 @@ module.exports = {
     'postcss-for',
     'postcss-arithmetic',
     'autoprefixer',
-    'postcss-google-font',
   ],
 };
