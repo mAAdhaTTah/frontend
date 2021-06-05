@@ -52,7 +52,8 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=14",
+    "npm": "^7"
   },
   "scripts": {
     "start": "next start",
