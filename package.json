@@ -9,7 +9,7 @@
     "axios": "^0.21.1",
     "classcat": "^4.1.0",
     "date-fns": "^2.21.1",
-    "html-react-parser": "^1.2.4",
+    "html-react-parser": "^1.2.6",
     "next": "^10.2.0",
     "parse-link-header": "^1.0.1",
     "prop-types": "^15.7.2",
