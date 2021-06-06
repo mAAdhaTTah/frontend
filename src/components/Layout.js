@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect , useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTransition, animated } from 'react-spring';
 import Header from './Header';
 import { headerImage, avatarImage } from './images';
