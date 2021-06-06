@@ -48,18 +48,20 @@ const defaultGetSEOProps = ({ seo }) => ({
   schemas: seo.schemas,
 });
 
-const withSEO = (getSEOProps = defaultGetSEOProps) => Component => {
-  const WithSEO = props => {
-    return (
-      <SEO {...getSEOProps(props)}>
-        <Component {...props} />
-      </SEO>
-    );
+const withSEO =
+  (getSEOProps = defaultGetSEOProps) =>
+  Component => {
+    const WithSEO = props => {
+      return (
+        <SEO {...getSEOProps(props)}>
+          <Component {...props} />
+        </SEO>
+      );
+    };
+
+    WithSEO.displayName = `WithSEO(${getDisplayName(Component)})`;
+
+    return WithSEO;
   };
-
-  WithSEO.displayName = `WithSEO(${getDisplayName(Component)})`;
-
-  return WithSEO;
-};
 
 export default withSEO;

@@ -290,17 +290,17 @@ export const getGistpens = async ({ page }) => {
 export const getGistpenArchivePaths = async () => {
   const { headers } = await wp.head(`/wp-json/intraxia/v1/gistpen/repos`);
 
-  return [
-    ...Array(Number(headers['x-wp-totalpages']) - 1).fill(2),
-  ].map((num, idx) => ({ params: { number: String(num + idx) } }));
+  return [...Array(Number(headers['x-wp-totalpages']) - 1).fill(2)].map(
+    (num, idx) => ({ params: { number: String(num + idx) } }),
+  );
 };
 
 export const getPostArchivePaths = async () => {
   const { headers } = await wp.head(`/wp-json/wp/v2/posts`);
 
-  return [
-    ...Array(Number(headers['x-wp-totalpages']) - 1).fill(2),
-  ].map((num, idx) => ({ params: { number: String(num + idx) } }));
+  return [...Array(Number(headers['x-wp-totalpages']) - 1).fill(2)].map(
+    (num, idx) => ({ params: { number: String(num + idx) } }),
+  );
 };
 
 export const getGistpenSlugPaths = async () => {
@@ -340,10 +340,8 @@ export const getGistpenBySlug = async ({ slug }) => {
 };
 
 const getOembed = async post => {
-  const {
-    _format_audio_embed: audioUrl,
-    _format_video_embed: videoUrl,
-  } = post.meta;
+  const { _format_audio_embed: audioUrl, _format_video_embed: videoUrl } =
+    post.meta;
 
   if (!audioUrl && !videoUrl) {
     return null;
