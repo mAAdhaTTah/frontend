@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-pipeline-operator": "^7.12.13",
-    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-docs": "^6.2.9",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/cli": "^6.2.0",
