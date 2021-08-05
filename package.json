@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
-    "@react-aria/focus": "^3.3.0",
+    "@react-aria/focus": "^3.4.1",
     "@react-aria/visually-hidden": "^3.2.2",
     "axios": "^0.21.1",
     "classcat": "^5.0.3",
