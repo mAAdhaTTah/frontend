@@ -6,7 +6,7 @@ export const SecondaryHeading = forwardRef(
     const Heading = component ?? `h${level}`;
 
     return (
-      <Heading className="relative text-xl lg:text-3xl font-medium" ref={ref}>
+      <Heading className="relative text-xl lg:text-3xl" ref={ref}>
         {children}
       </Heading>
     );

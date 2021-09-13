@@ -42,7 +42,13 @@ const StandardFormat = ({
         </div>
       </header>
 
-      {useParseHTML(content)}
+      {useParseHTML(content, {
+        h2: 'text-3xl',
+        h3: 'text-2xl',
+        h4: 'text-xl',
+        p: 'text-xl',
+        a: 'border-b-2 border-darkg',
+      })}
     </Article>
   );
 };

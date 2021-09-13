@@ -211,7 +211,7 @@ const Header = ({
               </PrimaryHeading>
               <SocialIcons fullScreen={fullScreen} />
               <SecondaryHeading
-                component={fullScreen ? 'h1' : 'div'}
+                component={fullScreen ? 'h2' : 'div'}
                 ref={subtitleRef}
               >
                 {description}

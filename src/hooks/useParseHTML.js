@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 import parse, { domToReact } from 'html-react-parser';
 import cc from 'classcat';
-import { Body, H2, H3, Link, Snippet } from '../components';
+import { Body, H2, H3, H4, Link, Snippet } from '../components';
 
-const linkClass = cc(['text-darkg', 'font-bold']);
+const linkClass = cc(['text-darkg']);
 
 export const useParseHTML = (
   string,
-  { p = '', h2 = '', h3 = '', a = '' } = {},
+  { p = '', h2 = '', h3 = '', h4 = '', a = '' } = {},
 ) =>
   useMemo(() => {
     const options = {
@@ -21,6 +21,8 @@ export const useParseHTML = (
             return <H2 className={h2}>{domToReact(node.children, options)}</H2>;
           case 'h3':
             return <H3 className={h3}>{domToReact(node.children, options)}</H3>;
+          case 'h4':
+            return <H4 className={h4}>{domToReact(node.children, options)}</H4>;
           case 'a':
             return (
               <Link
@@ -45,7 +47,15 @@ export const useParseHTML = (
                 </div>
               );
             }
-            return;
+            return (
+              <pre className="mb-5">{domToReact(node.children, options)}</pre>
+            );
+          case 'code':
+            return (
+              <code className="whitespace-nowrap">
+                {domToReact(node.children, options)}
+              </code>
+            );
           case 'ul':
             return (
               <ul className="list-disc pl-4 mb-5">
@@ -73,4 +83,4 @@ export const useParseHTML = (
     };
 
     return parse(string, options);
-  }, [string, p, h2, h3, a]);
+  }, [string, p, h2, h3, h4, a]);

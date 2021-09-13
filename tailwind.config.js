@@ -3,10 +3,10 @@ module.exports = {
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-        transitionProperty: {
-         'width': 'width',
-        }
+      transitionProperty: {
+        width: 'width',
       },
+    },
     colors: {
       etched: 'hsla(0, 0%, 100%, .35)',
       primary: '#FFF3C9',
@@ -15,7 +15,7 @@ module.exports = {
       darkg: '#24331E',
       lightg: '#78af52',
       black: '#000',
-      transparent: 'transparent'
+      transparent: 'transparent',
     },
     screens: {
       sm: '320px',
@@ -30,7 +30,6 @@ module.exports = {
       ovo: ['Ovo', 'serif'],
     },
     fontSize: {
-      xs: '.75rem', // 12px
       sm: '.875rem', // 14px
       base: '1rem', // 16px
       lg: '1.125rem', // 18px
@@ -41,15 +40,9 @@ module.exports = {
       '5xl': '3rem', // 48px
     },
     fontWeight: {
-      hairline: 100,
-      thin: 200,
       light: 300,
       normal: 400,
-      medium: 500,
-      semibold: 600,
       bold: 700,
-      extrabold: 800,
-      black: 900,
     },
     lineHeight: {
       none: 1,
