@@ -82,7 +82,7 @@ const Header = ({
 
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
-  }, [fullScreen]);
+  }, [animate, fullScreen]);
 
   useEffect(() => {
     titleRef.current.innerText = '';

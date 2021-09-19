@@ -1,9 +1,9 @@
 import cc from 'classcat';
 import { FaLink } from 'react-icons/fa';
+import { Link } from '@ui/typography';
 import { useParseHTML } from '../../../hooks';
 import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';
-import { Link } from '../../typography';
 
 const linkClass = cc([
   'bg-darkg',

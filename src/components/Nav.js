@@ -62,7 +62,7 @@ const Menu = ({ open, onClose }) => {
     } else {
       setForward(open);
     }
-  }, [open]);
+  }, [forward, open]);
 
   return (
     forward && (

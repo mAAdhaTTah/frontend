@@ -1,6 +1,6 @@
 import { FaQuoteLeft } from 'react-icons/fa';
 
-const Blockquote = ({ children }) => {
+export const Blockquote = ({ children }) => {
   return (
     <>
       <FaQuoteLeft className="float-left mt-1" />
@@ -8,5 +8,3 @@ const Blockquote = ({ children }) => {
     </>
   );
 };
-
-export default Blockquote;

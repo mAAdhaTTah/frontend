@@ -1,34 +1,36 @@
 import { useMemo } from 'react';
 import parse, { domToReact } from 'html-react-parser';
-import cc from 'classcat';
-import { Body, H2, H3, H4, Link, Snippet } from '../components';
+import { Body, Heading, Link } from '@ui/typography';
+import { Snippet } from '../components';
 
-const linkClass = cc(['text-darkg']);
-
-export const useParseHTML = (
-  string,
-  { p = '', h2 = '', h3 = '', h4 = '', a = '' } = {},
-) =>
+export const useParseHTML = string =>
   useMemo(() => {
     const options = {
       replace(node) {
         switch (node.name) {
           case 'p':
-            return (
-              <Body className={p}>{domToReact(node.children, options)}</Body>
-            );
+            return <Body>{domToReact(node.children, options)}</Body>;
           case 'h2':
-            return <H2 className={h2}>{domToReact(node.children, options)}</H2>;
+            return (
+              <Heading level={2} variant="h-2">
+                {domToReact(node.children, options)}
+              </Heading>
+            );
           case 'h3':
-            return <H3 className={h3}>{domToReact(node.children, options)}</H3>;
+            return (
+              <Heading level={3} variant="h-3">
+                {domToReact(node.children, options)}
+              </Heading>
+            );
           case 'h4':
-            return <H4 className={h4}>{domToReact(node.children, options)}</H4>;
+            return (
+              <Heading level={4} variant="h-4">
+                {domToReact(node.children, options)}
+              </Heading>
+            );
           case 'a':
             return (
-              <Link
-                href={node.attribs.href}
-                className={cc([linkClass, a ?? ''])}
-              >
+              <Link href={node.attribs.href}>
                 {domToReact(node.children, options)}
               </Link>
             );
@@ -83,4 +85,4 @@ export const useParseHTML = (
     };
 
     return parse(string, options);
-  }, [string, p, h2, h3, h4, a]);
+  }, [string]);

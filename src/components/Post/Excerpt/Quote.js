@@ -1,7 +1,7 @@
+import { Blockquote, Link } from '@ui/typography';
 import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';
 import { useParseHTML } from '../../../hooks';
-import { Blockquote, Link } from '../../typography';
 
 const Quote = ({ content, date, dateTime, commentCount, author, meta }) => {
   return (
