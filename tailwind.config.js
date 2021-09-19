@@ -13,7 +13,7 @@ module.exports = {
       secondary: '#DBD1AD',
       tertiary: '#D0C394',
       darkg: '#24331E',
-      lightg: '#78af52',
+      lightg: '#5e9639',
       black: '#000',
       transparent: 'transparent',
     },
@@ -82,6 +82,7 @@ module.exports = {
     },
     width: {
       auto: 'auto',
+      inherit: 'inherit',
       px: '1px',
       0: '0rem',
       1: '0.25rem',

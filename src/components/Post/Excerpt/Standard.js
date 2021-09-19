@@ -1,8 +1,9 @@
 import cc from 'classcat';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import Link from 'next/link';
+import { Body } from '@ui/typography';
 import { useParseHTML, useStripHTML } from '../../../hooks';
-import { LinkedArticleHeader, Body } from '../../typography';
+import { LinkedArticleHeader } from '../../LinkedArticleHeader';
 import EntryMeta from '../../EntryMeta';
 import Article from '../../Article';
 
@@ -42,7 +43,7 @@ const StandardFormat = ({
         author={author.name}
       />
     </header>
-    <Body component="span">
+    <Body>
       {useStripHTML(excerpt)}
       <Link href={`/${slug}/`}>
         <a className={linkClass}>

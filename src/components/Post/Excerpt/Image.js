@@ -1,7 +1,7 @@
+import { Heading } from '@ui/typography';
 import MediaImage from '../../MediaImage';
 import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';
-import { ArticleHeader } from '../../typography';
 import { useParseHTML } from '../../../hooks';
 
 const Image = ({
@@ -16,7 +16,9 @@ const Image = ({
   return (
     <Article variant="darkg">
       <header>
-        <ArticleHeader>{useParseHTML(title)}</ArticleHeader>
+        <Heading level={1} variant="article">
+          {useParseHTML(title)}
+        </Heading>
         <EntryMeta
           date={date}
           dateTime={dateTime}
@@ -26,9 +28,7 @@ const Image = ({
       </header>
       {media && <MediaImage media={media} />}
 
-      {useParseHTML(content, {
-        p: 'text-primary',
-      })}
+      {useParseHTML(content)}
     </Article>
   );
 };

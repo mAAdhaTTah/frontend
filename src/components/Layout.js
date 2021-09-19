@@ -8,7 +8,7 @@ export const Layout = ({ pathname, site, children }) => {
   const opacityRef = useRef(1);
   const transitions = useTransition(children, {
     key: pathname,
-    from: { position: 'absolute', width: '100%', opacity: opacityRef.current },
+    from: { opacity: opacityRef.current },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: { mass: 1, tension: 150, friction: 30 },
@@ -28,9 +28,11 @@ export const Layout = ({ pathname, site, children }) => {
         headerImage={headerImage}
         avatarImage={avatarImage}
       />
-      <div className="relative flex-grow h-screen overflow-scroll">
+      <div className="relative flex-grow">
         {transitions((props, item) => (
-          <animated.div style={props}>{item}</animated.div>
+          <animated.div style={props} className={'absolute w-full'}>
+            {item}
+          </animated.div>
         ))}
       </div>
     </div>

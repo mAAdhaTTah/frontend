@@ -1,34 +1,54 @@
 import { useMemo } from 'react';
 import parse, { domToReact } from 'html-react-parser';
-import cc from 'classcat';
-import { Body, H2, H3, H4, Link, Snippet } from '../components';
+import {
+  Abbr,
+  Acronym,
+  Body,
+  Code,
+  Del,
+  EM,
+  Heading,
+  Kbd,
+  Link,
+  Pre,
+  Q,
+  Samp,
+  Small,
+  Strong,
+  Sub,
+  Sup,
+  Var,
+} from '@ui/typography';
+import { Snippet } from '../components';
 
-const linkClass = cc(['text-darkg']);
-
-export const useParseHTML = (
-  string,
-  { p = '', h2 = '', h3 = '', h4 = '', a = '' } = {},
-) =>
+export const useParseHTML = string =>
   useMemo(() => {
     const options = {
       replace(node) {
         switch (node.name) {
           case 'p':
-            return (
-              <Body className={p}>{domToReact(node.children, options)}</Body>
-            );
+            return <Body>{domToReact(node.children, options)}</Body>;
           case 'h2':
-            return <H2 className={h2}>{domToReact(node.children, options)}</H2>;
+            return (
+              <Heading level={2} variant="h-2">
+                {domToReact(node.children, options)}
+              </Heading>
+            );
           case 'h3':
-            return <H3 className={h3}>{domToReact(node.children, options)}</H3>;
+            return (
+              <Heading level={3} variant="h-3">
+                {domToReact(node.children, options)}
+              </Heading>
+            );
           case 'h4':
-            return <H4 className={h4}>{domToReact(node.children, options)}</H4>;
+            return (
+              <Heading level={4} variant="h-4">
+                {domToReact(node.children, options)}
+              </Heading>
+            );
           case 'a':
             return (
-              <Link
-                href={node.attribs.href}
-                className={cc([linkClass, a ?? ''])}
-              >
+              <Link href={node.attribs.href}>
                 {domToReact(node.children, options)}
               </Link>
             );
@@ -47,14 +67,40 @@ export const useParseHTML = (
                 </div>
               );
             }
-            return (
-              <pre className="mb-5">{domToReact(node.children, options)}</pre>
-            );
+            return <Pre>{domToReact(node.children, options)}</Pre>;
           case 'code':
+            return <Code>{domToReact(node.children, options)}</Code>;
+          case 'em':
+            return <EM>{domToReact(node.children, options)}</EM>;
+          case 'strong':
+            return <Strong>{domToReact(node.children, options)}</Strong>;
+          case 'small':
+            return <Small>{domToReact(node.children, options)}</Small>;
+          case 'del':
+            return <Del>{domToReact(node.children, options)}</Del>;
+          case 'kbd':
+            return <Kbd>{domToReact(node.children, options)}</Kbd>;
+          case 'samp':
+            return <Samp>{domToReact(node.children, options)}</Samp>;
+          case 'var':
+            return <Var>{domToReact(node.children, options)}</Var>;
+          case 'q':
+            return <Q>{domToReact(node.children, options)}</Q>;
+          case 'sub':
+            return <Sub>{domToReact(node.children, options)}</Sub>;
+          case 'sup':
+            return <Sup>{domToReact(node.children, options)}</Sup>;
+          case 'abbr':
             return (
-              <code className="whitespace-nowrap">
+              <Abbr title={node.attribs.title}>
                 {domToReact(node.children, options)}
-              </code>
+              </Abbr>
+            );
+          case 'acronym':
+            return (
+              <Acronym title={node.attribs.title}>
+                {domToReact(node.children, options)}
+              </Acronym>
             );
           case 'ul':
             return (
@@ -83,4 +129,4 @@ export const useParseHTML = (
     };
 
     return parse(string, options);
-  }, [string, p, h2, h3, h4, a]);
+  }, [string]);

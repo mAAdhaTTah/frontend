@@ -8,7 +8,6 @@ export { default as Nav } from './Nav';
 export { Post };
 export { default as Tag } from './Tag';
 export { default as Day } from './Day';
-export * from './typography';
 export { default as Snippet } from './Snippet';
 export { default as Pagination } from './Pagination';
 export { default as Gistpen } from './Gistpen';

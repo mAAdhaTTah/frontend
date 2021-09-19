@@ -1,11 +1,14 @@
+import { Heading } from '@ui/typography';
 import { useParseHTML } from '../hooks';
-import { ArticleHeader, Article } from '../components';
+import { Article } from '../components';
 
 export const Page = ({ title, content }) => {
   return (
     <Article>
       <header className="mb-5">
-        <ArticleHeader>{useParseHTML(title)}</ArticleHeader>
+        <Heading level={1} variant="article">
+          {useParseHTML(title)}
+        </Heading>
       </header>
       {useParseHTML(content)}
     </Article>

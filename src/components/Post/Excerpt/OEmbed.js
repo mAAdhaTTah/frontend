@@ -1,7 +1,7 @@
 import EmbedContainer from 'react-oembed-container';
 import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';
-import { LinkedArticleHeader } from '../../typography';
+import { LinkedArticleHeader } from '../../LinkedArticleHeader';
 import { useParseHTML } from '../../../hooks';
 
 const OEmbed = ({

@@ -1,6 +1,6 @@
 import cc from 'classcat';
+import { Heading } from '@ui/typography';
 import { useParseHTML } from '../../../hooks';
-import { ArticleHeader } from '../../typography';
 import EntryMeta from '../../EntryMeta';
 import Article from '../../Article';
 import MediaImage from '../../MediaImage';
@@ -27,9 +27,11 @@ const StandardFormat = ({
             'p-5',
           ])}
         >
-          <ArticleHeader className="text-black text-center mb-5">
-            {useParseHTML(title)}
-          </ArticleHeader>
+          <div className="text-center">
+            <Heading level={1} variant="article">
+              {useParseHTML(title)}
+            </Heading>
+          </div>
           <div className="flex justify-center">
             <EntryMeta
               date={date}
@@ -42,13 +44,7 @@ const StandardFormat = ({
         </div>
       </header>
 
-      {useParseHTML(content, {
-        h2: 'text-3xl',
-        h3: 'text-2xl',
-        h4: 'text-xl',
-        p: 'text-xl',
-        a: 'border-b-2 border-darkg',
-      })}
+      <section className="max-w-prose">{useParseHTML(content)}</section>
     </Article>
   );
 };

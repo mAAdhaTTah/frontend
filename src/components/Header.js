@@ -71,7 +71,7 @@ const Header = ({
   useEffect(() => {
     const handler = () => {
       const windowWidth = window.document.body.offsetWidth;
-      const minWidth = windowWidth < 768 ? 0 : 352;
+      const minWidth = windowWidth < 992 ? 0 : 352;
 
       animate.start({
         to: { width: fullScreen ? windowWidth : minWidth },
@@ -82,7 +82,7 @@ const Header = ({
 
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
-  }, [fullScreen]);
+  }, [animate, fullScreen]);
 
   useEffect(() => {
     titleRef.current.innerText = '';
@@ -108,22 +108,27 @@ const Header = ({
   }, []);
 
   return (
-    <>
-      <animated.header
-        ref={header}
-        style={{ ...style }}
+    <animated.div
+      ref={header}
+      style={style}
+      className={cc([
+        'h-screen',
+        'w-0',
+        {
+          'xl:w-88': !fullScreen,
+          'xl:w-full': fullScreen,
+        },
+      ])}
+    >
+      <header
         className={cc([
           'flex',
           'flex-col',
           'print:hidden',
-          'relative',
+          'fixed',
           'h-screen',
           'overflow-hidden',
-          'w-0',
-          {
-            'lg:w-88': !fullScreen,
-            'lg:w-full': fullScreen,
-          },
+          'w-inherit',
         ])}
       >
         <div className="h-screen overflow-hidden relative">
@@ -219,9 +224,9 @@ const Header = ({
             </div>
           </div>
         </div>
-      </animated.header>
+      </header>
       <Nav />
-    </>
+    </animated.div>
   );
 };
 
