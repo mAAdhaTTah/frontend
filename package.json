@@ -23,7 +23,7 @@
     "sql.js": "^1.5.0",
     "sqlite": "^4.0.23",
     "sqlite3": "5.0.1",
-    "string-strip-html": "^7.0.3",
+    "string-strip-html": "^9.0.1",
     "tailwindcss": "^2.1.4",
     "typeit": "^7.0.4"
   },
