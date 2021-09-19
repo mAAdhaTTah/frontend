@@ -59,6 +59,7 @@ const Header = ({
   fullScreen,
   headerImage,
   avatarImage,
+  disableTyping,
 }) => {
   const header = useRef(null);
   const titleRef = useRef(null);
@@ -85,6 +86,10 @@ const Header = ({
   }, [animate, fullScreen]);
 
   useEffect(() => {
+    if (disableTyping) {
+      return;
+    }
+
     titleRef.current.innerText = '';
     const subtitleType = new TypeIt(subtitleRef.current, {
       lifeLike: true,
