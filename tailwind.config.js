@@ -82,6 +82,7 @@ module.exports = {
     },
     width: {
       auto: 'auto',
+      inherit: 'inherit',
       px: '1px',
       0: '0rem',
       1: '0.25rem',
