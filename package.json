@@ -25,7 +25,7 @@
     "sqlite3": "5.0.1",
     "string-strip-html": "^7.0.3",
     "tailwindcss": "^2.2.15",
-    "typeit": "^7.0.4"
+    "typeit": "^8.0.3"
   },
   "devDependencies": {
     "@babel/plugin-proposal-pipeline-operator": "^7.15.0",
