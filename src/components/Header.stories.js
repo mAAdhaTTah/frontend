@@ -1,3 +1,4 @@
+import isChromatic from 'chromatic/isChromatic';
 import Header from './Header';
 import { avatarImage, headerImage } from './images';
 
@@ -11,6 +12,7 @@ const Template = args => (
     description="my little web home"
     headerImage={headerImage}
     avatarImage={avatarImage}
+    disableTyping={isChromatic()}
     {...args}
   />
 );
