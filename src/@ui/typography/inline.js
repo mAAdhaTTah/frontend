@@ -30,8 +30,12 @@ export const Kbd = ({ children }) => {
   return <kbd>{children}</kbd>;
 };
 
+export const Pre = ({ children }) => {
+  return <pre className="mb-5">{children}</pre>;
+};
+
 export const Code = ({ children }) => {
-  return <code>{children}</code>;
+  return <code className="whitespace-nowrap">{children}</code>;
 };
 
 export const Samp = ({ children }) => {

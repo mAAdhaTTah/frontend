@@ -1,6 +1,24 @@
 import { useMemo } from 'react';
 import parse, { domToReact } from 'html-react-parser';
-import { Body, Heading, Link } from '@ui/typography';
+import {
+  Abbr,
+  Acronym,
+  Body,
+  Code,
+  Del,
+  EM,
+  Heading,
+  Kbd,
+  Link,
+  Pre,
+  Q,
+  Samp,
+  Small,
+  Strong,
+  Sub,
+  Sup,
+  Var,
+} from '@ui/typography';
 import { Snippet } from '../components';
 
 export const useParseHTML = string =>
@@ -49,14 +67,40 @@ export const useParseHTML = string =>
                 </div>
               );
             }
-            return (
-              <pre className="mb-5">{domToReact(node.children, options)}</pre>
-            );
+            return <Pre>{domToReact(node.children, options)}</Pre>;
           case 'code':
+            return <Code>{domToReact(node.children, options)}</Code>;
+          case 'em':
+            return <EM>{domToReact(node.children, options)}</EM>;
+          case 'strong':
+            return <Strong>{domToReact(node.children, options)}</Strong>;
+          case 'small':
+            return <Small>{domToReact(node.children, options)}</Small>;
+          case 'del':
+            return <Del>{domToReact(node.children, options)}</Del>;
+          case 'kbd':
+            return <Kbd>{domToReact(node.children, options)}</Kbd>;
+          case 'samp':
+            return <Samp>{domToReact(node.children, options)}</Samp>;
+          case 'var':
+            return <Var>{domToReact(node.children, options)}</Var>;
+          case 'q':
+            return <Q>{domToReact(node.children, options)}</Q>;
+          case 'sub':
+            return <Sub>{domToReact(node.children, options)}</Sub>;
+          case 'sup':
+            return <Sup>{domToReact(node.children, options)}</Sup>;
+          case 'abbr':
             return (
-              <code className="whitespace-nowrap">
+              <Abbr title={node.attribs.title}>
                 {domToReact(node.children, options)}
-              </code>
+              </Abbr>
+            );
+          case 'acronym':
+            return (
+              <Acronym title={node.attribs.title}>
+                {domToReact(node.children, options)}
+              </Acronym>
             );
           case 'ul':
             return (
