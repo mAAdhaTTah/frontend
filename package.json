@@ -20,7 +20,7 @@
     "react-oembed-container": "^1.0.0",
     "react-spring": "^9.2.4",
     "rooks": "^5.7.1",
-    "sql.js": "^1.6.1",
+    "sql.js": "^1.6.2",
     "sqlite": "^4.0.23",
     "sqlite3": "5.0.1",
     "string-strip-html": "^7.0.3",
