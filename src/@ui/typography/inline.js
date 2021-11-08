@@ -1,3 +1,6 @@
+import cc from 'classcat';
+import NextLink from 'next/link';
+
 export const EM = ({ children }) => {
   return <em>{children}</em>;
 };
@@ -56,4 +59,14 @@ export const Sub = ({ children }) => {
 
 export const Sup = ({ children }) => {
   return <sup>{children}</sup>;
+};
+
+const linkClass = cc(['no-underline', 'border-b-2', 'border-darkg']);
+
+export const Link = ({ children, href }) => {
+  return (
+    <NextLink href={href}>
+      <a className={linkClass}>{children}</a>
+    </NextLink>
+  );
 };
