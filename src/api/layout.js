@@ -1,13 +1,25 @@
+import { headerImage, avatarImage } from '../components/images';
+import { strapi } from './strapi';
 import { wp } from './wp';
 
 export const getLayoutProps = async () => {
   const { data: siteMeta } = await wp.get(`/wp-json/`);
+  const {
+    data: [menu],
+  } = await strapi.get('/menus', {
+    params: {
+      location: 'header',
+      _limit: 1,
+    },
+  });
 
   return {
-    site: {
-      name: siteMeta.name,
+    header: {
+      title: siteMeta.name,
       description: siteMeta.description,
-      url: ``,
+      links: menu.menu_items.map(link => ({ to: link.href, text: link.text })),
+      backgroundImage: headerImage,
+      avatarImage,
     },
   };
 };

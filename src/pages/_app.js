@@ -8,7 +8,10 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <PrismProvider>
-      <Layout pathname={router.asPath} {...pageProps.layout}>
+      <Layout
+        {...pageProps.layout}
+        header={{ ...pageProps.layout.header, pathname: router.asPath }}
+      >
         <Component {...pageProps} />
       </Layout>
     </PrismProvider>
