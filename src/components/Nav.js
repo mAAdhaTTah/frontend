@@ -43,7 +43,7 @@ const HeaderLink = ({ to, onClick, children }) => {
 
 const navClass = cc(['fixed', 'top-2', 'left-2', 'z-50']);
 
-const Menu = ({ open, onClose }) => {
+const Menu = ({ links, open, onClose }) => {
   const navRef = useRef();
   const [forward, setForward] = useState(open);
   useOutsideClick(navRef, onClose, open);
@@ -87,34 +87,18 @@ const Menu = ({ open, onClose }) => {
           ])}
         >
           {/* @TODO(mAAdhaTTah) get menus from BE */}
-          <HeaderLink onClick={onClose} to="/">
-            Home
-          </HeaderLink>
-          <HeaderLink onClick={onClose} to="/reading/">
-            Reading
-          </HeaderLink>
-          <HeaderLink onClick={onClose} to="/writing/">
-            Writing
-          </HeaderLink>
-          <HeaderLink onClick={onClose} to="/gistpens/">
-            Code
-          </HeaderLink>
-          <HeaderLink onClick={onClose} to="/resume/">
-            Resume
-          </HeaderLink>
-          <HeaderLink onClick={onClose} to="/projects/">
-            Projects
-          </HeaderLink>
-          <HeaderLink onClick={onClose} to="/about-me/">
-            About
-          </HeaderLink>
+          {links.map(link => (
+            <HeaderLink onClick={onClose} to={link.to}>
+              {link.text}
+            </HeaderLink>
+          ))}
         </nav>
       </FocusScope>
     )
   );
 };
 
-const Nav = () => {
+const Nav = ({ links }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className={navClass}>
@@ -134,7 +118,7 @@ const Nav = () => {
         <Icon icon="burger" small alt="" />
         <VisuallyHidden>Open menu</VisuallyHidden>
       </button>
-      <Menu open={open} onClose={() => setOpen(false)} />
+      <Menu open={open} onClose={() => setOpen(false)} links={links} />
     </div>
   );
 };

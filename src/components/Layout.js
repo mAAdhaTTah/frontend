@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import { useTransition, animated } from 'react-spring';
 import Header from './Header';
-import { headerImage, avatarImage } from './images';
 
-export const Layout = ({ pathname, site, children }) => {
+export const Layout = ({ header, children }) => {
   const opacityRef = useRef(1);
   const transitions = useTransition(children, {
-    key: pathname,
+    key: header.pathname,
     from: { opacity: opacityRef.current },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -22,11 +21,12 @@ export const Layout = ({ pathname, site, children }) => {
   return (
     <div className="flex flex-row">
       <Header
-        title={site.name}
-        description={site.description}
-        fullScreen={pathname === '/'}
-        headerImage={headerImage}
-        avatarImage={avatarImage}
+        title={header.title}
+        description={header.description}
+        links={header.links}
+        headerImage={header.backgroundImage}
+        avatarImage={header.avatarImage}
+        fullScreen={header.pathname === '/'}
       />
       <div className="relative flex-grow">
         {transitions((props, item) => (
@@ -40,5 +40,13 @@ export const Layout = ({ pathname, site, children }) => {
 };
 
 Layout.propTypes = {
+  header: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    pathname: PropTypes.string.isRequired,
+    backgroundImage: PropTypes.object.isRequired,
+    avatarImage: PropTypes.object.isRequired,
+    links: PropTypes.array.isRequired,
+  }).isRequired,
   children: PropTypes.node,
 };

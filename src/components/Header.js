@@ -56,10 +56,11 @@ const animationConfig = { mass: 1, tension: 150, friction: 30 };
 const Header = ({
   title,
   description,
+  links,
   fullScreen,
   headerImage,
   avatarImage,
-  disableTyping,
+  disableTyping = false,
 }) => {
   const header = useRef(null);
   const titleRef = useRef(null);
@@ -230,7 +231,7 @@ const Header = ({
           </div>
         </div>
       </header>
-      <Nav />
+      <Nav links={links} />
     </animated.div>
   );
 };
