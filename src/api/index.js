@@ -371,7 +371,7 @@ export const getPosts = async ({ page }) => {
   });
 
   for (const post of data) {
-    await cache.addPost(post.slug, post);
+    await cache.addPost(post);
   }
 
   return {
