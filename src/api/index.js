@@ -1,19 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import {
-  subDays,
-  getUnixTime,
-  fromUnixTime,
-  endOfDay,
-  format,
-  parse,
-  parseISO,
-} from 'date-fns';
+import { subDays, endOfDay, format, parse, parseISO } from 'date-fns';
 import Axios from 'axios';
 import parseLinkHeader from 'parse-link-header';
-import initSqlJs from 'sql.js';
 import { wp } from './wp';
 import * as cache from './cache';
+import { strapi } from './strapi';
 
 export * from './layout';
 
@@ -213,55 +205,35 @@ export const getResume = async () => {
 };
 
 export const getReadingProps = async () => {
-  let db;
   const now = new Date();
 
-  try {
-    const [SQL, buf] = await Promise.all([
-      initSqlJs(),
-      fetch('https://static.jamesdigioia.com/index.sqlite3').then(res =>
-        res.arrayBuffer(),
-      ),
-    ]);
+  const days = [];
 
-    db = new SQL.Database(new Uint8Array(buf));
-    const dayStmt = db.prepare(
-      'SELECT id, title, url, timestamp FROM core_snapshot WHERE timestamp < $before AND timestamp >= $after ORDER BY timestamp DESC;',
-    );
+  for (let i = 0; i < 7; i++) {
+    const targetDay = subDays(now, i);
+    const response = await strapi.get('/links', {
+      params: {
+        read_at_lte: endOfDay(targetDay),
+        read_at_gt: endOfDay(subDays(targetDay, 1)),
+        _sort: 'read_at:DESC',
+        _limit: -1,
+      },
+    });
 
-    const days = [];
-
-    for (let i = 0; i < 7; i++) {
-      const links = [];
-      const targetDay = subDays(now, i);
-      dayStmt.bind({
-        $before: getUnixTime(endOfDay(targetDay)),
-        $after: getUnixTime(endOfDay(subDays(targetDay, 1))),
-      });
-
-      while (dayStmt.step()) {
-        const link = dayStmt.getAsObject();
-
-        links.push({
-          id: link.id,
-          title: link.title,
-          url: link.url,
-          readAt: format(fromUnixTime(Number(link.timestamp)), 'hh:mm a'),
-        });
-      }
-
+    if (response.data.length) {
       days.push({
         day: format(targetDay, 'MMM do, yyyy'),
-        links,
+        links: response.data.map(link => ({
+          id: `link-${link.id}`,
+          title: link.title,
+          url: link.url,
+          readAt: format(parseISO(link.read_at), 'hh:mm a'),
+        })),
       });
     }
-
-    dayStmt.free();
-
-    return days;
-  } finally {
-    await db?.close();
   }
+
+  return days;
 };
 
 export const getGistpens = async ({ page }) => {
