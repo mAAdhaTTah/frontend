@@ -1,3 +1,4 @@
+import { server } from '@app/config';
 import { withSEO } from '../../../decorators';
 import { Pagination, Main, Post } from '../../../components';
 import {
@@ -6,7 +7,6 @@ import {
   getPosts,
   getSeoByPageId,
 } from '../../../api';
-import { server } from '../../../config';
 
 const PostArchive = ({ posts, page, hasNextPage }) => {
   return (

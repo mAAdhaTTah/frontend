@@ -1,3 +1,4 @@
+import { server } from '@app/config';
 import { withSEO } from '../../decorators';
 import { Gistpen } from '../../components';
 import {
@@ -5,7 +6,6 @@ import {
   getGistpenSlugPaths,
   getLayoutProps,
 } from '../../api';
-import { server } from '../../config';
 
 const GistpenSingle = ({ post }) => {
   return <Gistpen {...post} />;

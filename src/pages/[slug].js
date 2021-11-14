@@ -1,3 +1,4 @@
+import { server } from '@app/config';
 import {
   getLayoutProps,
   getPageSlugs,
@@ -5,7 +6,6 @@ import {
   getContextBySlug,
 } from '../api';
 import { Post } from '../components';
-import { server } from '../config';
 import { Page } from '../containers/Page';
 import { withSEO } from '../decorators';
 

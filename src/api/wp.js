@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { shared, server } from '../config';
+import { shared, server } from '@app/config';
 
 /**
  * String.prototype.replaceAll() polyfill

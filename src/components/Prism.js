@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
-import { shared } from '../config';
+import { shared } from '@app/config';
 
 const Context = createContext(null);
 
