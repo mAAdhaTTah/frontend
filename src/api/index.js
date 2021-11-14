@@ -3,9 +3,9 @@ import path from 'path';
 import { subDays, endOfDay, format, parse, parseISO } from 'date-fns';
 import Axios from 'axios';
 import parseLinkHeader from 'parse-link-header';
+import { strapi } from '@strapi/api';
 import { wp } from './wp';
 import * as cache from './cache';
-import { strapi } from './strapi';
 
 export * from './layout';
 
