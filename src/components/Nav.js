@@ -86,9 +86,8 @@ const Menu = ({ links, open, onClose }) => {
             { 'scale-0': !open, 'scale-1': open },
           ])}
         >
-          {/* @TODO(mAAdhaTTah) get menus from BE */}
-          {links.map(link => (
-            <HeaderLink onClick={onClose} to={link.to}>
+          {links.map((link, i) => (
+            <HeaderLink onClick={onClose} to={link.to} key={i}>
               {link.text}
             </HeaderLink>
           ))}
