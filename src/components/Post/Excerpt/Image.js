@@ -1,6 +1,6 @@
 import { Heading } from '@ui/typography';
+import { Article } from '@ui/box';
 import MediaImage from '../../MediaImage';
-import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';
 import { useParseHTML } from '../../../hooks';
 

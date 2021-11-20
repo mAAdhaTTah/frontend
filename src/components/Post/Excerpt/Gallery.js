@@ -1,6 +1,6 @@
 import cc from 'classcat';
 import { Heading } from '@ui/typography';
-import Article from '../../Article';
+import { Article } from '@ui/box';
 import EntryMeta from '../../EntryMeta';
 import MediaImage from '../../MediaImage';
 import { useParseHTML } from '../../../hooks';

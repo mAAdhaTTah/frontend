@@ -26,7 +26,7 @@ export const Layout = ({ header, children }) => {
         links={header.links}
         headerImage={header.backgroundImage}
         avatarImage={header.avatarImage}
-        fullScreen={header.pathname === '/'}
+        fullScreen={header.fullScreen}
       />
       <div className="relative flex-grow">
         {transitions((props, item) => (
@@ -43,10 +43,10 @@ Layout.propTypes = {
   header: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    pathname: PropTypes.string.isRequired,
     backgroundImage: PropTypes.object.isRequired,
     avatarImage: PropTypes.object.isRequired,
     links: PropTypes.array.isRequired,
+    fullScreen: PropTypes.bool.isRequired,
   }).isRequired,
   children: PropTypes.node,
 };

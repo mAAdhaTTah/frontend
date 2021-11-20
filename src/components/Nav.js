@@ -5,7 +5,7 @@ import { useKey, useOutsideClick } from 'rooks';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import cc from 'classcat';
-import { Icon } from '../theme';
+import { Icon } from '@ui/theme';
 
 const headerLinkClass = cc([
   'no-underline',

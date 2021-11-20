@@ -1,6 +1,6 @@
+import { Article } from '@ui/box';
 import { Heading } from '@ui/typography';
 import { useParseHTML } from '../hooks';
-import { Article } from '../components';
 
 export const Page = ({ title, content }) => {
   return (

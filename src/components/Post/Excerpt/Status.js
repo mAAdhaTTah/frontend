@@ -1,5 +1,4 @@
-import cc from 'classcat';
-import Article from '../../Article';
+import { Article } from '@ui/box';
 import EntryMeta from '../../EntryMeta';
 import { useParseHTML } from '../../../hooks';
 

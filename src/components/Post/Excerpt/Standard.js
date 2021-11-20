@@ -2,10 +2,10 @@ import cc from 'classcat';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { Body } from '@ui/typography';
+import { Article } from '@ui/box';
 import { useParseHTML, useStripHTML } from '../../../hooks';
 import { LinkedArticleHeader } from '../../LinkedArticleHeader';
 import EntryMeta from '../../EntryMeta';
-import Article from '../../Article';
 
 const linkClass = cc([
   'font-ovo',

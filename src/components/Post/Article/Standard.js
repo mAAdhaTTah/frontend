@@ -1,8 +1,8 @@
 import cc from 'classcat';
 import { Heading } from '@ui/typography';
+import { Article } from '@ui/box';
 import { useParseHTML } from '../../../hooks';
 import EntryMeta from '../../EntryMeta';
-import Article from '../../Article';
 import MediaImage from '../../MediaImage';
 
 const StandardFormat = ({

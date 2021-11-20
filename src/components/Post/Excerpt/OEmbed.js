@@ -1,5 +1,5 @@
 import EmbedContainer from 'react-oembed-container';
-import Article from '../../Article';
+import { Article } from '@ui/box';
 import EntryMeta from '../../EntryMeta';
 import { LinkedArticleHeader } from '../../LinkedArticleHeader';
 import { useParseHTML } from '../../../hooks';
