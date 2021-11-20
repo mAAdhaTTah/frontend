@@ -105,7 +105,7 @@ export const getPageSlugs = async () => {
       await cache.addPost(page);
       results.push({
         params: {
-          slug: page.slug,
+          slug: page.slug.split('/'),
         },
       });
     }
@@ -138,7 +138,7 @@ export const getPostSlugs = async () => {
     await cache.addPost(post);
     results.push({
       params: {
-        slug: post.slug,
+        slug: post.slug.split('/'),
       },
     });
   }

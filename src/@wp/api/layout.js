@@ -20,6 +20,7 @@ export const getLayoutProps = async () => {
       links: menu.menu_items.map(link => ({ to: link.href, text: link.text })),
       backgroundImage: headerImage,
       avatarImage,
+      fullScreen: false,
     },
   };
 };
