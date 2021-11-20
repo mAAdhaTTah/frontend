@@ -1,4 +1,4 @@
-import { getLayoutProps } from '../api';
+import { getLayoutProps } from '@wp/api';
 import { Main } from '../components';
 import { withSEO } from '../decorators';
 

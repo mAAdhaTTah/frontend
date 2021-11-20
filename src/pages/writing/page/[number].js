@@ -1,12 +1,12 @@
 import { server } from '@app/config';
-import { withSEO } from '../../../decorators';
-import { Pagination, Main, Post } from '../../../components';
 import {
   getLayoutProps,
   getPostArchivePaths,
   getPosts,
   getSeoByPageId,
-} from '../../../api';
+} from '@wp/api';
+import { withSEO } from '../../../decorators';
+import { Pagination, Main, Post } from '../../../components';
 
 const PostArchive = ({ posts, page, hasNextPage }) => {
   return (

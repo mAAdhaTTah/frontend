@@ -1,6 +1,6 @@
-import { getLayoutProps, getReadingProps, getSeoByPageId } from '../api';
-import { Day, Main } from '../components';
 import { server } from '@app/config';
+import { getLayoutProps, getReadingProps, getSeoByPageId } from '@wp/api';
+import { Day, Main } from '../components';
 import { withSEO } from '../decorators';
 
 const ReadingPage = ({ reading }) => (

@@ -1,5 +1,5 @@
 import { strapi } from '@strapi/api';
-import { headerImage, avatarImage } from '../components/images';
+import { headerImage, avatarImage } from '../../components/images';
 import { wp } from './wp';
 
 export const getLayoutProps = async () => {
