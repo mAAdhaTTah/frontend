@@ -1,12 +1,12 @@
 import { server } from '@app/config';
-import { withSEO } from '../../../decorators';
-import { Pagination, Gistpen, Main } from '../../../components';
 import {
   getGistpens,
   getGistpenArchivePaths,
   getLayoutProps,
   getSeoByPageId,
-} from '../../../api';
+} from '@wp/api';
+import { withSEO } from '../../../decorators';
+import { Pagination, Gistpen, Main } from '../../../components';
 
 const GistpenArchive = ({ posts, page, hasNextPage }) => {
   return (

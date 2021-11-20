@@ -4,7 +4,7 @@ import {
   getPageSlugs,
   getPostSlugs,
   getContextBySlug,
-} from '../api';
+} from '@wp/api';
 import { Post } from '../components';
 import { Page } from '../containers/Page';
 import { withSEO } from '../decorators';

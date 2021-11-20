@@ -1,11 +1,7 @@
 import { server } from '@app/config';
+import { getGistpenBySlug, getGistpenSlugPaths, getLayoutProps } from '@wp/api';
 import { withSEO } from '../../decorators';
 import { Gistpen } from '../../components';
-import {
-  getGistpenBySlug,
-  getGistpenSlugPaths,
-  getLayoutProps,
-} from '../../api';
 
 const GistpenSingle = ({ post }) => {
   return <Gistpen {...post} />;

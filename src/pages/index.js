@@ -1,4 +1,4 @@
-import { getLayoutProps, getSeoByPageId } from '../api';
+import { getLayoutProps, getSeoByPageId } from '@wp/api';
 import { withSEO } from '../decorators';
 
 const Home = () => null;
