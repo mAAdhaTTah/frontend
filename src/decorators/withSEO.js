@@ -2,7 +2,7 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import getDisplayName from 'react-display-name';
 
-const SEO = ({ title, metas, schemas, children }) => (
+export const SEO = ({ title, metas, schemas, children }) => (
   <>
     <Head>
       <title>{title}</title>

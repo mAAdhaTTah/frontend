@@ -7,3 +7,8 @@ export const strapi = axios.create({
     Authorization: `Bearer ${server.STRAPI_TOKEN}`,
   },
 });
+
+export const HOME_SLUG = '__index__';
+
+export const resolveSegments = page =>
+  page.slug === HOME_SLUG ? [] : page.slug.split('/');
