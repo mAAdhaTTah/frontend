@@ -1,8 +1,8 @@
 import cc from 'classcat';
 import { FaLink } from 'react-icons/fa';
 import { Link } from '@ui/typography';
+import { Article } from '@ui/box';
 import { useParseHTML } from '../../../hooks';
-import Article from '../../Article';
 import EntryMeta from '../../EntryMeta';
 
 const linkClass = cc([

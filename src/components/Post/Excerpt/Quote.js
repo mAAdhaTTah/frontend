@@ -1,5 +1,6 @@
-import { Blockquote, Link } from '@ui/typography';
-import Article from '../../Article';
+import { Link } from '@ui/typography';
+import { Blockquote } from '@ui/atoms';
+import { Article } from '@ui/box';
 import EntryMeta from '../../EntryMeta';
 import { useParseHTML } from '../../../hooks';
 

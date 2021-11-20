@@ -11,7 +11,7 @@ const articleClass = cc([
   'mx-auto',
 ]);
 
-const Article = ({ variant = 'primary', children }) => {
+export const Article = ({ variant = 'primary', children }) => {
   return (
     <article className={cc([articleClass, `bg-${variant}`])}>
       {children}
@@ -28,5 +28,3 @@ Article.propTypes = {
     'darkg',
   ]),
 };
-
-export default Article;

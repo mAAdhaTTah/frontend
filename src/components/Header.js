@@ -3,7 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import cc from 'classcat';
 import Image from 'next/image';
 import TypeIt from 'typeit';
-import { PrimaryHeading, Icon, SecondaryHeading } from '../theme';
+import { PrimaryHeading, Icon, SecondaryHeading } from '@ui/theme';
 import Nav from './Nav';
 
 const SocialIcon = ({ icon, to }) => (
@@ -144,13 +144,6 @@ const Header = ({
             layout="fill"
             objectFit="cover"
             objectPosition="center center"
-            style={{
-              position: 'absolute',
-              top: '0px',
-              left: '0px',
-              width: '100%',
-              height: '100%',
-            }}
           />
         </div>
         <div

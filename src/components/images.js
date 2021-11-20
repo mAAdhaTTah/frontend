@@ -6,4 +6,6 @@ export const headerImage = {
 export const avatarImage = {
   src: 'https://static.jamesdigioia.com/uploads/2015/02/new-avatar-sq.jpg',
   alt: 'avatar',
+  height: 783,
+  width: 783,
 };
