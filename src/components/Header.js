@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import cc from 'classcat';
@@ -58,7 +59,7 @@ const Header = ({
   description,
   links,
   fullScreen,
-  headerImage,
+  backgroundImage,
   avatarImage,
   disableTyping = false,
 }) => {
@@ -139,7 +140,7 @@ const Header = ({
       >
         <div className="h-screen overflow-hidden relative">
           <Image
-            {...headerImage}
+            {...backgroundImage}
             priority
             layout="fill"
             objectFit="cover"
@@ -227,6 +228,16 @@ const Header = ({
       <Nav links={links} />
     </animated.div>
   );
+};
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.object.isRequired,
+  avatarImage: PropTypes.object.isRequired,
+  links: PropTypes.array.isRequired,
+  fullScreen: PropTypes.bool.isRequired,
+  disableTyping: PropTypes.bool,
 };
 
 export default Header;

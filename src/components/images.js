@@ -1,4 +1,4 @@
-export const headerImage = {
+export const backgroundImage = {
   src: 'https://static.jamesdigioia.com/uploads/2020/11/header-1.jpg',
   alt: 'background image',
 };

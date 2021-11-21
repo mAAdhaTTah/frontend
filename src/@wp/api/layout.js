@@ -1,5 +1,5 @@
 import { strapi } from '@strapi/api';
-import { headerImage, avatarImage } from '../../components/images';
+import { backgroundImage, avatarImage } from '../../components/images';
 import { wp } from './wp';
 
 export const getLayoutProps = async () => {
@@ -18,7 +18,7 @@ export const getLayoutProps = async () => {
       title: siteMeta.name,
       description: siteMeta.description,
       links: menu.menu_items.map(link => ({ to: link.href, text: link.text })),
-      backgroundImage: headerImage,
+      backgroundImage,
       avatarImage,
       fullScreen: false,
     },
