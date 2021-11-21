@@ -63,10 +63,12 @@ export const Sup = ({ children }) => {
 
 const linkClass = cc(['no-underline', 'border-b-2', 'border-darkg']);
 
-export const Link = ({ children, href }) => {
+export const Link = ({ children, href, title }) => {
   return (
     <NextLink href={href}>
-      <a className={linkClass}>{children}</a>
+      <a className={linkClass} title={title}>
+        {children}
+      </a>
     </NextLink>
   );
 };

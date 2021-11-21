@@ -1,8 +1,9 @@
 import { strapi } from '@strapi/api';
 import { getPageLayoutProps, StrapiPage } from '@strapi/page';
+import { serialize } from 'next-mdx-remote/serialize';
 
-const NotFoundPage = ({ page }) => {
-  return <StrapiPage page={page} />;
+const NotFoundPage = ({ page, source }) => {
+  return <StrapiPage page={page} source={source} />;
 };
 
 export const getStaticProps = async () => {
@@ -23,6 +24,7 @@ export const getStaticProps = async () => {
     props: {
       layout: getPageLayoutProps(response.data[0]),
       page,
+      source: await serialize(page.body),
     },
   };
 };
