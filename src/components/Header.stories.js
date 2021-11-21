@@ -1,6 +1,6 @@
 import isChromatic from 'chromatic/isChromatic';
 import Header from './Header';
-import { avatarImage, headerImage } from './images';
+import { avatarImage, backgroundImage } from './images';
 
 export default {
   title: 'Components/Header',
@@ -10,7 +10,7 @@ const Template = args => (
   <Header
     title="James DiGioia"
     description="my little web home"
-    headerImage={headerImage}
+    backgroundImage={backgroundImage}
     avatarImage={avatarImage}
     disableTyping={isChromatic()}
     {...args}

@@ -20,14 +20,7 @@ export const Layout = ({ header, children }) => {
 
   return (
     <div className="flex flex-row">
-      <Header
-        title={header.title}
-        description={header.description}
-        links={header.links}
-        headerImage={header.backgroundImage}
-        avatarImage={header.avatarImage}
-        fullScreen={header.fullScreen}
-      />
+      <Header {...header} />
       <div className="relative flex-grow">
         {transitions((props, item) => (
           <animated.div style={props} className={'absolute w-full'}>
@@ -40,13 +33,6 @@ export const Layout = ({ header, children }) => {
 };
 
 Layout.propTypes = {
-  header: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    backgroundImage: PropTypes.object.isRequired,
-    avatarImage: PropTypes.object.isRequired,
-    links: PropTypes.array.isRequired,
-    fullScreen: PropTypes.bool.isRequired,
-  }).isRequired,
+  header: PropTypes.object.isRequired,
   children: PropTypes.node,
 };

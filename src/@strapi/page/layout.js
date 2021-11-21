@@ -1,4 +1,4 @@
-import { headerImage, avatarImage } from '../../components/images';
+import { backgroundImage, avatarImage } from '../../components/images';
 import { resolveSegments } from '../api';
 
 export const getPageLayoutProps = page => ({
@@ -24,7 +24,7 @@ export const getPageLayoutProps = page => ({
           throw new Error(`Invalid menu component ${link.__component}`);
       }
     }),
-    backgroundImage: page.header.image || headerImage,
+    backgroundImage: page.header.background || backgroundImage,
     avatarImage: page.header.avatar || avatarImage,
     fullScreen: page.template === 'full_screen',
   },
