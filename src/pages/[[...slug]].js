@@ -1,3 +1,4 @@
+import { serialize } from 'next-mdx-remote/serialize';
 import { HOME_SLUG, resolveSegments, strapi } from '@strapi/api';
 import { getPageLayoutProps, StrapiPage } from '@strapi/page';
 import { server } from '@app/config';
@@ -11,10 +12,10 @@ import { Post } from '../components';
 import { Page } from '../containers/Page';
 import { SEO } from '../decorators/withSEO';
 
-const RootPage = ({ type, page, seo, data }) => {
+const RootPage = ({ type, page, source, seo, data }) => {
   switch (type) {
     case 'strapi':
-      return <StrapiPage page={page} />;
+      return <StrapiPage page={page} source={source} />;
     case 'wp':
       return (
         <SEO {...seo}>
@@ -62,6 +63,7 @@ export const getStaticProps = async ({ params }) => {
           type: 'strapi',
           layout: getPageLayoutProps(page),
           page,
+          source: await serialize(page.body),
         },
         revalidate: server.DEFAULT_REVALIDATE_TIME,
       };
