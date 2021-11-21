@@ -1,25 +1,30 @@
-import { getLayoutProps } from '@wp/api';
-import { Main } from '../components';
-import { withSEO } from '../decorators';
+import { strapi } from '@strapi/api';
+import { getPageLayoutProps, StrapiPage } from '@strapi/page';
 
-const NotFoundPage = () => (
-  <Main>
-    <h1>SERVER ERROR</h1>
-    <p>Something terrible happened...</p>
-  </Main>
-);
+const NotFoundPage = ({ page }) => {
+  return <StrapiPage page={page} />;
+};
 
 export const getStaticProps = async () => {
+  const response = await strapi.get('/pages', {
+    params: {
+      slug: '__500__',
+      _limit: 1,
+    },
+  });
+
+  if (!response.data.length) {
+    throw response;
+  }
+
+  const [page] = response.data;
+
   return {
     props: {
-      layout: await getLayoutProps(),
+      layout: getPageLayoutProps(response.data[0]),
+      page,
     },
   };
 };
 
-export default withSEO(() => ({
-  // @TODO(mAAdhaTTah) get from... somewhere?
-  title: 'Server Error',
-  metas: [],
-  schemas: [],
-}))(NotFoundPage);
+export default NotFoundPage;
