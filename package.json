@@ -28,7 +28,7 @@
     "typeit": "^8.0.3"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-pipeline-operator": "^7.15.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.16.0",
     "@storybook/addon-actions": "^6.4.0-rc.5",
     "@storybook/addon-docs": "^6.4.0-rc.5",
     "@storybook/addon-postcss": "^2.0.0",
