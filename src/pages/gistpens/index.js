@@ -1,6 +1,7 @@
 import { getGistpens, getLayoutProps, getSeoByPageId } from '@wp/api';
+import { Main } from '@ui/box';
 import { withSEO } from '../../decorators';
-import { Pagination, Gistpen, Main } from '../../components';
+import { Pagination, Gistpen } from '../../components';
 
 const GistpenArchive = ({ posts, page, hasNextPage }) => {
   return (
