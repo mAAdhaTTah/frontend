@@ -15,9 +15,18 @@ PageBody.propTypes = {
   source: PropTypes.object.isRequired,
 };
 
+const RawBody = ({ source }) => {
+  return <Mdx source={source} />;
+};
+
+RawBody.propTypes = {
+  source: PropTypes.object.isRequired,
+};
+
 const templates = {
   full_screen: PageBody,
   page: PageBody,
+  raw: RawBody,
 };
 
 export const StrapiPage = ({ page, source }) => {
