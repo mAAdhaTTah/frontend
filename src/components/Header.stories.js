@@ -1,4 +1,4 @@
-import isChromatic from 'chromatic/isChromatic';
+import isChromatic from 'chromatic';
 import Header from './Header';
 import { avatarImage, backgroundImage } from './images';
 
