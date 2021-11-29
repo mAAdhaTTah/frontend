@@ -1,11 +1,13 @@
 import axios from 'axios';
-import { server } from '@app/config';
+import { shared, server } from '@app/config';
 
 export const strapi = axios.create({
-  baseURL: server.STRAPI_DOMAIN,
-  headers: {
-    Authorization: `Bearer ${server.STRAPI_TOKEN}`,
-  },
+  baseURL: shared.STRAPI_DOMAIN,
+  headers: server.STRAPI_TOKEN
+    ? {
+        Authorization: `Bearer ${server.STRAPI_TOKEN}`,
+      }
+    : null,
 });
 
 export const HOME_SLUG = '__index__';
