@@ -1,6 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-import { subDays, endOfDay, format, parse, parseISO } from 'date-fns';
+import { subDays, endOfDay, format, parseISO } from 'date-fns';
 import Axios from 'axios';
 import parseLinkHeader from 'parse-link-header';
 import { strapi } from '@strapi/api';
@@ -176,32 +174,6 @@ export const getContextBySlug = async slug => {
       schemas: page.yoast_json_ld,
     },
   };
-};
-
-export const getResume = async () => {
-  const experiences = JSON.parse(
-    await fs.promises.readFile(
-      path.join(process.cwd(), 'data', 'resume', 'experience.json'),
-      'utf-8',
-    ),
-  ).map(experience => ({
-    ...experience,
-    positions: experience.positions.map(position => ({
-      ...position,
-      start: format(parse(position.start, 'yyyy-MM', new Date()), 'MMMM yyyy'),
-      end: position.end
-        ? format(parse(position.end, 'yyyy-MM', new Date()), 'MMMM yyyy')
-        : null,
-    })),
-  }));
-  const skills = JSON.parse(
-    await fs.promises.readFile(
-      path.join(process.cwd(), 'data', 'resume', 'skills.json'),
-      'utf-8',
-    ),
-  );
-
-  return { experiences, skills };
 };
 
 export const getReadingProps = async () => {

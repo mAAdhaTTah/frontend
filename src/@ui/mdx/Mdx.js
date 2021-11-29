@@ -19,20 +19,18 @@ import {
   Acronym,
   Body,
 } from '@ui/typography';
+import { StrapiResume } from '@strapi/resume';
 
 const components = {
   ul({ children }) {
     return <Ul>{children}</Ul>;
   },
-
   ol({ children }) {
     return <Ol>{children}</Ol>;
   },
-
   li({ children }) {
     return <Li>{children}</Li>;
   },
-
   p({ children }) {
     return <Body>{children}</Body>;
   },
@@ -112,6 +110,9 @@ const components = {
   },
   acronym({ title, children }) {
     return <Acronym title={title}>{children}</Acronym>;
+  },
+  Resume({ id }) {
+    return <StrapiResume id={id} />;
   },
 };
 

@@ -81,6 +81,11 @@ body {
     @apply pin-50;
     transform: translate(-50%, -50%);
   }
+
+  .avoid-break-inside {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 
 .toolbar {
