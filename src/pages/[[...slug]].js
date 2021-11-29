@@ -1,4 +1,5 @@
 import { serialize } from 'next-mdx-remote/serialize';
+import remarkGfm from 'remark-gfm';
 import { HOME_SLUG, resolveSegments, strapi } from '@strapi/api';
 import { getPageLayoutProps, StrapiPage } from '@strapi/page';
 import { server } from '@app/config';
@@ -63,7 +64,11 @@ export const getStaticProps = async ({ params }) => {
           type: 'strapi',
           layout: getPageLayoutProps(page),
           page,
-          source: await serialize(page.body),
+          source: await serialize(page.body, {
+            mdxOptions: {
+              remarkPlugins: [remarkGfm],
+            },
+          }),
         },
         revalidate: server.DEFAULT_REVALIDATE_TIME,
       };
