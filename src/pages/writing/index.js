@@ -1,7 +1,8 @@
 import { server } from '@app/config';
 import { getPosts, getLayoutProps, getSeoByPageId } from '@wp/api';
+import { Main } from '@ui/box';
 import { withSEO } from '../../decorators';
-import { Pagination, Main, Post } from '../../components';
+import { Pagination, Post } from '../../components';
 
 const GistpenArchive = ({ posts, page, hasNextPage }) => {
   return (

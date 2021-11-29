@@ -1,7 +1,7 @@
 import cc from 'classcat';
-import { withSEO } from '../decorators';
-import { Main } from '../components';
+import { Main } from '@ui/box';
 import { getLayoutProps, getResume, getSeoByPageId } from '@wp/api';
+import { withSEO } from '../decorators';
 
 const h1Class = cc([
   'font-muli',

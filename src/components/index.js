@@ -10,4 +10,3 @@ export { default as Day } from './Day';
 export { default as Snippet } from './Snippet';
 export { default as Pagination } from './Pagination';
 export { default as Gistpen } from './Gistpen';
-export { default as Main } from './Main';
