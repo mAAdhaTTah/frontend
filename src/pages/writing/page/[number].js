@@ -5,8 +5,9 @@ import {
   getPosts,
   getSeoByPageId,
 } from '@wp/api';
+import { Main } from '@ui/box';
 import { withSEO } from '../../../decorators';
-import { Pagination, Main, Post } from '../../../components';
+import { Pagination, Post } from '../../../components';
 
 const PostArchive = ({ posts, page, hasNextPage }) => {
   return (

@@ -112,13 +112,14 @@ const Header = ({
       .type('ioia');
 
     titleType.go();
-  }, []);
+  }, [disableTyping]);
 
   return (
     <animated.div
       ref={header}
       style={style}
       className={cc([
+        'print:hidden',
         'h-screen',
         'w-0',
         {

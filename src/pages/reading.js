@@ -1,6 +1,7 @@
 import { server } from '@app/config';
+import { Main } from '@ui/box';
 import { getLayoutProps, getReadingProps, getSeoByPageId } from '@wp/api';
-import { Day, Main } from '../components';
+import { Day } from '../components';
 import { withSEO } from '../decorators';
 
 const ReadingPage = ({ reading }) => (
