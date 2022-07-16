@@ -1,32 +1,14 @@
-import { getGistpens, getLayoutProps, getSeoByPageId } from '@wp/api';
-import { Main } from '@ui/box';
-import { withSEO } from '../../decorators';
-import { Pagination, Gistpen } from '../../components';
+import { TinaPage } from '@tina/page';
+import { getGistpenArchiveProps } from '@tina/server';
 
-const GistpenArchive = ({ posts, page, hasNextPage }) => {
-  return (
-    <Main>
-      {posts.map(node => (
-        <Gistpen key={node.id} {...node} linkHeader />
-      ))}
-      <Pagination pageNumber={page} hasNextPage={hasNextPage} slug="gistpens" />
-    </Main>
-  );
+const GistpenArchive = ({ response, extra }) => {
+  return <TinaPage response={response} extra={extra} />;
 };
 
 export const getStaticProps = async () => {
-  const { posts, page, hasNextPage } = await getGistpens({
-    page: 1,
-  });
   return {
-    props: {
-      layout: await getLayoutProps(),
-      seo: await getSeoByPageId(6105),
-      posts,
-      page,
-      hasNextPage,
-    },
+    props: await getGistpenArchiveProps({ page: 1 }),
   };
 };
 
-export default withSEO()(GistpenArchive);
+export default GistpenArchive;

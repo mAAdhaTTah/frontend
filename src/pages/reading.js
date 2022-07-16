@@ -1,26 +1,16 @@
 import { server } from '@app/config';
-import { Main } from '@ui/box';
-import { getLayoutProps, getReadingProps, getSeoByPageId } from '@wp/api';
-import { Day } from '../components';
-import { withSEO } from '../decorators';
+import { TinaPage } from '@tina/page';
+import { getReadingPageProps } from '@tina/server';
 
-const ReadingPage = ({ reading }) => (
-  <Main>
-    {reading.map(({ day, links }) => (
-      <Day key={day} day={day} links={links} />
-    ))}
-  </Main>
-);
+const ReadingPage = ({ response, extra }) => {
+  return <TinaPage response={response} extra={extra} />;
+};
 
 export const getStaticProps = async () => {
   return {
-    props: {
-      layout: await getLayoutProps(),
-      seo: await getSeoByPageId(5941),
-      reading: await getReadingProps(),
-    },
+    props: await getReadingPageProps(),
     revalidate: server.DEFAULT_REVALIDATE_TIME,
   };
 };
 
-export default withSEO()(ReadingPage);
+export default ReadingPage;

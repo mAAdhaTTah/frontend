@@ -1,53 +1,21 @@
-import { server } from '@app/config';
-import {
-  getGistpens,
-  getGistpenArchivePaths,
-  getLayoutProps,
-  getSeoByPageId,
-} from '@wp/api';
-import { Main } from '@ui/box';
-import { withSEO } from '../../../decorators';
-import { Pagination, Gistpen } from '../../../components';
+import { TinaPage } from '@tina/page';
+import { getGistpenArchivePaths, getGistpenArchiveProps } from '@tina/server';
 
-const GistpenArchive = ({ posts, page, hasNextPage }) => {
-  return (
-    <Main>
-      {posts.map(node => (
-        <Gistpen key={node.id} {...node} />
-      ))}
-      <Pagination pageNumber={page} hasNextPage={hasNextPage} slug="gistpens" />
-    </Main>
-  );
+const GistpenArchive = ({ response, extra }) => {
+  return <TinaPage response={response} extra={extra} />;
 };
 
 export const getStaticPaths = async () => {
   return {
     paths: await getGistpenArchivePaths(),
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { posts, page, hasNextPage } = await getGistpens({
-    page: params.number,
-  });
-
-  if (posts.length === 0) {
-    return {
-      notFound: true,
-    };
-  }
-
   return {
-    props: {
-      layout: await getLayoutProps(),
-      seo: await getSeoByPageId(6105),
-      posts,
-      page,
-      hasNextPage,
-    },
-    revalidate: server.DEFAULT_REVALIDATE_TIME,
+    props: await getGistpenArchiveProps({ page: Number(params.number) }),
   };
 };
 
-export default withSEO()(GistpenArchive);
+export default GistpenArchive;

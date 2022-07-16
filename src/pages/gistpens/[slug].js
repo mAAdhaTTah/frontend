@@ -1,39 +1,23 @@
-import { server } from '@app/config';
-import { getGistpenBySlug, getGistpenSlugPaths, getLayoutProps } from '@wp/api';
-import { withSEO } from '../../decorators';
-import { Gistpen } from '../../components';
+import { TinaPage } from '@tina/page';
+import { getGistpenPaths, getGistpenSingleProps } from '@tina/server';
 
-const GistpenSingle = ({ post }) => {
-  return <Gistpen {...post} />;
+const GistpenSingle = ({ response, extra }) => {
+  return <TinaPage response={response} extra={extra} />;
 };
 
 /** @type {import('next').GetStaticPaths} */
 export const getStaticPaths = async () => {
   return {
-    paths: await getGistpenSlugPaths(),
-    fallback: 'blocking',
+    paths: await getGistpenPaths(),
+    fallback: false,
   };
 };
 
 /** @type {import('next').GetStaticProps} */
 export const getStaticProps = async ({ params }) => {
-  try {
-    const { post, seo } = await getGistpenBySlug({
-      slug: params.slug,
-    });
-    return {
-      props: {
-        layout: await getLayoutProps(),
-        seo,
-        post,
-      },
-      revalidate: server.DEFAULT_REVALIDATE_TIME,
-    };
-  } catch {
-    return {
-      notFound: true,
-    };
-  }
+  return {
+    props: await getGistpenSingleProps(params.slug),
+  };
 };
 
-export default withSEO()(GistpenSingle);
+export default GistpenSingle;

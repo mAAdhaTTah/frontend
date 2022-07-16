@@ -1,3 +1,4 @@
+/** @type {import('next').NextConfig} */
 module.exports = {
   images: {
     domains: ['static.jamesdigioia.com'],
@@ -28,19 +29,31 @@ module.exports = {
     ];
   },
   async rewrites() {
-    const feeds = [
-      '/feed/',
-      '/feed/rss/',
-      '/feed/rss2/',
-      '/feed/rdf/',
-      '/feed/atom/',
-    ];
-
     return [
-      ...feeds.map(feed => ({
-        source: feed,
-        destination: `https://${process.env.NEXT_PUBLIC_WP_API_DOMAIN}${feed}`,
-      })),
+      {
+        source: '/feed/',
+        destination: '/feed/rss2.xml',
+      },
+      {
+        source: '/feed/rss/',
+        destination: '/feed/rss2.xml',
+      },
+      {
+        source: '/feed/rss2/',
+        destination: '/feed/rss2.xml',
+      },
+      {
+        source: '/feed/atom/',
+        destination: '/feed/atom.xml',
+      },
+      {
+        source: '/feed/json/',
+        destination: '/feed/json1.json',
+      },
+      {
+        source: '/admin',
+        destination: '/admin/index.html',
+      },
     ];
   },
   experimental: {
