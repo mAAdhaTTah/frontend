@@ -1,0 +1,13 @@
+diff --git a/node_modules/@tinacms/cli/dist/index.js b/node_modules/@tinacms/cli/dist/index.js
+index 37c4540..639f98b 100644
+--- a/node_modules/@tinacms/cli/dist/index.js
++++ b/node_modules/@tinacms/cli/dist/index.js
+@@ -229,7 +229,7 @@ var init_server = __esm({
+       const app = (0, import_express2.default)();
+       const server = import_http.default.createServer(app);
+       app.use((0, import_cors.default)());
+-      app.use(import_body_parser.default.json());
++      app.use(import_body_parser.default.json({limit: "2mb"}));
+       app.use("/altair", (0, import_altair_express_middleware.altairExpress)({
+         endpointURL: "/graphql",
+         initialQuery: `# Welcome to Tina!

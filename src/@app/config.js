@@ -4,6 +4,8 @@ export const server = {
   DEFAULT_REVALIDATE_TIME: Number(process.env.DEFAULT_REVALIDATE_TIME ?? 3600),
   LONG_REVALIDATE_TIME: Number(process.env.LONG_REVALIDATE_TIME ?? 3600 * 24),
   STRAPI_TOKEN: process.env.STRAPI_TOKEN,
+  TINA_CLIENT_ID: process.env.TINA_CLIENT_ID,
+  TINA_TOKEN: process.env.TINA_TOKEN,
 };
 
 export const shared = {

@@ -1,0 +1,56 @@
+query getRepoSlugs {
+  repoConnection(last: 100) {
+    edges {
+      node {
+        ... on Document {
+          _sys {
+            filename
+          }
+        }
+      }
+    }
+  }
+}
+
+query getRepos {
+  repoConnection(sort: "createdAt", last: 100) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+    }
+    edges {
+      node {
+        _sys {
+          filename
+        }
+        description
+        status
+        gistId
+        sync
+        createdAt
+        updatedAt
+        blobs {
+          filename
+          code
+          language
+        }
+      }
+    }
+  }
+}
+
+query getRepo($relativePath: String!) {
+  repo(relativePath: $relativePath) {
+    description
+    status
+    gistId
+    sync
+    createdAt
+    updatedAt
+    blobs {
+      filename
+      code
+      language
+    }
+  }
+}

@@ -6,6 +6,10 @@ export const Ol = ({ children }) => {
   return <ol className="list-decimal pl-4 mb-5">{children}</ol>;
 };
 
-export const Li = ({ children }) => {
-  return <li className="mb-1 font-ovo text-xl">{children}</li>;
+export const Li = ({ id, children }) => {
+  return (
+    <li id={id} className="mb-1 font-ovo text-xl">
+      {children}
+    </li>
+  );
 };

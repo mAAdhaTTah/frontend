@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import cc from 'classcat';
-import { Main } from '@ui/box';
+import { Article } from '@ui/box';
 
 const h1Class = cc([
   'font-muli',
@@ -265,7 +265,7 @@ export const Resume = ({
   volunteering,
   skills,
 }) => (
-  <Main>
+  <div className="mx-4 pt-5 print:pt-0 print:mx-0 print:max-w-full">
     <div className="bg-primary text-2xl print:text-base">
       <div className="mx-auto text-center mb-2">
         <h1 className={h1Class}>{name}</h1>
@@ -273,10 +273,10 @@ export const Resume = ({
         <p className="text-sm font-ovo">{description}</p>
       </div>
       <div className="mx-auto px-4 print:mx-2 flex max-w-2xl flex-col xl:flex-row pb-2">
-        <div className="flex-grow basis-100">
+        <div className="grow basis-100">
           <Experience experiences={experiences} />
         </div>
-        <div className="flex-shrink basis-3 lg:mx-3">
+        <div className="flex-shrink lg:mx-3">
           <Sidebar
             projects={projects}
             talks={talks}
@@ -286,7 +286,7 @@ export const Resume = ({
         </div>
       </div>
     </div>
-  </Main>
+  </div>
 );
 
 Resume.propTypes = {

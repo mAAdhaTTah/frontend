@@ -1,0 +1,10 @@
+export { categoryCollection } from './category';
+export { commentCollection } from './comment';
+export { headerCollection } from './header';
+export { menuCollection } from './menu';
+export { mediaCollection } from './media';
+export { pageCollection } from './page';
+export { postCollection } from './post';
+export { repoCollection } from './repo';
+export { resumeCollection } from './resume';
+export { tagCollection } from './tag';

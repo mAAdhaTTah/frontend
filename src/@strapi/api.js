@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { shared, server } from '@app/config';
+import { endOfDay, format, parseISO, subDays } from 'date-fns';
 
 export const strapi = axios.create({
   baseURL: shared.STRAPI_DOMAIN,
@@ -10,13 +11,34 @@ export const strapi = axios.create({
     : null,
 });
 
-export const HOME_SLUG = '__index__';
+export const getReadingProps = async displayDays => {
+  const now = new Date();
 
-export const resolveSegments = page =>
-  page.slug === HOME_SLUG ? [] : page.slug.split('/');
+  const days = [];
 
-export const FIVE_HUNDRED_SLUG = '__500__';
-export const FOUR_OH_FOUR_SLUG = '__404__';
-export const IGNORE_SLUGS = [FIVE_HUNDRED_SLUG, FOUR_OH_FOUR_SLUG];
+  for (let i = 0; i < displayDays; i++) {
+    const targetDay = subDays(now, i);
+    const response = await strapi.get('/links', {
+      params: {
+        read_at_lte: endOfDay(targetDay),
+        read_at_gt: endOfDay(subDays(targetDay, 1)),
+        _sort: 'read_at:DESC',
+        _limit: -1,
+      },
+    });
 
-export const strapiFetcher = url => strapi.get(url).then(({ data }) => data);
+    if (response.data.length) {
+      days.push({
+        day: format(targetDay, 'MMM do, yyyy'),
+        links: response.data.map(link => ({
+          id: `link-${link.id}`,
+          title: link.title,
+          url: link.url,
+          readAt: format(parseISO(link.read_at), 'hh:mm a'),
+        })),
+      });
+    }
+  }
+
+  return days;
+};
