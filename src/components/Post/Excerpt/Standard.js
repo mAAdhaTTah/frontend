@@ -19,6 +19,8 @@ const linkClass = cc([
   'text-primary',
   'rounded',
   'mt-3',
+  'text-xl',
+  'leading-normal',
 ]);
 const iconClass = cc(['ml-2']);
 
@@ -43,14 +45,14 @@ const StandardFormat = ({
         author={author.name}
       />
     </header>
-    <Body>
-      {useStripHTML(excerpt)}
+    <div>
+      <Body>{useStripHTML(excerpt)}</Body>
       <Link href={`/${slug}/`}>
         <a className={linkClass}>
           Read more <FaLongArrowAltRight className={iconClass} />
         </a>
       </Link>
-    </Body>
+    </div>
   </Article>
 );
 
