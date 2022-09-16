@@ -23,7 +23,7 @@
     "remark-gfm": "^3.0.1",
     "rooks": "^5.7.1",
     "sqlite": "^4.0.23",
-    "sqlite3": "5.0.1",
+    "sqlite3": "5.1.1",
     "string-strip-html": "^7.0.3",
     "tailwindcss": "^2.2.19",
     "typeit": "^8.0.3"
