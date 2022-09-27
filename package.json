@@ -24,7 +24,7 @@
     "rooks": "^5.7.1",
     "sqlite": "^4.0.23",
     "sqlite3": "5.0.1",
-    "string-strip-html": "^7.0.3",
+    "string-strip-html": "^11.6.8",
     "tailwindcss": "^2.2.19",
     "typeit": "^8.0.3"
   },
