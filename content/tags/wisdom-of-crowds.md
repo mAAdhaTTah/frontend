@@ -1,0 +1,4 @@
+---
+name: wisdom of crowds
+---
+

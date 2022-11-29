@@ -1,0 +1,112 @@
+---
+title: Bonnaroo
+publishedAt: '2013-06-17T03:24:46.000Z'
+updatedAt: '2014-01-25T18:25:13.000Z'
+status: publish
+body:
+  - content: ''
+    _template: richText
+images:
+  - reference: content/media/2013-06-16-23-10-09.md
+  - reference: content/media/2013-06-16-23-10-07.md
+  - reference: content/media/2013-06-16-21-55-19.md
+  - reference: content/media/2013-06-16-21-54-55.md
+  - reference: content/media/2013-06-16-21-54-54.md
+  - reference: content/media/2013-06-16-21-54-53.md
+  - reference: content/media/2013-06-16-20-14-46.md
+  - reference: content/media/2013-06-16-20-14-45.md
+  - reference: content/media/2013-06-16-20-14-38.md
+  - reference: content/media/2013-06-16-20-14-37.md
+  - reference: content/media/2013-06-16-20-14-36.md
+  - reference: content/media/2013-06-16-19-32-36.md
+  - reference: content/media/2013-06-16-19-32-35.md
+  - reference: content/media/2013-06-16-19-32-31.md
+  - reference: content/media/2013-06-16-19-32-30.md
+  - reference: content/media/2013-06-16-18-05-20.md
+  - reference: content/media/2013-06-16-18-05-19.md
+  - reference: content/media/2013-06-16-18-05-18.md
+  - reference: content/media/2013-06-16-18-05-17.md
+  - reference: content/media/2013-06-16-18-05-16.md
+  - reference: content/media/2013-06-16-17-40-36-2.md
+  - reference: content/media/2013-06-16-17-40-36-1.md
+  - reference: content/media/2013-06-16-17-40-35.md
+  - reference: content/media/2013-06-16-17-09-43.md
+  - reference: content/media/2013-06-16-17-09-42.md
+  - reference: content/media/2013-06-16-16-51-51.md
+  - reference: content/media/2013-06-16-16-51-49.md
+  - reference: content/media/2013-06-16-16-51-46.md
+  - reference: content/media/2013-06-16-16-51-45.md
+  - reference: content/media/2013-06-16-16-45-22.md
+  - reference: content/media/2013-06-16-16-45-21.md
+  - reference: content/media/2013-06-16-16-45-20.md
+  - reference: content/media/2013-06-16-16-40-21.md
+  - reference: content/media/2013-06-16-16-40-20.md
+  - reference: content/media/2013-06-16-16-40-19.md
+  - reference: content/media/2013-06-16-15-27-37.md
+  - reference: content/media/2013-06-16-15-27-36.md
+  - reference: content/media/2013-06-16-15-27-35.md
+  - reference: content/media/2013-06-16-15-27-34.md
+  - reference: content/media/2013-06-16-15-12-28.md
+  - reference: content/media/2013-06-16-15-12-27.md
+  - reference: content/media/2013-06-16-15-12-26.md
+  - reference: content/media/2013-06-16-15-04-13.md
+  - reference: content/media/2013-06-16-15-04-11.md
+  - reference: content/media/2013-06-16-15-04-10.md
+  - reference: content/media/2013-06-16-15-02-53.md
+  - reference: content/media/2013-06-16-15-02-51.md
+  - reference: content/media/2013-06-16-14-07-44.md
+  - reference: content/media/2013-06-16-14-07-43.md
+  - reference: content/media/2013-06-16-14-07-42.md
+  - reference: content/media/2013-06-16-14-07-40.md
+  - reference: content/media/2013-06-16-13-58-12.md
+  - reference: content/media/2013-06-16-13-58-11.md
+  - reference: content/media/2013-06-16-13-58-10.md
+  - reference: content/media/2013-06-16-13-58-09.md
+  - reference: content/media/2013-06-16-13-56-15.md
+  - reference: content/media/2013-06-16-13-56-13.md
+  - reference: content/media/2013-06-16-13-56-12.md
+  - reference: content/media/2013-06-16-13-43-48.md
+  - reference: content/media/2013-06-16-13-43-47.md
+  - reference: content/media/2013-06-16-13-43-46.md
+  - reference: content/media/2013-06-16-13-43-37.md
+  - reference: content/media/2013-06-16-13-40-27.md
+  - reference: content/media/2013-06-16-13-40-23.md
+  - reference: content/media/2013-06-16-13-40-20.md
+  - reference: content/media/2013-06-16-12-59-38.md
+  - reference: content/media/2013-06-16-12-59-36.md
+  - reference: content/media/2013-06-16-12-59-35.md
+  - reference: content/media/2013-06-15-19-48-52.md
+  - reference: content/media/2013-06-15-19-48-50.md
+  - reference: content/media/2013-06-15-19-44-39.md
+  - reference: content/media/2013-06-15-19-44-37.md
+  - reference: content/media/2013-06-15-19-44-35.md
+  - reference: content/media/2013-06-15-19-34-06.md
+  - reference: content/media/2013-06-15-19-31-09.md
+  - reference: content/media/2013-06-15-19-25-06.md
+  - reference: content/media/2013-06-15-19-25-05.md
+  - reference: content/media/2013-06-15-19-16-11.md
+  - reference: content/media/2013-06-15-19-08-01.md
+  - reference: content/media/2013-06-15-18-57-15.md
+  - reference: content/media/2013-06-15-18-55-24.md
+  - reference: content/media/2013-06-15-18-55-21.md
+  - reference: content/media/2013-06-15-18-52-14.md
+  - reference: content/media/2013-06-15-18-52-12.md
+  - reference: content/media/2013-06-15-13-19-30.md
+  - reference: content/media/2013-06-15-13-19-29.md
+  - reference: content/media/2013-06-15-13-19-27.md
+  - reference: content/media/2013-06-15-13-09-53.md
+  - reference: content/media/2013-06-15-13-09-51.md
+  - reference: content/media/2013-06-15-13-09-48.md
+  - reference: content/media/2013-06-15-13-09-47.md
+  - reference: content/media/2013-06-15-12-55-13.md
+  - reference: content/media/2013-06-15-12-47-44.md
+  - reference: content/media/2013-06-15-12-47-42.md
+  - reference: content/media/2013-06-15-12-47-40.md
+  - reference: content/media/2013-06-15-12-44-48.md
+  - reference: content/media/2013-06-15-12-44-47.md
+  - reference: content/media/2013-06-15-11-30-16.md
+  - reference: content/media/2013-06-15-11-30-13.md
+  - reference: content/media/2013-06-15-11-28-40.md
+_template: gallery
+---
+

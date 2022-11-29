@@ -1,0 +1,4 @@
+---
+name: building a hackintosh
+---
+

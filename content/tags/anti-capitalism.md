@@ -1,0 +1,4 @@
+---
+name: anti-capitalism
+---
+
