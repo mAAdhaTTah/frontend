@@ -27,6 +27,7 @@ volunteer:
   - organization: Code Nation
     position: Volunteer Teacher
     url: 'https://codenation.org/'
+    startDate: '2021-10-01T04:00:00.000Z' # TODO(James) fix
     highlights:
       - Taught web development to students at under-resourced high schools
       - Mentored student hackathon team
@@ -34,6 +35,7 @@ volunteer:
 education:
   - institution: 'New York University, Stern School of Business'
     url: 'https://www.stern.nyu.edu/'
+    startDate: '2021-10-01T04:00:00.000Z' # TODO(James) fix
 publications:
   - name: Meet brookjs
     url: 'http://talks.jamesdigioia.com/brookjs-at-reactnyc'
@@ -57,6 +59,7 @@ skills:
       - PostgreSQL
 projects:
   - name: Pipeline Operator
+    startDate: '2021-10-01T04:00:00.000Z' # TODO(James) fix
     highlights:
       - Advocate for new syntax into ECMAScript specification with TC39
       - Developing babel plugins for competing proposals to gather user feedback
@@ -64,4 +67,3 @@ projects:
     roles:
       - Community Advocate
 ---
-
