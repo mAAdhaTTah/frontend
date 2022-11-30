@@ -13,4 +13,6 @@ public/feed
 
 # Environment variables
 .env
-/images
+
+# Test output
+comparison
