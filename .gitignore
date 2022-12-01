@@ -10,6 +10,7 @@ vendor
 storybook-static
 public/sitemap.xml
 public/feed
+.vercel
 
 # Environment variables
 .env
