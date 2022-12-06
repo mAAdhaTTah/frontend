@@ -25,5 +25,11 @@
       "@wp/*": ["@wp/*"]
     }
   },
-  "exclude": ["node_modules", "vercel"]
+  "exclude": [
+    "node_modules",
+    "vercel",
+    "content",
+    "comparison",
+    "storybook-static"
+  ]
 }
