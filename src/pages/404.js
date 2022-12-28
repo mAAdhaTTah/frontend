@@ -1,32 +1,12 @@
-import { strapi } from '@strapi/api';
-import { getPageLayoutProps, StrapiPage } from '@strapi/page';
-import { serialize } from 'next-mdx-remote/serialize';
+import { TinaPage } from '@tina/page';
+import { get404PageProps } from '@tina/server';
 
-const NotFoundPage = ({ page, source }) => {
-  return <StrapiPage page={page} source={source} />;
+const ServerErrorPage = ({ response }) => {
+  return <TinaPage response={response} />;
 };
 
-export const getStaticProps = async () => {
-  const response = await strapi.get('/pages', {
-    params: {
-      slug: '__404__',
-      _limit: 1,
-    },
-  });
+export const getStaticProps = async () => ({
+  props: await get404PageProps(),
+});
 
-  if (!response.data.length) {
-    throw response;
-  }
-
-  const [page] = response.data;
-
-  return {
-    props: {
-      layout: getPageLayoutProps(response.data[0]),
-      page,
-      source: await serialize(page.body),
-    },
-  };
-};
-
-export default NotFoundPage;
+export default ServerErrorPage;

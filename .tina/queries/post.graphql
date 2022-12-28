@@ -1,0 +1,320 @@
+query getPostSlugs {
+  postConnection(last: 10000) {
+    edges {
+      node {
+        ... on Document {
+          _sys {
+            filename
+          }
+        }
+      }
+    }
+  }
+}
+
+query getWritingPosts {
+  postConnection(last: 10000) {
+    edges {
+      node {
+        ...FullPost
+      }
+    }
+  }
+}
+
+query getPost($relativePath: String!) {
+  post(relativePath: $relativePath) {
+    __typename
+    ...FullPost
+  }
+}
+
+fragment FullPost on Post {
+  __typename
+  ... on Document {
+    id
+    _sys {
+      filename
+    }
+  }
+  ... on PostStandard {
+    title
+    publishedAt
+    updatedAt
+    menu {
+      ...PostMenu
+    }
+    header {
+      ...PostHeader
+    }
+    status
+    featuredMedia {
+      ... on Media {
+        title
+        source
+        altText
+      }
+    }
+    body {
+      __typename
+      ... on PostStandardBodyRichText {
+        content
+      }
+      ... on PostStandardBodyGistpenEmbed {
+        repo {
+          ... on Repo {
+            blobs {
+              filename
+              code
+              language
+            }
+          }
+        }
+        blob
+        highlight
+        offset
+      }
+    }
+    excerpt
+  }
+  ... on PostStatus {
+    publishedAt
+    updatedAt
+    status
+    body {
+      __typename
+      ... on PostStatusBodyRichText {
+        content
+      }
+      ... on PostStatusBodyGistpenEmbed {
+        repo {
+          ... on Repo {
+            blobs {
+              filename
+              code
+              language
+            }
+          }
+        }
+        blob
+        highlight
+        offset
+      }
+    }
+  }
+  ... on PostAudio {
+    title
+    publishedAt
+    updatedAt
+    status
+    audio {
+      url
+    }
+    body {
+      __typename
+      ... on PostAudioBodyRichText {
+        content
+      }
+      ... on PostAudioBodyGistpenEmbed {
+        repo {
+          ... on Repo {
+            blobs {
+              filename
+              code
+              language
+            }
+          }
+        }
+        blob
+        highlight
+        offset
+      }
+    }
+  }
+  ... on PostLink {
+    title
+    publishedAt
+    updatedAt
+    status
+    link {
+      url
+    }
+    body {
+      __typename
+      ... on PostLinkBodyRichText {
+        content
+      }
+      ... on PostLinkBodyGistpenEmbed {
+        repo {
+          ... on Repo {
+            blobs {
+              filename
+              code
+              language
+            }
+          }
+        }
+        blob
+        highlight
+        offset
+      }
+    }
+  }
+  ... on PostQuote {
+    title
+    publishedAt
+    updatedAt
+    status
+    body {
+      __typename
+      ... on PostQuoteBodyRichText {
+        content
+      }
+      ... on PostQuoteBodyGistpenEmbed {
+        repo {
+          ... on Repo {
+            blobs {
+              filename
+              code
+              language
+            }
+          }
+        }
+        blob
+        highlight
+        offset
+      }
+    }
+    source {
+      url
+      name
+    }
+  }
+  ... on PostVideo {
+    title
+    publishedAt
+    updatedAt
+    status
+    video {
+      url
+    }
+    body {
+      __typename
+      ... on PostVideoBodyRichText {
+        content
+      }
+      ... on PostVideoBodyGistpenEmbed {
+        repo {
+          ... on Repo {
+            blobs {
+              filename
+              code
+              language
+            }
+          }
+        }
+        blob
+        highlight
+        offset
+      }
+    }
+  }
+  ... on PostImage {
+    title
+    publishedAt
+    updatedAt
+    status
+    featuredMedia {
+      ... on Media {
+        title
+        source
+        altText
+      }
+    }
+    body {
+      __typename
+      ... on PostImageBodyRichText {
+        content
+      }
+      ... on PostImageBodyGistpenEmbed {
+        repo {
+          ... on Repo {
+            blobs {
+              filename
+              code
+              language
+            }
+          }
+        }
+        blob
+        highlight
+        offset
+      }
+    }
+  }
+  ... on PostGallery {
+    title
+    publishedAt
+    updatedAt
+    status
+    body {
+      __typename
+      ... on PostGalleryBodyRichText {
+        content
+      }
+      ... on PostGalleryBodyGistpenEmbed {
+        repo {
+          ... on Repo {
+            blobs {
+              filename
+              code
+              language
+            }
+          }
+        }
+        blob
+        highlight
+        offset
+      }
+    }
+    images {
+      reference {
+        ... on Media {
+          title
+          source
+          altText
+        }
+      }
+    }
+  }
+  ... on PostAside {
+    publishedAt
+    updatedAt
+    status
+  }
+}
+
+fragment PostHeader on Header {
+  title
+  description
+}
+
+fragment PostMenu on Menu {
+  name
+  items {
+    ... on MenuItemsInternalLink {
+      text
+      target {
+        ... on Document {
+          _sys {
+            filename
+          }
+        }
+      }
+    }
+    ... on MenuItemsExternalLink {
+      text
+      href
+    }
+  }
+}

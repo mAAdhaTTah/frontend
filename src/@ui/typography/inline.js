@@ -57,8 +57,8 @@ export const Sub = ({ children }) => {
   return <sub>{children}</sub>;
 };
 
-export const Sup = ({ children }) => {
-  return <sup>{children}</sup>;
+export const Sup = ({ id, children }) => {
+  return <sup id={id}>{children}</sup>;
 };
 
 const linkClass = cc(['no-underline', 'border-b-2', 'border-darkg']);

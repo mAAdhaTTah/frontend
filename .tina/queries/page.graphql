@@ -1,0 +1,168 @@
+query getPageSlugs {
+  pageConnection {
+    edges {
+      node {
+        ... on Document {
+          _sys {
+            filename
+          }
+        }
+      }
+    }
+  }
+}
+
+query getPageProps($relativePath: String!) {
+  page(relativePath: $relativePath) {
+    __typename
+    ...FullPage
+  }
+}
+
+fragment FullPage on Page {
+  ... on Document {
+    _sys {
+      filename
+    }
+  }
+  ... on PageLanding {
+    title
+    header {
+      ...PageHeader
+    }
+    menu {
+      ...PageMenu
+    }
+    ...PageLandingBody
+  }
+  ... on PageFullScreen {
+    title
+    header {
+      ...PageHeader
+    }
+    menu {
+      ...PageMenu
+    }
+  }
+  ... on PageGistpenArchive {
+    title
+    header {
+      ...PageHeader
+    }
+    menu {
+      ...PageMenu
+    }
+    perPage
+  }
+  ... on PageGistpenSingle {
+    title
+    header {
+      ...PageHeader
+    }
+    menu {
+      ...PageMenu
+    }
+  }
+  ... on PageReadingList {
+    title
+    header {
+      ...PageHeader
+    }
+    menu {
+      ...PageMenu
+    }
+    days
+  }
+  ... on PagePostArchive {
+    title
+    header {
+      ...PageHeader
+    }
+    menu {
+      ...PageMenu
+    }
+    perPage
+  }
+  ... on PagePostSingle {
+    title
+    header {
+      ...PageHeader
+    }
+    menu {
+      ...PageMenu
+    }
+  }
+}
+
+fragment PageHeader on Header {
+  title
+  description
+}
+
+fragment PageMenu on Menu {
+  name
+  items {
+    ... on MenuItemsInternalLink {
+      text
+      target {
+        ... on Document {
+          _sys {
+            filename
+          }
+        }
+      }
+    }
+    ... on MenuItemsExternalLink {
+      text
+      href
+    }
+  }
+}
+
+fragment PageLandingBody on PageLanding {
+  body {
+    __typename
+    ... on PageLandingBodyResumeEmbed {
+      resume {
+        ... on Resume {
+          basics {
+            name
+            summary
+            location {
+              city
+              region
+            }
+          }
+          work {
+            name
+            position
+            startDate
+            endDate
+            highlights
+          }
+          projects {
+            name
+            url
+            roles
+            highlights
+          }
+          publications {
+            name
+            url
+          }
+          volunteer {
+            organization
+            highlights
+          }
+          skills {
+            name
+            keywords
+          }
+        }
+      }
+    }
+    ... on PageLandingBodyRichText {
+      content
+    }
+  }
+}

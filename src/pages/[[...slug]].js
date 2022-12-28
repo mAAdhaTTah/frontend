@@ -1,101 +1,38 @@
-import { serialize } from 'next-mdx-remote/serialize';
-import remarkGfm from 'remark-gfm';
-import { HOME_SLUG, resolveSegments, strapi } from '@strapi/api';
-import { getPageLayoutProps, StrapiPage } from '@strapi/page';
-import { server } from '@app/config';
-import {
-  getLayoutProps,
-  getPageSlugs,
-  getPostSlugs,
-  getContextBySlug,
-} from '@wp/api';
-import { Post } from '../components';
-import { Page } from '../containers/Page';
-import { SEO } from '../decorators/withSEO';
+import { TinaPage } from '@tina/page';
+import { resolveSlug } from '@tina/routes';
+import { getPagePaths, getPageProps, getWritingPaths } from '@tina/server';
 
-const RootPage = ({ type, page, source, seo, data }) => {
-  switch (type) {
-    case 'strapi':
-      return <StrapiPage page={page} source={source} />;
-    case 'wp':
-      return (
-        <SEO {...seo}>
-          {data.format ? <Post.Article {...data} /> : <Page {...data} />}
-        </SEO>
-      );
-    default:
-      throw new Error(`Invalid type ${type}`);
-  }
+const RootPage = ({ response, extra }) => {
+  return <TinaPage response={response} extra={extra} />;
 };
 
-/** @type {import('next').GetStaticPaths} */
+/** @type {import('next').GetStaticPaths<{slug: string[]}>} */
 export const getStaticPaths = async () => {
   return {
-    paths: [
-      ...(await strapi.get('/pages')).data.map(page => ({
-        params: {
-          slug: resolveSegments(page),
-        },
-      })),
-      ...(await getPageSlugs()),
-      ...(await getPostSlugs()),
-    ],
+    paths: await getPagePaths(),
+    // TODO(James) combine w/ writing props and flip back to false
     fallback: 'blocking',
   };
 };
 
 /** @type {import('next').GetStaticProps} */
 export const getStaticProps = async ({ params }) => {
-  const paramsSlug = params.slug;
-  const slug =
-    paramsSlug == null
-      ? HOME_SLUG
-      : Array.isArray(paramsSlug)
-      ? paramsSlug.join('/')
-      : paramsSlug;
+  const writingSlugs = (await getWritingPaths()).map(
+    ({ params }) => params.slug,
+  );
+  const slug = resolveSlug(params);
 
-  try {
-    const response = await strapi.get(`/pages?slug=${slug}`);
-
-    if (response.data.length === 1) {
-      const [page] = response.data;
-      return {
-        props: {
-          type: 'strapi',
-          layout: getPageLayoutProps(page),
-          page,
-          source: await serialize(page.body, {
-            mdxOptions: {
-              remarkPlugins: [remarkGfm],
-            },
-          }),
-        },
-        revalidate: server.DEFAULT_REVALIDATE_TIME,
-      };
-    }
-
-    const { data, seo } = await getContextBySlug(slug);
-
+  if (writingSlugs.includes(slug)) {
     return {
-      props: {
-        type: 'wp',
-        layout: await getLayoutProps(),
-        data,
-        seo,
+      redirect: {
+        permanent: true,
+        destination: `/writing/${slug}`,
       },
-      revalidate: data.format
-        ? server.DEFAULT_REVALIDATE_TIME
-        : server.LONG_REVALIDATE_TIME,
     };
-  } catch (error) {
-    if (error.code === 'SLUG_NOT_FOUND') {
-      return {
-        notFound: true,
-      };
-    }
-
-    throw error;
   }
+  return {
+    props: await getPageProps(params),
+  };
 };
 
 export default RootPage;

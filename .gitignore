@@ -5,12 +5,15 @@ yarn-error.log
 build-storybook.log
 vendor
 
-# Build directory
+# Build output
 .next
 storybook-static
+public/sitemap.xml
+public/feed
+.vercel
 
 # Environment variables
 .env
 
-# Runtime
-data/*.sqlite3
+# Test output
+comparison

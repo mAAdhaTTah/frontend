@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [master, 'update-dependencies']
+    branches: [master]
   pull_request:
-    branches: [master, 'update-dependencies']
+    branches: [master]
 
 jobs:
   build:
@@ -24,28 +24,12 @@ jobs:
           key: v1-npm-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             v1-npm-
-      - name: Cache nextjs build
-        uses: actions/cache@v2
-        with:
-          path: ${{ github.workspace }}/.next/cache
-          key: v1-nextjs-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            v1-nextjs-
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
-      - name: Upgrade npm
-        run: npm install -g npm@^7
+          node-version: 16.x
       - run: npm ci
       - run: npm test
-      - run: npm run build
-        env:
-          NEXT_PUBLIC_WP_API_DOMAIN: ${{ secrets.NEXT_PUBLIC_WP_API_DOMAIN }}
-          WP_API_USERNAME: ${{ secrets.WP_API_USERNAME }}
-          WP_API_PASSWORD: ${{ secrets.WP_API_PASSWORD }}
-          NEXT_PUBLIC_STRAPI_DOMAIN: ${{ secrets.NEXT_PUBLIC_STRAPI_DOMAIN }}
-          STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
