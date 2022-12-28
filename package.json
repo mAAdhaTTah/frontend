@@ -50,6 +50,7 @@
     "yargs": "^17.6.2"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.1.1",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-docs": "^6.5.10",
     "@storybook/addon-postcss": "^2.0.0",
@@ -63,9 +64,10 @@
     "babel-eslint": "^10.1.0",
     "brookjs-prettier-config": "^1.0.0-beta.9",
     "chromatic": "^6.7.4",
-    "eslint": "^7.32.0",
-    "eslint-config-brookjs": "^1.0.0-beta.9",
+    "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "execa": "^3.0.0",
     "jest": "^27.5.1",
