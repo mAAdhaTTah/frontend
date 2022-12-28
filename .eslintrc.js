@@ -1,8 +1,24 @@
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
-  parser: 'babel-eslint',
-  extends: ['brookjs', 'prettier'],
+  extends: ['plugin:@next/next/recommended', 'react-app', 'prettier'],
   rules: {
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
+    'import/named': 2,
+    'import/namespace': 2,
+    'import/default': 2,
+    'import/export': 2,
+    'import/no-absolute-path': 2,
+    'import/first': 2,
+    'import/newline-after-import': 2,
+    'import/no-named-as-default': 1,
+    'import/no-named-as-default-member': 1,
+    'import/no-duplicates': 1,
+    'import/no-deprecated': 1,
+    'import/order': [
+      1,
+      {
+        groups: ['builtin', 'external', 'parent', 'sibling', 'index'],
+        'newlines-between': 'never',
+      },
+    ],
   },
 };
