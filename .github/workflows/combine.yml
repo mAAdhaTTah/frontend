@@ -10,4 +10,4 @@ jobs:
       - uses: maadhattah/combine-dependabot-prs@v1.0.5
         with:
           combineBranchName: 'update-dependencies'
-          baseBranch: 'master'
+          baseBranch: 'main'
