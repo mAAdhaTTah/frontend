@@ -40,7 +40,7 @@
     "sitemap": "^7.1.1",
     "sitemapper": "^3.2.6",
     "slate": "^0.81.0",
-    "slate-react": "^0.81.0",
+    "slate-react": "^0.88.0",
     "smartypants": "^0.1.6",
     "styled-components": "^5.3.5",
     "tailwindcss": "^3.1.8",
