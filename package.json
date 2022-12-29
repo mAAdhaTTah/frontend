@@ -9,7 +9,7 @@
     "@extractus/oembed-extractor": "^3.1.7",
     "@react-aria/focus": "^3.7.0",
     "@react-aria/visually-hidden": "^3.4.0",
-    "@sindresorhus/slugify": "^2.1.0",
+    "@sindresorhus/slugify": "^2.1.1",
     "@tinacms/cli": "^1.0.4",
     "@tinacms/mdx": "^1.0.3",
     "classcat": "^5.0.4",
