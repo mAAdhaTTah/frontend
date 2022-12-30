@@ -135,6 +135,7 @@ fragment PageLandingBody on PageLanding {
           }
           work {
             name
+            summary
             position
             startDate
             endDate

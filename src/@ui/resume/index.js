@@ -43,7 +43,13 @@ const Experience = ({ experiences }) => (
       <div className="mb-3" key={key}>
         <div className="mb-2">
           <h4 className={expH4Class}>
-            {exp.companyName} - <small>{exp.description}</small>
+            {exp.companyName}
+            {exp.description && (
+              <>
+                {' '}
+                - <small>{exp.description}</small>
+              </>
+            )}
           </h4>
           {exp.positions.map(({ title, start, end, responsibilities }, key) => (
             <div className="mb-3" key={key}>
@@ -68,7 +74,7 @@ Experience.propTypes = {
   experiences: PropTypes.arrayOf(
     PropTypes.shape({
       companyName: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      description: PropTypes.string,
       positions: PropTypes.arrayOf(
         PropTypes.shape({
           title: PropTypes.string.isRequired,
