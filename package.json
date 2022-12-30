@@ -69,7 +69,7 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "execa": "^3.0.0",
+    "execa": "^6.1.0",
     "jest": "^27.5.1",
     "jsconfig-paths-jest-mapper": "^1.0.0",
     "patch-package": "^6.5.0",
