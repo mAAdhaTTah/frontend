@@ -1,6 +1,7 @@
 import { createContext, useContext, useRef } from 'react';
 import { Single as PostSingle, Archive as PostArchive } from '@ui/post';
 import { useTina } from 'tinacms/dist/react';
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { format, parseISO } from 'date-fns';
 import { smartypantsu as smartypants } from 'smartypants';
 import { Main } from '@ui/box';
@@ -8,7 +9,6 @@ import { SEO } from '@ui/seo';
 import { Day, Embed, Gistpen, Pagination, Snippet } from '@ui/components';
 import { Code, Heading, Link, Paragraph, Sup } from '@ui/typography';
 import { Li, Ol, Ul } from '@ui/atoms';
-import { TinaMarkdown } from './TinaMarkdown';
 import { PageLanding } from './landing';
 import { PageFullScreen } from './fullScreen';
 
