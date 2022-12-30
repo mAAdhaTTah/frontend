@@ -1,7 +1,6 @@
 import { subDays, endOfDay, format, parseISO } from 'date-fns';
 import Axios from 'axios';
 import parseLinkHeader from 'parse-link-header';
-import { strapi } from '@strapi/api';
 import { wp } from './wp';
 import * as cache from './cache';
 
@@ -174,38 +173,6 @@ export const getContextBySlug = async slug => {
       schemas: page.yoast_json_ld,
     },
   };
-};
-
-export const getReadingProps = async () => {
-  const now = new Date();
-
-  const days = [];
-
-  for (let i = 0; i < 7; i++) {
-    const targetDay = subDays(now, i);
-    const response = await strapi.get('/links', {
-      params: {
-        read_at_lte: endOfDay(targetDay),
-        read_at_gt: endOfDay(subDays(targetDay, 1)),
-        _sort: 'read_at:DESC',
-        _limit: -1,
-      },
-    });
-
-    if (response.data.length) {
-      days.push({
-        day: format(targetDay, 'MMM do, yyyy'),
-        links: response.data.map(link => ({
-          id: `link-${link.id}`,
-          title: link.title,
-          url: link.url,
-          readAt: format(parseISO(link.read_at), 'hh:mm a'),
-        })),
-      });
-    }
-  }
-
-  return days;
 };
 
 export const getGistpens = async ({ page }) => {

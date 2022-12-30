@@ -19,7 +19,6 @@
     "baseUrl": "./src",
     "paths": {
       "@app/*": ["@app/*"],
-      "@strapi/*": ["@strapi/*"],
       "@tina/*": ["@tina/*"],
       "@ui/*": ["@ui/*"],
       "@wp/*": ["@wp/*"]

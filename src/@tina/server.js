@@ -1,6 +1,6 @@
 // import { extract } from '@extractus/oembed-extractor';
 import { wp } from '@wp/api/wp';
-import { getReadingProps } from '@strapi/api';
+import { getReadingProps } from '@reading/server';
 import {
   FIVE_HUNDRED_SLUG,
   FOUR_OH_FOUR_SLUG,
