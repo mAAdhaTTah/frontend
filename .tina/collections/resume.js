@@ -1,3 +1,4 @@
+import { format, parseISO } from 'date-fns';
 import {
   dateField,
   endDateField,
@@ -102,6 +103,23 @@ const basicsField = {
   ],
 };
 
+const formatDate = startDate => format(parseISO(startDate), 'MMM, yyyy');
+
+const displayDateRange = item => {
+  if (!item.startDate) {
+    return '';
+  }
+  const { startDate, endDate } = item;
+  let s = ` (${formatDate(startDate)}`;
+  if (endDate) {
+    s += ` - ${formatDate(endDate)}`;
+  } else {
+    s += ` - Present`;
+  }
+  s += ')';
+  return s;
+};
+
 /**
  * @type Field
  */
@@ -110,6 +128,13 @@ const workField = {
   name: 'work',
   label: 'Work',
   list: true,
+  ui: {
+    itemProps: item => ({
+      label: item
+        ? `${item.name ?? 'New Work Item'}${displayDateRange(item)}`
+        : 'New Work Item',
+    }),
+  },
   fields: [
     nameField,
     {
