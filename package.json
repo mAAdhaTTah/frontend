@@ -8,7 +8,7 @@
     "@aws-sdk/client-s3": "^3.154.0",
     "@extractus/oembed-extractor": "^3.1.7",
     "@react-aria/focus": "^3.10.1",
-    "@react-aria/visually-hidden": "^3.4.0",
+    "@react-aria/visually-hidden": "^3.6.1",
     "@sindresorhus/slugify": "^2.1.1",
     "@tinacms/cli": "^1.0.5",
     "@tinacms/mdx": "^1.0.4",
