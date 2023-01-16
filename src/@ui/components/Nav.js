@@ -25,17 +25,15 @@ const HeaderLink = ({ to, onClick, children }) => {
 
   return (
     <div className="p-2 text-center">
-      <Link href={to}>
-        <a
-          onClick={onClick}
-          href={to}
-          className={cc([
-            headerLinkClass,
-            asPath === to && 'border-b border-primary',
-          ])}
-        >
-          {children}
-        </a>
+      <Link
+        href={to}
+        onClick={onClick}
+        className={cc([
+          headerLinkClass,
+          asPath === to && 'border-b border-primary',
+        ])}
+      >
+        {children}
       </Link>
     </div>
   );

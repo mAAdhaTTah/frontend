@@ -65,10 +65,8 @@ const linkClass = cc(['no-underline', 'border-b-2', 'border-darkg']);
 
 export const Link = ({ children, href, title }) => {
   return (
-    <NextLink href={href}>
-      <a className={linkClass} title={title}>
-        {children}
-      </a>
+    <NextLink href={href} className={linkClass} title={title}>
+      {children}
     </NextLink>
   );
 };

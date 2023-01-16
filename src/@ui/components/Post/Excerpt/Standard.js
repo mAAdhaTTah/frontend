@@ -43,10 +43,9 @@ const StandardFormat = ({
     </header>
     <div>
       {excerpt}
-      <Link href={`/${slug}/`}>
-        <a className={linkClass}>
-          Read more <FaLongArrowAltRight className={iconClass} />
-        </a>
+      <Link href={`/${slug}/`} className={linkClass}>
+        Read more
+        <FaLongArrowAltRight className={iconClass} />
       </Link>
     </div>
   </Article>

@@ -17,9 +17,7 @@ const Gistpen = ({
   <Article>
     <h3 className={h3Class}>
       {linkHeader ? (
-        <Link href={`/gistpens/${slug}/`}>
-          <a>{description}</a>
-        </Link>
+        <Link href={`/gistpens/${slug}/`}>{description}</Link>
       ) : (
         description
       )}

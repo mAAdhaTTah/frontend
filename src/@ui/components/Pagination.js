@@ -26,17 +26,19 @@ const Pagination = ({ pageNumber, hasNextPage, slug }) => (
     {pageNumber > 1 && (
       <Link
         href={`/${slug}/${pageNumber !== 2 ? `page/${pageNumber - 1}` : ''}`}
+        className={cc([pageClass, 'float-left'])}
       >
-        <a className={cc([pageClass, 'float-left'])}>
-          <FaLongArrowAltLeft className="mr-3" /> Previous
-        </a>
+        <FaLongArrowAltLeft className="mr-3" />
+        Previous
       </Link>
     )}
     {hasNextPage && (
-      <Link href={`/${slug}/page/${pageNumber + 1}/`}>
-        <a className={cc([pageClass, 'float-right'])}>
-          Next <FaLongArrowAltRight className="ml-3" />
-        </a>
+      <Link
+        href={`/${slug}/page/${pageNumber + 1}/`}
+        className={cc([pageClass, 'float-right'])}
+      >
+        Next
+        <FaLongArrowAltRight className="ml-3" />
       </Link>
     )}
   </div>
