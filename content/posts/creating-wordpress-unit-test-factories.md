@@ -23,6 +23,9 @@ body:
     _template: richText
 link:
   url: 'http://codesymphony.co/creating-your-own-wordpress-unit-test-factories/'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

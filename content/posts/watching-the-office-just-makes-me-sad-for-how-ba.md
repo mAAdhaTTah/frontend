@@ -7,6 +7,9 @@ body:
       Watching "The Office" just makes me sad for how bad Rainn Wilson's new
       show is.
     _template: richText
+categories:
+  - reference: content/categories/uncategorized.md
 _template: status
 ---
+
 

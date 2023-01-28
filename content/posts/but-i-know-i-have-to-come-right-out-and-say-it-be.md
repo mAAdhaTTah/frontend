@@ -18,6 +18,9 @@ body:
 source:
   url: 'http://www.hackeducation.com/2014/11/18/gender-and-ed-tech/'
   name: Audrey Watters
+categories:
+  - reference: content/categories/technology.md
 _template: quote
 ---
+
 

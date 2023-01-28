@@ -8,6 +8,9 @@ featuredMedia: >-
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/uncategorized.md
 _template: image
 ---
+
 

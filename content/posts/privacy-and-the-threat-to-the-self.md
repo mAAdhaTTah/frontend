@@ -12,6 +12,16 @@ source:
   name: >-
     Michael P. Lynch on the New York Times' Opinionator blog, "Privacy and the
     Threat to the Self"
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/logic.md
+  - reference: content/tags/new-york-times.md
+  - reference: content/tags/nothing-to-hide.md
+  - reference: content/tags/opinionator.md
+  - reference: content/tags/privacy.md
+  - reference: content/tags/sense-of-self.md
 _template: quote
 ---
+
 

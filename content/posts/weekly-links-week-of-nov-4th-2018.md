@@ -187,6 +187,9 @@ excerpt: >
   domain. I do a lot of reading on Pocket, and I’ve been meaning to figure out a
   way to display both Pocket- & WP-saved links there. Initially, that was \[…]
 featuredMedia: content/media/links.md
+categories:
+  - reference: content/categories/weekly-links.md
 _template: standard
 ---
+
 

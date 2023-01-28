@@ -11,6 +11,15 @@ body:
     _template: richText
 link:
   url: 'http://hapgood.us/2013/07/22/the-weirdest-excuse-udacity-gave/'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/hapgood.md
+  - reference: content/tags/mooc.md
+  - reference: content/tags/sabastian-thrun.md
+  - reference: content/tags/udacity.md
+  - reference: content/tags/xmoocs.md
 _template: link
 ---
+
 

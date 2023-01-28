@@ -9,6 +9,16 @@ body:
       Source: [Why the House doesn't work in 1
       chart](http://www.washingtonpost.com/blogs/the-fix/wp/2013/07/15/how-the-house-works-or-doesnt-explained-in-1-chart/)
     _template: richText
+categories:
+  - reference: content/categories/politics.md
+tags:
+  - reference: content/tags/congress.md
+  - reference: content/tags/democrats.md
+  - reference: content/tags/ideology.md
+  - reference: content/tags/partisanship.md
+  - reference: content/tags/polarization.md
+  - reference: content/tags/republicans.md
 _template: image
 ---
+
 

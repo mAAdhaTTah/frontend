@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'https://core.trac.wordpress.org/ticket/30854'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

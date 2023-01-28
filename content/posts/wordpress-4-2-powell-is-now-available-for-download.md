@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://wptavern.com/wordpress-4-2-powell-is-now-available-for-download'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

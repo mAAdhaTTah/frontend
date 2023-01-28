@@ -17,6 +17,9 @@ body:
 link:
   url: >-
     http://www.buzzfeed.com/johnstanton/cia-says-it-believes-in-congressional-oversight-in-response
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

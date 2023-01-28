@@ -11,6 +11,15 @@ body:
 excerpt: |
   A point-by-point rebuttal to an op-ed in the Washington Post.
 featuredMedia: content/media/origin_8555871338.md
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/cheating.md
+  - reference: content/tags/dc.md
+  - reference: content/tags/michelle-rhee.md
+  - reference: content/tags/opion.md
+  - reference: content/tags/washington-post.md
 _template: standard
 ---
+
 

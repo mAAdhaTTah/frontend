@@ -82,6 +82,10 @@ images:
   - reference: content/media/2013-10-25-16-34-25.md
   - reference: content/media/2013-10-25-16-34-21.md
   - reference: content/media/2013-10-25-16-34-18.md
+categories:
+  - reference: content/categories/mohonk.md
+  - reference: content/categories/photographs.md
 _template: gallery
 ---
+
 

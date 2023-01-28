@@ -12,6 +12,9 @@ body:
     _template: richText
 link:
   url: 'http://marked2app.com/'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

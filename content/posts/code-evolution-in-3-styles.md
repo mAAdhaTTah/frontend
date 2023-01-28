@@ -119,6 +119,9 @@ excerpt: >
   for refetching the token if it’s not available. I went through 3 iterations of
   the code, each with a slightly different style, which I’d like to talk \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/uncategorized.md
 _template: standard
 ---
+
 

@@ -14,6 +14,9 @@ body:
     _template: richText
 link:
   url: 'http://shankerblog.org/?p=10036'
+categories:
+  - reference: content/categories/education.md
 _template: link
 ---
+
 

@@ -180,6 +180,9 @@ excerpt: >
   to Gatsby, pulling in my reading list and my resume onto a new foundation,
   since \[…]
 featuredMedia: content/media/samsung.md
+categories:
+  - reference: content/categories/uncategorized.md
 _template: standard
 ---
+
 

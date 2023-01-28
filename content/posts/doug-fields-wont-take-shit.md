@@ -11,6 +11,10 @@ body:
       about Lucy and just completely trashed it. This is what happens what you
       don't come correct.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/social-media.md
 _template: image
 ---
+
 

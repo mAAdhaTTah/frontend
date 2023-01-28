@@ -63,6 +63,9 @@ excerpt: >
   what’s going on with the operator here. At this point, we’ve got all 3
   proposals in Babel, so the \[…]
 featuredMedia: content/media/pipe-dom-usage-example.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

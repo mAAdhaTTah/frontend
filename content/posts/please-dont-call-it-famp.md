@@ -8,6 +8,10 @@ body:
   - content: |
       Please.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: image
 ---
+
 

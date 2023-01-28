@@ -190,6 +190,12 @@ images:
   - reference: content/media/2013-08-09-21-30-47.md
   - reference: content/media/2013-08-09-21-30-29.md
   - reference: content/media/2013-08-09-20-10-28.md
+categories:
+  - reference: content/categories/camping-in-the-adirondacks.md
+  - reference: content/categories/photographs.md
+tags:
+  - reference: content/tags/vacation.md
 _template: gallery
 ---
+
 

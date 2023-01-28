@@ -193,6 +193,9 @@ excerpt: >
   structure for this, but combining it with TypeScript enables some useful
   patterns. Let’s take a \[…]
 featuredMedia: content/media/union-types-traffic-lights.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

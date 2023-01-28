@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://gawker.com/sonys-embarrassing-powerpoints-are-even-worst-than-thei-1666403941
+categories:
+  - reference: content/categories/random-amusement.md
 _template: link
 ---
+
 

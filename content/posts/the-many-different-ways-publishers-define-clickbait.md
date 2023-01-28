@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'http://digiday.com/publishers/many-many-ways-publishers-define-clickbait/'
+categories:
+  - reference: content/categories/journalism-news-media.md
 _template: link
 ---
+
 

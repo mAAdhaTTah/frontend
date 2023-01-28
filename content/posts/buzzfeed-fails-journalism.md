@@ -31,7 +31,8 @@ body:
       included lots more nuanced information about their relationship to guns
       and gun control, all of which was dropped from the final story seeking to
       paint liberal attachment to guns as a new phenomenon. Fundamentally, the
-      main character in the story doesn't [consider himself liberal, nor a gun nut, finding gun ownership
+      main character in the story doesn't [consider himself liberal, nor a gun
+      nut, finding gun ownership
       "reprehensible](http://www.thewrap.com/media/column-post/buzzfeed-story-gun-toting-journalists-infuriates-reporters-73451
       "BuzzFeed Story on Gun-Toting Journalists Infuriates Reporters
       (Updated)")."
@@ -100,5 +101,17 @@ excerpt: >
   the fact that their approach to journalism to start with a narrative and weave
   facts around \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-media.md
+tags:
+  - reference: content/tags/buzzfeed.md
+  - reference: content/tags/guns.md
+  - reference: content/tags/hatchet-job.md
+  - reference: content/tags/journalism.md
+  - reference: content/tags/liberals.md
+  - reference: content/tags/media.md
+  - reference: content/tags/the-oatmeal.md
 _template: standard
 ---
+

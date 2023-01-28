@@ -10,6 +10,9 @@ body:
 link:
   url: >-
     http://www.nytimes.com/2014/01/19/magazine/technology-is-not-driving-us-apart-after-all.html
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

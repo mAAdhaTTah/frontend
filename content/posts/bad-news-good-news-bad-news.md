@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://valleywag.gawker.com/bad-news-good-news-bad-news-1685629218'
+categories:
+  - reference: content/categories/journalism-news-media.md
 _template: link
 ---
+
 

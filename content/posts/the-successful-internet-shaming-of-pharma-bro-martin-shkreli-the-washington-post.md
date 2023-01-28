@@ -13,6 +13,9 @@ body:
 link:
   url: >-
     https://www.washingtonpost.com/news/the-intersect/wp/2015/09/23/the-successful-internet-shaming-of-pharma-bro-martin-shkreli/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

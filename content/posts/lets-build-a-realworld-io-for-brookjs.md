@@ -14,6 +14,9 @@ excerpt: >
   started building a realworld.io app with it. The intention is to make this a
   testbed for brookjs, hammering on all the features and hitting as many \[…]
 featuredMedia: content/media/realworld-io-logo.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

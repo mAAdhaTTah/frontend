@@ -19,6 +19,9 @@ body:
       that use it will also fail, which tells you which components to look at
       when checking to see if it still displays correctly.
     _template: richText
+categories:
+  - reference: content/categories/testing.md
 _template: status
 ---
+
 

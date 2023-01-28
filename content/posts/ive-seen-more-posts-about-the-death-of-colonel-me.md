@@ -7,6 +7,9 @@ body:
       I've seen more posts about the death of Colonel Meow than I have about
       Pete Seeger.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

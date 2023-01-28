@@ -11,6 +11,14 @@ body:
 link:
   url: >-
     http://www.forbes.com/sites/dorieclark/2012/08/23/why-public-school-leaders-must-embrace-social-media-now/
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/social-media.md
+tags:
+  - reference: content/tags/community.md
+  - reference: content/tags/schools.md
+  - reference: content/tags/social-media.md
 _template: link
 ---
+
 

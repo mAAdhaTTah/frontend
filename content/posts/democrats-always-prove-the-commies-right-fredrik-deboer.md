@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://fredrikdeboer.com/2016/02/29/democrats-always-prove-the-commies-right/
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

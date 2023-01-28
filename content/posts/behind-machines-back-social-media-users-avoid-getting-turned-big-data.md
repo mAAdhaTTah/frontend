@@ -18,6 +18,9 @@ body:
 link:
   url: >-
     http://www.theatlantic.com/technology/archive/2014/04/behind-the-machines-back-how-social-media-users-avoid-getting-turned-into-big-data/360416/
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

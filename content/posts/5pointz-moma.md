@@ -54,6 +54,9 @@ images:
   - reference: content/media/2013-11-07-12-06-17.md
   - reference: content/media/2013-11-07-12-06-05.md
   - reference: content/media/2013-11-07-12-05-56.md
+categories:
+  - reference: content/categories/photographs.md
 _template: gallery
 ---
+
 

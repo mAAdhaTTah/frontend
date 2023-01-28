@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://thenewinquiry.com/blogs/zunguzungu/on-the-variety-of-ways-to-not-praise-charlie-hebdo/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

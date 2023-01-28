@@ -14,6 +14,9 @@ body:
 link:
   url: >-
     http://arstechnica.com/tech-policy/2014/02/comcast-lists-all-the-ways-a-merger-with-time-warner-is-pro-consumer/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

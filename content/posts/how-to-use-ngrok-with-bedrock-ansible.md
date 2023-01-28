@@ -104,6 +104,9 @@ excerpt: >
   days. Because of its legacy status, WordPress is still a bit behind the times
   on these things, but \[…]
 featuredMedia: content/media/get-it-its-a-tunnel.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

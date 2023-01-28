@@ -10,6 +10,9 @@ body:
 
       [Source](http://politicalcompass.org/)
     _template: richText
+categories:
+  - reference: content/categories/politics.md
 _template: image
 ---
+
 

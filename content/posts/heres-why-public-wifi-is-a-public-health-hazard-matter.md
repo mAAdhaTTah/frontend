@@ -10,6 +10,12 @@ body:
 link:
   url: >-
     https://medium.com/matter/heres-why-public-wifi-is-a-public-health-hazard-dd5b8dcb55e6
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: link
 ---
+
 

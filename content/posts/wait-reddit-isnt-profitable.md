@@ -8,6 +8,13 @@ body:
     _template: richText
 link:
   url: 'http://blog.reddit.com/2013/08/reddit-myth-busters_6.html'
+categories:
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/business.md
+  - reference: content/tags/profitable.md
+  - reference: content/tags/reddit.md
 _template: link
 ---
+
 

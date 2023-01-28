@@ -8,6 +8,18 @@ body:
     _template: richText
 link:
   url: 'http://takingnote.learningmatters.tv/?p=6232'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/cheating.md
+  - reference: content/tags/education.md
+  - reference: content/tags/high-stakes.md
+  - reference: content/tags/john-merrow.md
+  - reference: content/tags/michelle-rhee.md
+  - reference: content/tags/reign-of-error.md
+  - reference: content/tags/taking-note.md
+  - reference: content/tags/testing.md
 _template: link
 ---
+
 

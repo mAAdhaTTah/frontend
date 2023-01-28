@@ -22,6 +22,14 @@ body:
 link:
   url: >-
     http://www.newrepublic.com/article/113096/how-michelle-rhee-misled-education-reform
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/common-core.md
+  - reference: content/tags/edreform.md
+  - reference: content/tags/michelle-rhee.md
+  - reference: content/tags/pedagogy.md
 _template: link
 ---
+
 

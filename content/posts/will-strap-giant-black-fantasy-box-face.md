@@ -9,6 +9,9 @@ body:
 link:
   url: >-
     http://www.buzzfeed.com/josephbernstein/no-i-will-not-strap-a-giant-black-fantasy-box-to-my-face
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

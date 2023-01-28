@@ -8,6 +8,9 @@ body:
   - content: |
       This is the first time I've ever had a spammer insult me.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: image
 ---
+
 

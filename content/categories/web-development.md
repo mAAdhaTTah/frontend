@@ -1,5 +1,4 @@
 ---
 name: Web Development
-parent: content/category/technology.md
+parent: content/categories/technology.md
 ---
-

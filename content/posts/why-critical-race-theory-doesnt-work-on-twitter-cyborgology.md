@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2015/07/02/why-critical-race-theory-doesnt-work-on-twitter/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

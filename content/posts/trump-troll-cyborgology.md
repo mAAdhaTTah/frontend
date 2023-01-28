@@ -8,6 +8,10 @@ body:
     _template: richText
 link:
   url: 'http://thesocietypages.org/cyborgology/2015/07/30/a-cynical-rant/'
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

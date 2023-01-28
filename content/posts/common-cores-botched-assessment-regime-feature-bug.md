@@ -78,6 +78,12 @@ excerpt: >
   Times’ Week in Review is emblematic of the best of this disapproving
   sentiment. Yet even it \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/common-core.md
+  - reference: content/tags/shanker-blog.md
 _template: standard
 ---
+
 

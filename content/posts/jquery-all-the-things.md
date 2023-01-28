@@ -8,6 +8,10 @@ body:
   - content: >
       [Source](http://stackoverflow.com/questions/503093/how-can-i-make-a-redirect-page-using-jquery)
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: image
 ---
+
 

@@ -7,6 +7,9 @@ featuredMedia: content/media/start_animation-2.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: image
 ---
+
 

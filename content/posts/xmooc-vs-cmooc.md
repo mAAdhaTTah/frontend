@@ -8,6 +8,16 @@ body:
     _template: richText
 link:
   url: 'http://degreeoffreedom.org/xmooc-vs-cmooc/'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/cmooc.md
+  - reference: content/tags/education.md
+  - reference: content/tags/mooc.md
+  - reference: content/tags/online-learning.md
+  - reference: content/tags/technology.md
+  - reference: content/tags/xmooc.md
 _template: link
 ---
+
 

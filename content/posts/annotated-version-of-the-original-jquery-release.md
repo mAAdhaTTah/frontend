@@ -11,6 +11,9 @@ body:
     _template: richText
 link:
   url: 'http://genius.it/5170089/ejohn.org/files/jquery-original.html'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

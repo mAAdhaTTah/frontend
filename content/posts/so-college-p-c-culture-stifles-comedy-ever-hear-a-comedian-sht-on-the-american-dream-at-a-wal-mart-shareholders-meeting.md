@@ -16,6 +16,9 @@ body:
 link:
   url: >-
     http://www.salon.com/2015/08/17/so_college_p_c_culture_stifles_comedy_ever_hear_a_comedian_sht_on_the_american_dream_at_a_wal_mart_shareholders_meeting/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

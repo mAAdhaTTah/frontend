@@ -18,6 +18,9 @@ body:
 link:
   url: >-
     http://www.theverge.com/2014/1/29/5358620/lenovo-reportedly-buying-motorola-mobility-from-google
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

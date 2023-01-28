@@ -7,6 +7,12 @@ featuredMedia: content/media/pesto-and-lima-bean-risotto.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/personal.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/instagram.md
 _template: image
 ---
+
 

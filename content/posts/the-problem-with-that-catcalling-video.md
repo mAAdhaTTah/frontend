@@ -13,6 +13,9 @@ body:
 link:
   url: >-
     http://www.slate.com/blogs/xx_factor/2014/10/29/catcalling_video_hollaback_s_look_at_street_harassment_in_nyc_edited_out.html
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

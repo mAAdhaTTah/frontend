@@ -31,6 +31,13 @@ body:
     _template: richText
 link:
   url: 'http://www.democracyjournal.org/30/the-tech-intellectuals.php?page=all'
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/evgeny-morozov.md
+  - reference: content/tags/intellectuals.md
+  - reference: content/tags/public-debate.md
 _template: link
 ---
+
 

@@ -11,6 +11,9 @@ body:
 source:
   url: 'https://twitter.com/zeynep/status/493788589709619200'
   name: Zeynep Tufekci
+categories:
+  - reference: content/categories/social-media.md
 _template: quote
 ---
+
 

@@ -9,6 +9,15 @@ body:
 link:
   url: >-
     http://www.academicmatters.ca/2013/05/the-mooc-bubble-and-the-attack-on-public-education/
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/attack.md
+  - reference: content/tags/elite.md
+  - reference: content/tags/mooc.md
+  - reference: content/tags/public-education.md
 _template: link
 ---
+
 

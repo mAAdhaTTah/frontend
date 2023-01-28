@@ -9,6 +9,15 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2013/05/21/silicon-valleys-anti-capitalism-capitalism/
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/anti-capitalism.md
+  - reference: content/tags/capitalism-in-silicon-valley.md
+  - reference: content/tags/profits.md
+  - reference: content/tags/sam-biddle.md
 _template: link
 ---
+
 

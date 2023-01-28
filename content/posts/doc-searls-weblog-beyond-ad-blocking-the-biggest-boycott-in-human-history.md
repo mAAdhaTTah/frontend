@@ -10,6 +10,10 @@ body:
 link:
   url: >-
     http://blogs.law.harvard.edu/doc/2015/09/28/beyond-ad-blocking-the-biggest-boycott-in-human-history/
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

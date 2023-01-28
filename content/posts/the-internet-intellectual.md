@@ -10,6 +10,13 @@ source:
   url: >-
     http://www.newrepublic.com/article/books/magazine/96116/the-internet-intellectual
   name: 'Evgeny Morovoz, "The Internet Intellectual"'
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/evgeny-morozov.md
+  - reference: content/tags/public-parts.md
+  - reference: content/tags/the-internet-intellectual.md
 _template: quote
 ---
+
 

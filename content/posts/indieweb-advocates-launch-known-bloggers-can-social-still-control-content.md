@@ -20,6 +20,10 @@ body:
 link:
   url: >-
     https://gigaom.com/2014/09/11/indieweb-advocates-launch-known-so-bloggers-can-be-social-and-still-control-their-content/
+categories:
+  - reference: content/categories/social-media.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

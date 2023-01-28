@@ -8,6 +8,15 @@ body:
     _template: richText
 link:
   url: 'http://www.buzzfeed.com/jwherrman/the-media-doesnt-own-the-story-anymore'
+categories:
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/information.md
+  - reference: content/tags/journalism.md
+  - reference: content/tags/media.md
+  - reference: content/tags/social-media.md
+  - reference: content/tags/story.md
 _template: link
 ---
+
 

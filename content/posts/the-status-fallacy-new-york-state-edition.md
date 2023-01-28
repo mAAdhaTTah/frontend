@@ -16,6 +16,12 @@ body:
     _template: richText
 link:
   url: 'http://www.shankerinstitute.org/blog/status-fallacy-new-york-state-edition'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: link
 ---
+
 

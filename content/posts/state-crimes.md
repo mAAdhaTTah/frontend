@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://www.slate.com/articles/news_and_politics/politics/2014/09/ohio_police_won_t_be_punished_for_killing_john_crawford_police_are_virtually.html
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

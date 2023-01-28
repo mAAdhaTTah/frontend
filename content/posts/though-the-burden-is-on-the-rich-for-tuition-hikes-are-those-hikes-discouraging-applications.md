@@ -31,6 +31,16 @@ body:
 link:
   url: >-
     http://www.demos.org/blog/8/15/13/who-pays-when-cost-public-college-increases
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/demos.md
+  - reference: content/tags/higher-education.md
+  - reference: content/tags/inside-higher-ed.md
+  - reference: content/tags/minority-students.md
+  - reference: content/tags/tuition.md
 _template: link
 ---
+
 

@@ -133,6 +133,9 @@ excerpt: >
   React component you’re testing updates as expected. This comes up often enough
   when testing that I like \[…]
 featuredMedia: content/media/react-testing-kit-example.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

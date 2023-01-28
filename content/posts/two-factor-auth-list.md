@@ -11,6 +11,9 @@ body:
     _template: richText
 link:
   url: 'http://twofactorauth.org/'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

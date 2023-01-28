@@ -40,6 +40,9 @@ excerpt: >
   see a point in learning something until I decide to use it in my daily
   workflow. I invest my time in getting really good at the \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

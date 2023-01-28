@@ -78,5 +78,13 @@ excerpt: >
   portion is this: Fast forward a month, and Donna was able to log onto
   Washington’s marketplace and shop for insurance. And what did she \[…]
 featuredMedia: content/media/1379.md
+categories:
+  - reference: content/categories/politics.md
+tags:
+  - reference: content/tags/europe.md
+  - reference: content/tags/obamacare.md
+  - reference: content/tags/safety-net.md
+  - reference: content/tags/social-welfare.md
+  - reference: content/tags/world-war-ii.md
 _template: standard
 ---

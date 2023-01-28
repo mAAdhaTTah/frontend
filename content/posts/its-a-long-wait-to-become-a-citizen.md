@@ -9,6 +9,14 @@ body:
       [via Twitter / TheAtlantic: How to become a U.S.
       citizen](https://twitter.com/TheAtlantic/status/326345741691916288/photo/1)
     _template: richText
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/citizenship.md
+  - reference: content/tags/immigration-reform.md
+  - reference: content/tags/path-to-citizenship.md
+  - reference: content/tags/the-atlantic.md
 _template: image
 ---
+
 

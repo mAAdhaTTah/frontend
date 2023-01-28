@@ -7,6 +7,9 @@ featuredMedia: content/media/crossing-the-manhattan-bridge.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/social-justice.md
 _template: image
 ---
+
 

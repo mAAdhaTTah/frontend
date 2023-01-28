@@ -43,6 +43,15 @@ excerpt: >
   There’s a form of mental torture called “gaslighting,” its name taken from a
   \[…]
 featuredMedia: content/media/1356.md
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/gaslighting.md
+  - reference: content/tags/gawker.md
+  - reference: content/tags/kanye-west.md
+  - reference: content/tags/minorities.md
+  - reference: content/tags/racism.md
 _template: standard
 ---
+
 

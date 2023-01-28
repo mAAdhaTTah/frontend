@@ -15,6 +15,13 @@ excerpt: >
   tests, no written homework, no tracking. These are some of the new actions
   China is \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/america.md
+  - reference: content/tags/china.md
+  - reference: content/tags/standardized-testing-2.md
 _template: standard
 ---
+
 

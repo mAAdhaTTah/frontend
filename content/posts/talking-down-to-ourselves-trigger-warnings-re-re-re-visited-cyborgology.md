@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2015/09/30/talking-down-to-ourselves-trigger-warnings-re-re-re-visited/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

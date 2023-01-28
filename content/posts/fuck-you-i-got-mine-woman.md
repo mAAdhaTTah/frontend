@@ -9,6 +9,9 @@ body:
       No discussion about sexism would be complete without the appearance of
       "fuck you I got mine" woman.
     _template: richText
+categories:
+  - reference: content/categories/social-justice.md
 _template: image
 ---
+
 

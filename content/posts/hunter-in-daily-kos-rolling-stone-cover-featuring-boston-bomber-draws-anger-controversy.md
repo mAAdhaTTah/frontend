@@ -23,6 +23,15 @@ body:
 link:
   url: >-
     http://www.dailykos.com/story/2013/07/17/1224492/-Rolling-Stone-cover-featuring-Boston-bomber-draws-anger-controversy
+categories:
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/boston-marathon-bomber.md
+  - reference: content/tags/dzhokhar-tsarnaev.md
+  - reference: content/tags/magazine-cover.md
+  - reference: content/tags/outrage.md
+  - reference: content/tags/rolling-stone.md
 _template: link
 ---
+
 

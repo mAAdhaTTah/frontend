@@ -46,6 +46,15 @@ excerpt: >
   interactions: Individuals who frequently read fiction seem to be better able
   to understand other people, empathize with them and see \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/classroom.md
+  - reference: content/tags/education.md
+  - reference: content/tags/fiction.md
+  - reference: content/tags/neuroscience.md
+  - reference: content/tags/reading.md
 _template: standard
 ---
+
 

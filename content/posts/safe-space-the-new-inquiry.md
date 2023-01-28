@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'http://thenewinquiry.com/blogs/zunguzungu/safe-space/'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

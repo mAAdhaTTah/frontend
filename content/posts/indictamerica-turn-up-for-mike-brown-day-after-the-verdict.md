@@ -14,6 +14,9 @@ body:
 link:
   url: >-
     https://www.facebook.com/events/450074491800495/?ref=25&sid_reminder=978312701564420096
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

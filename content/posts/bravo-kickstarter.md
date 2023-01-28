@@ -20,6 +20,13 @@ body:
     _template: richText
 link:
   url: 'http://www.kickstarter.com/blog/we-were-wrong'
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/kickstarter.md
+  - reference: content/tags/pr.md
+  - reference: content/tags/response-to-crisis.md
 _template: link
 ---
+
 

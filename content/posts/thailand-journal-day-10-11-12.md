@@ -107,6 +107,10 @@ images:
   - reference: content/media/img_1241_2.md
   - reference: content/media/img_1240_2.md
   - reference: content/media/img_1239_2.md
+categories:
+  - reference: content/categories/photographs.md
+  - reference: content/categories/thailand-journal.md
 _template: gallery
 ---
+
 

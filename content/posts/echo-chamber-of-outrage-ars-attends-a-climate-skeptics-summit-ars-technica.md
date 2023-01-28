@@ -16,6 +16,9 @@ body:
 link:
   url: >-
     http://arstechnica.com/science/2015/07/i-rejoice-that-it-is-warm-ars-attends-a-climate-contrarian-conference/
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

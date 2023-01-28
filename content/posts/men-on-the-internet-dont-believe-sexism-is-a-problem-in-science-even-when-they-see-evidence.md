@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/speaking-of-science/wp/2015/01/08/men-on-the-internet-dont-believe-sexism-is-a-problem-in-science-even-when-they-see-evidence/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

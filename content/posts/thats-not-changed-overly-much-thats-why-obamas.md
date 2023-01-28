@@ -9,6 +9,16 @@ body:
 link:
   url: >-
     http://tressiemc.com/2013/04/05/blanket-dont-go-to-graduate-school-advice-ignores-race-and-reality/
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/bad-advice.md
+  - reference: content/tags/education.md
+  - reference: content/tags/graduate-school.md
+  - reference: content/tags/racism.md
+  - reference: content/tags/reality.md
+  - reference: content/tags/social-structures.md
 _template: link
 ---
+
 

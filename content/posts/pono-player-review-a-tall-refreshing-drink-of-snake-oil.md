@@ -18,6 +18,10 @@ body:
 link:
   url: >-
     http://arstechnica.com/gadgets/2015/02/pono-player-review-a-tall-refreshing-drink-of-snake-oil/
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

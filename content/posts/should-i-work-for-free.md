@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'http://shouldiworkforfree.com/'
+categories:
+  - reference: content/categories/journalism-news-media.md
 _template: link
 ---
+
 

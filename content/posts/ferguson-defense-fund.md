@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'https://www.indiegogo.com/projects/ferguson-defense-fund'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

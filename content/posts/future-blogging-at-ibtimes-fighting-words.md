@@ -9,6 +9,12 @@ body:
       Words") from tomorrow, July 9th to Thursday, July 18th. I'll try and
       cross-post as many as I can here as well, but no guarantees.
     _template: richText
+categories:
+  - reference: content/categories/housekeeping.md
+tags:
+  - reference: content/tags/fighting-words.md
+  - reference: content/tags/guest-blogging.md
 _template: status
 ---
+
 

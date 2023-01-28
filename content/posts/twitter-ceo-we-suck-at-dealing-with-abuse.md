@@ -10,6 +10,10 @@ body:
 link:
   url: >-
     http://www.theverge.com/2015/2/4/7982099/twitter-ceo-sent-memo-taking-personal-responsibility-for-the
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

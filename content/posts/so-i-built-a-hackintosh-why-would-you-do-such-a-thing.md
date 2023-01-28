@@ -14,6 +14,14 @@ excerpt: >
   process has been extremely interesting and enlightening, and I’m going to go
   back and document the whole process here because I think there’s a lot of \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/apple.md
+  - reference: content/tags/building-a-hackintosh.md
+  - reference: content/tags/mac.md
+  - reference: content/tags/open.md
 _template: standard
 ---
+
 

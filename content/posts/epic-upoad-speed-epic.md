@@ -7,6 +7,10 @@ featuredMedia: content/media/start_animation.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: image
 ---
+
 

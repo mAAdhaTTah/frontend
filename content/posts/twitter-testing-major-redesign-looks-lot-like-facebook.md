@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://mashable.com/2014/02/11/twitter-redesign-facebook-google/'
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

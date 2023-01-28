@@ -7,6 +7,9 @@ body:
       Does anyone have a good suggestion for a desktop mail client for mac that
       doesn't suck as much as Apple Mail?
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: status
 ---
+
 

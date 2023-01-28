@@ -70,6 +70,10 @@ excerpt: >
   is how reducers (the function you pass to it) can be composed together. It’s
   an idea that I keep reading about in an attempt to get my head around \[…]
 featuredMedia: content/media/links.md
+categories:
+  - reference: content/categories/web-development.md
+  - reference: content/categories/weekly-links.md
 _template: standard
 ---
+
 

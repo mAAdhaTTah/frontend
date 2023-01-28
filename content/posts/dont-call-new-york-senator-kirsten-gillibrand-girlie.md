@@ -16,6 +16,15 @@ excerpt: >
   those references. Read the rest of this \[…]
 featuredMedia: >-
   content/media/200120-u-s-senator-kirsten-gillibrand-d-ny-celebrates-her-re-election-victory.md
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/kirsten-gillibrand.md
+  - reference: content/tags/name-it-change-it.md
+  - reference: content/tags/npr.md
+  - reference: content/tags/sexism-in-the-media.md
 _template: standard
 ---
+
 

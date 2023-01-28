@@ -8,6 +8,15 @@ body:
     _template: richText
 link:
   url: 'http://www.zephoria.org/thoughts/archives/2013/06/10/nothing-to-hide.html'
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/nothing-to-hide.md
+  - reference: content/tags/nsa.md
+  - reference: content/tags/prism.md
+  - reference: content/tags/surveillance.md
+  - reference: content/tags/suspicion.md
 _template: link
 ---
+
 

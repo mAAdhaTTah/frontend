@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://www.huffingtonpost.com/2014/03/22/creationists-airtime-cosmos-neil-degrasse-tyson_n_5009234.html?utm_hp_ref=mostpopular
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

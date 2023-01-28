@@ -23,6 +23,13 @@ body:
     _template: richText
 link:
   url: 'http://www.rethinkingschools.org/archive/27_04/edit274.shtml'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/common-core.md
+  - reference: content/tags/failing-schools.md
+  - reference: content/tags/nclb.md
 _template: link
 ---
+
 

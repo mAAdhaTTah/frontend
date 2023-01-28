@@ -46,6 +46,9 @@ body:
 link:
   url: >-
     http://theweek.com/article/index/268176/is-feminism-just-another-word-for-liberalis
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

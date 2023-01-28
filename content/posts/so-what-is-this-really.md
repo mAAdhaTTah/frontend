@@ -15,6 +15,13 @@ excerpt: >
   really hold any longer. I migrated the over site over to my personal domain,
   but I’m \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/social-media.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/introduction.md
 _template: standard
 ---
+
 

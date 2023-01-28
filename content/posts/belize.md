@@ -91,6 +91,12 @@ images:
   - reference: content/media/2013-12-21-16-56-01.md
   - reference: content/media/2013-12-21-16-55-23.md
   - reference: content/media/2013-12-21-16-55-18.md
+categories:
+  - reference: content/categories/belize.md
+  - reference: content/categories/photographs.md
+tags:
+  - reference: content/tags/vacation.md
 _template: gallery
 ---
+
 

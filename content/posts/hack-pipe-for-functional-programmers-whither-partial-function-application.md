@@ -65,6 +65,9 @@ excerpt: >
   but there were a few reasonable objections from the F# camp that would be
   worthwhile to \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/uncategorized.md
 _template: standard
 ---
+
 

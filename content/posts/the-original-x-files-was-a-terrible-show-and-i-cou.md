@@ -7,6 +7,9 @@ body:
       The original X-Files was a terrible show and I couldn't care less about
       the reboot. There, I said it.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

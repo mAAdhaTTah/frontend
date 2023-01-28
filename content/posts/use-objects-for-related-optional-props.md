@@ -61,6 +61,9 @@ excerpt: >
   links or other other configurable children. Let’s take a look at this example,
   a problem with a \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/uncategorized.md
 _template: standard
 ---
+
 

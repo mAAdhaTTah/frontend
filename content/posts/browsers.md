@@ -9,6 +9,9 @@ body:
       via
       [@OliviaWilde](https://twitter.com/oliviawilde/status/484361019792576514/photo/1)
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: image
 ---
+
 

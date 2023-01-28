@@ -9,6 +9,15 @@ body:
 link:
   url: >-
     http://thesunbreak.com/2013/07/16/gates-foundation-to-chronicle-of-higher-education-our-critics-are-idiots/
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/bill-gates.md
+  - reference: content/tags/criticism.md
+  - reference: content/tags/gates-foundation.md
+  - reference: content/tags/the-chronicle.md
+  - reference: content/tags/the-gates-effect.md
 _template: link
 ---
+
 

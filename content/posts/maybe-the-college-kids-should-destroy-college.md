@@ -16,6 +16,9 @@ body:
     _template: richText
 link:
   url: 'http://gawker.com/maybe-the-college-kids-should-destroy-college-1741946658'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

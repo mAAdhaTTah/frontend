@@ -7,6 +7,9 @@ featuredMedia: content/media/the-names-of-the-murdered.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/uncategorized.md
 _template: image
 ---
+
 

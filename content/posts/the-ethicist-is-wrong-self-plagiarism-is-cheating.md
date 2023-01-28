@@ -26,6 +26,15 @@ excerpt: >
   The Ethicist argues that using the same paper for two different classes
   doesn’t count as cheating, but his own logic suggests a different conclusion.
 featuredMedia: content/media/scantron-sheet-and-broken-pencil.md
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/cheating.md
+  - reference: content/tags/fighting-words.md
+  - reference: content/tags/new-york-times.md
+  - reference: content/tags/the-ethicist.md
 _template: standard
 ---
+
 

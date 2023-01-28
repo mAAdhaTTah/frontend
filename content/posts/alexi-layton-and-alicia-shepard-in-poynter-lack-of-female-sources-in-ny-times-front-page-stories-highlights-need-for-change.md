@@ -36,6 +36,15 @@ body:
 link:
   url: >-
     http://www.poynter.org/latest-news/top-stories/217828/lack-of-female-sources-in-new-york-times-stories-spotlights-need-for-change/
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/diversity-in-the-newsroom.md
+  - reference: content/tags/front-page-sources.md
+  - reference: content/tags/new-york-times.md
+  - reference: content/tags/poynter.md
 _template: link
 ---
+
 

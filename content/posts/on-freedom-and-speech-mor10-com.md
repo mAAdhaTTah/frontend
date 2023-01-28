@@ -13,6 +13,9 @@ body:
     _template: richText
 link:
   url: 'http://mor10.com/on-freedom-and-speech/'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

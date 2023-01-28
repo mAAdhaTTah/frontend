@@ -229,6 +229,10 @@ images:
   - reference: content/media/2012-12-23_02-02-21_732.md
   - reference: content/media/2012-12-23_02-02-07_7.md
   - reference: content/media/2012-12-23_02-01-53_18.md
+categories:
+  - reference: content/categories/photographs.md
+  - reference: content/categories/thailand-journal.md
 _template: gallery
 ---
+
 

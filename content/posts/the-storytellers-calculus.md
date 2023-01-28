@@ -8,6 +8,13 @@ body:
     _template: richText
 link:
   url: 'http://thedailyportal.com/post/2013/05/27/the-storytellers-calculus/'
+categories:
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/analysis.md
+  - reference: content/tags/journalism.md
+  - reference: content/tags/storyteller.md
 _template: link
 ---
+
 

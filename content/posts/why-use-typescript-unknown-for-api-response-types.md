@@ -78,6 +78,9 @@ excerpt: >
   the ObsResponse class returns TypeScript unknown, rather than the much more
   common any. Using unknown instead of any \[…]
 featuredMedia: content/media/unknown-scissors.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

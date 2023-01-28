@@ -20,6 +20,14 @@ body:
     _template: richText
 link:
   url: 'http://shankerblog.org/?p=8177'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/fordham-institute.md
+  - reference: content/tags/shanker-blog.md
+  - reference: content/tags/teachers.md
+  - reference: content/tags/unions.md
 _template: link
 ---
+
 

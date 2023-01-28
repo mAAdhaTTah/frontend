@@ -18,6 +18,9 @@ body:
 link:
   url: >-
     http://recode.net/2014/04/03/mozilla-co-founder-brendan-eich-resigns-as-ceo-and-also-from-foundation-board/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

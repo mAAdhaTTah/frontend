@@ -16,6 +16,9 @@ body:
 link:
   url: >-
     http://janeewoods.com/2014/08/14/becoming-a-white-ally-to-black-people-in-the-aftermath-of-the-michael-brown-murder/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

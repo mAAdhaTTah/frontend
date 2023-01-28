@@ -10,6 +10,9 @@ body:
     _template: richText
 excerpt: "Update: All of the Stage 3 proposals below have advanced to Stage 4! \U0001F389 This week, the TC39, the standards body behind the JavaScript language, will be meeting at Google this week, January 23-25, for their first meeting of 2018. They’ll be discussing several proposals to add new features to ECMAScript, the JavaScript standard. Their \\[…]\n"
 featuredMedia: content/media/tc39.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

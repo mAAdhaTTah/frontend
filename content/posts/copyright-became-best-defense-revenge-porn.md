@@ -14,6 +14,14 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2014/09/08/how-copyright-became-the-best-defense-against-revenge-porn/
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/newsblur.md
 _template: link
 ---
+
 

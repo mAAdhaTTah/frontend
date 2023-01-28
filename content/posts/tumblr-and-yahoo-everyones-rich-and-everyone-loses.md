@@ -12,6 +12,17 @@ excerpt: >
   My first step in trying to understand Sam Biddle’s problem with David Karp’s
   sale of Tumblr.
 featuredMedia: content/media/4103141197_0700706e26_o.md
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/acquisition.md
+  - reference: content/tags/sam-biddle.md
+  - reference: content/tags/social-media.md
+  - reference: content/tags/tumblr.md
+  - reference: content/tags/valleywag.md
+  - reference: content/tags/yahoo.md
 _template: standard
 ---
+
 

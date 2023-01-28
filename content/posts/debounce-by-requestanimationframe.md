@@ -11,6 +11,9 @@ body:
     _template: richText
 link:
   url: 'https://jamesdigioia.com/gistpens/debounce-by-requestanimationframe/'
+categories:
+  - reference: content/categories/web-development.md
 _template: link
 ---
+
 

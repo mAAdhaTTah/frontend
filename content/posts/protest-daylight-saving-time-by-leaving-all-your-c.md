@@ -7,6 +7,9 @@ body:
       Protest Daylight Saving Time by leaving all your clocks set to the old
       time. Who's with me?!
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://www.dailydot.com/lifestyle/cnn-catcalling-video-mansplaining/'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

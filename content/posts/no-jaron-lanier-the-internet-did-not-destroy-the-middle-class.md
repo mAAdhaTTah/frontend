@@ -10,6 +10,18 @@ body:
     _template: richText
 excerpt: "An interview with Jaron Lanier: The Internet destroyed the middle class: I was in a cafe this morning where I heard some stuff I was interested in, and nobody could figure out. It was Spotify or one of these … so they knew what stream they were getting, but they didn\x92t know what music it \\[…]\n"
 featuredMedia: content/media/jaron_lanier.md
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/context.md
+  - reference: content/tags/evgeny-morozov.md
+  - reference: content/tags/instagram.md
+  - reference: content/tags/internet.md
+  - reference: content/tags/jaron-lanier.md
+  - reference: content/tags/kodak.md
+  - reference: content/tags/middle-class.md
+  - reference: content/tags/spotify.md
 _template: standard
 ---
+
 

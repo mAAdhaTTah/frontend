@@ -8,6 +8,9 @@ audio:
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/politics.md
 _template: audio
 ---
+
 

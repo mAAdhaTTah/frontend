@@ -12,6 +12,12 @@ body:
 link:
   url: >-
     http://www.theguardian.com/commentisfree/2014/dec/05/obama-ferguson-movement-oval-office-meeting
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: link
 ---
+
 

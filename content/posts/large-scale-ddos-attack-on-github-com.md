@@ -17,6 +17,9 @@ body:
     _template: richText
 link:
   url: 'https://github.com/blog/1981-large-scale-ddos-attack-on-github-com'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

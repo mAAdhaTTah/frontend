@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://www.npr.org/blogs/parallels/2014/09/17/349085178/for-scotlands-16-year-olds-the-first-vote-will-be-on-independence
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

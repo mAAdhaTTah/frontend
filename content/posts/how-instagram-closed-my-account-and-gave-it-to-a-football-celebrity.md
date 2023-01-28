@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     https://medium.com/@ainiesta/how-instagram-closed-my-account-and-gave-it-to-a-football-celebrity-625a6a770eb3
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

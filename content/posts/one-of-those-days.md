@@ -8,6 +8,9 @@ body:
   - content: |
       Arguing with sexists for fun and profit.
     _template: richText
+categories:
+  - reference: content/categories/social-justice.md
 _template: image
 ---
+
 

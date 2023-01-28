@@ -29,6 +29,12 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/blogs/answer-sheet/wp/2013/08/16/how-students-are-being-set-up-to-fail/
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/common-core.md
+  - reference: content/tags/new-york-state.md
 _template: link
 ---
+
 

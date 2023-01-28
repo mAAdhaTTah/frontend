@@ -9,6 +9,10 @@ featuredMedia: content/media/couple-blocks-from-union-sq.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/photographs.md
+  - reference: content/categories/social-justice.md
 _template: image
 ---
+
 

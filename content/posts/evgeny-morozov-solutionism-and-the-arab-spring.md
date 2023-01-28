@@ -10,6 +10,19 @@ body:
     _template: richText
 excerpt: "Having become so embedded within the ‘mind sphere’ of technology and social media, I find it quite refreshing when someone comes along to tear it all down the way Evgeny has. \_Of ‘The Net Delusion’ and ‘To Save Everything, Click Here’ fame, I’m just beginning to come across his work. \_I think the release of \\[…]\n"
 featuredMedia: null
+categories:
+  - reference: content/categories/social-media.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/arab-spring.md
+  - reference: content/tags/evgeny-morozov.md
+  - reference: content/tags/jeff-jarvis.md
+  - reference: content/tags/revolutions.md
+  - reference: content/tags/social-media.md
+  - reference: content/tags/the-net-delusion.md
+  - reference: content/tags/to-save-everything.md
+  - reference: content/tags/twitter.md
 _template: standard
 ---
+
 

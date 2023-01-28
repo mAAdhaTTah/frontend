@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://www.nytimes.com/2015/04/11/technology/china-is-said-to-use-powerful-new-weapon-to-censor-internet.html
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

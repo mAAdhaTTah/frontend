@@ -9,6 +9,10 @@ body:
       How can I expect them to fix my internet if they can't even keep their
       shit together?
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: image
 ---
+
 

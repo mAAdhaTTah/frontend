@@ -37,6 +37,15 @@ body:
 
       via [@BecketAdams](https://twitter.com/BecketAdams)
     _template: richText
+categories:
+  - reference: content/categories/politics.md
+tags:
+  - reference: content/tags/aca.md
+  - reference: content/tags/congress.md
+  - reference: content/tags/gifs.md
+  - reference: content/tags/kathleen-sebelius.md
+  - reference: content/tags/obamacare.md
 _template: image
 ---
+
 

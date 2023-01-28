@@ -11,6 +11,10 @@ body:
     _template: richText
 link:
   url: 'http://thenewinquiry.com/essays/view-from-nowhere/'
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

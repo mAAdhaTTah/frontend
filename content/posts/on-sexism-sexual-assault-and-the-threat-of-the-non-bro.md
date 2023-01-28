@@ -12,6 +12,12 @@ body:
 link:
   url: >-
     http://www.deathandtaxesmag.com/228916/on-sexism-sexual-assault-and-the-threat-of-the-non-bro/
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: link
 ---
+
 

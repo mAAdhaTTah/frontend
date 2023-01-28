@@ -64,6 +64,15 @@ excerpt: >
   help protect themselves from sexual assault. She also wrote a response to her
   critics, basically saying “I’m just trying to \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/feminisms.md
+  - reference: content/tags/self-defense-tools.md
+  - reference: content/tags/sexual-assault.md
+  - reference: content/tags/stop-getting-drunk.md
+  - reference: content/tags/victim-blaming.md
 _template: standard
 ---
+
 

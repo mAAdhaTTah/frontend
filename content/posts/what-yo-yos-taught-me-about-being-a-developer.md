@@ -14,6 +14,9 @@ excerpt: >
   were the best, which yo-yo style worked well, and how to do tricks. This was
   all pre-Internet and entirely word of mouth. We’d hang out \[…]
 featuredMedia: content/media/kenyan_yoyo_player.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

@@ -12,6 +12,9 @@ body:
 
       i live for these moments
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

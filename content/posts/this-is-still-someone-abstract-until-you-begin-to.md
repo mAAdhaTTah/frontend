@@ -8,6 +8,18 @@ body:
     _template: richText
 link:
   url: 'http://ideasandthoughts.org/2012/11/17/overcoming-digital-dualism/'
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/dean-shareski.md
+  - reference: content/tags/digital-dualism.md
+  - reference: content/tags/education.md
+  - reference: content/tags/interactions.md
+  - reference: content/tags/offline.md
+  - reference: content/tags/real.md
+  - reference: content/tags/social-media.md
 _template: link
 ---
+
 

@@ -13,6 +13,9 @@ body:
 link:
   url: >-
     http://www.telegraph.co.uk/science/space/11232986/Matt-Taylors-sexist-shirt-and-the-day-political-correctness-officially-went-mad.html
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

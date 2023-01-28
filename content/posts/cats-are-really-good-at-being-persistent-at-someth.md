@@ -7,6 +7,9 @@ body:
       Cats are really good at being persistent at something they appear
       completely indifferent to. -- Heidi
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

@@ -197,6 +197,9 @@ excerpt: >
   drives, running on a HP ProLiant G7 N54L MicroServer. I wanted to accomplish a
   few things in one fell swoop: Upgrade to Ubuntu 14.04 LTS. Switch \[…]
 featuredMedia: content/media/btrfs_logo2.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

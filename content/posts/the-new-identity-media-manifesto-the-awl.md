@@ -28,6 +28,10 @@ body:
     _template: richText
 link:
   url: 'http://www.theawl.com/2014/11/the-new-identity-media-manifesto'
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

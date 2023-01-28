@@ -12,6 +12,17 @@ excerpt: >
   The Politico expose about Jill Abramson reveals either the sexism of the New
   York TImes’ staff… or Politico’s.
 featuredMedia: content/media/new-york-times-building.md
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/fighting-words.md
+  - reference: content/tags/jill-abramson.md
+  - reference: content/tags/journalism.md
+  - reference: content/tags/new-york-times.md
+  - reference: content/tags/politico.md
+  - reference: content/tags/sexism.md
 _template: standard
 ---
+
 

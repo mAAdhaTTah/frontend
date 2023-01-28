@@ -8,6 +8,10 @@ body:
     _template: richText
 link:
   url: 'http://www.evenfromhere.org/2014/04/11/rebuilding-a-reader/'
+categories:
+  - reference: content/categories/social-media.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

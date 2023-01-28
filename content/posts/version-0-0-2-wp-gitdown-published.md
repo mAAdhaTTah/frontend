@@ -48,6 +48,9 @@ excerpt: >
   bugfixes and improvements on the back-end of the code The next big part is
   pretty much \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

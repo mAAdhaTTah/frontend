@@ -9,6 +9,15 @@ body:
 link:
   url: >-
     http://www.theatlantic.com/politics/archive/2013/04/proving-a-conservative-caricature-of-boston-bombing-coverage-wrong/275293/
+categories:
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/boston-bombing.md
+  - reference: content/tags/bubble.md
+  - reference: content/tags/conservatives.md
+  - reference: content/tags/media.md
+  - reference: content/tags/the-atlantic.md
 _template: link
 ---
+
 

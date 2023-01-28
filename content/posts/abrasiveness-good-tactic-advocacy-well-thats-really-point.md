@@ -17,6 +17,15 @@ excerpt: >
   abrasive advocates are militant in the traditional sense.] of environmental
   and feminist advocates tends to turn most people off from their point \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/abrasiveness.md
+  - reference: content/tags/advocacy.md
+  - reference: content/tags/feminism.md
+  - reference: content/tags/feministing.md
+  - reference: content/tags/militancy.md
 _template: standard
 ---
+
 

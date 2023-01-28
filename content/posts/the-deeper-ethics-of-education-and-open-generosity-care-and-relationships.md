@@ -11,6 +11,10 @@ body:
     _template: richText
 link:
   url: 'http://opencontent.org/blog/archives/3732'
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

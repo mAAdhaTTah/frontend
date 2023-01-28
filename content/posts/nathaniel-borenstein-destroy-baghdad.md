@@ -13,6 +13,10 @@ body:
 source:
   url: 'https://en.wikiquote.org/wiki/Nathaniel_Borenstein'
   name: Nathaniel Borenstein
+categories:
+  - reference: content/categories/technology.md
+  - reference: content/categories/uncategorized.md
 _template: quote
 ---
+
 

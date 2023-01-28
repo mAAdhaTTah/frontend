@@ -15,6 +15,9 @@ excerpt: >
   entirely accurate. Additionally, TinyMCE’s documentation is shit, so I just
   want to share how I integrated a \[…]
 featuredMedia: content/media/screenshot-1-2.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

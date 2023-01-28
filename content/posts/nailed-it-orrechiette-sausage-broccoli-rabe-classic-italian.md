@@ -7,6 +7,10 @@ featuredMedia: content/media/orrechitette-broccoli-rabe-sausage.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/personal.md
+  - reference: content/categories/photographs.md
 _template: image
 ---
+
 

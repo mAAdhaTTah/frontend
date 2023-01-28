@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://america.aljazeera.com/opinions/2015/11/its-time-to-retire-the-pc-police.html
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

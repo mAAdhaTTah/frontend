@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'http://fusion.net/story/230486/mizzou-protesters-speak-to-the-press-again/'
+categories:
+  - reference: content/categories/journalism-news-media.md
 _template: link
 ---
+
 

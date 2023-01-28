@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'http://twitter.github.io/interactive/sotu2014/'
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

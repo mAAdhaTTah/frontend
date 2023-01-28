@@ -11,6 +11,17 @@ body:
 excerpt: |
   Kids are bored at school, and it’s our fault.
 featuredMedia: content/media/origin_497374910.md
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/boredom.md
+  - reference: content/tags/creativity.md
+  - reference: content/tags/engagement.md
+  - reference: content/tags/kids.md
+  - reference: content/tags/school.md
+  - reference: content/tags/standardized-tests.md
+  - reference: content/tags/testing.md
 _template: standard
 ---
+
 

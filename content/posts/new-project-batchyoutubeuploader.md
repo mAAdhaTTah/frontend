@@ -35,6 +35,9 @@ excerpt: >
   presence was to migrate all these videos we had stored on our sever as files
   to YouTube. And as I said, we produce a \[…]
 featuredMedia: content/media/132792-1oveex1390006466.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

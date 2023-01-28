@@ -8,6 +8,14 @@ body:
     _template: richText
 link:
   url: 'http://halfanhour.blogspot.com/2013/03/feel-want-willing.html'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/classroom.md
+  - reference: content/tags/communication.md
+  - reference: content/tags/feeling.md
+  - reference: content/tags/stephen-downes.md
 _template: link
 ---
+
 

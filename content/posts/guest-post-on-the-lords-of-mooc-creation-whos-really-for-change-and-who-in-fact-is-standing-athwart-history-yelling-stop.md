@@ -26,6 +26,14 @@ body:
 link:
   url: >-
     http://www.historiann.com/2013/05/15/guest-post-on-the-lords-of-mooc-creation-whos-really-for-change-and-who-in-fact-is-standing-athwart-history-yelling-stop/
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/elite.md
+  - reference: content/tags/globalization.md
+  - reference: content/tags/mooc.md
+  - reference: content/tags/narratives.md
 _template: link
 ---
+
 

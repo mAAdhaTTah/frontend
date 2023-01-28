@@ -137,6 +137,9 @@ excerpt: >
   interesting, as many of its modules are also singletons themselves. It’s an
   extremely common pattern in \[…]
 featuredMedia: content/media/post-01052013.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

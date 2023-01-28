@@ -21,6 +21,12 @@ body:
     _template: richText
 link:
   url: 'http://listenthefilm.wordpress.com/2013/09/10/164/'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/edreform.md
+  - reference: content/tags/listen-the-film.md
 _template: link
 ---
+
 

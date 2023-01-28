@@ -19,6 +19,10 @@ source:
   name: >-
     On Landings, Soft and Otherwise, and Aggressive Lacks of Proportion – The
     New Inquiry
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/social-media.md
 _template: quote
 ---
+
 

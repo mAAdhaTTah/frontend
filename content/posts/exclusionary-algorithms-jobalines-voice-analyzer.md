@@ -10,6 +10,10 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2015/03/24/insidious-algorithms-jobalines-voice-analyzer/
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

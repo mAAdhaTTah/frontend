@@ -34,6 +34,18 @@ excerpt: >
   Matters reports that, of the 92 guests that discussed Texas’ abortion bill on
   cable news (the \[…]
 featuredMedia: content/media/tvwatch.md
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/abortion.md
+  - reference: content/tags/diversity.md
+  - reference: content/tags/experts.md
+  - reference: content/tags/guests.md
+  - reference: content/tags/media-matters.md
+  - reference: content/tags/newsroom.md
+  - reference: content/tags/wendy-davis.md
 _template: standard
 ---
+
 

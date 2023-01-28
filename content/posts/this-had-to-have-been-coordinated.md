@@ -7,6 +7,10 @@ featuredMedia: content/media/weed-cover-stores-on-newsweek-and-time.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/random-amusement.md
 _template: image
 ---
+
 

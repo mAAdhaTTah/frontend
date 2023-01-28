@@ -22,6 +22,13 @@ excerpt: >
   Another day, another pro-internship piece that doesn’t know what it’s talking
   about.
 featuredMedia: content/media/officefurniture.md
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+tags:
+  - reference: content/tags/fighting-words.md
+  - reference: content/tags/internships.md
+  - reference: content/tags/pro-internship.md
 _template: standard
 ---
+
 

@@ -18,6 +18,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2014/11/21/you-should-actually-blame-america-for-everything-you-hate-about-internet-culture/
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

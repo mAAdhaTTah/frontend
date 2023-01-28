@@ -6,6 +6,9 @@ body:
   - content: |
       Welp, 2015 is already terrible.
     _template: richText
+categories:
+  - reference: content/categories/personal.md
 _template: status
 ---
+
 

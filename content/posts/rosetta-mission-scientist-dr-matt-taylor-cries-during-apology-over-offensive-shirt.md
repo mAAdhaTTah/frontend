@@ -14,6 +14,9 @@ body:
 link:
   url: >-
     http://www.telegraph.co.uk/science/space/11231320/Rosetta-mission-scientist-Dr-Matt-Taylor-cries-during-apology-over-offensive-shirt.html
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

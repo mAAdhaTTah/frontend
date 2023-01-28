@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2014/08/05/do-you-really-need-a-phone-to-remind-you-to-say-happy-anniversary-to-your-wife/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

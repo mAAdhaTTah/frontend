@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://thenewinquiry.com/blogs/zunguzungu/the-funnies/'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

@@ -22,6 +22,14 @@ body:
 link:
   url: >-
     http://thinkprogress.org/climate/2013/05/30/2076751/exxon-ceo-what-good-is-it-to-save-the-planet-if-humanity-suffers/
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+tags:
+  - reference: content/tags/carbon-emissions.md
+  - reference: content/tags/environmentalism.md
+  - reference: content/tags/exxon-ceo.md
+  - reference: content/tags/save-the-planet.md
 _template: link
 ---
+
 

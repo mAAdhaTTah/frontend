@@ -10,6 +10,12 @@ body:
     _template: richText
 link:
   url: 'http://2014trends.hackeducation.com/indie.html'
+categories:
+  - reference: content/categories/social-media.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: link
 ---
+
 

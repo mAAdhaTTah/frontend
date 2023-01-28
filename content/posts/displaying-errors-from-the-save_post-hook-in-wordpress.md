@@ -14,6 +14,9 @@ body:
 link:
   url: >-
     http://www.sitepoint.com/displaying-errors-from-the-save_post-hook-in-wordpress/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

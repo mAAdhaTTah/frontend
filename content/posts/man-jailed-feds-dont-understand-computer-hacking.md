@@ -9,6 +9,10 @@ body:
 link:
   url: >-
     http://theblot.com/man-jailed-because-feds-dont-understand-computer-hacking-7717221
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

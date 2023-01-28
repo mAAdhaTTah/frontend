@@ -210,6 +210,9 @@ excerpt: >
   result. Because JavaScript allows you to pass functions around like objects,
   it makes it very easy to apply functional concepts to \[…]
 featuredMedia: content/media/observe-all-the-things-with-rxjs.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

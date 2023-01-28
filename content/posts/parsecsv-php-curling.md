@@ -27,6 +27,9 @@ excerpt: >
   uploading the videos. I know it’s going to find a lot of use, and in this
   case, I wrote this little script to loop through a CSV and download \[…]
 featuredMedia: content/media/c94f4php-curl.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

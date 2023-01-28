@@ -58,6 +58,9 @@ excerpt: >
   it out into the world, and I’m looking for beta testers. If you’re interested
   and have a WordPress site you can use it on, check out and comment \[…]
 featuredMedia: content/media/icon-128x128.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

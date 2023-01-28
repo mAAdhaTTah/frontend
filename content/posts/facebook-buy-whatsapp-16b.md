@@ -8,6 +8,9 @@ body:
     _template: richText
 link:
   url: 'http://recode.net/2014/02/19/facebook-to-buy-whatsapp-for-16-billion/'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

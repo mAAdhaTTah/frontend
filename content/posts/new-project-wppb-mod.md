@@ -42,6 +42,9 @@ excerpt: >
   that’s also based on it. The latest version was a major upgrade, with better
   organization and lot \[…]
 featuredMedia: content/media/code-snippets.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

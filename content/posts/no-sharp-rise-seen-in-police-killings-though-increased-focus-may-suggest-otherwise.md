@@ -16,6 +16,9 @@ body:
 link:
   url: >-
     http://www.nytimes.com/2015/05/01/us/no-sharp-rise-seen-in-police-killings-though-increased-focus-may-suggest-otherwise.html
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

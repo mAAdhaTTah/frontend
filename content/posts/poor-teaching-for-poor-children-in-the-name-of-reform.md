@@ -8,6 +8,16 @@ body:
     _template: richText
 link:
   url: 'http://www.alfiekohn.org/teaching/edweek/poor.htm'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/alfie-kohn.md
+  - reference: content/tags/curriculum.md
+  - reference: content/tags/edreform.md
+  - reference: content/tags/high-stakes.md
+  - reference: content/tags/poverty.md
+  - reference: content/tags/testing.md
 _template: link
 ---
+
 

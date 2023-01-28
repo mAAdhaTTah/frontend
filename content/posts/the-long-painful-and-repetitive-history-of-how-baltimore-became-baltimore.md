@@ -25,6 +25,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/blogs/wonkblog/wp/2015/04/29/the-long-painful-and-repetitive-history-of-how-baltimore-became-baltimore/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

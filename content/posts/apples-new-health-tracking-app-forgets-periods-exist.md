@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://jezebel.com/apples-new-health-tracking-app-forgets-that-periods-exi-1639493214
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

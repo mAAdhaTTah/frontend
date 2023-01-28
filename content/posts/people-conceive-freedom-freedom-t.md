@@ -11,6 +11,9 @@ body:
       freedom from having your personal life distributed on the Internet because
       you have breasts? Do those freedoms count?
     _template: richText
+categories:
+  - reference: content/categories/politics.md
 _template: status
 ---
+
 

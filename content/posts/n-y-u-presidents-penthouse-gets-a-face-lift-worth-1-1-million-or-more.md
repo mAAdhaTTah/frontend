@@ -10,6 +10,10 @@ body:
 link:
   url: >-
     http://www.nytimes.com/2015/12/22/us/nyu-presidents-penthouse-gets-a-1-1-million-face-lift.html
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+  - reference: content/categories/education.md
 _template: link
 ---
+
 

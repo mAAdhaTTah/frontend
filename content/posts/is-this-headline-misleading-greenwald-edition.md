@@ -45,6 +45,14 @@ excerpt: >
   publish more documents and said Britain will be “sorry” for detaining his
   partner for nine hours. Greenwald’s quote: Q: Will the UK’s detention \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/detention.md
+  - reference: content/tags/glenn-greenwald.md
+  - reference: content/tags/leaks.md
+  - reference: content/tags/reuters.md
 _template: standard
 ---
+
 

@@ -7,6 +7,9 @@ featuredMedia: content/media/12383346_1387577821259798_1347429271_n.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/photographs.md
 _template: image
 ---
+
 

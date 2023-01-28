@@ -37,6 +37,16 @@ excerpt: >
   to see a outpouring of indignation from the tech industry, and you’d be right:
   PandoDaily has this amusingly myopic piece from \[…]
 featuredMedia: content/media/sf-bart-strike-2013.md
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/bart.md
+  - reference: content/tags/pandodaily.md
+  - reference: content/tags/privatization.md
+  - reference: content/tags/sarah-lacy.md
+  - reference: content/tags/silicon-valley.md
 _template: standard
 ---
+
 

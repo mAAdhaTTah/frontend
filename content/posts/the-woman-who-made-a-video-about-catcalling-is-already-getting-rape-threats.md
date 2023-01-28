@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://www.vox.com/2014/10/29/7088867/catcall-video-hollaback-rape-threats'
+categories:
+  - reference: content/categories/uncategorized.md
 _template: link
 ---
+
 

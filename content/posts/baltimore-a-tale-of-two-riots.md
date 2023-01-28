@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'https://medium.com/reportedly/baltimore-a-tale-of-two-riots-669842b4603f'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

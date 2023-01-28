@@ -9,6 +9,19 @@ body:
 link:
   url: >-
     http://www.motherjones.com/politics/2013/08/nsa-lavabit-email-obama-spying-constitution
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/email.md
+  - reference: content/tags/lavabit.md
+  - reference: content/tags/mother-jones.md
+  - reference: content/tags/nothing-to-hide.md
+  - reference: content/tags/nsa.md
+  - reference: content/tags/policy.md
+  - reference: content/tags/privacy.md
+  - reference: content/tags/surveillance.md
 _template: link
 ---
+
 

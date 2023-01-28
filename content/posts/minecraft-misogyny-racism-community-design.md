@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     https://medium.com/teaching-learning/minecraft-misogyny-racism-and-community-design-9729179f4847
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

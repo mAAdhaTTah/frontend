@@ -73,6 +73,9 @@ excerpt: >
   technologies combined. In the particular case of the digital cup, the moral
   trade-off might be \[…]
 featuredMedia: content/media/olympus-digital-camera.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

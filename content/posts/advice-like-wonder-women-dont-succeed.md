@@ -25,6 +25,13 @@ body:
 link:
   url: >-
     http://www.slate.com/blogs/xx_factor/2013/10/14/how_to_succeed_in_business_as_a_woman_female_executives_weigh_in_with_impossible.html
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/advice-for-women.md
+  - reference: content/tags/new-york-times.md
+  - reference: content/tags/slate.md
 _template: link
 ---
+
 

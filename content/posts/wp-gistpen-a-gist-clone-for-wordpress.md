@@ -11,6 +11,9 @@ body:
     _template: richText
 link:
   url: 'https://roots.io/wp-gistpen-a-gist-clone-for-wordpress/'
+categories:
+  - reference: content/categories/web-development.md
 _template: link
 ---
+
 

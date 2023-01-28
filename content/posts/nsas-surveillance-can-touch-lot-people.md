@@ -8,6 +8,13 @@ body:
   - content: |
       via Jamelle Bouie
     _template: richText
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/aclu.md
+  - reference: content/tags/nsa.md
+  - reference: content/tags/surveillance.md
 _template: image
 ---
+
 

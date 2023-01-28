@@ -11,6 +11,13 @@ body:
 link:
   url: >-
     http://nymag.com/daily/intelligencer/2014/09/silicon-valleys-contract-worker-problem.html
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: link
 ---
+
 

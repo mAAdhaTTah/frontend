@@ -7,6 +7,9 @@ body:
       Programming is like putting together a jigsaw puzzle that only exists in
       your head.
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: status
 ---
+
 

@@ -170,6 +170,10 @@ images:
   - reference: content/media/2012-12-25_21-20-12_750.md
   - reference: content/media/2012-12-25_20-31-48_338.md
   - reference: content/media/2012-12-25_20-31-34_997.md
+categories:
+  - reference: content/categories/photographs.md
+  - reference: content/categories/thailand-journal.md
 _template: gallery
 ---
+
 

@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

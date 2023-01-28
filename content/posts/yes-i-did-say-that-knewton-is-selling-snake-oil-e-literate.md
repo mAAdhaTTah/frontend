@@ -11,6 +11,10 @@ body:
     _template: richText
 link:
   url: 'http://mfeldstein.com/yes-i-did-say-that-knewton-is-selling-snake-oil/'
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

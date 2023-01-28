@@ -9,6 +9,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/lifestyle/style/inside-the-libertarian-version-of-burning-man-guns-booze-and-bitcoin/2014/07/01/74d9d996-ffcf-11e3-b8ff-89afd3fad6bd_story.html
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

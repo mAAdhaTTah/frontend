@@ -24,6 +24,15 @@ body:
 link:
   url: >-
     http://www.bloomberg.com/news/2012-11-14/bureaucrats-paid-250-000-feed-outcry-over-college-costs.html
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/administrators.md
+  - reference: content/tags/cost.md
+  - reference: content/tags/education.md
+  - reference: content/tags/higher-education.md
+  - reference: content/tags/moocs.md
 _template: link
 ---
+
 

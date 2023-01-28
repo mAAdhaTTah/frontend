@@ -9,6 +9,9 @@ body:
   - content: |
       This is beautiful and wonderful for its utter meaninglessness.
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: video
 ---
+
 

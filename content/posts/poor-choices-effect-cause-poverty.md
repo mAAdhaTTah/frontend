@@ -37,6 +37,14 @@ body:
 link:
   url: >-
     http://www.theguardian.com/books/2013/aug/23/scarcity-sendhil-mullainathan-eldar-shafir
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/cause-and-effect.md
+  - reference: content/tags/poverty.md
+  - reference: content/tags/progressive-thought.md
+  - reference: content/tags/psychology.md
 _template: link
 ---
+
 

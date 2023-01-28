@@ -62,6 +62,9 @@ excerpt: >
   (documents, contacts, calendar, email, etc.) in a single location1. Since the
   NSA revelations we’ve all heard about, we know for a fact that \[…]
 featuredMedia: content/media/code-snippets.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 
