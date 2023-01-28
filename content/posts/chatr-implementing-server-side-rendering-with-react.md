@@ -172,6 +172,9 @@ excerpt: >
   HTML to sending a rendered component’s HTML. On the client side, we’ll
   bootstrap React into the rendered HTML \[…]
 featuredMedia: content/media/react-js-logo.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

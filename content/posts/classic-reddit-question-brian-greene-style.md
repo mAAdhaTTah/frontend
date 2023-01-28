@@ -8,6 +8,9 @@ featuredMedia: >-
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: image
 ---
+
 

@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'https://poststatus.com/the-trojan-emoji/'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

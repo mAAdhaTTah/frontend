@@ -42,6 +42,9 @@ excerpt: >
   run into using \[…]
 featuredMedia: >-
   content/media/687474703a2f2f7777772e6861736869636f72702e636f6d2f696d616765732f626c6f672f612d6e65772d6c6f6f6b2d666f722d76616772616e742f6c6f676f5f776964652d63616234373038362e706e67.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

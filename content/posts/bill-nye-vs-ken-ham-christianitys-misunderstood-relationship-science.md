@@ -13,6 +13,9 @@ body:
 link:
   url: >-
     http://theweek.com/article/index/255951/bill-nye-vs-ken-ham-and-christianitys-misunderstood-relationship-with-science
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

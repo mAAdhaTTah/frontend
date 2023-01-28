@@ -10,6 +10,10 @@ body:
     _template: richText
 link:
   url: 'http://www.dailydot.com/opinion/im-requesting-work-removed-thought-catalog/'
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

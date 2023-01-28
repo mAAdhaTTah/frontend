@@ -17,6 +17,9 @@ body:
     _template: richText
 link:
   url: 'https://aralbalkan.com/notes/ello-goodbye/'
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

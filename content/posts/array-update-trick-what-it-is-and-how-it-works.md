@@ -81,6 +81,9 @@ excerpt: >
   slice-based method, which took 2 spreads and several lines of code after
   prettier was done with it. After looking at it for a bit, I \[…]
 featuredMedia: content/media/metamorphic-rock-outcropping.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

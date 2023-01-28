@@ -18,6 +18,9 @@ body:
 link:
   url: >-
     https://medium.com/javascript-scene/common-misconceptions-about-inheritance-in-javascript-d5d9bab29b0a
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

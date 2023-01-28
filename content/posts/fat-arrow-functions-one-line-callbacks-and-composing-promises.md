@@ -95,6 +95,9 @@ excerpt: >
   square hole. The prototype chain and closure scoping make for a number of
   interesting patterns \[…]
 featuredMedia: content/media/fat-arrow-functions.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

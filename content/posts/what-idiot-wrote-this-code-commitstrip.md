@@ -9,6 +9,10 @@ body:
     _template: richText
 link:
   url: 'http://www.commitstrip.com/en/2016/01/18/what-idiot-wrote-this-code/'
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

@@ -9,6 +9,13 @@ body:
 link:
   url: >-
     http://qz.com/86437/how-yahoo-plans-to-make-money-on-tumblr-ads-that-dont-feel-like-ads/
+categories:
+  - reference: content/categories/social-media.md
+tags:
+  - reference: content/tags/advertising.md
+  - reference: content/tags/agency.md
+  - reference: content/tags/tumblr.md
 _template: link
 ---
+
 

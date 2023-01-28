@@ -18,6 +18,9 @@ body:
     _template: richText
 link:
   url: 'http://www.dailydot.com/politics/nsa-heartbleed-bug-exploit/'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

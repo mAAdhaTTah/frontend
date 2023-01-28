@@ -28,6 +28,15 @@ excerpt: >
   argued, not incorrectly, that we should pressure Dubai to change its laws via
   boycott. And make no mistake, \[…]
 featuredMedia: content/media/rape-vigil.md
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/dubai.md
+  - reference: content/tags/pardon.md
+  - reference: content/tags/rape.md
+  - reference: content/tags/rape-culture.md
+  - reference: content/tags/sexism.md
 _template: standard
 ---
+
 

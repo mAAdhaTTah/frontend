@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://www.vox.com/2014/8/21/6053811/white-on-white-murder'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

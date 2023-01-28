@@ -79,6 +79,9 @@ excerpt: >
   elements, while the second element needed to take up the rest of the space.
   Here’s some dummy markup to get the idea: The \[…]
 featuredMedia: content/media/css.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

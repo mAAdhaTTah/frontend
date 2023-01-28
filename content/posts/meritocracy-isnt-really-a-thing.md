@@ -25,6 +25,16 @@ body:
 link:
   url: >-
     http://www.slate.com/blogs/moneybox/2013/08/16/meritocracy_isn_t_fair_lead_poisoned_children_are_genuinely_less_able_but.html
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/capitalism.md
+  - reference: content/tags/entitlement-programs.md
+  - reference: content/tags/meritocracy.md
+  - reference: content/tags/regulation.md
+  - reference: content/tags/taxes.md
 _template: link
 ---
+
 

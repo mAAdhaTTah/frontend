@@ -10,6 +10,10 @@ body:
       John Oliver actually asks some amazing questions of Edward Snowden. He's a
       great interviewer.
     _template: richText
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/technology.md
 _template: video
 ---
+
 

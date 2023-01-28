@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://www.theverge.com/2015/2/9/8005321/netflix-now-available-in-cuba'
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

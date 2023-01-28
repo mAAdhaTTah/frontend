@@ -13,6 +13,13 @@ body:
 link:
   url: >-
     http://tressiemc.com/2014/11/10/ask-not-what-your-country-can-do-for-you-but-what-coursera-can-do-for-your-country-part-1/
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: link
 ---
+
 

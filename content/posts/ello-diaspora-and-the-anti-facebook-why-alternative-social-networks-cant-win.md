@@ -18,6 +18,10 @@ body:
 link:
   url: >-
     http://www.slate.com/articles/technology/future_tense/2014/10/ello_diaspora_and_the_anti_facebook_why_alternative_social_networks_can.html
+categories:
+  - reference: content/categories/social-media.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

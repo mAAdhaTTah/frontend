@@ -17,6 +17,10 @@ body:
     _template: richText
 link:
   url: 'http://www.cjr.org/analysis/buzzfeed_censorship_problem.php'
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

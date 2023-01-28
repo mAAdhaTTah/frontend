@@ -9,6 +9,15 @@ body:
 link:
   url: >-
     http://krugman.blogs.nytimes.com/2013/05/16/the-smithkleinkalecki-theory-of-austerity/
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+tags:
+  - reference: content/tags/austerity.md
+  - reference: content/tags/economics.md
+  - reference: content/tags/naomi-klein.md
+  - reference: content/tags/paul-krugman.md
+  - reference: content/tags/shock-doctrine.md
 _template: link
 ---
+
 

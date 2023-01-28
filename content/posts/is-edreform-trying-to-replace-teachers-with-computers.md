@@ -12,6 +12,16 @@ excerpt: >
   The push of technology into the classroom, while obviously not malicious on
   its own, when combined with other movements, could be ruining education.
 featuredMedia: content/media/origin_3509153865.md
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/classroom.md
+  - reference: content/tags/curriculum.md
+  - reference: content/tags/edreform.md
+  - reference: content/tags/education.md
+  - reference: content/tags/technology.md
 _template: standard
 ---
+
 

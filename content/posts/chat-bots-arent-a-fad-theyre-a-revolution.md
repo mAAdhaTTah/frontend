@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     https://backchannel.com/the-chat-bot-revolution-is-upon-us-f3fa9e0b380#.nq56vjkab
+categories:
+  - reference: content/categories/uncategorized.md
 _template: link
 ---
+
 

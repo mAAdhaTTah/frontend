@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://america.aljazeera.com/opinions/2014/2/hate-lena-dunhamyoualllovellewyndavis.html
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

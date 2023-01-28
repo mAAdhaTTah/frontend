@@ -8,6 +8,15 @@ body:
     _template: richText
 link:
   url: 'http://www.salon.com/2013/07/18/inside_george_zimmermans_brain/'
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/george-zimmerman.md
+  - reference: content/tags/implicit-racism.md
+  - reference: content/tags/psychology.md
+  - reference: content/tags/racism.md
+  - reference: content/tags/trayvon-martin.md
 _template: link
 ---
+
 

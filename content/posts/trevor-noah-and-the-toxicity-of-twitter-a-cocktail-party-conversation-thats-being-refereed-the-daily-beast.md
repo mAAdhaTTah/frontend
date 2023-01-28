@@ -18,6 +18,9 @@ body:
 link:
   url: >-
     http://www.thedailybeast.com/articles/2015/04/01/trevor-noah-and-the-toxicity-of-twitter-a-cocktail-party-conversation-that-s-being-refereed.html
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

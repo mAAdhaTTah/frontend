@@ -15,6 +15,10 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2014/12/01/a-quick-jargon-free-explainer-to-the-supreme-court-case-that-will-decide-the-limits-of-free-speech-online/
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

@@ -135,6 +135,9 @@ excerpt: >
   function to the dependency array can cause major problems with useEffect.
   Let’s take a look at \[…]
 featuredMedia: content/media/pitfall-trap.md
+categories:
+  - reference: content/categories/uncategorized.md
 _template: standard
 ---
+
 

@@ -19,6 +19,13 @@ body:
 source:
   url: 'http://hackeducation.com/2015/08/10/digpedlab/'
   name: 'Audrey Watters, Hack Education'
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: quote
 ---
+
 

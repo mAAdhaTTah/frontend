@@ -24,6 +24,9 @@ body:
     _template: richText
 link:
   url: 'https://github.com/mAAdhaTTah/writing'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

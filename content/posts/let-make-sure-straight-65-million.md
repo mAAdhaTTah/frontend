@@ -20,6 +20,9 @@ source:
   url: >-
     http://www.worldsciencefestival.com/2014/07/five-legitimate-scientific-controversies/#lf-content=86873889:187681925
   name: TomHughes1
+categories:
+  - reference: content/categories/random-amusement.md
 _template: quote
 ---
+
 

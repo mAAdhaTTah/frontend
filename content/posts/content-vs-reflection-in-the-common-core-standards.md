@@ -15,6 +15,16 @@ excerpt: >
   the shift in focus on fiction texts (and the personal narrative relating to
   those texts) to \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/common-core.md
+  - reference: content/tags/content.md
+  - reference: content/tags/creativity.md
+  - reference: content/tags/fiction.md
+  - reference: content/tags/non-fiction.md
+  - reference: content/tags/reflection.md
 _template: standard
 ---
+
 

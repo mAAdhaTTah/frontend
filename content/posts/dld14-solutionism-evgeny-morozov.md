@@ -40,6 +40,9 @@ body:
       convinced his ideas are sticking in the minds of those who's minds need
       sticking.
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: video
 ---
+
 

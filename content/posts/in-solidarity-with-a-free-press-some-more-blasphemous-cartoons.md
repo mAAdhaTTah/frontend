@@ -25,6 +25,9 @@ source:
   url: >-
     https://firstlook.org/theintercept/2015/01/09/solidarity-charlie-hebdo-cartoons/
   name: Glenn Greenwald
+categories:
+  - reference: content/categories/politics.md
 _template: quote
 ---
+
 

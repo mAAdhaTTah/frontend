@@ -9,6 +9,10 @@ body:
     _template: richText
 link:
   url: 'http://www.wired.com/2014/08/the-white-house-dickerson/'
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

@@ -16,6 +16,10 @@ body:
     _template: richText
 link:
   url: 'http://citizen-ex.com/stories/io'
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

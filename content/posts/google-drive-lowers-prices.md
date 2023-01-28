@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://www.theverge.com/2014/3/13/5505068/google-lowers-google-drive-storage-pricing
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

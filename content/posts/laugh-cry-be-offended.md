@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'https://medium.com/the-nib/laugh-cry-be-offended-ba8f59553c79'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

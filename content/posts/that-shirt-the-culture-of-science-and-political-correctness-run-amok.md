@@ -129,6 +129,9 @@ excerpt: >
   livestream of the historic mission. Feeling clever, I responded thusly: This
   quote was picked up by the Telegraph in \[…]
 featuredMedia: content/media/esa-rosetta-project-scient-matt-taylor-and-his-shirt.md
+categories:
+  - reference: content/categories/social-justice.md
 _template: standard
 ---
+
 

@@ -47,6 +47,9 @@ excerpt: >
   I have concerns with forking the posts within the database and potential
   problems \[…]
 featuredMedia: content/media/wordpress-blogging-software-logo.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

@@ -14,6 +14,8 @@ excerpt: >
   Component props should be "internal facing" e.g. use displayName rather than
   passing in user and extracting displayName from it.
 featuredMedia: null
+categories:
+  - reference: content/categories/uncategorized.md
 _template: standard
 ---
 

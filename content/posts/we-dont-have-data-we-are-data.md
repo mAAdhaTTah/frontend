@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2014/12/22/we-dont-have-data-we-are-data/
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

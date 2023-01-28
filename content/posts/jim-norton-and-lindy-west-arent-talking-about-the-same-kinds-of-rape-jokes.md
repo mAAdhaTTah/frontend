@@ -55,6 +55,15 @@ excerpt: >
   jokes and freedom of expression, but they mostly talk past each other; they’re
   just not talking about the same thing.
 featuredMedia: content/media/screen-shot-2013-06-04-at-5-02-33-pm.md
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/debate.md
+  - reference: content/tags/jim-norton.md
+  - reference: content/tags/lindy-west.md
+  - reference: content/tags/rape-jokes.md
+  - reference: content/tags/w-kamau-bell.md
 _template: standard
 ---
+
 

@@ -35,6 +35,16 @@ excerpt: >
   make up roughly 37 percent of the U.S. population, the percentage of
   minorities in the newsroom has \[…]
 featuredMedia: content/media/158661-at-issue-poverty-in-america.md
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/discrimination.md
+  - reference: content/tags/diversity.md
+  - reference: content/tags/minorities.md
+  - reference: content/tags/newsroom.md
+  - reference: content/tags/women.md
 _template: standard
 ---
+
 

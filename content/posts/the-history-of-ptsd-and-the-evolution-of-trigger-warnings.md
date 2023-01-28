@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://www.newrepublic.com/article/121866/history-ptsd-and-evolution-trigger-warnings
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

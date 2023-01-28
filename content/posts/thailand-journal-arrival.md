@@ -34,6 +34,10 @@ images:
   - reference: content/media/fb_img_135627272997025.md
   - reference: content/media/2012-12-21_14-45-52_966.md
   - reference: content/media/2012-12-21_14-45-26_7.md
+categories:
+  - reference: content/categories/photographs.md
+  - reference: content/categories/thailand-journal.md
 _template: gallery
 ---
+
 

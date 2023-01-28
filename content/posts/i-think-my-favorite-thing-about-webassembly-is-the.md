@@ -18,6 +18,9 @@ body:
       have a lot of experience. I don't think I'm the only one for whom this is
       true, and I think that's awesome.
     _template: richText
+categories:
+  - reference: content/categories/web-development.md
 _template: status
 ---
+
 

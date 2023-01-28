@@ -9,6 +9,9 @@ body:
 link:
   url: >-
     http://valleywag.gawker.com/michael-arrington-google-spied-on-my-gmail-1549066773
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     https://medium.com/javascript-scene/you-might-not-need-typescript-or-static-types-aa7cb670a77b#.ogmju1bhj
+categories:
+  - reference: content/categories/web-development.md
 _template: link
 ---
+
 

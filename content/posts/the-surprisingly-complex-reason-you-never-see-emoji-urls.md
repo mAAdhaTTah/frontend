@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2015/02/23/the-surprisingly-complex-reason-you-never-see-emoji-urls/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

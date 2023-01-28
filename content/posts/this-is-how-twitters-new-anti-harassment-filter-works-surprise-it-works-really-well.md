@@ -12,6 +12,10 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2015/03/31/this-is-how-twitters-new-anti-harassment-filter-works-surprise-it-works-really-well/
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

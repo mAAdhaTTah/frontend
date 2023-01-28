@@ -49,6 +49,9 @@ excerpt: >
   fun-loving Irish family. And grandma was no slouch either. I’ll always
   remember her \[…]
 featuredMedia: content/media/2014-02-22-16-52-05.md
+categories:
+  - reference: content/categories/personal.md
 _template: standard
 ---
+
 

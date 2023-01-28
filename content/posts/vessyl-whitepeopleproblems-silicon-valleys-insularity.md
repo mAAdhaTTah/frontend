@@ -88,6 +88,9 @@ excerpt: >
   As I posted on Facebook, I basically have two problems with this device: The
   fact that some guy in Silicon Valley dedicated 7 \[…]
 featuredMedia: content/media/vessyl-shadow-on-black-on.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

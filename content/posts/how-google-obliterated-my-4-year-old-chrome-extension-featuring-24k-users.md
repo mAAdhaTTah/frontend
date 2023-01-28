@@ -10,6 +10,9 @@ body:
 link:
   url: >-
     https://by.graffino.com/how-google-obliterated-my-24k-users-chrome-extension-eeb14c040a39#.kc17y82ma
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

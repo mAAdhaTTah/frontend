@@ -8,6 +8,17 @@ body:
     _template: richText
 link:
   url: 'http://www.coding2learn.org/blog/2013/07/29/kids-cant-use-computers/'
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/computers-how-do-they-work.md
+  - reference: content/tags/education.md
+  - reference: content/tags/internet.md
+  - reference: content/tags/nsa.md
+  - reference: content/tags/surveillance.md
+  - reference: content/tags/technology.md
 _template: link
 ---
+
 

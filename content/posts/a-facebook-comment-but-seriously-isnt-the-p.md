@@ -18,6 +18,9 @@ body:
         So the point is entirely about content, because the legal mandate of "free speech for everyone!" doesn't amount to everyone having an equal "amount" (or kind, or level, or whatever word works best here) of free speech, because some groups (like minorities, like women, like the Algerians in France) are disproportionately harmed by speech in a way that those on the top of the social hierarchy are not.
       </ExtendedQuote>
     _template: richText
+categories:
+  - reference: content/categories/social-justice.md
 _template: status
 ---
+
 

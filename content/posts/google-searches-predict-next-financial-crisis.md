@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'http://www.livescience.com/47084-google-predicts-stock-prices.html'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

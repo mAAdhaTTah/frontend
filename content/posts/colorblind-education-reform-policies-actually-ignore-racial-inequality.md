@@ -14,6 +14,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/blogs/answer-sheet/wp/2014/04/09/how-colorblind-education-reform-policies-actually-ignore-racial-inequality/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

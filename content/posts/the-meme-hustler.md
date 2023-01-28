@@ -8,6 +8,15 @@ body:
     _template: richText
 link:
   url: 'http://thebaffler.com/past/the_meme_hustler'
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/evgeny-morozov.md
+  - reference: content/tags/silicon-valley.md
+  - reference: content/tags/the-meme-hustler.md
+  - reference: content/tags/time-oreilly.md
+  - reference: content/tags/web-2-0.md
 _template: link
 ---
+
 

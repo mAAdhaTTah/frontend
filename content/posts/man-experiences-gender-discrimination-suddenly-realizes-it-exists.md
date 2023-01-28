@@ -29,6 +29,14 @@ excerpt: >
   interviews: My choice to brand the CV with a bold positioning of my name
   actually \[…]
 featuredMedia: content/media/145-a-hiring-sign-hangs-inwindow-in-virginia.md
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/discrimination-in-hiring.md
+  - reference: content/tags/gender-discrimination.md
+  - reference: content/tags/mr-kim.md
+  - reference: content/tags/tumblr.md
 _template: standard
 ---
+
 

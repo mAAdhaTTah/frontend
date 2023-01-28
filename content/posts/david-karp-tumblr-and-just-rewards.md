@@ -111,6 +111,18 @@ excerpt: >
   making boatloads of money while making a boatload of money: you can’t have it
   both ways.
 featuredMedia: content/media/4103141197_0700706e26_o.md
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/david-karp.md
+  - reference: content/tags/rewards.md
+  - reference: content/tags/sam-biddle.md
+  - reference: content/tags/social-value.md
+  - reference: content/tags/tumblr.md
+  - reference: content/tags/valleywag.md
+  - reference: content/tags/yahoo.md
 _template: standard
 ---
+
 

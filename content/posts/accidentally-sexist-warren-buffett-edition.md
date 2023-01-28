@@ -31,6 +31,17 @@ excerpt: >
   often generally espouse views of equality and respect, but individual actions
   and views, unbeknownst to ourselves, don’t align. \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/equal-pay.md
+  - reference: content/tags/feminism.md
+  - reference: content/tags/fortune-magazine.md
+  - reference: content/tags/gender-discrimination.md
+  - reference: content/tags/sexism.md
+  - reference: content/tags/warren-buffett.md
 _template: standard
 ---
+
 

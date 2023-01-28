@@ -11,6 +11,10 @@ body:
 link:
   url: >-
     http://valleywag.gawker.com/the-shanley-show-was-the-whole-thing-an-elaborate-hoax-1681398966/
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

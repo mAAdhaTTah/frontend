@@ -8,6 +8,13 @@ video:
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/nsa-surveillance.md
+  - reference: content/tags/share-everything-plan.md
+  - reference: content/tags/verizon.md
 _template: video
 ---
+
 

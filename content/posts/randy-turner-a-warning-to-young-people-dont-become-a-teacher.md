@@ -9,6 +9,15 @@ body:
 link:
   url: >-
     http://www.huffingtonpost.com/randy-turner/a-warning-to-young-people_b_3033304.html
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/huffington-post.md
+  - reference: content/tags/open-letter.md
+  - reference: content/tags/randy-turner.md
+  - reference: content/tags/teachers.md
+  - reference: content/tags/young-people.md
 _template: link
 ---
+
 

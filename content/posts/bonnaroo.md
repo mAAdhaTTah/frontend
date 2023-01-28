@@ -107,6 +107,10 @@ images:
   - reference: content/media/2013-06-15-11-30-16.md
   - reference: content/media/2013-06-15-11-30-13.md
   - reference: content/media/2013-06-15-11-28-40.md
+categories:
+  - reference: content/categories/bonnaroo.md
+  - reference: content/categories/photographs.md
 _template: gallery
 ---
+
 

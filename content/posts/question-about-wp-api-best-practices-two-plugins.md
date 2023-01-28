@@ -8,6 +8,9 @@ body:
       developer; should they use a shared vendor prefix? How would this impact
       index discoverability?
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: status
 ---
+
 

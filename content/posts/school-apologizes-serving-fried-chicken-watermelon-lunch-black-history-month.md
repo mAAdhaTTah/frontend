@@ -11,6 +11,9 @@ body:
     _template: richText
 link:
   url: 'http://talkingpointsmemo.com/news/school-apologizes-for-black-history-menu'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

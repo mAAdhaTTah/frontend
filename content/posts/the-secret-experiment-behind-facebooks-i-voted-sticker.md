@@ -15,6 +15,9 @@ body:
 link:
   url: >-
     http://mic.com/articles/103350/the-secret-experiment-behind-facebook-s-i-voted-sticker
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

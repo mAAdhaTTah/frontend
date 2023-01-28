@@ -15,6 +15,15 @@ excerpt: >
   remembering early Facebook layouts (originally called TheFacebook, remember?)
   and texting 40404 to post \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/social-media.md
+tags:
+  - reference: content/tags/branding.md
+  - reference: content/tags/marketing.md
+  - reference: content/tags/social-media.md
+  - reference: content/tags/young.md
+  - reference: content/tags/youth.md
 _template: standard
 ---
+
 

@@ -8,6 +8,17 @@ body:
     _template: richText
 link:
   url: 'https://medium.com/i-m-h-o/a5890c2c2cc0'
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/advertising.md
+  - reference: content/tags/core-values.md
+  - reference: content/tags/medium.md
+  - reference: content/tags/monetization.md
+  - reference: content/tags/revenue.md
+  - reference: content/tags/user-base.md
 _template: link
 ---
+
 

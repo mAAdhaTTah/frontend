@@ -7,6 +7,10 @@ featuredMedia: content/media/reddithypocrisy-500x502.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
 _template: image
 ---
+
 

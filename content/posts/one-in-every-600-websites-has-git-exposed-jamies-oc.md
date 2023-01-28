@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://www.jamiembrown.com/blog/one-in-every-600-websites-has-git-exposed/'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

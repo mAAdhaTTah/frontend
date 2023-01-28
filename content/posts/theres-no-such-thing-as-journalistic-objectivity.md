@@ -12,6 +12,18 @@ excerpt: >
   Every decision made by journalists, including word choice, is a expression of
   bias.
 featuredMedia: content/media/new-york-times-building.md
+categories:
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/assassination.md
+  - reference: content/tags/fighting-words.md
+  - reference: content/tags/harsh-interrogation-techniques.md
+  - reference: content/tags/language.md
+  - reference: content/tags/margaret-sullivan.md
+  - reference: content/tags/new-york-times.md
+  - reference: content/tags/targeted-killing.md
+  - reference: content/tags/torture.md
 _template: standard
 ---
+
 

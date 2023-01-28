@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2015/05/07/facebook-fair-and-balanced/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

@@ -43,6 +43,13 @@ excerpt: >
   as someone who stands against a culture and its values that has gained
   widespread \[…]
 featuredMedia: content/media/1065.md
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/diane-ravitch.md
+  - reference: content/tags/edreform.md
+  - reference: content/tags/evgeny-morozov.md
 _template: standard
 ---
+
 

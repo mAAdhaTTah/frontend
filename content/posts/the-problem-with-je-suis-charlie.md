@@ -9,6 +9,12 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2015/01/11/the-problem-with-je-suis-charlie/
+categories:
+  - reference: content/categories/politics.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/newsblur.md
 _template: link
 ---
+
 

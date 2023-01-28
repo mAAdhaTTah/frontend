@@ -111,6 +111,9 @@ excerpt: >
   problem are out there. I’m working on a Vue.js application, so it made sense
   to try out \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

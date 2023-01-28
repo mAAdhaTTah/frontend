@@ -11,6 +11,9 @@ body:
       side effect. Use `this.$watch` to watch prop changes unrelated to a Vue
       component's rendering.
     _template: richText
+categories:
+  - reference: content/categories/web-development.md
 _template: status
 ---
+
 

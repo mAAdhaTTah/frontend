@@ -16,6 +16,10 @@ body:
 link:
   url: >-
     http://arstechnica.com/science/2015/09/study-racially-charged-hate-crimes-go-up-as-broadband-expands/
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

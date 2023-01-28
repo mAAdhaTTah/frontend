@@ -15,6 +15,12 @@ source:
   url: >-
     http://www.theguardian.com/world/2014/oct/16/-sp-revealed-whisper-app-tracking-users
   name: 'Revealed: how Whisper app tracks ‘anonymous’ users'
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: quote
 ---
+
 

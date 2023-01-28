@@ -34,6 +34,16 @@ body:
 link:
   url: >-
     http://www.theatlantic.com/health/archive/2013/06/the-incarceration-epidemic/277056/
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/drug-laws.md
+  - reference: content/tags/higher-education-funding.md
+  - reference: content/tags/incarceration.md
+  - reference: content/tags/prison-crisis.md
+  - reference: content/tags/tough-on-crime.md
 _template: link
 ---
+
 

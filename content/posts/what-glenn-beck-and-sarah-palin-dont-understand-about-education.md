@@ -12,6 +12,15 @@ excerpt: >
   The mistake conservatives make is forgetting that education, at its core, is a
   collective enterprise.
 featuredMedia: content/media/137878-glen-beck.md
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/community.md
+  - reference: content/tags/education.md
+  - reference: content/tags/fighting-words.md
+  - reference: content/tags/glenn-beck.md
+  - reference: content/tags/sarah-palin.md
 _template: standard
 ---
+
 

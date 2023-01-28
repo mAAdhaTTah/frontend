@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'https://github.com/nodejs/io.js/issues/1664'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

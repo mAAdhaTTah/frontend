@@ -49,6 +49,9 @@ excerpt: >
   that from the outset. However, in this case, my audience was a couple of
   guys1, and thus, based on my reading of the situation, did know \[…]
 featuredMedia: content/media/this-isnt-feminism-this-is.md
+categories:
+  - reference: content/categories/social-justice.md
 _template: standard
 ---
+
 

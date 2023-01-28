@@ -10,6 +10,10 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2014/11/17/e-mail-subject-lines-are-a-stupid-waste-of-your-time/
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

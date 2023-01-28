@@ -127,6 +127,9 @@ excerpt: >
   refreshing way to start the day. I had initially planned on exercising, but
   \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/thailand-journal.md
 _template: standard
 ---
+
 

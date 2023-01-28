@@ -9,6 +9,9 @@ body:
       was used by a number of repressive regimes during the Arab Spring. Let
       that sink in.
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: status
 ---
+
 

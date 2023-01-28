@@ -63,6 +63,16 @@ excerpt: >
   and Microsoft failed to keep up to the trends after he stepped down, and a
   number of articles I read pointed the finger at an evaluation practice \[…]
 featuredMedia: content/media/origin_6260028072-1.md
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/merit-pay.md
+  - reference: content/tags/microsoft.md
+  - reference: content/tags/stack-ranking.md
+  - reference: content/tags/steve-ballmer.md
+  - reference: content/tags/teacher-evaluations.md
 _template: standard
 ---
+
 

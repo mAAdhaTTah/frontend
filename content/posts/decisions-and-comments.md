@@ -27,6 +27,9 @@ body:
     _template: richText
 link:
   url: 'http://ellyprizemanupdate.blogspot.co.uk/2014/11/decisions-and-comments.html'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

@@ -12,6 +12,9 @@ body:
     _template: richText
 link:
   url: 'https://thedaywefightback.org/'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

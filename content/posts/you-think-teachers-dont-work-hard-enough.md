@@ -9,6 +9,13 @@ body:
       [Teachers Don't Work Hard Enough? Think Again! via Busy
       Teacher](http://busyteacher.org/16320-teachers-dont-work-hard-enough-infographic.html)
     _template: richText
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/education.md
+  - reference: content/tags/pay.md
+  - reference: content/tags/teachers.md
 _template: image
 ---
+
 

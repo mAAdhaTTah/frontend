@@ -36,6 +36,15 @@ excerpt: >
   disaster looms, or are they terrified because they suspect that things will be
   OK? My guess is, both: clear thinking \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+  - reference: content/categories/politics.md
+tags:
+  - reference: content/tags/defunding.md
+  - reference: content/tags/obamacare.md
+  - reference: content/tags/paul-krugman.md
+  - reference: content/tags/republicans.md
 _template: standard
 ---
+
 

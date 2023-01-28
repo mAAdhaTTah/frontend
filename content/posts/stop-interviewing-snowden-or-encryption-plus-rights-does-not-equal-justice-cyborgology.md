@@ -14,6 +14,9 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2014/10/30/stop-interviewing-snowden-or-encryption-plus-rights-does-not-equal-justice/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

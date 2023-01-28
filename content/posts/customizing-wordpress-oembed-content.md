@@ -11,6 +11,9 @@ body:
     _template: richText
 link:
   url: 'https://www.sitepoint.com/customizing-wordpress-oembed-content/'
+categories:
+  - reference: content/categories/web-development.md
 _template: link
 ---
+
 

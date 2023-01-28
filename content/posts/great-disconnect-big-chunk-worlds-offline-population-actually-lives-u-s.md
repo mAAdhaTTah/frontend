@@ -13,6 +13,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2014/10/01/the-great-disconnect-a-big-chunk-of-the-worlds-offline-population-actually-lives-in-the-u-s/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

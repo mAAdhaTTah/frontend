@@ -6,6 +6,9 @@ body:
   - content: |
       OH: "NOOOOO DON'T CLOSE DON'T STOP PLEEEEEEEEEEEEEEEEASE... phew."
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

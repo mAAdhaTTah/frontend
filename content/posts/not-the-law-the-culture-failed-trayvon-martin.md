@@ -36,6 +36,14 @@ excerpt: >
   enough reasonable doubt in the jury’s minds than it was for the prosecution to
   do \[…]
 featuredMedia: content/media/252618-trayvon-martin.md
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/george-zimmerman.md
+  - reference: content/tags/jamelle-bouie.md
+  - reference: content/tags/ta-nehisi-coates.md
+  - reference: content/tags/trayvon-martin.md
 _template: standard
 ---
+
 

@@ -9,6 +9,9 @@ body:
 link:
   url: >-
     http://www.reddit.com/r/funny/comments/1wknpy/doesnt_her_knee_look_like_kanye/cf2vgeo
+categories:
+  - reference: content/categories/random-amusement.md
 _template: link
 ---
+
 

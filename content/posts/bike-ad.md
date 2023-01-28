@@ -9,6 +9,9 @@ body:
       I took a class on Photoshop yesterday. I had to make an advertisement for
       a bicycle shop. This is the result.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: image
 ---
+
 

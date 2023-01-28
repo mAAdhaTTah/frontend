@@ -14,6 +14,15 @@ excerpt: >
   the store (well, not entirely true – I went to pick up a birthday gift for my
   girlfriend). Given the recent #IBTTalks discussion I \[…]
 featuredMedia: content/media/lenovo-convertibles.md
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/desktop.md
+  - reference: content/tags/laptop.md
+  - reference: content/tags/tablet.md
+  - reference: content/tags/touchscreen.md
+  - reference: content/tags/windows-8.md
 _template: standard
 ---
+
 

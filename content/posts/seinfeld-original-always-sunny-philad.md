@@ -6,6 +6,9 @@ body:
   - content: |
       Seinfeld: the original It's Always Sunny in Philadelphia. Discuss.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

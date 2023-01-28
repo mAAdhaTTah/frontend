@@ -38,6 +38,9 @@ excerpt: >
   of this release is the ability to include multiple Files in each Gistpen,
   similar to Gist. WP-Gistpen isn’t exactly like \[…]
 featuredMedia: content/media/code-snippets.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

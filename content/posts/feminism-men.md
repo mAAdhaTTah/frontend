@@ -8,6 +8,9 @@ body:
     _template: richText
 link:
   url: 'http://thebaffler.com/past/feminism_for_men'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

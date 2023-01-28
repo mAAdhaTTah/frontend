@@ -429,6 +429,9 @@ excerpt: >
   discussion, the proposal evolved into two competing syntaxes, F# & Smart-Mix,
   exploring different ways of \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

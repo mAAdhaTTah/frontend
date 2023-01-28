@@ -335,6 +335,9 @@ excerpt: >
   interaction (JavaScript component declaration), & style (CSS files). Using
   Handlebars \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

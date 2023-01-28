@@ -8,6 +8,9 @@ body:
   - content: |
       I mean, right?
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: image
 ---
+
 

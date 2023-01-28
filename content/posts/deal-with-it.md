@@ -7,6 +7,13 @@ featuredMedia: content/media/l3wkyem.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+tags:
+  - reference: content/tags/cat.md
+  - reference: content/tags/deal-with-it.md
+  - reference: content/tags/gif.md
 _template: image
 ---
+
 

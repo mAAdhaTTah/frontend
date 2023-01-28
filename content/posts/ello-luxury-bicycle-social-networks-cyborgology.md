@@ -16,6 +16,9 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2014/09/29/ello-the-luxury-bicycle-of-social-networks/
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

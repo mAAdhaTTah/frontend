@@ -10,6 +10,9 @@ body:
 link:
   url: >-
     http://theconcourse.deadspin.com/no-seriously-dissolve-the-united-states-1736629448
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

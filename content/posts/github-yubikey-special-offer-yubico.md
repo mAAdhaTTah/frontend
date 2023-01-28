@@ -10,6 +10,9 @@ body:
     _template: richText
 link:
   url: 'https://www.yubico.com/github-special-offer/github-yubikey-special-offer/'
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

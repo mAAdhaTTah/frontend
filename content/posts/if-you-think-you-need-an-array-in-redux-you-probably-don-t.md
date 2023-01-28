@@ -134,6 +134,9 @@ excerpt: >
   every time I’ve used an array, I’ve regretted it. Let’s take a look at some of
   the problems it causes, how using an object is superior, \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/uncategorized.md
 _template: standard
 ---
+
 

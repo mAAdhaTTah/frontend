@@ -17,6 +17,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/blogs/wonkblog/wp/2015/04/28/what-you-really-need-to-know-about-baltimore-from-a-reporter-who-lived-there-for-30-years/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

@@ -13,6 +13,9 @@ body:
     _template: richText
 excerpt: ''
 featuredMedia: null
+categories:
+  - reference: content/categories/social-media.md
 _template: standard
 ---
+
 

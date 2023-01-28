@@ -110,6 +110,10 @@ excerpt: >
   of Diaspora\* as something that “came and went”; much of the story had passed
   when I heard about it, but while the project started in 2010, the story \[…]
 featuredMedia: content/media/diaspora-art-logo.md
+categories:
+  - reference: content/categories/social-media.md
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

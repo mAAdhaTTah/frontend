@@ -17,6 +17,9 @@ body:
 link:
   url: >-
     http://sarahjeong.net/2014/04/22/supreme-court-justices-are-not-good-with-computers/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

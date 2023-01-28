@@ -77,6 +77,14 @@ excerpt: >
   the piece]: “This may be five to ten years away,” Weiner says. “But there
   could be data \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/social-media.md
+tags:
+  - reference: content/tags/big-data.md
+  - reference: content/tags/facebook.md
+  - reference: content/tags/linkedin.md
+  - reference: content/tags/twitter.md
 _template: standard
 ---
+
 

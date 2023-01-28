@@ -11,6 +11,10 @@ body:
 link:
   url: >-
     http://www.theatlantic.com/business/archive/2015/02/the-unbearable-lightness-of-tweeting/385484/
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

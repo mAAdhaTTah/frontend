@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://arstechnica.com/tech-policy/2015/05/white-house-sides-with-oracle-tells-supreme-court-apis-are-copyrightable/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

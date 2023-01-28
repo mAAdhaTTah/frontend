@@ -12,6 +12,16 @@ excerpt: >
   AP is actually making some positives changes to its social media guidelines,
   but it still not quite there yet.
 featuredMedia: content/media/aplogo.md
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-media.md
+tags:
+  - reference: content/tags/ap.md
+  - reference: content/tags/associated-press.md
+  - reference: content/tags/guidelines.md
+  - reference: content/tags/social-media.md
+  - reference: content/tags/update.md
 _template: standard
 ---
+
 

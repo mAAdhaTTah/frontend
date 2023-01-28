@@ -6,6 +6,9 @@ body:
   - content: |
       Do online banner/display ads work better on people new to the Internet?
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: status
 ---
+
 

@@ -7,6 +7,9 @@ body:
       I finally found a desktop mail client I actually like: hello
       [Postbox](http://www.postbox-inc.com/)!
     _template: richText
+categories:
+  - reference: content/categories/technology.md
 _template: status
 ---
+
 

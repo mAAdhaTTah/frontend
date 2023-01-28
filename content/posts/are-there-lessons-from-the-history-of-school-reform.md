@@ -9,6 +9,13 @@ body:
 link:
   url: >-
     http://larrycuban.wordpress.com/2013/05/03/are-there-lessons-from-the-history-of-school-reform/
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/edreform.md
+  - reference: content/tags/historical-perspective.md
+  - reference: content/tags/larry-cuban.md
 _template: link
 ---
+
 

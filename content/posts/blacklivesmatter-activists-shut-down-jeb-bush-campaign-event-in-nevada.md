@@ -16,6 +16,10 @@ body:
 link:
   url: >-
     http://www.rawstory.com/2015/08/blacklivesmatter-activists-shut-down-jeb-bush-campaign-event-in-nevada/
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

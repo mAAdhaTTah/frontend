@@ -117,6 +117,9 @@ excerpt: >
   one (previously) being revision saving.1 Unfortunately, as I started work on
   importing from Gist, I realized the current \[…]
 featuredMedia: content/media/code-snippets.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

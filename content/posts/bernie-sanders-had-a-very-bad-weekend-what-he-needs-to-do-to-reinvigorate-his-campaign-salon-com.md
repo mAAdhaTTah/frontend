@@ -14,6 +14,10 @@ body:
 link:
   url: >-
     http://www.salon.com/2015/07/21/bernie_sanders_had_a_very_bad_weekend_what_he_needs_to_do_to_reinvigorate_his_campaign/
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

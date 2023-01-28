@@ -10,6 +10,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/morning-mix/wp/2015/01/09/boko-haram-may-have-killed-2000-people-in-one-attack/
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

@@ -141,6 +141,9 @@ excerpt: >
   set of items that were both nested and could be disabled at any level. So you
   could have a 3 widgets, all of a \[…]
 featuredMedia: content/media/recursion.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

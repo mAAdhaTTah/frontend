@@ -11,6 +11,10 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2014/11/07/up-vote-all-you-want-but-the-internet-isnt-a-democracy/
+categories:
+  - reference: content/categories/social-media.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

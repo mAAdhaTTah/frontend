@@ -34,6 +34,14 @@ body:
     _template: richText
 link:
   url: 'http://thelistserve.com/'
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+tags:
+  - reference: content/tags/capitalism.md
+  - reference: content/tags/definition.md
+  - reference: content/tags/free-market.md
+  - reference: content/tags/the-listserve.md
 _template: link
 ---
+
 

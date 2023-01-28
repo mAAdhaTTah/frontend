@@ -30,6 +30,14 @@ body:
     _template: richText
 link:
   url: 'https://www.edsurge.com/n/2013-07-24-udacity-s-lessons-learned'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/mooc.md
+  - reference: content/tags/sabastian-thrun.md
+  - reference: content/tags/udacity.md
+  - reference: content/tags/xmoocs.md
 _template: link
 ---
+
 

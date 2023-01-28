@@ -9,6 +9,9 @@ body:
 link:
   url: >-
     http://www.theatlantic.com/technology/archive/2014/01/a-brief-history-of-what-time-is-the-superbowl/283497/
+categories:
+  - reference: content/categories/journalism-news-media.md
 _template: link
 ---
+
 

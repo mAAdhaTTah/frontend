@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://andrewhfarmer.com/starter-project/'
+categories:
+  - reference: content/categories/web-development.md
 _template: link
 ---
+
 

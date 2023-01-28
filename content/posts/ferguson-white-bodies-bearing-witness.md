@@ -11,6 +11,12 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2014/11/28/ferguson-white-bodies-bearing-witness/
+categories:
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: link
 ---
+
 

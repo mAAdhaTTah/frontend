@@ -14,6 +14,9 @@ body:
 link:
   url: >-
     http://readwrite.com/2014/03/17/github-detox-community-julie-horvath-wanstrath-sexism-racism#awesm=~ozxeStW2gLeAfb
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

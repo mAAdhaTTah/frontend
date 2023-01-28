@@ -90,6 +90,13 @@ excerpt: >
   unless you were using some of the types Redux is no longer exporting. There
   are also some \[…]
 featuredMedia: content/media/react-fiber.md
+categories:
+  - reference: content/categories/web-development.md
+tags:
+  - reference: content/tags/fiber.md
+  - reference: content/tags/javascript.md
+  - reference: content/tags/react.md
 _template: standard
 ---
+
 

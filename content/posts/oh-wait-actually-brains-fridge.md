@@ -7,6 +7,9 @@ body:
       OH: "Wait, there are actually brains in the fridge?" "Yup" -- I love my
       job
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

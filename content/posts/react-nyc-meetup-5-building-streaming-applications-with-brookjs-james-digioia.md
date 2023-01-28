@@ -13,6 +13,9 @@ body:
       framework I've been building. Lucky for me, someone recorded it! Check it
       out below, let me know what you think!
     _template: richText
+categories:
+  - reference: content/categories/web-development.md
 _template: video
 ---
+
 

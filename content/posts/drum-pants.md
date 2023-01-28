@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://www.drumpants.com/'
+categories:
+  - reference: content/categories/random-amusement.md
 _template: link
 ---
+
 

@@ -6,6 +6,9 @@ body:
   - content: |
       I really love that "welp" is a word.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

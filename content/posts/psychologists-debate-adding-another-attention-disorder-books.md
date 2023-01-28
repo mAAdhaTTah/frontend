@@ -9,6 +9,9 @@ body:
 link:
   url: >-
     http://www.theverge.com/2014/4/13/5608716/sluggish-cognitive-tempo-attention-disorder-under-debate
+categories:
+  - reference: content/categories/education.md
 _template: link
 ---
+
 

@@ -10,6 +10,9 @@ body:
 link:
   url: >-
     http://thesocietypages.org/cyborgology/2015/11/30/emboldened-the-year-of-white-supremacy/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

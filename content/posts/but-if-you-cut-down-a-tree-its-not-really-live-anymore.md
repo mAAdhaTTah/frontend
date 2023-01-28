@@ -7,6 +7,10 @@ featuredMedia: content/media/not-really-live.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/photographs.md
+  - reference: content/categories/random-amusement.md
 _template: image
 ---
+
 

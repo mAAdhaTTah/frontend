@@ -16,6 +16,9 @@ body:
 link:
   url: >-
     http://www.salon.com/2015/01/14/hollywoods_political_deafness_what_cosby_selma_hebdo_reveal_about_white_liberal_consciousness/
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

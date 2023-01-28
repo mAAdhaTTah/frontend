@@ -176,7 +176,43 @@ const embedTemplate = {
 /**
  * @type Field
  */
-export const contentField = {
+const categoriesField = {
+  type: 'object',
+  name: 'categories',
+  label: 'Categories',
+  list: true,
+  fields: [
+    {
+      type: 'reference',
+      name: 'reference',
+      label: 'Reference',
+      collections: ['category'],
+    },
+  ],
+};
+
+/**
+ * @type Field
+ */
+const tagsField = {
+  type: 'object',
+  name: 'tags',
+  label: 'Tags',
+  list: true,
+  fields: [
+    {
+      type: 'reference',
+      name: 'reference',
+      label: 'Reference',
+      collections: ['tag'],
+    },
+  ],
+};
+
+/**
+ * @type Field
+ */
+const contentField = {
   type: 'rich-text',
   name: 'content',
   label: 'Content',
@@ -292,6 +328,8 @@ const standardTemplate = {
     bodyField,
     excerptField,
     featuredMediaField,
+    categoriesField,
+    tagsField,
   ],
 };
 
@@ -301,7 +339,14 @@ const standardTemplate = {
 const statusTemplate = {
   name: 'status',
   label: 'Status Format',
-  fields: [publishedAtField, updatedAtField, statusField, bodyField],
+  fields: [
+    publishedAtField,
+    updatedAtField,
+    statusField,
+    bodyField,
+    categoriesField,
+    tagsField,
+  ],
 };
 
 /**
@@ -328,6 +373,8 @@ const audioTemplate = {
       ],
     },
     bodyField,
+    categoriesField,
+    tagsField,
   ],
 };
 
@@ -355,6 +402,8 @@ const linkTemplate = {
         },
       ],
     },
+    categoriesField,
+    tagsField,
   ],
 };
 
@@ -371,6 +420,8 @@ const quoteTemplate = {
     statusField,
     bodyField,
     sourceField,
+    categoriesField,
+    tagsField,
   ],
 };
 
@@ -398,6 +449,8 @@ const videoTemplate = {
       ],
     },
     bodyField,
+    categoriesField,
+    tagsField,
   ],
 };
 
@@ -414,6 +467,8 @@ const imageTemplate = {
     statusField,
     featuredMediaField,
     bodyField,
+    categoriesField,
+    tagsField,
   ],
 };
 
@@ -443,6 +498,8 @@ const galleryTemplate = {
         },
       ],
     },
+    categoriesField,
+    tagsField,
   ],
 };
 
@@ -452,7 +509,14 @@ const galleryTemplate = {
 const asideTemplate = {
   name: 'aside',
   label: 'Aside Format',
-  fields: [publishedAtField, updatedAtField, statusField, bodyField],
+  fields: [
+    publishedAtField,
+    updatedAtField,
+    statusField,
+    bodyField,
+    categoriesField,
+    tagsField,
+  ],
 };
 
 /**

@@ -9,6 +9,12 @@ body:
       [Cappuccino Cat, via
       Buzzfeed](https://twitter.com/buzzfeedpartner/status/339459301594759168/photo/1)
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+tags:
+  - reference: content/tags/adorable.md
+  - reference: content/tags/cappuccino-cat.md
 _template: image
 ---
+
 

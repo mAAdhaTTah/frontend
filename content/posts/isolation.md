@@ -9,6 +9,10 @@ body:
     _template: richText
 link:
   url: 'http://xkcd.com/1601/'
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

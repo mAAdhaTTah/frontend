@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://hardboiledpoker.blogspot.com/2014/08/here-comes-flood-newsweek-on-online.html
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

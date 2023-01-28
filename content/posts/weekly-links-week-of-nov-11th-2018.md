@@ -96,6 +96,9 @@ excerpt: >
   backstopping going so we can continue to ship with confidence. While I’m
   looking at eventually integrating \[…]
 featuredMedia: content/media/links.md
+categories:
+  - reference: content/categories/weekly-links.md
 _template: standard
 ---
+
 

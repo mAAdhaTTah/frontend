@@ -13,6 +13,9 @@ body:
     _template: richText
 link:
   url: 'https://medium.com/matter/admit-it-your-fave-is-problematic-2dfa692f557b'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

@@ -9,6 +9,9 @@ body:
       galaxies, in one of (maybe) millions of universes, I just don't care about
       jeans.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

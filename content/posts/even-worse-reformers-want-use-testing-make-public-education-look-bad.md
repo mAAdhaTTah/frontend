@@ -53,6 +53,13 @@ excerpt: >
   driven almost exclusively by them are wonderful ways to hold public schools
   accountable, up to and including shutting down public \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/education-reform.md
+  - reference: content/tags/jay-p-greene.md
+  - reference: content/tags/standardized-testing-2.md
 _template: standard
 ---
+
 

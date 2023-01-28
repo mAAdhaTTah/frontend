@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://www.theatlantic.com/technology/archive/2015/11/the-food-delivery-start-up-you-havent-heard-of/414540/
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

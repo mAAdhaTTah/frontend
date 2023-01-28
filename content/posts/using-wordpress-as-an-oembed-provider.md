@@ -11,6 +11,9 @@ body:
 images:
   - reference: content/media/oembed-proof-of-concept-in-tinymce.md
   - reference: content/media/oembed-support-proof-of-concept.md
+categories:
+  - reference: content/categories/technology.md
 _template: gallery
 ---
+
 

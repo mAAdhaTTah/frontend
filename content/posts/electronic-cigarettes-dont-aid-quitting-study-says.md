@@ -14,6 +14,9 @@ body:
 link:
   url: >-
     http://www.nature.com/news/electronic-cigarettes-don-t-aid-quitting-study-says-1.14918
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

@@ -34,6 +34,9 @@ excerpt: >
   they were at least nice enough to disclose this in the article. “Winning” is
   basically summed \[…]
 featuredMedia: content/media/1-5_million_sweeps.md
+categories:
+  - reference: content/categories/social-media.md
 _template: standard
 ---
+
 

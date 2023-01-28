@@ -9,6 +9,13 @@ body:
 link:
   url: >-
     http://www.nytimes.com/2013/09/03/science/chinese-educators-look-to-american-classrooms.html?_r=0
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/america.md
+  - reference: content/tags/china.md
+  - reference: content/tags/standardized-testing-2.md
 _template: link
 ---
+
 

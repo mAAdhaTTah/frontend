@@ -9,6 +9,9 @@ body:
       self-defeating. Effectively, people are arguing that sexism doesn't
       exist... by being sexist.
     _template: richText
+categories:
+  - reference: content/categories/social-justice.md
 _template: status
 ---
+
 

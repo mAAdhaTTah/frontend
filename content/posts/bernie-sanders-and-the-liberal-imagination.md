@@ -16,6 +16,10 @@ body:
 link:
   url: >-
     http://www.theatlantic.com/politics/archive/2016/01/bernie-sanders-liberal-imagination/425022/
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

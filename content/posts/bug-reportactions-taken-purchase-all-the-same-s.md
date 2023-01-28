@@ -16,6 +16,9 @@ body:
       Actual Outcome: A drawer full of socks that all look similar but vary in
       small and infuriating ways.
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: status
 ---
+
 

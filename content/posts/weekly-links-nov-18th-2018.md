@@ -89,6 +89,10 @@ excerpt: >
   to see more articles pop up about it. This article from CSS-Tricks explores
   whether \[…]
 featuredMedia: content/media/links.md
+categories:
+  - reference: content/categories/web-development.md
+  - reference: content/categories/weekly-links.md
 _template: standard
 ---
+
 

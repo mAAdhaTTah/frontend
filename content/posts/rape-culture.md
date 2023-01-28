@@ -9,6 +9,9 @@ body:
     _template: richText
 link:
   url: 'http://www.buzzfeed.com/ryanhatesthis/what-is-rape-culture'
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

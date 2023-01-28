@@ -7,6 +7,9 @@ featuredMedia: content/media/livefyre_admin_console.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
 _template: image
 ---
+
 

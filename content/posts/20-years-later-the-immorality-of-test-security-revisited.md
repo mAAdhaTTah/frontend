@@ -21,6 +21,14 @@ body:
 link:
   url: >-
     http://grantwiggins.wordpress.com/2013/05/04/20-years-later-the-immorality-of-test-security-revisited/
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/audit.md
+  - reference: content/tags/grant-wiggins.md
+  - reference: content/tags/security.md
+  - reference: content/tags/testing.md
 _template: link
 ---
+
 

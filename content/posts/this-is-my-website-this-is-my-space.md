@@ -106,6 +106,10 @@ excerpt: >
   interoperability. This bundled functionality will eventually be replaced by
   SocialDen, an \[…]
 featuredMedia: content/media/french-formal-garden-in-loire-valley.md
+categories:
+  - reference: content/categories/social-media.md
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

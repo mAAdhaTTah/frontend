@@ -15,6 +15,12 @@ body:
     _template: richText
 link:
   url: 'http://fredrikdeboer.com/2015/01/07/on-debating-dead-moral-questions/'
+categories:
+  - reference: content/categories/politics.md
+tags:
+  - reference: content/tags/ifttt.md
+  - reference: content/tags/pocket.md
 _template: link
 ---
+
 

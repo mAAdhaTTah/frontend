@@ -64,6 +64,9 @@ excerpt: >
   nor the biggest problem with Facebook at this point. I’m personally much more
   \[…]
 featuredMedia: content/media/mw-cu887_ello_0_20140924180451_mg.md
+categories:
+  - reference: content/categories/social-media.md
 _template: standard
 ---
+
 

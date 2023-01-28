@@ -21,6 +21,16 @@ body:
     _template: richText
 link:
   url: 'http://www.ibtimes.com/house-passes-ban-abortion-after-20-weeks-1313137'
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/abortion.md
+  - reference: content/tags/ban.md
+  - reference: content/tags/congress.md
+  - reference: content/tags/house.md
+  - reference: content/tags/republicans.md
 _template: link
 ---
+
 

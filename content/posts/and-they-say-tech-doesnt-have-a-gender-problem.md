@@ -9,6 +9,13 @@ body:
   - content: |
       And they say tech doesn't have a gender problem...
     _template: richText
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/gender-problem.md
+  - reference: content/tags/silicon-valley.md
 _template: video
 ---
+
 

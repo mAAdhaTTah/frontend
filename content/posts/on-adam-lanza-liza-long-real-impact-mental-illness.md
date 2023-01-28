@@ -15,6 +15,16 @@ excerpt: >
   reflection. When something like this happens, the issue everyone jumps on is
   gun control. \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/adam-lanza.md
+  - reference: content/tags/add.md
+  - reference: content/tags/gun-control.md
+  - reference: content/tags/lisa-long.md
+  - reference: content/tags/mental-health.md
+  - reference: content/tags/sandy-hook.md
 _template: standard
 ---
+
 

@@ -13,6 +13,9 @@ images:
   - reference: content/media/dsc_0627.md
   - reference: content/media/dsc_0344.md
   - reference: content/media/dsc_0025.md
+categories:
+  - reference: content/categories/personal.md
 _template: gallery
 ---
+
 

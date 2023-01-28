@@ -30,6 +30,14 @@ body:
 link:
   url: >-
     http://www.forbes.com/sites/timworstall/2013/07/27/what-moocs-will-really-kill-is-the-research-university/
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/higher-education.md
+  - reference: content/tags/moocs.md
+  - reference: content/tags/research.md
 _template: link
 ---
+
 

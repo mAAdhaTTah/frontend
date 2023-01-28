@@ -9,6 +9,10 @@ body:
   - content: >
       [Source](http://www.newegg.com/Product/Product.aspx?Item=N82E16820233649\&Tpk=20-233-649\&nm_mc=EMC-GD092414\&cm_mmc=EMC-GD092414-_-index-_-Item-_-20-233-649)
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+  - reference: content/categories/technology.md
 _template: image
 ---
+
 

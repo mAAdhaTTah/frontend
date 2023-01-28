@@ -94,6 +94,9 @@ excerpt: >
   clone, I want it to be as easy as possible to migrate from Gist -> Gistpen,
   and I’m \[…]
 featuredMedia: content/media/internet-on-a-bike-statue.md
+categories:
+  - reference: content/categories/technology.md
 _template: standard
 ---
+
 

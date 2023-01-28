@@ -14,6 +14,16 @@ excerpt: >
   And he is stunned (STUNNED!) at one of the responses: “The odds that young
   women in poverty will find ways out of poverty are not great (above all \[…]
 featuredMedia: content/media/exam.md
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/social-justice.md
+tags:
+  - reference: content/tags/education.md
+  - reference: content/tags/fordham-institute.md
+  - reference: content/tags/mike-petrilli.md
+  - reference: content/tags/poverty.md
+  - reference: content/tags/public-education.md
 _template: standard
 ---
+
 

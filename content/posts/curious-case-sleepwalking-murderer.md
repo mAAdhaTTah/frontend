@@ -12,6 +12,9 @@ body:
     _template: richText
 link:
   url: 'http://worldsciencefestival.com/videos/the_curious_case_of_kenneth_parks'
+categories:
+  - reference: content/categories/random-amusement.md
 _template: link
 ---
+
 

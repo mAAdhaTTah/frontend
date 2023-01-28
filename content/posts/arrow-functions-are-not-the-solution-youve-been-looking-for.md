@@ -58,6 +58,16 @@ excerpt: >
   channel, and I’ve seen a variation of this problem a number of times already:
   Note the \<- Fails here. Can you spot why? \[…]
 featuredMedia: content/media/airport-20543_960_720.md
+categories:
+  - reference: content/categories/web-development.md
+tags:
+  - reference: content/tags/arrow-functions.md
+  - reference: content/tags/es2015.md
+  - reference: content/tags/es6.md
+  - reference: content/tags/functional-programming.md
+  - reference: content/tags/javascript.md
+  - reference: content/tags/object-oriented-programming.md
 _template: standard
 ---
+
 

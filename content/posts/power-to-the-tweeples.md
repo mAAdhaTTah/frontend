@@ -13,6 +13,17 @@ excerpt: >
   as to whether or not Twitter is a media company. But the debate is more
   interesting than that.
 featuredMedia: content/media/twitter-2.md
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-media.md
+tags:
+  - reference: content/tags/fighting-words.md
+  - reference: content/tags/media-company.md
+  - reference: content/tags/power.md
+  - reference: content/tags/social-media.md
+  - reference: content/tags/tweeple.md
+  - reference: content/tags/twitter.md
 _template: standard
 ---
+
 

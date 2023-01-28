@@ -9,6 +9,12 @@ body:
       [Brutal, via
       @Igorbobic](https://twitter.com/igorbobic/status/358334981052964864/photo/1)
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+tags:
+  - reference: content/tags/heatwave.md
+  - reference: content/tags/weather-channel.md
 _template: image
 ---
+
 

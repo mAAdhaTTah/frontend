@@ -7,6 +7,9 @@ featuredMedia: content/media/you-know-youre-fancy.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/photographs.md
 _template: image
 ---
+
 

@@ -9,6 +9,18 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/blogs/the-fix/wp/2013/08/16/a-turning-point-in-the-political-debate-over-surveillance/
+categories:
+  - reference: content/categories/politics.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/nsa.md
+  - reference: content/tags/nsa-surveillance.md
+  - reference: content/tags/policy.md
+  - reference: content/tags/privacy.md
+  - reference: content/tags/spying.md
+  - reference: content/tags/surveillance.md
+  - reference: content/tags/washington-post.md
 _template: link
 ---
+
 

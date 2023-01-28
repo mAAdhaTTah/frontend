@@ -12,6 +12,13 @@ excerpt: >
   I like Evgeny Morozov almost as much as I like critiques of him, but I’m
   having some difficulty parsing this.
 featuredMedia: content/media/evgeny-morozov-top-post.md
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/clay-shirky.md
+  - reference: content/tags/evgeny-morozov.md
+  - reference: content/tags/the-awl.md
 _template: standard
 ---
+
 

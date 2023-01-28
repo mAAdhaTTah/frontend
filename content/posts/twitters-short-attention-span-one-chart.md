@@ -9,6 +9,13 @@ body:
       via [The
       Switch](http://www.washingtonpost.com/blogs/the-switch/wp/2013/08/28/twitters-short-attention-span-in-one-chart/).
     _template: richText
+categories:
+  - reference: content/categories/social-media.md
+tags:
+  - reference: content/tags/issue-of-the-day.md
+  - reference: content/tags/short-attention-span.md
+  - reference: content/tags/twitter.md
 _template: image
 ---
+
 

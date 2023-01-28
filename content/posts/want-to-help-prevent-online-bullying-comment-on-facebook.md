@@ -13,6 +13,10 @@ body:
 link:
   url: >-
     http://ideas.ted.com/want-to-help-prevent-online-bullying-comment-on-facebook/
+categories:
+  - reference: content/categories/social-justice.md
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

@@ -158,6 +158,9 @@ excerpt: >
   what “feels right” is going to cause problems down the road. As I’ve worked
   with ESModules, I’ve started to develop an effective \[…]
 featuredMedia: null
+categories:
+  - reference: content/categories/uncategorized.md
 _template: standard
 ---
+
 

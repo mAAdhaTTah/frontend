@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://www.independent.co.uk/life-style/gadgets-and-tech/snapchat-is-going-to-start-sending-headlines-tv-clips-and-advertisements-to-your-phone-9680135.html
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

@@ -20,6 +20,15 @@ body:
 link:
   url: >-
     http://www.universityventuresfund.com/publications.php?title=bad-judgment-magazine
+categories:
+  - reference: content/categories/education.md
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/cost.md
+  - reference: content/tags/higher-education.md
+  - reference: content/tags/instruction.md
+  - reference: content/tags/moocs.md
 _template: link
 ---
+
 

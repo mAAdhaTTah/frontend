@@ -10,6 +10,9 @@ body:
 link:
   url: >-
     http://www.washingtonpost.com/news/the-intersect/wp/2014/08/18/what-facebook-doesnt-show-you/
+categories:
+  - reference: content/categories/social-media.md
 _template: link
 ---
+
 

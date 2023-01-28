@@ -23,6 +23,15 @@ body:
 link:
   url: >-
     http://www.theatlantic.com/technology/archive/2013/06/dear-silicon-valley-meritocracy-is-an-ideology-too/276756/
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/ideology.md
+  - reference: content/tags/meritocracy.md
+  - reference: content/tags/progressivism.md
+  - reference: content/tags/silicon-valley.md
+  - reference: content/tags/the-atlantic.md
 _template: link
 ---
+
 

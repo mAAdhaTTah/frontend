@@ -14,6 +14,15 @@ excerpt: >
   the Common Core continues its slow march into our classrooms, we got to see
   its first effects in the test scores of New York State, and according to \[…]
 featuredMedia: content/media/exam.md
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/assumptions-and-biases.md
+  - reference: content/tags/common-core.md
+  - reference: content/tags/education.md
+  - reference: content/tags/new-york-state.md
+  - reference: content/tags/test-scores.md
 _template: standard
 ---
+
 

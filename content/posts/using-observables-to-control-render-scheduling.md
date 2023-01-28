@@ -106,6 +106,9 @@ excerpt: >
   async events such a breeze. While working on the code snippet editor in
   WP-Gistpen, I came across an example \[…]
 featuredMedia: content/media/observable-universe-wikimedia.md
+categories:
+  - reference: content/categories/web-development.md
 _template: standard
 ---
+
 

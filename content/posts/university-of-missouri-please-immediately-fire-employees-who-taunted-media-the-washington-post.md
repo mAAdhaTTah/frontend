@@ -13,6 +13,10 @@ body:
 link:
   url: >-
     https://www.washingtonpost.com/blogs/erik-wemple/wp/2015/11/10/university-of-missouri-please-immediately-fire-employees-who-taunted-media/
+categories:
+  - reference: content/categories/journalism-news-media.md
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

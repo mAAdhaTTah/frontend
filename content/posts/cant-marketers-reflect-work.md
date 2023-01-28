@@ -64,6 +64,15 @@ excerpt: >
   campaign for a marketer (pictured above). The images calls out our
   tech-addiction, the need to \[…]
 featuredMedia: content/media/1340.md
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/marketers.md
+  - reference: content/tags/marketing.md
+  - reference: content/tags/mobile.md
+  - reference: content/tags/sensei-marketing.md
+  - reference: content/tags/tech-addiction.md
 _template: standard
 ---
+
 

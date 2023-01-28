@@ -10,6 +10,9 @@ body:
     _template: richText
 excerpt: ''
 featuredMedia: null
+categories:
+  - reference: content/categories/uncategorized.md
 _template: standard
 ---
+
 

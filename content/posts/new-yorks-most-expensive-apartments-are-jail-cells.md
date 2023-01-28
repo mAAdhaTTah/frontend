@@ -10,6 +10,9 @@ body:
 link:
   url: >-
     http://www.businessinsider.com/new-yorks-most-expensive-apartments-are-jail-cells-2013-8
+categories:
+  - reference: content/categories/social-justice.md
 _template: link
 ---
+
 

@@ -26,6 +26,14 @@ excerpt: >
   reconsider the question after this tweet from Joel Cifer: Read the rest of
   this blog post at IBTimes Fighting Words.
 featuredMedia: null
+categories:
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/buzzfeed.md
+  - reference: content/tags/journalism.md
+  - reference: content/tags/listicle.md
+  - reference: content/tags/storytelling.md
 _template: standard
 ---
+
 

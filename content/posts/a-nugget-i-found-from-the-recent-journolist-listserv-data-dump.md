@@ -28,6 +28,15 @@ body:
     _template: richText
 link:
   url: 'http://s3.documentcloud.org/documents/716753/journolist.txt'
+categories:
+  - reference: content/categories/journalism-news-media.md
+tags:
+  - reference: content/tags/data-dump.md
+  - reference: content/tags/function-of-government.md
+  - reference: content/tags/gawker.md
+  - reference: content/tags/journolist-listserv.md
+  - reference: content/tags/world-cup.md
 _template: link
 ---
+
 

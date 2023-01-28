@@ -10,6 +10,14 @@ body:
     _template: richText
 link:
   url: 'http://chronicle.com/article/The-Gates-Effect/140323/'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/chronicle-of-higher-education.md
+  - reference: content/tags/gates-foundation.md
+  - reference: content/tags/money.md
+  - reference: content/tags/the-gates-effect.md
 _template: link
 ---
+
 

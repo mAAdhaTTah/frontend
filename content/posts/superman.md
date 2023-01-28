@@ -7,6 +7,12 @@ featuredMedia: content/media/tumblr_mn4k0noxom1r3gb3zo1_400.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/random-amusement.md
+tags:
+  - reference: content/tags/gif.md
+  - reference: content/tags/superman.md
 _template: image
 ---
+
 

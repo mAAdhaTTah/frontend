@@ -17,6 +17,15 @@ body:
     _template: richText
 link:
   url: 'http://blogs.swarthmore.edu/burke/blog/2013/08/23/the-method/'
+categories:
+  - reference: content/categories/economics-and-capitalism.md
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/for-profit-colleges.md
+  - reference: content/tags/free-market.md
+  - reference: content/tags/higher-education.md
+  - reference: content/tags/pell-grants.md
 _template: link
 ---
+
 

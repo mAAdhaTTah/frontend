@@ -11,6 +11,9 @@ body:
 link:
   url: >-
     http://theconcourse.deadspin.com/the-internet-has-a-problem-problem-1656776392
+categories:
+  - reference: content/categories/journalism-news-media.md
 _template: link
 ---
+
 

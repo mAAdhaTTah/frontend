@@ -22,6 +22,16 @@ body:
 link:
   url: >-
     http://www.edge.org/conversation/digital-maoism-the-hazards-of-the-new-online-collectivism
+categories:
+  - reference: content/categories/technology.md
+tags:
+  - reference: content/tags/collectivism.md
+  - reference: content/tags/failure-of-crowds.md
+  - reference: content/tags/hazards.md
+  - reference: content/tags/individualism.md
+  - reference: content/tags/jaron-lanier.md
+  - reference: content/tags/wisdom-of-crowds.md
 _template: link
 ---
+
 

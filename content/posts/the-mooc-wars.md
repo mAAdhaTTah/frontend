@@ -8,6 +8,17 @@ body:
     _template: richText
 link:
   url: 'http://nogoodreason.typepad.co.uk/no_good_reason/2013/05/the-mooc-wars.html'
+categories:
+  - reference: content/categories/education.md
+tags:
+  - reference: content/tags/canadians.md
+  - reference: content/tags/cmoocs.md
+  - reference: content/tags/edtech.md
+  - reference: content/tags/history.md
+  - reference: content/tags/mooc.md
+  - reference: content/tags/wikipedia.md
+  - reference: content/tags/xmoocs.md
 _template: link
 ---
+
 

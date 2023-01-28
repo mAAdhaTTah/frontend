@@ -8,6 +8,9 @@ body:
     _template: richText
 link:
   url: 'http://utotherescue.blogspot.com/2014/09/the-order-of-civility.html'
+categories:
+  - reference: content/categories/politics.md
 _template: link
 ---
+
 

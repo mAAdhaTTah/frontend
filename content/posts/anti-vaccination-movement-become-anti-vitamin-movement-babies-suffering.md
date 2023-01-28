@@ -12,6 +12,9 @@ body:
 link:
   url: >-
     http://www.slate.com/blogs/xx_factor/2014/07/28/vitamin_k_shot_the_anti_vaccination_movement_turns_against_vitamin_shots.html?wpsrc=fol_fb
+categories:
+  - reference: content/categories/technology.md
 _template: link
 ---
+
 

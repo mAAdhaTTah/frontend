@@ -7,6 +7,9 @@ featuredMedia: content/media/this-was-incredible.md
 body:
   - content: ''
     _template: richText
+categories:
+  - reference: content/categories/uncategorized.md
 _template: image
 ---
+
 
