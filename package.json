@@ -69,7 +69,7 @@
     "postcss-for": "^2.1.1",
     "postcss-import": "^14.1.0",
     "postcss-nested": "^5.0.5",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.3",
     "storybook-addon-next": "^1.7.1",
     "typescript": "^4.7.4",
     "vercel": "^28.6.0",
