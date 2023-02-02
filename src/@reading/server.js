@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { subDays, endOfDay, format, parseISO } from 'date-fns';
+import { subDays, endOfDay, format, parseISO, addDays } from 'date-fns';
+import { formatInTimeZone } from 'date-fns-tz';
 import { server } from '@app/config';
 
 export const getReadingProps = async displayDays => {
@@ -13,8 +14,8 @@ export const getReadingProps = async displayDays => {
       `${server.READING_API_HOST}/api/articles`,
       {
         params: {
-          read_at_lte: format(endOfDay(targetDay), 'yyyy-MM-dd'),
-          read_at_gt: format(endOfDay(subDays(targetDay, 1)), 'yyyy-MM-dd'),
+          read_at_lte: format(addDays(endOfDay(targetDay), 1), 'yyyy-MM-dd'),
+          read_at_gt: format(endOfDay(targetDay), 'yyyy-MM-dd'),
         },
       },
     );
@@ -26,7 +27,11 @@ export const getReadingProps = async displayDays => {
           id: `link-${link.id}`,
           title: link.title,
           url: link.url,
-          readAt: format(parseISO(link.read_at), 'hh:mm a'),
+          readAt: formatInTimeZone(
+            parseISO(link.read_at),
+            'America/New_York',
+            'hh:mm a',
+          ),
         })),
       });
     }
