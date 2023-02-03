@@ -57,7 +57,7 @@ body:
       errors down Kefir's error channel:
     _template: richText
   - repo: content/repos/typescript-unknown-with-kefir-ajax.md
-    blob: validate.js
+    blob: validate.ts
     highlight: ''
     offset: 0
     _template: gistpenEmbed

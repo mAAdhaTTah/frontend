@@ -91,3 +91,26 @@ body {
 .toolbar {
   @apply font-muli font-light;
 }
+
+pre.prism-code.line-numbers {
+  position: relative;
+  counter-reset: linenumber;
+}
+
+.token-line {
+  display: block;
+  counter-increment: linenumber;
+  position: relative;
+  padding-left: 3em;
+}
+
+.token-line::before {
+  position: absolute;
+  left: 0.4em;
+  content: counter(linenumber);
+  color: #999;
+  display: block;
+  border-right: 1px solid #999;
+  padding-right: 0.9em;
+  width: 2em;
+}

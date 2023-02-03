@@ -1,14 +1,13 @@
 import { useRouter } from 'next/router';
 import '../index.css';
 import { DefaultSeo } from 'next-seo';
-import { Provider as PrismProvider } from '@ui/components/Prism';
 import { Layout } from '@ui/components';
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
 
   return (
-    <PrismProvider>
+    <>
       <DefaultSeo
         titleTemplate="%s | James DiGioia"
         defaultTitle="James DiGioia"
@@ -20,7 +19,7 @@ const App = ({ Component, pageProps }) => {
       >
         <Component {...pageProps} />
       </Layout>
-    </PrismProvider>
+    </>
   );
 };
 

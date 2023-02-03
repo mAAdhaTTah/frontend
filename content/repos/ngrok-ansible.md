@@ -11,9 +11,9 @@ blobs:
       ngrok:
         subdomain: domain
         token: your_token
-    language: plaintext
+    language: yaml
   - filename: site.yml
     code: '- { role: ngrok, tags: [ngrok], when: "''development'' in group_names"  }'
-    language: plaintext
+    language: yaml
 ---
 
