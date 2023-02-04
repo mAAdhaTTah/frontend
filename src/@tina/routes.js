@@ -1,5 +1,9 @@
 export const HOME_SLUG = '__index__';
 
+/**
+ * @param {string} slug
+ * @returns string[]
+ */
 export const resolveSegments = slug =>
   slug === HOME_SLUG ? [] : slug.split('/');
 
@@ -9,3 +13,6 @@ export const resolveSlug = ({ slug }) =>
 export const FIVE_HUNDRED_SLUG = '__500__';
 export const FOUR_OH_FOUR_SLUG = '__404__';
 export const IGNORED_SLUGS = [FOUR_OH_FOUR_SLUG, FIVE_HUNDRED_SLUG];
+
+export const SINGLE_SLUG = '__single__';
+export const ARCHIVE_SLUG = '__archive__';

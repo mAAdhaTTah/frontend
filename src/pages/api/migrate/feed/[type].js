@@ -10,6 +10,13 @@ import {
   getWritingArchivePaths,
   getWritingByPage,
 } from '@tina/server';
+import {
+  ARCHIVE_SLUG,
+  FIVE_HUNDRED_SLUG,
+  FOUR_OH_FOUR_SLUG,
+  HOME_SLUG,
+  SINGLE_SLUG,
+} from '@tina/routes';
 import { client } from '../../../../../.tina/__generated__/client';
 
 /**
@@ -169,12 +176,12 @@ const pageToSitemapItem = post => {
 
 const pageToSitemapMapper = {
   writing: {
-    async *__single__(page) {
+    async *[SINGLE_SLUG](page) {
       for await (const post of getAllPosts()) {
         yield postToSitemapItem(post);
       }
     },
-    async *__archive__(page) {
+    async *[ARCHIVE_SLUG](page) {
       const paths = await getWritingArchivePaths();
 
       for (const path of paths) {
@@ -191,7 +198,7 @@ const pageToSitemapMapper = {
     },
   },
   gistpens: {
-    async *__single__(page) {
+    async *[SINGLE_SLUG](page) {
       const paths = await getGistpenPaths();
 
       for (const path of paths) {
@@ -206,7 +213,7 @@ const pageToSitemapMapper = {
         yield item;
       }
     },
-    async *__archive__(page) {
+    async *[ARCHIVE_SLUG](page) {
       const paths = await getGistpenArchivePaths();
 
       for (const path of paths) {
@@ -222,7 +229,7 @@ const pageToSitemapMapper = {
       }
     },
   },
-  async *__index__(page) {
+  async *[HOME_SLUG](page) {
     /** @type {SitemapItem} */
     const item = {
       img: [],
@@ -235,10 +242,10 @@ const pageToSitemapMapper = {
   },
   /* these are intentionally empty */
   /* eslint-disable require-yield */
-  async *__500__(page) {
+  async *[FIVE_HUNDRED_SLUG](page) {
     return;
   },
-  async *__404__(page) {
+  async *[FOUR_OH_FOUR_SLUG](page) {
     return;
   },
   /* eslint-enable require-yield */
