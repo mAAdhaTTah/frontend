@@ -5,7 +5,17 @@ module.exports = {
   },
   trailingSlash: true,
   async redirects() {
+    const fs = require('fs/promises');
+    const files = await fs.readdir(`${__dirname}/content/posts`);
     return [
+      ...files.map(file => {
+        const basename = file.replace('.md', '');
+        return {
+          source: `/${basename}/`,
+          destination: `/writing/${basename}/`,
+          permanent: true,
+        };
+      }),
       {
         source: '/gistpens/page/',
         destination: '/gistpens/',

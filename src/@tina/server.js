@@ -4,6 +4,7 @@ import { getReadingProps } from '@reading/server';
 import {
   FIVE_HUNDRED_SLUG,
   FOUR_OH_FOUR_SLUG,
+  HOME_SLUG,
   resolveSegments,
   resolveSlug,
 } from '@tina/routes';
@@ -74,11 +75,14 @@ export const getPagePaths = async () => {
   const postListData = await client.queries.getPageSlugs();
   const paths = postListData.data.pageConnection.edges
     // TODO(James) pull reading into [[...slug]]
-    .filter(
-      edge =>
-        edge.node._sys.filename !== 'reading' &&
-        !edge.node._sys.filename.includes('__'),
-    )
+    .filter(edge => {
+      // Remove reading
+      if (edge.node._sys.filename === 'reading') return false;
+      // Keep home
+      if (edge.node._sys.filename === HOME_SLUG) return true;
+      // Remove all of the dunder pages
+      return !edge.node._sys.filename.includes('__');
+    })
     .map(edge => ({
       params: {
         // TODO(James) this isn't the correct slug; folder is missing
