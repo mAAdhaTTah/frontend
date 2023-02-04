@@ -9,6 +9,8 @@ import {
 } from '@tina/routes';
 import { avatarImage, backgroundImage } from '@ui/components/images';
 import { compareDesc, parseISO } from 'date-fns';
+import { paramCase } from 'param-case';
+import * as Prezis from '@talks/prezis';
 import { client } from '../../.tina/__generated__/client';
 
 const extractEmbeds = async posts => {
@@ -117,6 +119,13 @@ export const getGistpenPaths = async () => {
   return paths;
 };
 
+export const getTalkArchivePaths = async () =>
+  Object.keys(Prezis).map(slug => ({
+    params: {
+      slug: paramCase(slug),
+    },
+  }));
+
 export const getGistpenArchivePaths = async () => {
   const repoListData = await client.queries.getRepoSlugs();
   const props = await getPagePropsBySlug('gistpens/__archive__');
@@ -127,7 +136,7 @@ export const getGistpenArchivePaths = async () => {
   );
 };
 
-const getPagePropsBySlug = async slug => {
+export const getPagePropsBySlug = async slug => {
   const response = await client.queries.getPageProps({
     relativePath: `${slug}.md`,
   });
@@ -155,6 +164,7 @@ export const getPageLayoutProps = page => ({
     backgroundImage: page.header.background || backgroundImage,
     avatarImage: page.header.avatar || avatarImage,
     fullScreen: page.__typename === 'PageFullScreen',
+    noHeader: page.__typename === 'PageTalkSingle',
   },
 });
 

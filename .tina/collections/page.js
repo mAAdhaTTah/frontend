@@ -117,6 +117,39 @@ const gistpenSingleTemplate = {
 /**
  * @type Template
  */
+const talkArchiveTemplate = {
+  name: 'talkArchive',
+  label: 'Talk Archive Template',
+  fields: [
+    titleField,
+    publishedAtField,
+    updatedAtField,
+    menuField,
+    headerField,
+    statusField,
+    perPageField,
+  ],
+};
+
+/**
+ * @type Template
+ */
+const talkSingleTemplate = {
+  name: 'talkSingle',
+  label: 'Talk Single Template',
+  fields: [
+    titleField,
+    publishedAtField,
+    updatedAtField,
+    menuField,
+    headerField,
+    statusField,
+  ],
+};
+
+/**
+ * @type Template
+ */
 const landingTemplate = {
   name: 'landing',
   label: 'Landing Template',
@@ -201,6 +234,8 @@ export const pageCollection = {
     fullScreenTemplate,
     gistpenArchiveTemplate,
     gistpenSingleTemplate,
+    talkArchiveTemplate,
+    talkSingleTemplate,
     landingTemplate,
     readingListTemplate,
     postArchiveTemplate,

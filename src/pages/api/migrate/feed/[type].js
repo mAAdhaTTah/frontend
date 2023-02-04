@@ -7,6 +7,7 @@ import { parseISO } from 'date-fns';
 import {
   getGistpenArchivePaths,
   getGistpenPaths,
+  getTalkArchivePaths,
   getWritingArchivePaths,
   getWritingByPage,
 } from '@tina/server';
@@ -223,6 +224,38 @@ const pageToSitemapMapper = {
           video: [],
           links: [],
           url: `/gistpens/page/${path.params.number}/`,
+        };
+
+        yield item;
+      }
+    },
+  },
+  talks: {
+    async *[SINGLE_SLUG](page) {
+      const paths = await getTalkArchivePaths();
+
+      for (const path of paths) {
+        /** @type {SitemapItem} */
+        const item = {
+          img: [],
+          video: [],
+          links: [],
+          url: `/talks/${path.params.slug}/`,
+        };
+
+        yield item;
+      }
+    },
+    async *[ARCHIVE_SLUG](page) {
+      const paths = [''];
+
+      for (const path of paths) {
+        /** @type {SitemapItem} */
+        const item = {
+          img: [],
+          video: [],
+          links: [],
+          url: `/talks/${path}`,
         };
 
         yield item;

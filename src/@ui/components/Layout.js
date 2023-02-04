@@ -20,10 +20,13 @@ export const Layout = ({ header, children }) => {
 
   return (
     <div className="flex flex-row">
-      <Header {...header} />
+      {!header.noHeader && <Header {...header} />}
       <div className="relative grow">
         {transitions((props, item) => (
-          <animated.div style={props} className={'absolute w-full'}>
+          <animated.div
+            style={props}
+            className={'absolute w-full min-h-screen'}
+          >
             {item}
           </animated.div>
         ))}

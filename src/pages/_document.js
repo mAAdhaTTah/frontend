@@ -13,6 +13,10 @@ const Document = () => {
           rel="stylesheet"
         />
         <link
+          href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+          rel="stylesheet"
+        />
+        <link
           rel="alternate"
           type="application/rss+xml"
           title="Feed (RSS) | James DiGioia"

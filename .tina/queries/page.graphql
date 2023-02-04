@@ -63,6 +63,25 @@ fragment FullPage on Page {
       ...PageMenu
     }
   }
+  ... on PageTalkArchive {
+    title
+    header {
+      ...PageHeader
+    }
+    menu {
+      ...PageMenu
+    }
+    perPage
+  }
+  ... on PageTalkSingle {
+    title
+    header {
+      ...PageHeader
+    }
+    menu {
+      ...PageMenu
+    }
+  }
   ... on PageReadingList {
     title
     header {
