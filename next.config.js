@@ -36,6 +36,17 @@ module.exports = {
         destination: '/writing/',
         permanent: true,
       },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'talks.jamesdigioia.com',
+          },
+        ],
+        destination: 'https://jamesdigioia.com/talks/:path*',
+        permanent: false,
+      },
     ];
   },
   async rewrites() {
@@ -73,5 +84,13 @@ module.exports = {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
+  },
+  transpilePackages: ['react-live'],
+  webpack(config, context) {
+    config.module.rules.push({
+      test: /\.md$/,
+      loader: 'raw-loader',
+    });
+    return config;
   },
 };

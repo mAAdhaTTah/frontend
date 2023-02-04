@@ -13,6 +13,9 @@ items:
   - text: Code
     href: /gistpens/
     _template: externalLink
+  - text: Talks
+    href: /talks/
+    _template: externalLink
   - text: Resume
     href: /resume/
     _template: externalLink

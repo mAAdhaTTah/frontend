@@ -19,6 +19,7 @@
     "baseUrl": "./src",
     "paths": {
       "@app/*": ["@app/*"],
+      "@talks/*": ["@talks/*"],
       "@tina/*": ["@tina/*"],
       "@ui/*": ["@ui/*"]
     }
