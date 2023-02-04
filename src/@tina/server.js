@@ -1,5 +1,4 @@
-// import { extract } from '@extractus/oembed-extractor';
-import { wp } from '@wp/api/wp';
+import { extract } from '@extractus/oembed-extractor';
 import { getReadingProps } from '@reading/server';
 import {
   FIVE_HUNDRED_SLUG,
@@ -21,9 +20,7 @@ const extractEmbeds = async posts => {
   const createEmbed = async url => {
     try {
       // TODO swap back to `extract`
-      embeds[url] = (
-        await wp.get(`/wp-json/oembed/1.0/proxy?url=${encodeURIComponent(url)}`)
-      ).data;
+      embeds[url] = await extract(url);
     } catch {}
   };
   for (const post of posts) {
