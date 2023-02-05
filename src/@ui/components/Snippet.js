@@ -98,9 +98,11 @@ const Snippet = ({ code, language, filename }) => {
             ))}
           </pre>
           <div className="toolbar">
-            <div className="toolbar-item">
-              <span>{filename}</span>
-            </div>
+            {filename && (
+              <div className="toolbar-item">
+                <span>{filename}</span>
+              </div>
+            )}
             <div className="toolbar-item">
               <button
                 className="copy-to-clipboard-button"

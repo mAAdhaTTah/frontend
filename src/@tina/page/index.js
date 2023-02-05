@@ -65,12 +65,11 @@ const RichText = ({ content, extra, components = {} }) => {
             <img src={url} alt={smartypants(alt)} />
           </Paragraph>
         ),
-        // TODO readd
-        // h1: props => (
-        //   <Heading level={1} variant="h-1">
-        //     {props.children}
-        //   </Heading>
-        // ),
+        h1: props => (
+          <Heading level={1} variant="h-1">
+            {props.children}
+          </Heading>
+        ),
         h2: props => (
           <Heading level={2} variant="h-2">
             {props.children}
@@ -91,6 +90,9 @@ const RichText = ({ content, extra, components = {} }) => {
         li: props => <Li>{props.children}</Li>,
         lic: ({ children }) => <Paragraph>{children}</Paragraph>,
         text: props => <>{smartypants(props.children, '2')}</>,
+        code_block: ({ lang, value }) => (
+          <Snippet language={lang || 'plaintext'} code={value} />
+        ),
         ExtendedQuote: ({ children }) => (
           <blockquote>
             <RichText content={children} extra={extra} />
@@ -241,8 +243,8 @@ const PostBody = ({ body, extra }) => {
   return (
     <FootnoteProvider>
       <section className="max-w-prose">
-        {body.map(block => (
-          <PostBodyBlock block={block} extra={extra} />
+        {body.map((block, i) => (
+          <PostBodyBlock key={i} block={block} extra={extra} />
         ))}
       </section>
       <Footnotes />

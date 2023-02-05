@@ -65,8 +65,8 @@ export const PageLanding = ({ data }) => {
   return (
     <SEO>
       <Main>
-        {data.page.body.map(block => (
-          <LandingBlock block={block} />
+        {data.page.body.map((block, i) => (
+          <LandingBlock key={i} block={block} />
         ))}
       </Main>
     </SEO>
