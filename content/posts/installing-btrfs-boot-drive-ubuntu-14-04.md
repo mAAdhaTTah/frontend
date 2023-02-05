@@ -75,8 +75,11 @@ body:
       different:
 
 
-      `if [ -n "\${have_grubenv}" ]; then if [ -z "\${boot_once}" ]; then
-      save_env recordfail; fi; fi`
+      ```shell
+
+      if [ -n "\${have_grubenv}" ]; then if [ -z "\${boot_once}" ]; then save_env recordfail; fi; fi
+
+      ```
 
 
       ## Step 4
@@ -97,9 +100,7 @@ body:
       **Make sure you sub out your device name.**
 
 
-      ```
-
-      #!bash
+      ```shell
 
       sudo btrfs device add /dev/sdb /
 
@@ -111,9 +112,7 @@ body:
       You'll get this result:
 
 
-      ```
-
-      #!bash
+      ```shell
 
       Label: none  uuid: 2b182d08-ae86-423c-8825-22f10554fdca
 
@@ -142,9 +141,7 @@ body:
       After its been added, balance the drives:
 
 
-      ```
-
-      #!bash
+      ```shell
 
       sudo btrfs balance start -dconvert=raid1 -mconvert=raid1 /
 
@@ -162,9 +159,7 @@ body:
       Converts to:
 
 
-      ```
-
-      #!bash
+      ```shell
 
       dreedle@pianosa:~$ sudo btrfs fi show /
 
@@ -201,5 +196,3 @@ categories:
   - reference: content/categories/technology.md
 _template: standard
 ---
-
-
