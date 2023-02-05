@@ -116,6 +116,18 @@ fragment FullPage on Page {
 fragment PageHeader on Header {
   title
   description
+  background {
+    ... on Media {
+      source
+      altText
+    }
+  }
+  avatar {
+    ... on Media {
+      source
+      altText
+    }
+  }
 }
 
 fragment PageMenu on Menu {

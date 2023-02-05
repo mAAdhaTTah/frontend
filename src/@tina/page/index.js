@@ -4,6 +4,7 @@ import { useTina } from 'tinacms/dist/react';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { format, parseISO } from 'date-fns';
 import { smartypantsu as smartypants } from 'smartypants';
+import Image from 'next/image';
 import { Main } from '@ui/box';
 import { SEO } from '@ui/seo';
 import { Day, Embed, Gistpen, Pagination, Snippet } from '@ui/components';
@@ -60,9 +61,9 @@ const RichText = ({ content, extra, components = {} }) => {
         p: Paragraph,
         code: Code,
         a: props => <Link href={props.url}>{props.children}</Link>,
-        img: ({ url, alt }) => (
+        img: ({ url }) => (
           <Paragraph>
-            <img src={url} alt={smartypants(alt)} />
+            <Image {...extra.media[url]} />
           </Paragraph>
         ),
         h1: props => (
@@ -101,10 +102,10 @@ const RichText = ({ content, extra, components = {} }) => {
         Embed: ({ url, provider }) => (
           <Embed html={extra.embeds[url]?.html} url={url} provider={provider} />
         ),
-        Figure: props => (
+        Figure: ({ url, caption }) => (
           <figure>
-            <img src={props.url} alt={props.altText} />
-            <figcaption>{props.caption}</figcaption>
+            <Image {...extra.media[url]} />
+            <figcaption>{caption}</figcaption>
           </figure>
         ),
         FootnoteReference: ({ id }) => {
@@ -301,10 +302,7 @@ const nodeToExcerptMapper = {
     ...nodeToCommonExcerptProps(node),
     title: smartypants(node.title),
     content: <PostBody body={node.body} extra={extra} />,
-    media: {
-      url: node.featuredMedia.source,
-      alt: node.featuredMedia.altText,
-    },
+    media: extra.media[node.featuredMedia.source],
   }),
   PostLink: (node, extra) => ({
     format: 'link',
@@ -358,12 +356,7 @@ const nodeToSingleMapper = {
     title: smartypants(node.title),
     format: 'standard',
     slug: node._sys.filename,
-    media: node.featuredMedia
-      ? {
-          url: node.featuredMedia.source,
-          alt: node.featuredMedia.altText,
-        }
-      : null,
+    media: node.featuredMedia ? extra.media[node.featuredMedia.source] : null,
     content: <PostBody body={node.body} extra={extra} />,
   }),
 };

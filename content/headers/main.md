@@ -1,6 +1,7 @@
 ---
 title: James DiGioia
 description: my little web home
-menu: content/menus/main.md
+background: content/media/header-1.md
+avatar: content/media/new-avatar-sq.md
 ---
 

@@ -143,9 +143,7 @@ const Header = ({
           <Image
             {...backgroundImage}
             priority
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center center"
+            className="absolute h-full w-full top-0 left-0 right-0 bottom-0 object-cover object-center"
           />
         </div>
         <div
@@ -200,13 +198,7 @@ const Header = ({
                 },
               ])}
             >
-              <Image
-                priority
-                src={avatarImage.src}
-                alt={avatarImage.alt}
-                width={360}
-                height={360}
-              />
+              <Image {...avatarImage} priority />
             </div>
             <div className={cc(['font-muli', 'lg:ml-5', 'grow'])}>
               <PrimaryHeading
