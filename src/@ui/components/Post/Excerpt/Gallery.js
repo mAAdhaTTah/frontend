@@ -1,8 +1,8 @@
 import cc from 'classcat';
+import Image from 'next/image';
 import { Heading } from '@ui/typography';
 import { Article } from '@ui/box';
 import EntryMeta from '../../EntryMeta';
-import MediaImage from '../../MediaImage';
 
 const imageWrapperClass = cc(['flex', 'row', 'flex-wrap']);
 const imageClass = cc(['w-1/3']);
@@ -25,7 +25,7 @@ const Gallery = ({
         </Heading>
         <div className={imageWrapperClass}>
           {images.map((image, i) => (
-            <MediaImage key={i} media={image} className={imageClass} />
+            <Image key={i} {...image} className={imageClass} />
           ))}
         </div>
         <EntryMeta

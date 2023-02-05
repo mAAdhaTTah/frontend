@@ -1,6 +1,17 @@
 import isChromatic from 'chromatic';
 import Header from './Header';
-import { avatarImage, backgroundImage } from './images';
+
+const backgroundImage = {
+  src: 'https://static.jamesdigioia.com/uploads/2020/11/header-1.jpg',
+  alt: 'background image',
+};
+
+const avatarImage = {
+  src: 'https://static.jamesdigioia.com/uploads/2015/02/new-avatar-sq.jpg',
+  alt: 'avatar',
+  height: 783,
+  width: 783,
+};
 
 export default {
   title: 'Components/Header',

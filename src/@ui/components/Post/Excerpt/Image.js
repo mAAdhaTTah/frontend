@@ -1,6 +1,6 @@
+import NextImage from 'next/image';
 import { Heading } from '@ui/typography';
 import { Article } from '@ui/box';
-import MediaImage from '../../MediaImage';
 import EntryMeta from '../../EntryMeta';
 
 const Image = ({
@@ -25,7 +25,7 @@ const Image = ({
           author={author.name}
         />
       </header>
-      {media && <MediaImage media={media} />}
+      {media && <NextImage {...media} />}
 
       {content}
     </Article>

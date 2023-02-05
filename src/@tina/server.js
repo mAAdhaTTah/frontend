@@ -7,31 +7,42 @@ import {
   resolveSegments,
   resolveSlug,
 } from '@tina/routes';
-import { avatarImage, backgroundImage } from '@ui/components/images';
 import { compareDesc, parseISO } from 'date-fns';
 import { paramCase } from 'param-case';
+import probe from 'probe-image-size';
 import * as Prezis from '@talks/prezis';
 import { client } from '../../.tina/__generated__/client';
 
-const extractEmbeds = async posts => {
+const loadExtraFromPosts = async posts => {
   if (!Array.isArray(posts)) {
     posts = [posts];
   }
 
-  const embeds = {};
-  const createEmbed = async url => {
+  const embeds = {},
+    media = {};
+  const loadEmbed = async url => {
     try {
-      // TODO swap back to `extract`
       embeds[url] = await extract(url);
+    } catch {}
+  };
+  const loadMedia = async m => {
+    try {
+      media[m.source] = await getImagePropsFromMedia(m);
     } catch {}
   };
   for (const post of posts) {
     switch (post.__typename) {
       case 'PostVideo':
-        await createEmbed(post.video.url);
+        await loadEmbed(post.video.url);
         break;
       case 'PostAudio':
-        await createEmbed(post.audio.url);
+        await loadEmbed(post.audio.url);
+        break;
+      case 'PostImage':
+      case 'PostStandard':
+        if (post.featuredMedia) {
+          await loadMedia(post.featuredMedia);
+        }
         break;
       // no default
     }
@@ -49,7 +60,17 @@ const extractEmbeds = async posts => {
           case 'PostQuoteBodyRichText':
             for (const element of block.content.children) {
               if (element.name === 'Embed') {
-                await createEmbed(element.props.url);
+                await loadEmbed(element.props.url);
+              }
+              if (element.type === 'p') {
+                for (const innerElement of element.children) {
+                  if (innerElement.type === 'img') {
+                    await loadMedia({
+                      source: innerElement.url,
+                      altText: innerElement.alt,
+                    });
+                  }
+                }
               }
             }
             break;
@@ -59,7 +80,7 @@ const extractEmbeds = async posts => {
     }
   }
 
-  return embeds;
+  return { embeds, media };
 };
 
 const generatePagesPaths = (count, perPage) => {
@@ -146,27 +167,43 @@ export const getPagePropsBySlug = async slug => {
 
   return {
     response: response,
-    layout: getPageLayoutProps(response.data.page),
+    layout: await getPageLayoutProps(response.data.page),
   };
 };
 
 export const getPageProps = async params =>
   getPagePropsBySlug(resolveSlug(params));
 
-export const getPageLayoutProps = page => ({
-  header: {
-    title: page.header.title,
-    description: page.header.description,
-    links: page.menu.items.map(item => ({
-      text: item.text,
-      to: item.href,
-    })),
-    backgroundImage: page.header.background || backgroundImage,
-    avatarImage: page.header.avatar || avatarImage,
-    fullScreen: page.__typename === 'PageFullScreen',
-    noHeader: page.__typename === 'PageTalkSingle',
-  },
-});
+/**
+ * @param {{ source: string; altText:string }} media
+ * @returns {Promise<import('react').ComponentProps<typeof import('next/image').default>>}
+ */
+const getImagePropsFromMedia = async media => {
+  const { width, height } = await probe(media.source);
+  return {
+    width,
+    height,
+    alt: media.altText ?? '',
+    src: media.source,
+  };
+};
+
+export const getPageLayoutProps = async page => {
+  return {
+    header: {
+      title: page.header.title,
+      description: page.header.description,
+      links: page.menu.items.map(item => ({
+        text: item.text,
+        to: item.href,
+      })),
+      backgroundImage: await getImagePropsFromMedia(page.header.background),
+      avatarImage: await getImagePropsFromMedia(page.header.avatar),
+      fullScreen: page.__typename === 'PageFullScreen',
+      noHeader: page.__typename === 'PageTalkSingle',
+    },
+  };
+};
 
 export const get404PageProps = async () =>
   getPagePropsBySlug(FOUR_OH_FOUR_SLUG);
@@ -254,16 +291,16 @@ export const getWritingByPage = async (page, perPage) => {
 export const getWritingSingleProps = async slug => {
   const props = await getPagePropsBySlug('writing/__single__');
   const post = await getPostBySlug(slug);
-  const embeds = await extractEmbeds(post.data.post);
-  return { ...props, extra: { post, embeds } };
+  const { embeds, media } = await loadExtraFromPosts(post.data.post);
+  return { ...props, extra: { post, embeds, media } };
 };
 
 export const getWritingArchiveProps = async ({ page }) => {
   const props = await getPagePropsBySlug('writing/__archive__');
   const posts = await getWritingByPage(page, props.response.data.page.perPage);
-  const embeds = await extractEmbeds(
+  const { embeds, media } = await loadExtraFromPosts(
     posts.data.postConnection.edges.map(({ node }) => node),
   );
 
-  return { ...props, extra: { posts, page, embeds } };
+  return { ...props, extra: { posts, page, embeds, media } };
 };

@@ -1,8 +1,8 @@
 import cc from 'classcat';
+import Image from 'next/image';
 import { Heading } from '@ui/typography';
 import { Article } from '@ui/box';
 import EntryMeta from '../../EntryMeta';
-import MediaImage from '../../MediaImage';
 
 const StandardFormat = ({
   media,
@@ -16,7 +16,7 @@ const StandardFormat = ({
   return (
     <Article>
       <header className="relative mb-5">
-        {media && <MediaImage media={media} />}
+        {media && <Image {...media} priority />}
         <div
           className={cc([
             { absolute: media, 'pin-x-center': media, 'pin-y-bottom': media },

@@ -19,14 +19,16 @@ export const headerCollection = {
     },
     descriptionField,
     {
-      type: 'image',
+      type: 'reference',
       name: 'background',
       label: 'Background',
+      collections: ['media'],
     },
     {
-      type: 'image',
+      type: 'reference',
       name: 'avatar',
       label: 'Avatar',
+      collections: ['media'],
     },
   ],
 };
