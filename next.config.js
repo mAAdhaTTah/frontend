@@ -1,5 +1,7 @@
+const { withPlaiceholder } = require('@plaiceholder/next');
+
 /** @type {import('next').NextConfig} */
-module.exports = {
+const config = {
   images: {
     domains: ['static.jamesdigioia.com'],
   },
@@ -94,3 +96,5 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = withPlaiceholder(config);

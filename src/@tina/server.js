@@ -9,7 +9,7 @@ import {
 } from '@tina/routes';
 import { compareDesc, parseISO } from 'date-fns';
 import { paramCase } from 'param-case';
-import probe from 'probe-image-size';
+import { getPlaiceholder } from 'plaiceholder';
 import * as Prezis from '@talks/prezis';
 import { client } from '../../.tina/__generated__/client';
 
@@ -42,6 +42,11 @@ const loadExtraFromPosts = async posts => {
       case 'PostStandard':
         if (post.featuredMedia) {
           await loadMedia(post.featuredMedia);
+        }
+        break;
+      case 'PostGallery':
+        for (const { reference: media } of post.images) {
+          await loadMedia(media);
         }
         break;
       // no default
@@ -179,12 +184,18 @@ export const getPageProps = async params =>
  * @returns {Promise<import('react').ComponentProps<typeof import('next/image').default>>}
  */
 const getImagePropsFromMedia = async media => {
-  const { width, height } = await probe(media.source);
+  const {
+    base64,
+    img: { width, height },
+  } = await getPlaiceholder(media.source);
+
   return {
     width,
     height,
     alt: media.altText ?? '',
     src: media.source,
+    blurDataURL: base64,
+    placeholder: base64 ? 'blur' : 'empty',
   };
 };
 
