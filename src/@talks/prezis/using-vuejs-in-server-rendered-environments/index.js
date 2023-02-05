@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Deck,
   Heading,
@@ -11,7 +10,7 @@ import {
 import { AboutMe, ThankYou } from '../../slides';
 import { DarkTheme } from '../../themes';
 
-export default () => (
+const Prezi = () => (
   <Deck transitionDuration={500} theme={DarkTheme} transition={['slide']}>
     <Slide transition={['slide']} bgColor="primary">
       <Heading size={1} fit lineHeight={1} textColor="secondary">
@@ -254,3 +253,5 @@ export default {
     {ThankYou()}
   </Deck>
 );
+
+export default Prezi;

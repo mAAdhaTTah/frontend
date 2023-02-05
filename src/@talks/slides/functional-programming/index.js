@@ -1,4 +1,3 @@
-import React from 'react';
 import { Slide, Markdown, Heading, CodePane, Text } from 'spectacle';
 
 export const ImmutableData = () => (

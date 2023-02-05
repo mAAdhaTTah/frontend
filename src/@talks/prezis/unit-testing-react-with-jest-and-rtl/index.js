@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Deck,
   Heading,
@@ -28,7 +27,7 @@ fireEvent.click(getByText('Submit'))
 expect(getByText('Submitted')).toBeInTheDocument()`,
 };
 
-export default () => (
+const Prezi = () => (
   <Deck transitionDuration={500} theme={DarkTheme} transition={['slide']}>
     <Slide bgColor="primary">
       <Heading size={1} lineHeight={1} textColor="secondary">
@@ -158,3 +157,5 @@ export default () => (
     {ThankYou()}
   </Deck>
 );
+
+export default Prezi;

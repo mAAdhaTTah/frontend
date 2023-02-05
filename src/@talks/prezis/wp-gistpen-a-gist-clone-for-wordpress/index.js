@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Deck,
   Heading,
@@ -16,7 +15,7 @@ import imgTokenScreen from './token-screen.png';
 import imgWebDisplay from './web-display.png';
 import imgEditorScreen from './editor-screen.png';
 
-export default () => (
+const Prezi = () => (
   <Deck transitionDuration={500} theme={DarkTheme} transition={['slide']}>
     <Slide transition={['slide']} bgColor="primary">
       <Heading size={1} fit lineHeight={1} textColor="secondary">
@@ -73,3 +72,5 @@ Maintainer of Kefir`)}
     {ThankYou()}
   </Deck>
 );
+
+export default Prezi;

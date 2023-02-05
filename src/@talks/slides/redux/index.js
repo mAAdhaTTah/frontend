@@ -1,4 +1,3 @@
-import React from 'react';
 import { Slide, Heading, Text, CodePane } from 'spectacle';
 
 export const UnidirectionalData = () => [

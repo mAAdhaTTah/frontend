@@ -1,4 +1,3 @@
-import React from 'react';
 import { Slide, Markdown, Heading, CodePane, Text } from 'spectacle';
 import mdCoordinatingEvents from './coordinating-events.md';
 import mdLetsTalkAboutReact from './lets-talk-about-react.md';

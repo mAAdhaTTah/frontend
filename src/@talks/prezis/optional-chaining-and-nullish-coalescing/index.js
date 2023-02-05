@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Slide,
   Deck,
@@ -49,7 +48,7 @@ const overusedChaining = `const zip = person?.address?.state?.displayName;`;
 
 const aptDefault = `const apt = person.address?.apt ?? 'No apt provided'`;
 
-export default () => {
+const Prezi = () => {
   return (
     <Deck transitionDuration={500} theme={DarkTheme} transition={['slide']}>
       <Slide>
@@ -258,3 +257,5 @@ export default () => {
     </Deck>
   );
 };
+
+export default Prezi;

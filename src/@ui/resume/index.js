@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import cc from 'classcat';
-import { Article } from '@ui/box';
 
 const h1Class = cc([
   'font-muli',
