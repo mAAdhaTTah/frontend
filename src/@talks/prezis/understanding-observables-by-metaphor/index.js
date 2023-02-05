@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Deck,
   Heading,
@@ -86,7 +85,7 @@ const takeUntilBy = `Kefir.fromEvents(document.body, 'mousemove')
         top: acc.top + movement.y
     }), start)`;
 
-export default () => (
+const Prezi = () => (
   <Deck transition={['slide']} transitionDuration={500} theme={DarkTheme}>
     <Slide bgColor="primary">
       <Heading size={1} fit lineHeight={1} textColor="secondary">
@@ -313,3 +312,5 @@ export default () => (
     {ThankYou()}
   </Deck>
 );
+
+export default Prezi;

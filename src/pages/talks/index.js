@@ -16,7 +16,7 @@ const titleCase = text =>
     .replace(/(Wordpress)/, () => 'WordPress')
     .replace(/(Rtl)/, () => 'RTL');
 
-const TalkArchive = ({}) => {
+const TalkArchive = () => {
   return (
     <div>
       <ul>

@@ -55,8 +55,9 @@ const Menu = ({ links, open, onClose }) => {
     if (forward) {
       const handler = () => setForward(open);
 
-      navRef.current.addEventListener('animationend', handler);
-      return () => navRef.current.removeEventListener('animationend', handler);
+      const nav = navRef.current;
+      nav.addEventListener('animationend', handler);
+      return () => nav.removeEventListener('animationend', handler);
     } else {
       setForward(open);
     }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Deck, Slide, Heading, Code, Text, List, ListItem } from 'spectacle';
 import {
   AboutMe,
@@ -54,7 +53,7 @@ const Agenda = () => (
   </Slide>
 );
 
-export default () => (
+const Prezi = () => (
   <Deck transition={['slide']} transitionDuration={500} theme={DarkTheme}>
     {Title()}
     {AboutMe()}
@@ -79,3 +78,5 @@ export default () => (
     {ThankYou()}
   </Deck>
 );
+
+export default Prezi;

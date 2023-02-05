@@ -1,4 +1,3 @@
-import React from 'react';
 import { Slide, Markdown, CodePane, Text, Code, S } from 'spectacle';
 import mdEverythingIsAStream from './everything-is-a-stream.md';
 
