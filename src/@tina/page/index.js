@@ -292,10 +292,7 @@ const nodeToExcerptMapper = {
     ...nodeToCommonExcerptProps(node),
     title: smartypants(node.title),
     content: <PostBody body={node.body} extra={extra} />,
-    images: node.images.map(({ reference }) => ({
-      url: reference.source,
-      alt: reference.altText,
-    })),
+    images: node.images.map(({ reference }) => extra.media[reference.source]),
   }),
   PostImage: (node, extra) => ({
     format: 'image',
