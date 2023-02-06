@@ -70,7 +70,7 @@
     "postcss": "^8.4.16",
     "postcss-arithmetic": "0.0.4",
     "postcss-for": "^2.1.1",
-    "postcss-import": "^14.1.0",
+    "postcss-import": "^15.1.0",
     "postcss-nested": "^5.0.5",
     "prettier": "^2.8.3",
     "raw-loader": "^4.0.2",
