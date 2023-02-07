@@ -6,7 +6,7 @@
   "dependencies": {
     "@alexbinary/rimraf": "^1.0.2",
     "@aws-sdk/client-s3": "^3.264.0",
-    "@extractus/oembed-extractor": "^3.1.7",
+    "@extractus/oembed-extractor": "^3.1.8",
     "@react-aria/focus": "^3.10.1",
     "@react-aria/visually-hidden": "^3.6.1",
     "classcat": "^5.0.4",
