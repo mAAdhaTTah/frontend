@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import '../index.css';
 import { DefaultSeo } from 'next-seo';
-import { Layout } from '@ui/components';
+import { Layout } from '@ui/layout';
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();

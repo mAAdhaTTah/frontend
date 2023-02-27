@@ -1,9 +1,11 @@
 import isChromatic from 'chromatic';
-import Header from './Header';
+import { Header } from './Header';
 
 const backgroundImage = {
   src: 'https://static.jamesdigioia.com/uploads/2020/11/header-1.jpg',
   alt: 'background image',
+  width: 1341,
+  height: 914,
 };
 
 const avatarImage = {
@@ -24,6 +26,14 @@ const Template = args => (
     backgroundImage={backgroundImage}
     avatarImage={avatarImage}
     disableTyping={isChromatic()}
+    links={[
+      { text: 'Home', to: '/' },
+      { text: 'Reading', to: '/reading/' },
+      { text: 'Writing', to: '/writing/' },
+      { text: 'Code', to: '/gistpens/' },
+      { text: 'Talks', to: '/talks/' },
+      { text: 'Resume', to: '/resume/' },
+    ]}
     {...args}
   />
 );

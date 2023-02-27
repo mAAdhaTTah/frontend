@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
-import { useSpring, animated } from 'react-spring';
 import cc from 'classcat';
 import Image from 'next/image';
 import TypeIt from 'typeit';
@@ -52,9 +51,7 @@ const SocialIcons = ({ fullScreen }) => (
   </div>
 );
 
-const animationConfig = { mass: 1, tension: 150, friction: 30 };
-
-const Header = ({
+export const Header = ({
   title,
   description,
   links,
@@ -63,29 +60,8 @@ const Header = ({
   avatarImage,
   disableTyping = false,
 }) => {
-  const header = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
-
-  const [style, animate] = useSpring(() => ({
-    config: animationConfig,
-  }));
-
-  useEffect(() => {
-    const handler = () => {
-      const windowWidth = window.document.body.offsetWidth;
-      const minWidth = windowWidth < 992 ? 0 : 352;
-
-      animate.start({
-        to: { width: fullScreen ? windowWidth : minWidth },
-      });
-    };
-
-    handler();
-
-    window.addEventListener('resize', handler);
-    return () => window.removeEventListener('resize', handler);
-  }, [animate, fullScreen]);
 
   useEffect(() => {
     if (disableTyping) {
@@ -115,16 +91,17 @@ const Header = ({
   }, [disableTyping]);
 
   return (
-    <animated.div
-      ref={header}
-      style={style}
+    <div
       className={cc([
         'print:hidden',
         'h-screen',
-        'w-0',
+        'transition-width',
+        'duration-1000',
+        'ease-[cubic-bezier(.36,.15,.44,1.25)]',
+        'transform-gpu',
         {
-          'xl:w-88': !fullScreen,
-          'xl:w-full': fullScreen,
+          'w-0 xl:w-88': !fullScreen,
+          'w-full': fullScreen,
         },
       ])}
     >
@@ -219,7 +196,7 @@ const Header = ({
         </div>
       </header>
       <Nav links={links} />
-    </animated.div>
+    </div>
   );
 };
 
@@ -232,5 +209,3 @@ Header.propTypes = {
   fullScreen: PropTypes.bool.isRequired,
   disableTyping: PropTypes.bool,
 };
-
-export default Header;
