@@ -114,3 +114,29 @@ pre.prism-code.line-numbers {
   padding-right: 0.9em;
   width: 2em;
 }
+
+/* TODO(mAAdhaTTah) convert to tailwind + use state from function */
+.fade-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity ease-out 600ms, transform ease-out 600ms;
+}

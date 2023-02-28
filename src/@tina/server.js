@@ -201,6 +201,12 @@ const getImagePropsFromMedia = async media => {
 
 export const getPageLayoutProps = async page => {
   return {
+    layout:
+      page.__typename === 'PageFullScreen'
+        ? 'fullscreen'
+        : page.__typename === 'PageTalkSingle'
+        ? 'headerless'
+        : 'default',
     header: {
       title: page.header.title,
       description: page.header.description,
@@ -210,8 +216,6 @@ export const getPageLayoutProps = async page => {
       })),
       backgroundImage: await getImagePropsFromMedia(page.header.background),
       avatarImage: await getImagePropsFromMedia(page.header.avatar),
-      fullScreen: page.__typename === 'PageFullScreen',
-      noHeader: page.__typename === 'PageTalkSingle',
     },
   };
 };
