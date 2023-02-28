@@ -94,6 +94,7 @@ export const Header = ({
     <div
       className={cc([
         'print:hidden',
+        'fixed',
         'h-screen',
         'transition-width',
         'duration-1000',
