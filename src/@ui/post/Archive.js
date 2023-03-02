@@ -5,13 +5,9 @@ export const Archive = ({ excerpts, pageNumber, hasNextPage }) => {
   // TODO remove extra div
   return (
     <Main>
-      <div className="mx-4 pt-5">
-        <div className="max-w-xl mx-auto">
-          {excerpts.map(excerpt => (
-            <Post.Excerpt key={excerpt.id} {...excerpt} />
-          ))}
-        </div>
-      </div>
+      {excerpts.map(excerpt => (
+        <Post.Excerpt key={excerpt.id} {...excerpt} />
+      ))}
       <Pagination
         pageNumber={pageNumber}
         hasNextPage={hasNextPage}

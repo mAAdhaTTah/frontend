@@ -3,11 +3,11 @@ import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 import Link from 'next/link';
 
 const paginationClass = cc([
-  'flow-root',
   'max-w-xl',
   'mx-auto',
-  'items-stretch',
-  'px-4',
+  'flex',
+  'flex-row',
+  'justify-between',
 ]);
 
 const pageClass = cc([
@@ -18,29 +18,30 @@ const pageClass = cc([
   'font-ovo',
   'no-underline',
   'flex',
-  'align-center',
+  'items-center',
 ]);
 
 const Pagination = ({ pageNumber, hasNextPage, slug }) => (
   <div className={paginationClass}>
-    {pageNumber > 1 && (
-      <Link
-        href={`/${slug}/${pageNumber !== 2 ? `page/${pageNumber - 1}` : ''}`}
-        className={cc([pageClass, 'float-left'])}
-      >
-        <FaLongArrowAltLeft className="mr-3" />
-        Previous
-      </Link>
-    )}
-    {hasNextPage && (
-      <Link
-        href={`/${slug}/page/${pageNumber + 1}/`}
-        className={cc([pageClass, 'float-right'])}
-      >
-        Next
-        <FaLongArrowAltRight className="ml-3" />
-      </Link>
-    )}
+    <div>
+      {pageNumber > 1 && (
+        <Link
+          href={`/${slug}/${pageNumber !== 2 ? `page/${pageNumber - 1}` : ''}`}
+          className={pageClass}
+        >
+          <FaLongArrowAltLeft className="mr-3" />
+          Previous
+        </Link>
+      )}
+    </div>
+    <div>
+      {hasNextPage && (
+        <Link href={`/${slug}/page/${pageNumber + 1}/`} className={pageClass}>
+          Next
+          <FaLongArrowAltRight className="ml-3" />
+        </Link>
+      )}
+    </div>
   </div>
 );
 

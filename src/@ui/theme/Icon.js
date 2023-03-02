@@ -1,20 +1,29 @@
 import PropTypes from 'prop-types';
-import { FaFacebook, FaLinkedin, FaGithubSquare, FaBars } from 'react-icons/fa';
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaGithubSquare,
+  FaBars,
+  FaTimes,
+} from 'react-icons/fa';
 
 const keyToIcon = {
   facebook: { Component: FaFacebook, color: '#3b5998' },
   linkedin: { Component: FaLinkedin, color: '#4875b4' },
   github: { Component: FaGithubSquare, color: '#333' },
   burger: { Component: FaBars },
+  x: { Component: FaTimes },
 };
-
-const largeClassName = 'text-4xl';
-const smallClassName = 'text-lg';
 
 export const Icon = ({ icon, alt, small = false }) => {
   const { Component, color } = keyToIcon[icon];
-  const className = small ? smallClassName : largeClassName;
-  return <Component className={className} style={{ color }} alt={alt} />;
+  return (
+    <Component
+      className={small ? 'text-lg' : 'text-4xl'}
+      style={{ color }}
+      alt={alt}
+    />
+  );
 };
 
 Icon.propTypes = {

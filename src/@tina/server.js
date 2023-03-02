@@ -210,12 +210,14 @@ export const getPageLayoutProps = async page => {
     header: {
       title: page.header.title,
       description: page.header.description,
+      backgroundImage: await getImagePropsFromMedia(page.header.background),
+      avatarImage: await getImagePropsFromMedia(page.header.avatar),
+    },
+    nav: {
       links: page.menu.items.map(item => ({
         text: item.text,
         to: item.href,
       })),
-      backgroundImage: await getImagePropsFromMedia(page.header.background),
-      avatarImage: await getImagePropsFromMedia(page.header.avatar),
     },
   };
 };

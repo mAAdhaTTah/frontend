@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { FocusScope } from '@react-aria/focus';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { useKey, useOutsideClick } from 'rooks';
@@ -6,6 +6,29 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import cc from 'classcat';
 import { Icon } from '@ui/theme';
+import { Transition } from 'react-transition-group';
+
+const NavButton = ({ onClick, open }) => {
+  return (
+    <button
+      className={cc([
+        'fixed',
+        'top-2',
+        'left-2',
+        'rounded-full',
+        'bg-darkg',
+        'text-secondary',
+        'p-1',
+        'focus:outline-lightg',
+        'z-50',
+      ])}
+      onClick={onClick}
+    >
+      <Icon icon={open ? 'x' : 'burger'} small alt="" />
+      <VisuallyHidden>{open ? 'Close' : 'Open'} menu</VisuallyHidden>
+    </button>
+  );
+};
 
 const headerLinkClass = cc([
   'no-underline',
@@ -24,7 +47,7 @@ const HeaderLink = ({ to, onClick, children }) => {
   const { asPath } = useRouter();
 
   return (
-    <div className="p-2 text-center">
+    <li className="py-2 text-center">
       <Link
         href={to}
         onClick={onClick}
@@ -35,87 +58,81 @@ const HeaderLink = ({ to, onClick, children }) => {
       >
         {children}
       </Link>
-    </div>
+    </li>
   );
 };
 
-const navClass = cc(['fixed', 'top-2', 'left-2', 'z-50']);
+const transitionClasses = {
+  entering: 'translate-x-0',
+  entered: 'translate-x-0',
+  exiting: '-translate-x-full',
+  exited: '-translate-x-full',
+};
 
 const Menu = ({ links, open, onClose }) => {
-  const navRef = useRef();
-  const [forward, setForward] = useState(open);
-  useOutsideClick(navRef, onClose, open);
+  const menuRef = useRef();
   useKey(27, onClose, { when: open });
 
-  useEffect(() => {
-    if (open === forward) {
-      return;
-    }
-
-    if (forward) {
-      const handler = () => setForward(open);
-
-      const nav = navRef.current;
-      nav.addEventListener('animationend', handler);
-      return () => nav.removeEventListener('animationend', handler);
-    } else {
-      setForward(open);
-    }
-  }, [forward, open]);
-
   return (
-    forward && (
-      <FocusScope contain restoreFocus autoFocus>
-        <nav
-          ref={navRef}
-          className={cc([
-            'mt-4',
-            'mx-8',
-            'flex',
-            'flex-col',
-            'justify-end',
-            'w-24',
-            'fixed',
-            'left-0',
-            'bg-darkg',
-            'rounded',
-            'transition',
-            'origin-top-left',
-            { 'scale-0': !open, 'scale-1': open },
-          ])}
-        >
-          {links.map((link, i) => (
-            <HeaderLink onClick={onClose} to={link.to} key={i}>
-              {link.text}
-            </HeaderLink>
-          ))}
-        </nav>
-      </FocusScope>
-    )
+    <Transition
+      nodeRef={menuRef}
+      in={open}
+      appear={open}
+      timeout={{
+        appear: 0,
+        enter: 500,
+        exit: 500,
+      }}
+      mountOnEnter
+      unmountOnExit
+    >
+      {state => (
+        <FocusScope contain restoreFocus autoFocus>
+          <nav
+            ref={menuRef}
+            className={cc([
+              'flex',
+              'flex-col',
+              'justify-start',
+              'w-88',
+              'fixed',
+              'top-0',
+              'left-0',
+              'h-screen',
+              'bg-darkg',
+              'rounded-r-lg',
+              'transition-transform',
+              'duration-500',
+              'ease-out',
+              'z-50',
+              transitionClasses[state],
+            ])}
+          >
+            <menu className={cc(['pt-5'])}>
+              {links.map((link, i) => (
+                <HeaderLink onClick={onClose} to={link.to} key={i}>
+                  {link.text}
+                </HeaderLink>
+              ))}
+            </menu>
+          </nav>
+          <NavButton open={open} onClick={onClose} />
+        </FocusScope>
+      )}
+    </Transition>
   );
 };
 
 const Nav = ({ links }) => {
   const [open, setOpen] = useState(false);
+  const navRef = useRef();
+  const onClose = () => setOpen(false);
+  useOutsideClick(navRef, onClose, open);
+
   return (
-    <div className={navClass}>
-      <button
-        className={cc([
-          'rounded-full',
-          'bg-darkg',
-          'text-secondary',
-          'p-1',
-          'border-2',
-          'border-darkg',
-          'focus:outline-none',
-          'focus:border-lightg',
-        ])}
-        onClick={() => setOpen(open => !open)}
-      >
-        <Icon icon="burger" small alt="" />
-        <VisuallyHidden>Open menu</VisuallyHidden>
-      </button>
-      <Menu open={open} onClose={() => setOpen(false)} links={links} />
+    <div ref={navRef}>
+      <NavButton onClick={() => setOpen(open => !open)} open={open} />
+      <Menu open={open} onClose={onClose} links={links} />
     </div>
   );
 };

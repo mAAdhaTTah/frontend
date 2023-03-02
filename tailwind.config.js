@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       transitionProperty: {
         width: 'width',
+        'grid-cols': 'grid-template-columns',
       },
     },
     colors: {
