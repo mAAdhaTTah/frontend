@@ -43,7 +43,7 @@
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.6",
     "@plaiceholder/next": "^2.5.0",
-    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-docs": "^6.5.16",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.5.16",
