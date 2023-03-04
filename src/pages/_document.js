@@ -5,18 +5,6 @@ const Document = () => {
     <Html lang="en">
       <Head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Muli&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Ovo&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
-          rel="stylesheet"
-        />
-        <link
           rel="alternate"
           type="application/rss+xml"
           title="Feed (RSS) | James DiGioia"

@@ -1,8 +1,25 @@
 import cc from 'classcat';
-import Highlight from 'prism-react-renderer';
-import Prism from 'prismjs';
-import 'prismjs/plugins/toolbar/prism-toolbar.css';
 import { useReducer, useRef } from 'react';
+import Highlight from 'prism-react-renderer';
+// @TODO(mAAdhaTTah) replace this with SWC plugin
+import Prism from 'prismjs/components/prism-core';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-php';
+import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-python';
+import 'prismjs/components/prism-git';
+import 'prismjs/components/prism-sass';
+import 'prismjs/components/prism-handlebars';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-ruby';
+import 'prismjs/themes/prism-twilight.css';
+import 'prismjs/plugins/toolbar/prism-toolbar.css';
 
 function fallbackCopyTextToClipboard(copyInfo) {
   const textArea = document.createElement('textarea');
