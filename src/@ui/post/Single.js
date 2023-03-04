@@ -4,9 +4,7 @@ import { Post } from '@ui/components';
 export const Single = ({ post }) => {
   return (
     <Main>
-      <div className="max-w-xl mx-auto">
-        <Post.Article {...post} />
-      </div>
+      <Post.Article {...post} />
     </Main>
   );
 };

@@ -4,7 +4,6 @@ import cc from 'classcat';
 import Image from 'next/image';
 import TypeIt from 'typeit';
 import { PrimaryHeading, Icon, SecondaryHeading } from '@ui/theme';
-import Nav from './Nav';
 
 const SocialIcon = ({ icon, to }) => (
   <a
@@ -54,7 +53,6 @@ const SocialIcons = ({ fullScreen }) => (
 export const Header = ({
   title,
   description,
-  links,
   fullScreen,
   backgroundImage,
   avatarImage,
@@ -92,31 +90,9 @@ export const Header = ({
 
   return (
     <div
-      className={cc([
-        'print:hidden',
-        'fixed',
-        'h-screen',
-        'transition-width',
-        'duration-1000',
-        'ease-[cubic-bezier(.36,.15,.44,1.25)]',
-        'transform-gpu',
-        {
-          'w-0 xl:w-88': !fullScreen,
-          'w-full': fullScreen,
-        },
-      ])}
+      className={cc(['print:hidden', 'h-screen', 'w-full', 'overflow-hidden'])}
     >
-      <header
-        className={cc([
-          'flex',
-          'flex-col',
-          'print:hidden',
-          'fixed',
-          'h-screen',
-          'overflow-hidden',
-          'w-inherit',
-        ])}
-      >
+      <header className={cc(['relative', 'print:hidden'])}>
         <div className="h-screen overflow-hidden relative">
           <Image
             {...backgroundImage}
@@ -196,7 +172,6 @@ export const Header = ({
           </div>
         </div>
       </header>
-      <Nav links={links} />
     </div>
   );
 };
@@ -206,7 +181,6 @@ Header.propTypes = {
   description: PropTypes.string.isRequired,
   backgroundImage: PropTypes.object.isRequired,
   avatarImage: PropTypes.object.isRequired,
-  links: PropTypes.array.isRequired,
   fullScreen: PropTypes.bool.isRequired,
   disableTyping: PropTypes.bool,
 };

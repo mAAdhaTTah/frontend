@@ -2,11 +2,11 @@ import cc from 'classcat';
 import PropTypes from 'prop-types';
 
 const articleClass = cc([
+  'mx-10',
+  'mb-5',
   'p-5',
   'flow-root',
   'rounded',
-  'pb-3',
-  'mb-5',
   'max-w-xl',
   'mx-auto',
 ]);

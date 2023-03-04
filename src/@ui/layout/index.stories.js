@@ -16,26 +16,28 @@ const avatarImage = {
 };
 
 export default {
-  title: 'Components/Header',
+  title: '@ui/layout',
 };
 
 const Template = args => (
-  <Header
-    title="James DiGioia"
-    description="my little web home"
-    backgroundImage={backgroundImage}
-    avatarImage={avatarImage}
-    disableTyping={isChromatic()}
-    links={[
-      { text: 'Home', to: '/' },
-      { text: 'Reading', to: '/reading/' },
-      { text: 'Writing', to: '/writing/' },
-      { text: 'Code', to: '/gistpens/' },
-      { text: 'Talks', to: '/talks/' },
-      { text: 'Resume', to: '/resume/' },
-    ]}
-    {...args}
-  />
+  <div className={!args.fullScreen ? 'w-88' : ''}>
+    <Header
+      title="James DiGioia"
+      description="my little web home"
+      backgroundImage={backgroundImage}
+      avatarImage={avatarImage}
+      disableTyping={isChromatic()}
+      links={[
+        { text: 'Home', to: '/' },
+        { text: 'Reading', to: '/reading/' },
+        { text: 'Writing', to: '/writing/' },
+        { text: 'Code', to: '/gistpens/' },
+        { text: 'Talks', to: '/talks/' },
+        { text: 'Resume', to: '/resume/' },
+      ]}
+      {...args}
+    />
+  </div>
 );
 
 export const FullScreenHeader = Template.bind({});

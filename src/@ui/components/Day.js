@@ -1,3 +1,4 @@
+import { Article } from '@ui/box';
 import PropTypes from 'prop-types';
 
 const ReadLink = ({ url, title, readAt }) => (
@@ -19,14 +20,14 @@ ReadLink.propTypes = {
 };
 
 const Day = ({ day, links }) => (
-  <div className="max-w-lg mx-auto">
+  <Article>
     <h2 className="font-muli py-3 text-2xl px-3">Day of {day}</h2>
     <ul className="font-ovo">
       {links.map(link => (
         <ReadLink key={link.id} {...link} />
       ))}
     </ul>
-  </div>
+  </Article>
 );
 
 Day.propTypes = {
