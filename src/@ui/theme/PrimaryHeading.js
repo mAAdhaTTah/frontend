@@ -7,7 +7,7 @@ export const PrimaryHeading = forwardRef(
 
     return (
       <Heading
-        className="text-4xl lg:text-5xl font-bold font-muli mb-3"
+        className="text-3xl lg:text-4xl font-bold font-muli mb-3"
         ref={ref}
       >
         {children}

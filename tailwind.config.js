@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -26,8 +28,8 @@ module.exports = {
       print: { raw: 'print' },
     },
     fontFamily: {
-      muli: ['Muli', 'sans-serif'],
-      ovo: ['Ovo', 'serif'],
+      muli: ['var(--font-mulish)', ...fontFamily.sans],
+      ovo: ['var(--font-ovo)', ...fontFamily.serif],
     },
     fontSize: {
       sm: '.875rem', // 14px
