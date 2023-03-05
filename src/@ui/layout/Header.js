@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import cc from 'classcat';
 import Image from 'next/image';
 import TypeIt from 'typeit';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { PrimaryHeading, Icon, SecondaryHeading } from '@ui/theme';
 
 const SocialIcon = ({ icon, to }) => (
@@ -18,6 +19,7 @@ const SocialIcon = ({ icon, to }) => (
     rel="noopener noreferrer"
   >
     {icon}
+    <VisuallyHidden>Opens in a new tab</VisuallyHidden>
   </a>
 );
 
