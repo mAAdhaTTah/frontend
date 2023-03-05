@@ -142,7 +142,6 @@ export const Header = ({
             <div
               className={cc([
                 'w-0',
-                'lg:w-48',
                 'h-48',
                 'rounded-full',
                 'overflow-hidden',
@@ -150,7 +149,7 @@ export const Header = ({
                 'transition-width',
                 'ease-in-out',
                 {
-                  'lg:w-0': !fullScreen,
+                  'lg:w-48': fullScreen,
                 },
               ])}
             >
