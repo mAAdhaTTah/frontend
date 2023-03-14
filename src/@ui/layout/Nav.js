@@ -95,6 +95,7 @@ const Menu = ({ links, open, onClose }) => {
               'flex-col',
               'justify-start',
               'w-88',
+              'max-w-screen',
               'fixed',
               'top-0',
               'left-0',

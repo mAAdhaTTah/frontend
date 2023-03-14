@@ -2,8 +2,6 @@
 
 James DiGioia, Front-End Tech Lead, Ollie Pets Inc.
 
-Enterprise ecommerce system (Java & .NET)
-
-Developer of brookjs framework
+Lead team maintaining enterprise ecommerce system
 
 Maintainer of kefir & prism.js

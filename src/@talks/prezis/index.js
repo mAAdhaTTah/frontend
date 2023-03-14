@@ -28,3 +28,8 @@ export const OptionalChainingAndNullishCoalescing = dynamic(
   () => import('./optional-chaining-and-nullish-coalescing'),
   { ssr: false },
 );
+
+export const UnderstandingJestMocks = dynamic(
+  () => import('./understanding-jest-mocks'),
+  { ssr: false },
+);

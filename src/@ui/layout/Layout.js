@@ -10,6 +10,7 @@ export const Layout = ({ layout, header, nav, children }) => {
   const key = header.pathname;
   const nodeRef = refsMap.current[key] ?? (refsMap.current[key] = createRef());
   const fullScreen = layout === 'fullscreen';
+  const headerless = layout === 'headerless';
   return (
     <div
       className={cc([
@@ -20,13 +21,14 @@ export const Layout = ({ layout, header, nav, children }) => {
         'ease-[cubic-bezier(.36,.15,.44,1.25)]',
         'transform-gpu',
         {
-          'grid-cols-[0px_100vw] xl:grid-cols-[352px_1fr]': !fullScreen,
+          'grid-cols-[0px_100vw]': !fullScreen,
+          'xl:grid-cols-[352px_1fr]': !fullScreen && !headerless,
           'grid-cols-[100vw_0px]': fullScreen,
         },
       ])}
     >
       <div>
-        {layout !== 'headerless' && (
+        {!headerless && (
           <>
             <Header {...header} fullScreen={fullScreen} />
             <Nav {...nav} />

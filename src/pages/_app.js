@@ -29,7 +29,7 @@ const App = ({ Component, pageProps }) => {
   const router = useRouter();
 
   return (
-    <div className={cc([mulish.variable, ovo.variable, montserrat.variable])}>
+    <div className={cc([mulish.variable, ovo.variable, montserrat.className])}>
       <DefaultSeo
         titleTemplate="%s | James DiGioia"
         defaultTitle="James DiGioia"
