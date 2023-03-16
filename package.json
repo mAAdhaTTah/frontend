@@ -5,7 +5,7 @@
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
     "@alexbinary/rimraf": "^1.0.2",
-    "@aws-sdk/client-s3": "^3.264.0",
+    "@aws-sdk/client-s3": "^3.292.0",
     "@extractus/oembed-extractor": "^3.1.8",
     "@react-aria/focus": "^3.11.0",
     "@react-aria/visually-hidden": "^3.6.1",
@@ -51,7 +51,7 @@
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/react": "^6.5.16",
     "@testing-library/react": "^14.0.0",
-    "@tinacms/cli": "^1.2.1",
+    "@tinacms/cli": "^1.3.3",
     "autoprefixer": "^10.4.13",
     "axios": "^1.3.4",
     "babel-eslint": "^10.1.0",
@@ -76,7 +76,7 @@
     "raw-loader": "^4.0.2",
     "storybook-addon-next": "^1.7.1",
     "typescript": "^4.7.4",
-    "vercel": "^28.15.0",
+    "vercel": "^28.16.15",
     "wait-port": "^1.0.4"
   },
   "license": "MIT",
