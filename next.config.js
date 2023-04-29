@@ -3,7 +3,11 @@ const { withPlaiceholder } = require('@plaiceholder/next');
 /** @type {import('next').NextConfig} */
 const config = {
   images: {
-    domains: ['static.jamesdigioia.com'],
+    domains: [
+      'static.jamesdigioia.com',
+      'www.poynter.org',
+      '4.bp.blogspot.com',
+    ],
   },
   trailingSlash: true,
   async redirects() {

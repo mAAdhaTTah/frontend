@@ -30,6 +30,50 @@ const loadExtraFromPosts = async posts => {
       media[m.source] = await getImagePropsFromMedia(m);
     } catch {}
   };
+  const processBodyBlock = async block => {
+    switch (block.__typename) {
+      case 'PostStandardBodyRichText':
+      case 'PostGalleryBodyRichText':
+      case 'PostLinkBodyRichText':
+      case 'PostStatusBodyRichText':
+      case 'PostImageBodyRichText':
+      case 'PostAudioBodyRichText':
+      case 'PostVideoBodyRichText':
+      case 'PostQuoteBodyRichText':
+        for (const element of block.content.children) {
+          await processRichTextElement(element);
+        }
+        break;
+      // no default
+    }
+  };
+  const processRichTextElement = async element => {
+    if (element.type === 'p' || element.type === 'a') {
+      for (const innerElement of element.children) {
+        await processRichTextElement(innerElement);
+      }
+    }
+    if (element.type === 'img') {
+      await loadMedia({
+        source: element.url,
+        altText: element.alt,
+      });
+    }
+    if (element.name === 'Embed') {
+      await loadEmbed(element.props.url);
+    }
+    if (element.name === 'ExtendedQuote') {
+      for (const innerElement of element.props.children.children) {
+        await processRichTextElement(innerElement);
+      }
+    }
+    if (element.name === 'Figure') {
+      await loadMedia({
+        source: element.props.url,
+        altText: element.props.alt ?? '',
+      });
+    }
+  };
   for (const post of posts) {
     switch (post.__typename) {
       case 'PostVideo':
@@ -54,33 +98,7 @@ const loadExtraFromPosts = async posts => {
 
     if (Array.isArray(post.body)) {
       for (const block of post.body) {
-        switch (block.__typename) {
-          case 'PostStandardBodyRichText':
-          case 'PostGalleryBodyRichText':
-          case 'PostLinkBodyRichText':
-          case 'PostStatusBodyRichText':
-          case 'PostImageBodyRichText':
-          case 'PostAudioBodyRichText':
-          case 'PostVideoBodyRichText':
-          case 'PostQuoteBodyRichText':
-            for (const element of block.content.children) {
-              if (element.name === 'Embed') {
-                await loadEmbed(element.props.url);
-              }
-              if (element.type === 'p') {
-                for (const innerElement of element.children) {
-                  if (innerElement.type === 'img') {
-                    await loadMedia({
-                      source: innerElement.url,
-                      altText: innerElement.alt,
-                    });
-                  }
-                }
-              }
-            }
-            break;
-          // no default
-        }
+        await processBodyBlock(block);
       }
     }
   }
