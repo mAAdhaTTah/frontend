@@ -1,5 +1,3 @@
-import { descriptionField, nameField } from '../fields';
-
 /**
  * @typedef {import('tinacms').Collection} TinaCollection
  * @typedef {import('tinacms').SchemaField} Field
