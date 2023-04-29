@@ -61,11 +61,7 @@ const RichText = ({ content, extra, components = {} }) => {
         p: Paragraph,
         code: Code,
         a: props => <Link href={props.url}>{props.children}</Link>,
-        img: ({ url }) => (
-          <Paragraph>
-            <Image {...extra.media[url]} />
-          </Paragraph>
-        ),
+        img: ({ url }) => <Image {...extra.media[url]} />,
         h1: props => (
           <Heading level={1} variant="h-1">
             {props.children}
