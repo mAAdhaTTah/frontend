@@ -7,10 +7,6 @@ header: content/headers/main.md
 status: publish
 body:
   - content: >
-      ![The White Queen
-      Rules](https://jamesdigioia.com/app/uploads/2014/03/2014-02-22-16-52-05-510x180.jpg)
-
-
       *I wrote a short eulogy for my grandmother, but never summoned up the
       nerve to say it in person. So I'm doing what I know best: putting
       something up on the Internet.*
@@ -35,12 +31,7 @@ body:
       </ExtendedQuote>
 
 
-      [![The family
-      tree](https://jamesdigioia.com/app/uploads/2014/03/grandma-family-510x180.jpg)](https://jamesdigioia.com/app/uploads/2014/03/grandma-family.jpg)
-
-
-      *[Click for full-size
-      image](https://jamesdigioia.com/app/uploads/2014/03/grandma-family.jpg)*
+      ![The family tree](https://static.jamesdigioia.com/uploads/2014/03/grandma-family.jpg)
     _template: richText
 excerpt: >
   I wrote a short eulogy for my grandmother, but never summoned up the nerve to
@@ -53,5 +44,3 @@ categories:
   - reference: content/categories/personal.md
 _template: standard
 ---
-
-

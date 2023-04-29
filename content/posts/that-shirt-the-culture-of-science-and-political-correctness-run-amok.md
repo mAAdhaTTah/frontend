@@ -101,7 +101,7 @@ body:
 
 
       ![An "I'm not welcome here" sign
-      quote](https://jamesdigioia.com/app/uploads/2014/11/an-im-not-welcome-here-sign-quote.png)
+      quote](https://static.jamesdigioia.com/uploads/2014/11/an-im-not-welcome-here-sign-quote.png)
 
 
       And a culture that makes women feel unwelcome is certainly worth getting
@@ -133,5 +133,3 @@ categories:
   - reference: content/categories/social-justice.md
 _template: standard
 ---
-
-
