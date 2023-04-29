@@ -11,7 +11,7 @@ import { compareDesc, parseISO } from 'date-fns';
 import { paramCase } from 'param-case';
 import { getPlaiceholder } from 'plaiceholder';
 import * as Prezis from '@talks/prezis';
-import { client } from '../../.tina/__generated__/client';
+import { client } from '../../tina/__generated__/client';
 
 const loadExtraFromPosts = async posts => {
   if (!Array.isArray(posts)) {
