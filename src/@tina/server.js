@@ -300,6 +300,20 @@ export const getReadingPageProps = async () => {
   return { ...props, extra: { reading } };
 };
 
+export const getTalksArchivePageProps = async () => {
+  const props = await getPagePropsBySlug('talks/__archive__');
+
+  return {
+    ...props,
+    extra: {
+      talks: Object.entries(Prezis).map(([key, { component, ...talk }]) => ({
+        ...talk,
+        slug: paramCase(key),
+      })),
+    },
+  };
+};
+
 export const getWritingByPage = async (page, perPage) => {
   const response = await client.queries.getWritingPosts();
 
