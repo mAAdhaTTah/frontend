@@ -9,7 +9,7 @@ const TalkSingle = ({ slug }) => {
     const paramCaseKeys = keys.map(key => paramCase(key));
     const idx = paramCaseKeys.indexOf(paramCase(slug));
     const key = keys[idx];
-    return Prezis[key];
+    return Prezis[key].component;
   }, [slug]);
   return <Component />;
 };
