@@ -1,10 +1,17 @@
 ---
 title: The logic of Libertarianism is unassailable
-publishedAt: '2014-08-18T19:49:50.000Z'
-updatedAt: '2014-08-18T19:49:50.000Z'
+publishedAt: 2014-08-18T19:49:50.000Z
+updatedAt: 2014-08-18T19:49:50.000Z
 status: publish
 body:
-  - content: "<ExtendedQuote>\n  The guy with the needle says he has a chemical mixture that if injected will lessen the effects of hallucinogens. \x93I have the solution right in my hands,\x94 he says. Eyre decides it\x92s a bad idea to inject the longhaired guy with a mystery drug \x97 even if it could work in theory \x97 and says he won\x92t allow it to happen.\n\n  \x93Can anyone refute that it will work?\x94 the guy with the needle asks.\n\n  It might as well have been the slogan for the whole glorious epic of the Porcupine Freedom Festival.\n</ExtendedQuote>\n"
+  - content: |
+      <ExtendedQuote>
+        The guy with the needle says he has a chemical mixture that if injected will lessen the effects of hallucinogens. "I have the solution right in my hands," he says. Eyre decides it's a bad idea to inject the longhaired guy with a mystery drug -- even if it could work in theory -- and says he won't allow it to happen.
+
+        "Can anyone refute that it will work?" the guy with the needle asks.
+
+        It might as well have been the slogan for the whole glorious epic of the Porcupine Freedom Festival.
+      </ExtendedQuote>
     _template: richText
 link:
   url: >-
