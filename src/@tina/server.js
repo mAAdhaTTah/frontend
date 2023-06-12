@@ -202,10 +202,12 @@ export const getPageProps = async params =>
  * @returns {Promise<import('react').ComponentProps<typeof import('next/image').default>>}
  */
 const getImagePropsFromMedia = async media => {
+  const res = await fetch(media.source);
+  const buffer = Buffer.from(await res.arrayBuffer());
   const {
     base64,
-    img: { width, height },
-  } = await getPlaiceholder(media.source);
+    metadata: { width, height },
+  } = await getPlaiceholder(buffer);
 
   return {
     width,

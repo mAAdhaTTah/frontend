@@ -1,4 +1,9 @@
-const { withPlaiceholder } = require('@plaiceholder/next');
+import * as url from 'url';
+import fs from 'fs/promises';
+import withPlaiceholder from '@plaiceholder/next';
+
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -11,7 +16,6 @@ const config = {
   },
   trailingSlash: true,
   async redirects() {
-    const fs = require('fs/promises');
     const files = await fs.readdir(`${__dirname}/content/posts`);
     return [
       ...files.map(file => {
@@ -101,4 +105,4 @@ const config = {
   },
 };
 
-module.exports = withPlaiceholder(config);
+export default withPlaiceholder(config);
