@@ -1,6 +1,11 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-  extends: ['plugin:@next/next/recommended', 'react-app', 'prettier'],
+  extends: [
+    'plugin:@next/next/recommended',
+    'react-app',
+    'prettier',
+    'plugin:storybook/recommended',
+  ],
   rules: {
     'import/named': 2,
     'import/namespace': 2,
