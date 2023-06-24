@@ -2,6 +2,7 @@ import { Resume } from './';
 
 export default {
   title: '@ui/resume',
+  component: Resume,
 };
 
 const experiences = [
@@ -191,15 +192,16 @@ const volunteering = [
   },
 ];
 
-export const main = () => (
-  <Resume
-    name="James DiGioia"
-    location="Bronx, NY"
-    description="I am a Senior Front-End Engineer with experience in modern web frameworks & team leadership."
-    experiences={experiences}
-    projects={projects}
-    talks={talks}
-    volunteering={volunteering}
-    skills={skills}
-  />
-);
+export const Index = {
+  args: {
+    name: 'James DiGioia',
+    location: 'Bronx, NY',
+    description:
+      'I am a Senior Front-End Engineer with experience in modern web frameworks & team leadership.',
+    experiences,
+    projects,
+    talks,
+    volunteering,
+    skills,
+  },
+};
