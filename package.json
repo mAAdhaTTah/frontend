@@ -5,7 +5,7 @@
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
     "@alexbinary/rimraf": "^1.0.2",
-    "@aws-sdk/client-s3": "^3.321.1",
+    "@aws-sdk/client-s3": "^3.359.0",
     "@extractus/oembed-extractor": "^3.1.8",
     "@react-aria/focus": "^3.11.0",
     "@react-aria/visually-hidden": "^3.6.1",
