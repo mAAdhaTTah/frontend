@@ -34,5 +34,7 @@ jobs:
         uses: chromaui/action@v1
         with:
           buildScriptName: 'build:storybook'
+          exitOnceUploaded: true
+          onlyChanged: true
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
