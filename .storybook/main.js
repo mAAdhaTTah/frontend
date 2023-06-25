@@ -13,6 +13,6 @@ module.exports = {
   ],
   framework: {
     name: '@storybook/nextjs',
-    options: { nextConfigPath: '../next.config.js' },
+    options: { nextConfigPath: '../next.config.mjs' },
   },
 };
