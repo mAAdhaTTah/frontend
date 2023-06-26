@@ -10,7 +10,7 @@
     "@react-aria/focus": "^3.11.0",
     "@react-aria/visually-hidden": "^3.6.1",
     "classcat": "^5.0.4",
-    "date-fns": "^2.29.2",
+    "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
     "feed": "^4.2.2",
     "multer": "^1.4.5-lts.1",
