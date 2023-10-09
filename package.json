@@ -65,7 +65,7 @@
     "eslint-plugin-storybook": "^0.6.12",
     "execa": "^3.0.0",
     "jest": "^29.5.0",
-    "jest-environment-jsdom": "^29.4.1",
+    "jest-environment-jsdom": "^29.7.0",
     "jsconfig-paths-jest-mapper": "^1.0.0",
     "postcss": "^8.4.31",
     "postcss-arithmetic": "0.0.4",
