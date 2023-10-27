@@ -41,7 +41,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^13.4.7",
+    "@next/eslint-plugin-next": "^14.0.0",
     "@plaiceholder/next": "^3.0.0",
     "@storybook/addon-actions": "^7.0.23",
     "@storybook/addon-docs": "^7.5.0",
