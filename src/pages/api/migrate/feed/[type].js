@@ -135,10 +135,11 @@ const postToSitemapItem = post => {
     case 'PostVideo':
       break;
     case 'PostStandard':
-      item.img.push({
-        url: post.featuredMedia.source,
-        title: post.featuredMedia.caption || post.featuredMedia.altText,
-      });
+      if (post.featuredMedia != null)
+        item.img.push({
+          url: post.featuredMedia.source,
+          title: post.featuredMedia.caption || post.featuredMedia.altText,
+        });
       break;
     // no default
   }

@@ -15,3 +15,11 @@ updates:
           - 'major'
           - 'minor'
           - 'patch'
+      tinacms:
+        patterns:
+          - 'tinacms'
+          - '@tinacms*'
+        update-types:
+          - 'major'
+          - 'minor'
+          - 'patch'
