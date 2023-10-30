@@ -14,9 +14,9 @@ blobs:
       $n = 1;
       foreach($csv->data as $data) {
         if(false != file_put_contents("pics/{$data['filename']}.jpg", file_get_contents($data['url']))) {
-          $log = "File {$n}: Downloaded {$data['filename']} from {$data['url']}n";
+          $log = "File {$n}: Downloaded {$data['filename']} from {$data['url']}\n";
         } else {
-          $log = "File {$n}: Download from {$data['url']} failedn";
+          $log = "File {$n}: Download from {$data['url']} failed\n";
         }
         print $log;
         file_put_contents("output.log", $log, FILE_APPEND | LOCK_EX);
@@ -24,4 +24,3 @@ blobs:
       }
     language: php
 ---
-
