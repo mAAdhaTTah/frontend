@@ -5,9 +5,9 @@
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
     "@alexbinary/rimraf": "^1.0.2",
-    "@aws-sdk/client-s3": "^3.359.0",
+    "@aws-sdk/client-s3": "^3.438.0",
     "@extractus/oembed-extractor": "^3.1.8",
-    "@react-aria/focus": "^3.11.0",
+    "@react-aria/focus": "^3.14.3",
     "@react-aria/visually-hidden": "^3.6.1",
     "classcat": "^5.0.4",
     "date-fns": "^2.30.0",
