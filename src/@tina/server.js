@@ -40,47 +40,57 @@ const loadExtraFromPosts = async posts => {
       case 'PostAudioBodyRichText':
       case 'PostVideoBodyRichText':
       case 'PostQuoteBodyRichText':
-        for (const element of block.content.children) {
-          await processRichTextElement(element);
-        }
+        await Promise.all(
+          block.content.children.map(element =>
+            processRichTextElement(element),
+          ),
+        );
         break;
       // no default
     }
   };
   const processRichTextElement = async element => {
+    const promises = [];
     if (element.type === 'p' || element.type === 'a') {
       for (const innerElement of element.children) {
-        await processRichTextElement(innerElement);
+        promises.push(processRichTextElement(innerElement));
       }
     }
     if (element.type === 'img') {
-      await loadMedia({
-        source: element.url,
-        altText: element.alt,
-      });
+      promises.push(
+        loadMedia({
+          source: element.url,
+          altText: element.alt,
+        }),
+      );
     }
     if (element.name === 'Embed') {
-      await loadEmbed(element.props.url);
+      promises.push(loadEmbed(element.props.url));
     }
     if (element.name === 'ExtendedQuote') {
       for (const innerElement of element.props.children.children) {
-        await processRichTextElement(innerElement);
+        promises.push(processRichTextElement(innerElement));
       }
     }
     if (element.name === 'Figure') {
-      await loadMedia({
-        source: element.props.url,
-        altText: element.props.alt ?? '',
-      });
+      promises.push(
+        loadMedia({
+          source: element.props.url,
+          altText: element.props.alt ?? '',
+        }),
+      );
     }
+
+    await Promise.all(promises);
   };
+  const promises = [];
   for (const post of posts) {
     switch (post.__typename) {
       case 'PostVideo':
-        await loadEmbed(post.video.url);
+        promises.push(loadEmbed(post.video.url));
         break;
       case 'PostAudio':
-        await loadEmbed(post.audio.url);
+        promises.push(loadEmbed(post.audio.url));
         break;
       case 'PostImage':
       case 'PostStandard':
@@ -90,7 +100,7 @@ const loadExtraFromPosts = async posts => {
         break;
       case 'PostGallery':
         for (const { reference: media } of post.images) {
-          await loadMedia(media);
+          promises.push(loadMedia(media));
         }
         break;
       // no default
@@ -98,10 +108,12 @@ const loadExtraFromPosts = async posts => {
 
     if (Array.isArray(post.body)) {
       for (const block of post.body) {
-        await processBodyBlock(block);
+        promises.push(processBodyBlock(block));
       }
     }
   }
+
+  await Promise.all(promises);
 
   return { embeds, media };
 };
