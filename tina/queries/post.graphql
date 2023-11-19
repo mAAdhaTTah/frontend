@@ -19,6 +19,10 @@ query getWritingPosts {
         ...FullPost
       }
     }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
   }
 }
 
