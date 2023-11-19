@@ -25,9 +25,13 @@ body:
       *can ever exist*. The prototypical example looks like this in PHP:
 
 
-      \[gistpen id=4493]
-
-
+    _template: richText
+  - repo: content/repos/a-better-wordpress-singleton.md
+    blob: normal-singleton-and-boot.php
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
       Note the `protected` constructor: This means that the class can only be
       instantiated by itself (in this case, by the static `init` method), so no
       other code can create a new instance of the class. That same `init` method
@@ -85,9 +89,14 @@ body:
       *singleton-ness* the class's constructor:
 
 
-      \[gistpen id=4503]
 
-
+    _template: richText
+  - repo: content/repos/a-better-wordpress-singleton.md
+    blob: improved-singleton.php
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
       Now, if an instance already exists, an Exception is thrown, so another
       developer would not be able to instantiate a new instance of the main
       plugin class. The constructor its is now exposed, so any dependencies,
@@ -104,9 +113,14 @@ body:
       share:
 
 
-      \[gistpen id=4509]
 
-
+    _template: richText
+  - repo: content/repos/a-better-wordpress-singleton.md
+    blob: improved-boot.php
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
       This was pulled from a suggestion in a pull request on the [WordPress
       Plugin
       Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate/pull/321),
