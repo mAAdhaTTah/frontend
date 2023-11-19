@@ -119,7 +119,7 @@ const loadExtraFromPosts = async posts => {
 };
 
 const generatePagesPaths = (count, perPage) => {
-  const numPages = Math.ceil(count / perPage) - 1;
+  const numPages = Math.ceil(count / perPage) - 2;
 
   return [...Array(numPages).fill(2)].map((num, idx) => ({
     params: { number: String(num + idx) },
