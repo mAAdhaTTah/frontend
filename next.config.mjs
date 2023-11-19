@@ -7,6 +7,8 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const config = {
+  // Timeout in seconds
+  staticPageGenerationTimeout: 120,
   images: {
     domains: [
       'static.jamesdigioia.com',
@@ -89,6 +91,7 @@ const config = {
   },
   experimental: {
     scrollRestoration: true,
+    webpackBuildWorker: true,
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if

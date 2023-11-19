@@ -1,3 +1,5 @@
+import path from 'path';
+import fs from 'fs/promises';
 import { extract } from '@extractus/oembed-extractor';
 import { getReadingProps } from '@reading/server';
 import {
@@ -40,47 +42,57 @@ const loadExtraFromPosts = async posts => {
       case 'PostAudioBodyRichText':
       case 'PostVideoBodyRichText':
       case 'PostQuoteBodyRichText':
-        for (const element of block.content.children) {
-          await processRichTextElement(element);
-        }
+        await Promise.all(
+          block.content.children.map(element =>
+            processRichTextElement(element),
+          ),
+        );
         break;
       // no default
     }
   };
   const processRichTextElement = async element => {
+    const promises = [];
     if (element.type === 'p' || element.type === 'a') {
       for (const innerElement of element.children) {
-        await processRichTextElement(innerElement);
+        promises.push(processRichTextElement(innerElement));
       }
     }
     if (element.type === 'img') {
-      await loadMedia({
-        source: element.url,
-        altText: element.alt,
-      });
+      promises.push(
+        loadMedia({
+          source: element.url,
+          altText: element.alt,
+        }),
+      );
     }
     if (element.name === 'Embed') {
-      await loadEmbed(element.props.url);
+      promises.push(loadEmbed(element.props.url));
     }
     if (element.name === 'ExtendedQuote') {
       for (const innerElement of element.props.children.children) {
-        await processRichTextElement(innerElement);
+        promises.push(processRichTextElement(innerElement));
       }
     }
     if (element.name === 'Figure') {
-      await loadMedia({
-        source: element.props.url,
-        altText: element.props.alt ?? '',
-      });
+      promises.push(
+        loadMedia({
+          source: element.props.url,
+          altText: element.props.alt ?? '',
+        }),
+      );
     }
+
+    await Promise.all(promises);
   };
+  const promises = [];
   for (const post of posts) {
     switch (post.__typename) {
       case 'PostVideo':
-        await loadEmbed(post.video.url);
+        promises.push(loadEmbed(post.video.url));
         break;
       case 'PostAudio':
-        await loadEmbed(post.audio.url);
+        promises.push(loadEmbed(post.audio.url));
         break;
       case 'PostImage':
       case 'PostStandard':
@@ -90,7 +102,7 @@ const loadExtraFromPosts = async posts => {
         break;
       case 'PostGallery':
         for (const { reference: media } of post.images) {
-          await loadMedia(media);
+          promises.push(loadMedia(media));
         }
         break;
       // no default
@@ -98,16 +110,18 @@ const loadExtraFromPosts = async posts => {
 
     if (Array.isArray(post.body)) {
       for (const block of post.body) {
-        await processBodyBlock(block);
+        promises.push(processBodyBlock(block));
       }
     }
   }
+
+  await Promise.all(promises);
 
   return { embeds, media };
 };
 
 const generatePagesPaths = (count, perPage) => {
-  const numPages = Math.ceil(count / perPage) - 1;
+  const numPages = Math.ceil(count / perPage) - 2;
 
   return [...Array(numPages).fill(2)].map((num, idx) => ({
     params: { number: String(num + idx) },
@@ -316,8 +330,24 @@ export const getTalksArchivePageProps = async () => {
   };
 };
 
-export const getWritingByPage = async (page, perPage) => {
+const cachePath = path.join(process.cwd(), 'cache.json');
+
+const getCachedWritingPosts = async () => {
+  if (
+    await fs.stat(cachePath).then(
+      () => true,
+      () => false,
+    )
+  ) {
+    return JSON.parse(await fs.readFile(cachePath, 'utf-8'));
+  }
   const response = await client.queries.getWritingPosts();
+  await fs.writeFile(cachePath, JSON.stringify(response));
+  return response;
+};
+
+export const getWritingByPage = async (page, perPage) => {
+  const response = await getCachedWritingPosts();
 
   const startIndex = (page - 1) * perPage;
   const endIndex = page * perPage;
