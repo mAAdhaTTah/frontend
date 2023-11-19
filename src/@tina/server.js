@@ -1,3 +1,5 @@
+import path from 'path';
+import fs from 'fs/promises';
 import { extract } from '@extractus/oembed-extractor';
 import { getReadingProps } from '@reading/server';
 import {
@@ -328,8 +330,24 @@ export const getTalksArchivePageProps = async () => {
   };
 };
 
-export const getWritingByPage = async (page, perPage) => {
+const cachePath = path.join(process.cwd(), 'cache.json');
+
+const getCachedWritingPosts = async () => {
+  if (
+    await fs.stat(cachePath).then(
+      () => true,
+      () => false,
+    )
+  ) {
+    return JSON.parse(await fs.readFile(cachePath, 'utf-8'));
+  }
   const response = await client.queries.getWritingPosts();
+  await fs.writeFile(cachePath, JSON.stringify(response));
+  return response;
+};
+
+export const getWritingByPage = async (page, perPage) => {
+  const response = await getCachedWritingPosts();
 
   const startIndex = (page - 1) * perPage;
   const endIndex = page * perPage;

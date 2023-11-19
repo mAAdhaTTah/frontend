@@ -11,6 +11,7 @@ storybook-static
 public/sitemap.xml
 public/feed
 .vercel
+/cache.json
 
 # Environment variables
 .env
