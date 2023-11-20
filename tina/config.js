@@ -1,6 +1,8 @@
-import { defineConfig } from 'tinacms';
-import { server } from '../src/@app/config';
-import { HOME_SLUG, IGNORED_SLUGS } from '../src/@tina/routes';
+import { defineConfig, LocalAuthProvider } from 'tinacms';
+import {
+  UsernamePasswordAuthJSProvider,
+  TinaUserCollection,
+} from 'tinacms-authjs/dist/tinacms';
 import {
   categoryCollection,
   commentCollection,
@@ -14,14 +16,16 @@ import {
   tagCollection,
 } from './collections';
 
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main';
+const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 
 export default defineConfig({
-  branch,
-  clientId: server.TINA_CLIENT_ID,
-  token: server.TINA_TOKEN,
+  contentApiUrlOverride: '/api/tina/gql',
+  authProvider: isLocal
+    ? new LocalAuthProvider()
+    : new UsernamePasswordAuthJSProvider(),
   schema: {
     collections: [
+      TinaUserCollection,
       categoryCollection,
       commentCollection,
       headerCollection,
@@ -37,35 +41,6 @@ export default defineConfig({
   build: {
     publicFolder: 'public',
     outputFolder: 'admin',
-  },
-  cmsCallback: cms => {
-    //  add your CMS callback code here (if you want)
-
-    // The Route Mapper
-    /**
-     * 1. Import `tinacms` and `RouteMappingPlugin`
-     **/
-    import('tinacms').then(({ RouteMappingPlugin }) => {
-      /**
-       * 2. Define the `RouteMappingPlugin` see https://tina.io/docs/tinacms-context/#the-routemappingplugin for more details
-       **/
-      const RouteMapping = new RouteMappingPlugin((collection, document) => {
-        switch (collection.name) {
-          case 'page':
-            const slug = document._sys.filename;
-            if (IGNORED_SLUGS.includes(slug)) return;
-            return slug !== HOME_SLUG ? `/${document._sys.filename}` : '/';
-          default:
-            return;
-        }
-      });
-      /**
-       * 3. Add the `RouteMappingPlugin` to the `cms`.
-       **/
-      cms.plugins.add(RouteMapping);
-    });
-
-    return cms;
   },
   media: {
     async loadCustomStore() {

@@ -18,7 +18,7 @@ import {
   HOME_SLUG,
   SINGLE_SLUG,
 } from '@tina/routes';
-import { client } from '../../../../../tina/__generated__/client';
+import { client } from '@tina/db';
 
 /**
  * @typedef {import('sitemap').SitemapItem} SitemapItem
