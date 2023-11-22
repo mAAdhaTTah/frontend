@@ -44,33 +44,35 @@ body:
       Setting up ngrok is as easy as adding a few lines to your current
       configuration. First, add this line to `requirements.yml`:
 
+    _template: richText
 
-      ```
+  - repo: content/repos/ngrok-ansible.md
+    blob: requirements.yml
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
 
-      -- name: ngrok
-        src: mAAdhaTTah.ngrok
-      ```
-
+  - content: >
 
       Next, add this line to your `dev.yml` file:
 
-
-      ```
-
-      -- { role: ngrok, tags: [ngrok] }
-
-      ```
-
+    _template: richText
+  - repo: content/repos/ngrok-ansible.md
+    blob: dev.yml
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       Finally, edit your `group_vars/development` file to include this line:
 
-
-      ```
-
-      ngrok:
-        subdomain: domain
-        token: your_token
-      ```
+    _template: richText
+  - repo: content/repos/ngrok-ansible.md
+    blob: group_vars/development
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       Where `domain` will become `domain.ngrok.com` for your site, and
