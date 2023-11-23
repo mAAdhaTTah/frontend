@@ -100,17 +100,17 @@ export const repoCollection = {
   label: 'Gistpen Repos',
   path: 'content/repos',
   fields: [
-    descriptionField,
+    { ...descriptionField, required: true, isTitle: true },
     statusField,
     {
       type: 'string',
       name: 'gistId',
-      Label: 'Gist id',
+      label: 'Gist id',
     },
     {
       type: 'boolean',
       name: 'sync',
-      Label: 'Sync to Gist?',
+      label: 'Sync to Gist?',
     },
     {
       name: 'createdAt',
