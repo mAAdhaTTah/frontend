@@ -225,7 +225,7 @@ commits:
           });
         language: jsx
       - filename: Form-extra-test.spec.js
-        code: >-
+        code: |-
           it('should not submit the form if value changed to empty string', ()
           => {
             const submit = jest.fn();
@@ -255,7 +255,7 @@ commits:
           });
         language: jsx
       - filename: Form-rtk.spec.js
-        code: >-
+        code: |-
           it('should not submit the form if value changed to empty string', ()
           => {
             const value = 'a value';
@@ -358,7 +358,7 @@ commits:
           });
         language: jsx
       - filename: Form-extra-test.spec.js
-        code: >-
+        code: |-
           it('should not submit the form if value changed to empty string', ()
           => {
             const submit = jest.fn();
@@ -477,7 +477,7 @@ commits:
           });
         language: jsx
       - filename: Form-extra-test.spec.js
-        code: >-
+        code: |-
           it('should not submit the form if value changed to empty string', ()
           => {
             const submit = jest.fn();

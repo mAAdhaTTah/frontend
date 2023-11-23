@@ -98,7 +98,7 @@ const Snippet = ({ code, language, filename }) => {
     }, 5000);
   }
   return (
-    <Highlight Prism={Prism} code={code.trim()} language={language}>
+    <Highlight Prism={Prism} code={code} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="code-toolbar">
           <pre

@@ -70,7 +70,7 @@ commits:
     description: Simple Path
     blobs:
       - filename: get.js
-        code: >-
+        code: |-
           const getPath = (path, target) => path.split('.').reduce((value, key)
           => value[key], target);
 

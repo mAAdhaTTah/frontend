@@ -25,7 +25,7 @@ blobs:
       };
     language: jsx
   - filename: add-alt.js
-    code: |+
+    code: |-
       const Card = ({ heading, description, imageSrc, imageAlt }) => {
         return (
           <div className="card">
@@ -42,10 +42,9 @@ blobs:
         imageSrc: PropTypes.string,
         imageAlt: PropTypes.string,
       };
-
     language: jsx
   - filename: img-obj-prop.js
-    code: |
+    code: |-
       const Card = ({ heading, description, imageSrc, imageAlt }) => {
         return (
           <div className="card">

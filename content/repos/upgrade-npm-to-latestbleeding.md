@@ -7,7 +7,7 @@ createdAt: '2014-09-28T15:03:23.000Z'
 updatedAt: '2014-09-28T15:03:23.000Z'
 blobs:
   - filename: npm-upgrade-bleeding.sh
-    code: |
+    code: |-
       #!/bin/sh
 
       set -e
@@ -19,7 +19,7 @@ blobs:
       done
     language: bash
   - filename: npm-upgrade.sh
-    code: |
+    code: |-
       #!/bin/sh
 
       set -e
@@ -31,7 +31,7 @@ blobs:
       done
     language: bash
   - filename: update.sh
-    code: >-
+    code: |-
       source <(curl -fsSL
       https://gist.githubusercontent.com/mAAdhaTTah/49c2e59eda85f37b325f/raw/4ead4c8989c66104a22240819131b99295bc4e37/npm-upgrade.sh)
     language: bash

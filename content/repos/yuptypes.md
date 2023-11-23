@@ -7,7 +7,7 @@ createdAt: '2020-09-18T15:21:04.000Z'
 updatedAt: '2020-09-18T15:21:04.000Z'
 blobs:
   - filename: yuptypes.js
-    code: |
+    code: |-
       export const yuptypes = (schema) => {
         const propTypes = {};
         for (const key in schema.fields) {
@@ -40,7 +40,7 @@ commits:
     description: yuptypes
     blobs:
       - filename: yuptypes.js
-        code: |
+        code: |-
           export const yuptypes = (schema) => {
             const propTypes = {};
             for (const key in schema.fields) {

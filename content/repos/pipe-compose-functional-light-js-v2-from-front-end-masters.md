@@ -36,12 +36,12 @@ commits:
     description: Pipe & Compose - Functional Light JS v2 from Front-End Masters
     blobs:
       - filename: pipe.js
-        code: >-
+        code: |-
           const pipe = (...funcs) => (...args) => funcs.reduce((args, func) =>
           [func(...args)], args)[0];
         language: js
       - filename: compose.js
-        code: >-
+        code: |-
           // just reverse the funcs array...?
 
           const compose = (...funcs) => (...args) =>
