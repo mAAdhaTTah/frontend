@@ -153,7 +153,7 @@ const PageGistpenArchive = ({ extra }) => {
       <Main>
         {sync.data.repoConnection.edges.map(({ node }) => (
           <Gistpen
-            key={node.id}
+            key={node._sys.filename}
             {...gistpenMapper(node)}
             slug={node._sys.filename}
             linkHeader
