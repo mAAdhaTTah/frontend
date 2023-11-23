@@ -17,16 +17,13 @@ body:
       "kind".<FootnoteReference id="1" /> Represented visually something like
       this:
 
-
-      ```
-               "kind"
-                /
-             "type"
-         /     |     
-      widget widget widget
-
-      ```
-
+    _template: richText
+  - repo: content/repos/recursive-closures-in-php.md
+    blob: graph
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       (Insofar as that graph has any meaning to anyone.)
 
@@ -58,24 +55,13 @@ body:
       accessible when the function is run:
 
 
-      ```
-
-      var widgets = [...arrayOfWidgets];
-
-      var remove = function(widgetId) {
-          widgets[widgetId].getChildWidgetIds().forEach(function(childWidgetId) {
-              // `remove` is defined and accessible
-              // at the time this is called
-              remove(widgets[childWidgetId]);
-          });
-
-          delete widgets[$pageId];
-      };
-
-
-      remove(widgets[pageId]);
-
-      ```
+    _template: richText
+  - repo: content/repos/recursive-closures-in-php.md
+    blob: recursion.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       But we can't do this as directly in PHP, because we don't have closure
@@ -85,22 +71,13 @@ body:
       of the variable *by reference*:
 
 
-      ```
-
-      $widgets = [...arrayOfWidgets];
-
-      $remove = function($widgetId) use (&$widgets, &$remove) {
-          foreach ($widgets[$widgetId]->getChildWidgetIds() as $childWidgetId) {
-              $remove($widgets[$childWidgetId]);
-          }
-
-          unset($widgets[$widgetId]);
-      };
-
-
-      $remove($widgets[widgetId]);
-
-      ```
+    _template: richText
+  - repo: content/repos/recursive-closures-in-php.md
+    blob: recursion.php
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       This makes the `$remove` variable function kind of like JavaScript's
