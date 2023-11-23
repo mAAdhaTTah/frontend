@@ -1,5 +1,12 @@
 import { descriptionField, statusField, updatedAtField } from '../fields';
 
+/**
+ * @typedef {import('tinacms').TinaField} TinaField
+ */
+
+/**
+ * @type TinaField
+ */
 const blobsField = {
   type: 'object',
   name: 'blobs',

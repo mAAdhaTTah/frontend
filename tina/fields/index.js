@@ -1,5 +1,5 @@
 /**
- * @typedef {import('tinacms').SchemaField} TinaField
+ * @typedef {import('tinacms').TinaField} TinaField
  */
 
 /**

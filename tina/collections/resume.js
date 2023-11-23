@@ -13,7 +13,7 @@ import {
 } from '../fields';
 
 /**
- * @typedef {import('tinacms').SchemaField} Field
+ * @typedef {import('tinacms').TinaField} Field
  */
 
 /**

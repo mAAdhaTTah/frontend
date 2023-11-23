@@ -1,6 +1,6 @@
 /**
  * @typedef {import('tinacms').Collection} TinaCollection
- * @typedef {import('tinacms').SchemaField} Field
+ * @typedef {import('tinacms').TinaField} Field
  */
 
 /** @type {Field} */

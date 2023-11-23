@@ -2,7 +2,7 @@ import { nameField } from '../fields';
 
 /**
  * @typedef {import('tinacms').Template} Template
- * @typedef {import('tinacms').SchemaField} Field
+ * @typedef {import('tinacms').TinaField} Field
  * @typedef {import('tinacms').Collection} Collection
  */
 
