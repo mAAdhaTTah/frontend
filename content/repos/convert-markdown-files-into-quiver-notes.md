@@ -69,11 +69,22 @@ blobs:
     language: js
   - filename: package.json
     code: >-
-      {"name":"markdown-to-quiver","version":"1.0.0","description":"Convert your
-      markdown files into Quiver
-      notes.","main":"sort.js","scripts":{"test":"echo \"Error: no test
-      specified\" && exit 1"},"author":"James DiGioia <jamesorodig@gmail.com>
-      (jamesdigioia.com)","license":"ISC","dependencies":{"bluebird":"^3.1.1","moment":"^2.10.6","node-uuid":"^1.4.7","rimraf":"^2.4.4"}}
+      {
+        "name": "markdown-to-quiver",
+        "version": "1.0.0",
+        "description": "Convert your markdown files into Quiver notes.",
+        "main": "sort.js",
+        "scripts": { "test": "echo \"Error: no test specified\" && exit 1" },
+        "author": "James DiGioia <jamesorodig@gmail.com> (jamesdigioia.com)",
+        "license": "ISC",
+        "dependencies": {
+          "bluebird": "^3.1.1",
+          "moment": "^2.10.6",
+          "node-uuid": "^1.4.7",
+          "rimraf": "^2.4.4"
+        }
+      }
+
     language: js
 ---
 

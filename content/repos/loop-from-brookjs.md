@@ -42,11 +42,9 @@ blobs:
       }
     language: js
   - filename: observableOf.js
-    code: >-
+    code: |-
       import Kefir from 'kefir';
-
       import * as PropTypes from 'prop-types';
-
 
       const spyOn = (s$, validator, propName, componentName, name) => {
           if (s$._alive) {
@@ -67,9 +65,7 @@ blobs:
           }
       };
 
-
-      export default function observableOfValidator(valueValidator, name =
-      'observableOf') {
+      export default function observableOfValidator(valueValidator, name = 'observableOf') {
           const validator = function observableOf(props, propName, componentName) {
               const propValue = props[propName];
               if (propValue == null) {
@@ -99,7 +95,6 @@ blobs:
 
           return wrapValidator(validator, name);
       }
-
 
       function wrapValidator(validator, typeName, typeChecker = null) {
           return Object.assign(validator.bind(), {
@@ -153,7 +148,7 @@ commits:
           }
         language: js
       - filename: observableOf.js
-        code: >-
+        code: |-
           import Kefir from 'kefir';
 
           import * as PropTypes from 'prop-types';

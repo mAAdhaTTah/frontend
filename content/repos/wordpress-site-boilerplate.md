@@ -7,7 +7,7 @@ createdAt: '2015-03-07T20:36:07.000Z'
 updatedAt: '2015-03-07T20:36:07.000Z'
 blobs:
   - filename: composer.json
-    code: >-
+    code: |-
       {
         "name": "name/site",
         "type": "project",

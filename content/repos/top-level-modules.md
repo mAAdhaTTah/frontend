@@ -7,7 +7,7 @@ createdAt: '2021-01-16T20:47:23.000Z'
 updatedAt: '2021-01-16T20:47:23.000Z'
 blobs:
   - filename: WidgetView.jsx
-    code: |
+    code: |-
       import React from 'react';
       import { getWidgets, createWidget } from '../widget';
 
@@ -38,14 +38,10 @@ blobs:
       }
     language: jsx
   - filename: index.js
-    code: >
+    code: |-
       // src/widget/index.js
-
       export { Widget } from './Widget.js';
-
-      export { getWidgets, createWidget, updateWidget, deleteWidget } from
-      './api.js';
-
+      export { getWidgets, createWidget, updateWidget, deleteWidget } from './api.js';
       export { encoder, decoder } from './schema.js';
     language: js
 commits:
@@ -53,14 +49,10 @@ commits:
     description: Top-Level Modules
     blobs:
       - filename: index.js
-        code: >
+        code: |-
           // src/widget/index.js
-
           export { Widget } from './Widget.js';
-
-          export { getWidget, createWidget, updateWidget, deleteWidget } from
-          './api.js';
-
+          export { getWidget, createWidget, updateWidget, deleteWidget } from './api.js';
           export { encoder, decoder } from './schema.js';
         language: js
   - committedAt: '2021-01-17T01:12:54.000Z'

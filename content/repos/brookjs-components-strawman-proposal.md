@@ -2275,7 +2275,7 @@ commits:
           })
         language: jsx
       - filename: client.js
-        code: >-
+        code: |-
           import { createStore, applyMiddleware } from 'redux'
 
           import { h, observeDelta, Kefir } from brookjs
@@ -2397,7 +2397,7 @@ commits:
           })
         language: jsx
       - filename: client.js
-        code: >-
+        code: |-
           import { createStore, applyMiddleware } from 'redux'
 
           import { h, observeDelta, Kefir } from brookjs
@@ -2503,7 +2503,7 @@ commits:
           })
         language: jsx
       - filename: client.js
-        code: >-
+        code: |-
           import { createStore, applyMiddleware } from 'redux'
 
           import { h, observeDelta, Kefir } from brookjs
@@ -2609,7 +2609,7 @@ commits:
           })
         language: jsx
       - filename: client.js
-        code: >-
+        code: |-
           import { createStore, applyMiddleware } from 'redux'
 
           import { h, observeDelta, Kefir } from brookjs
@@ -2716,7 +2716,7 @@ commits:
           })
         language: jsx
       - filename: client.js
-        code: >-
+        code: |-
           import { createStore, applyMiddleware } from 'redux'
 
           import { h, observeDelta, Kefir } from brookjs
@@ -2815,7 +2815,7 @@ commits:
           })
         language: jsx
       - filename: client.js
-        code: >-
+        code: |-
           import { createStore, applyMiddleware } from 'redux'
 
           import { h, observeDelta, Kefir } from brookjs
@@ -2844,7 +2844,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { h, component, mount, Kefir } from 'brookjs'
 
 
@@ -2932,7 +2932,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { h, component, mount, Kefir } from 'brookjs'
 
 
@@ -3016,7 +3016,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { h, component, mount, Kefir } from 'brookjs'
 
 
@@ -3093,7 +3093,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { h, component, mount, Kefir } from 'brookjs'
 
 
@@ -3162,7 +3162,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { h, component, mount, Kefir } from 'brookjs'
 
 
@@ -3233,7 +3233,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { h, component, mount, Kefir } from 'brookjs'
 
 
@@ -3304,7 +3304,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { h, component, mount, Kefir } from 'brookjs'
 
 
@@ -3375,7 +3375,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { h, component, mount, Kefir } from 'brookjs'
 
 
@@ -3442,7 +3442,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { component, mount, Kefir } from 'brookjs'
 
 
@@ -3509,7 +3509,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { component, mount, Kefir } from 'brookjs'
 
 
@@ -3574,7 +3574,7 @@ commits:
     description: Brookjs components strawman proposal
     blobs:
       - filename: component.js
-        code: >-
+        code: |-
           import { component, mount, Kefir } from 'brookjs'
 
 

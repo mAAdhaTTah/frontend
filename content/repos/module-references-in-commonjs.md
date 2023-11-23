@@ -15,7 +15,7 @@ blobs:
       console.log(mod2.prop);
     language: js
   - filename: mod1.js
-    code: |
+    code: |-
       var mod2 = require('./mod2');
 
       exports.impactMod2 = function() {

@@ -7,62 +7,62 @@ createdAt: '2021-08-15T14:58:51.000Z'
 updatedAt: '2021-09-12T22:23:44.000Z'
 blobs:
   - filename: add.js
-    code: |
+    code: |-
       const add = a => b => a + b;
       add(1)(2); // 3
     language: js
   - filename: doubleThenAdd2.js
-    code: |
+    code: |-
       const doubleThenAdd2 = pipe(multiply(2), add(2));
       doubleThenAdd2(5); // 12
     language: js
   - filename: addCallNormal.js
-    code: |
+    code: |-
       add(1, 2); // b => 1 + b;
     language: js
   - filename: curriedAdd.js
-    code: |
+    code: |-
       const add = curry((a, b) => a + b);
       add(1); // b => 1 + b;
       add(1, 2); // 3
       add(1)(2); // 3
     language: js
   - filename: sort.js
-    code: |
+    code: |-
       const sort = (arr, algo = 'bubble') => // ... implementation
     language: js
   - filename: api.js
-    code: >
+    code: |-
       const api = ({ url, method = 'GET', body = {}, headers = {} }) => // ...
       implementation
     language: js
   - filename: sortCurried.js
-    code: |
+    code: |-
       const sort = curry((algo, arr) => // ... implementation );
       sort('bubble', [5, 214, 23, 6]); // [5, 6, 23, 213]
       const sortBubble = sort('bubble');
     language: js
   - filename: doubleThenAdd2F#.js
-    code: |
+    code: |-
       const doubleThenAdd2 = x => x |> multiply(2) |> add(2);
     language: js
   - filename: doubleThenAdd2Hack.js
-    code: |
+    code: |-
       const doubleThenAdd2 = x => x |> multiply(2, ^) |> add(2, ^);
     language: js
   - filename: doubleThenAdd2HackNoFunc.js
-    code: |
+    code: |-
       const doubleThenAdd2 = x => x |> 2 * ^ |> 2 + ^;
     language: js
   - filename: curriedWithHack.js
-    code: |
+    code: |-
       // Without `curry`
       1 |> add(1)(%);
       // With `curry`
       1 |> add(1, %);
     language: js
   - filename: deepSetRecord.js
-    code: |
+    code: |-
       // From the README, w/ Hack pipe
       const updated = state |> #{
           ...^,
@@ -80,7 +80,7 @@ commits:
     description: Functional Hack
     blobs:
       - filename: add.js
-        code: |
+        code: |-
           const add = a => b => a + b;
           add(1)(2); // 3
         language: js
