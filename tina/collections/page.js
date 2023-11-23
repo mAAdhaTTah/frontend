@@ -12,7 +12,7 @@ import {
  */
 
 /**
- * @type {import('tinacms').SchemaField}
+ * @type {import('tinacms').TinaField}
  */
 const perPageField = {
   type: 'number',

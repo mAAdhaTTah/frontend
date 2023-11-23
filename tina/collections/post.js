@@ -520,7 +520,7 @@ const asideTemplate = {
 };
 
 /**
- * @type import('tinacms').TinaCollection
+ * @type import('tinacms').Collection
  */
 export const postCollection = {
   name: 'post',
