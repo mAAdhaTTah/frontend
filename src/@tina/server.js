@@ -239,8 +239,8 @@ export const getPageLayoutProps = async page => {
       page.__typename === 'PageFullScreen'
         ? 'fullscreen'
         : page.__typename === 'PageTalkSingle'
-        ? 'headerless'
-        : 'default',
+          ? 'headerless'
+          : 'default',
     header: {
       title: page.header.title,
       description: page.header.description,
