@@ -49,6 +49,16 @@ const config = {
         permanent: true,
       },
       {
+        source: '/feed/rss/',
+        destination: '/feed/',
+        permanent: true,
+      },
+      {
+        source: '/feed/rss2/',
+        destination: '/feed/',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {
@@ -63,26 +73,6 @@ const config = {
   },
   async rewrites() {
     return [
-      {
-        source: '/feed/',
-        destination: '/feed/rss2.xml',
-      },
-      {
-        source: '/feed/rss/',
-        destination: '/feed/rss2.xml',
-      },
-      {
-        source: '/feed/rss2/',
-        destination: '/feed/rss2.xml',
-      },
-      {
-        source: '/feed/atom/',
-        destination: '/feed/atom.xml',
-      },
-      {
-        source: '/feed/json/',
-        destination: '/feed/json1.json',
-      },
       {
         source: '/admin',
         destination: '/admin/index.html',

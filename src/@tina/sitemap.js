@@ -1,7 +1,3 @@
-import path from 'node:path';
-import fs from 'node:fs';
-import fsp from 'node:fs/promises';
-import { SitemapStream, ErrorLevel } from 'sitemap';
 import { Feed } from 'feed';
 import { parseISO } from 'date-fns';
 import {
@@ -18,7 +14,7 @@ import {
   HOME_SLUG,
   SINGLE_SLUG,
 } from '@tina/routes';
-import { client } from '../../../../../tina/__generated__/client';
+import { client } from '../../tina/__generated__/client';
 
 /**
  * @typedef {import('sitemap').SitemapItem} SitemapItem
@@ -89,7 +85,7 @@ async function* getAllFeedItems() {
   }
 }
 
-const buildFeed = async () => {
+export const buildFeed = async () => {
   const feed = new Feed({
     id: 'https://jamesdigioia.com/',
     link: 'https://jamesdigioia.com/',
@@ -285,7 +281,7 @@ const pageToSitemapMapper = {
   /* eslint-enable require-yield */
 };
 
-async function* getAllSitemapItems() {
+export async function* getAllSitemapItems() {
   for await (const page of getAllPages()) {
     if (!page._sys.basename.includes('__')) {
       yield pageToSitemapItem(page);
@@ -300,78 +296,3 @@ async function* getAllSitemapItems() {
     }
   }
 }
-
-/** @type {import('next').NextApiHandler} */
-const sitemap = async (req, res) => {
-  const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
-  await fsp.unlink(sitemapPath).catch(() => {});
-
-  const smStream = new SitemapStream({
-    hostname: 'https://jamesdigioia.com/',
-    level: ErrorLevel.THROW,
-  });
-  const fileStream = fs.createWriteStream(sitemapPath);
-
-  smStream.pipe(fileStream);
-
-  for await (const item of getAllSitemapItems()) {
-    smStream.write(item);
-  }
-
-  smStream.end();
-  fileStream.end();
-
-  return res.status(200).json({ success: true });
-};
-
-const rss2 = async (req, res) => {
-  const rss2Path = path.join(process.cwd(), 'public', 'feed', 'rss2.xml');
-  await fsp.unlink(rss2Path).catch(() => {});
-  await fsp.mkdir(path.dirname(rss2Path)).catch(() => {});
-  const feed = await buildFeed();
-  await fsp.writeFile(rss2Path, feed.rss2());
-  return res.status(200).json({ success: true });
-};
-
-const atom = async (req, res) => {
-  const atomPath = path.join(process.cwd(), 'public', 'feed', 'atom.xml');
-  await fsp.unlink(atomPath).catch(() => {});
-  await fsp.mkdir(path.dirname(atomPath)).catch(() => {});
-  const feed = await buildFeed();
-  await fsp.writeFile(atomPath, feed.atom1());
-  return res.status(200).json({ success: true });
-};
-
-const json = async (req, res) => {
-  const jsonPath = path.join(process.cwd(), 'public', 'feed', 'json1.json');
-  await fsp.unlink(jsonPath).catch(() => {});
-  await fsp.mkdir(path.dirname(jsonPath)).catch(() => {});
-  const feed = await buildFeed();
-  await fsp.writeFile(jsonPath, feed.json1());
-  return res.status(200).json({ success: true });
-};
-
-/** @type {import('next').NextApiHandler} */
-const handler = async (req, res) => {
-  try {
-    switch (req.query.type) {
-      case 'sitemap':
-        return await sitemap(req, res);
-      case 'rss2':
-        return await rss2(req, res);
-      case 'atom':
-        return await atom(req, res);
-      case 'json':
-        return await json(req, res);
-      default:
-        return res.status(404).end('Not Found');
-    }
-  } catch (err) {
-    console.error(err);
-    return res
-      .status(500)
-      .json({ success: false, message: err.message, stack: err.stack });
-  }
-};
-
-export default handler;
