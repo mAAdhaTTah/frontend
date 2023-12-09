@@ -46,7 +46,13 @@ body:
       transformations:
 
 
-      \[gistpen id=4753]
+    _template: richText
+  - repo: content/repos/fat-arrow-functions-one-line-callbacks-and-composing-promises.md
+    blob: old-style.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       This is a really simple example, but something that comes up all the time
@@ -58,7 +64,13 @@ body:
       With fat-arrow functions, the above 3 lines become a single line:
 
 
-      \[gistpen id=4764]
+    _template: richText
+  - repo: content/repos/fat-arrow-functions-one-line-callbacks-and-composing-promises.md
+    blob: new-style.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       Fat arrow functions, when written as a one-liner, automatically returns
@@ -69,7 +81,13 @@ body:
       so chaining together a set of Promise methods become really clean:
 
 
-      \[gistpen id=4769]
+    _template: richText
+  - repo: content/repos/fat-arrow-functions-one-line-callbacks-and-composing-promises.md
+    blob: composing-promises.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       If you have 3 or 4 of these steps, you can see how writing these becomes
