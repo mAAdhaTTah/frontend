@@ -50,7 +50,7 @@
     "@storybook/nextjs": "^7.6.4",
     "@storybook/react": "^7.0.23",
     "@testing-library/react": "^14.1.2",
-    "@tinacms/cli": "^1.5.38",
+    "@tinacms/cli": "^1.5.39",
     "autoprefixer": "^10.4.16",
     "axios": "^1.6.2",
     "babel-eslint": "^10.1.0",
