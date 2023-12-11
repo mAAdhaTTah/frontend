@@ -5,7 +5,7 @@
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.456.0",
-    "@extractus/oembed-extractor": "^3.1.8",
+    "@extractus/oembed-extractor": "^4.0.1",
     "@react-aria/focus": "^3.15.0",
     "@react-aria/visually-hidden": "^3.8.7",
     "classcat": "^5.0.4",
@@ -22,7 +22,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-icons": "^4.9.0",
+    "react-icons": "^4.12.0",
     "react-transition-group": "^4.4.5",
     "rooks": "^7.14.1",
     "sharp": "^0.32.6",
@@ -34,7 +34,7 @@
     "typeit": "^8.8.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.0.1",
+    "@next/eslint-plugin-next": "^14.0.4",
     "@plaiceholder/next": "^3.0.0",
     "@storybook/addon-actions": "^7.6.4",
     "@storybook/addon-docs": "^7.6.4",
