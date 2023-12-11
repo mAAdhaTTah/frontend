@@ -71,8 +71,8 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "^18",
-    "npm": "^9.6"
+    "node": "^20",
+    "npm": "^9 || ^10"
   },
   "scripts": {
     "start": "next start",
