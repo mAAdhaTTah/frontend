@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.473.0",
+    "@aws-sdk/client-s3": "^3.474.0",
     "@extractus/oembed-extractor": "^4.0.1",
     "@react-aria/focus": "^3.15.0",
     "@react-aria/visually-hidden": "^3.8.7",
@@ -29,7 +29,7 @@
     "sitemap": "^7.1.1",
     "smartypants": "^0.2.2",
     "spectacle": "^4.0.5",
-    "tailwindcss": "^3.3.5",
+    "tailwindcss": "^3.3.6",
     "tinacms": "^1.5.28",
     "typeit": "^8.8.0"
   },
