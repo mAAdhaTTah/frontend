@@ -15,8 +15,13 @@ body:
       A friend of mine posted this in our local Slack channel, and I've seen a
       variation of this problem a number of times already:
 
-
-      \[gistpen id="5562"]
+    _template: richText
+  - repo: content/repos/arrow-function-problems.md
+    blob: arrow-error.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       Note the `<- Fails here`. Can you spot why? I'll wait...
@@ -39,8 +44,13 @@ body:
       supposed to solve in the first place (see the new class fields proposal,
       which will allow you to write this:
 
-
-      \[gistpen id="5571"]
+    _template: richText
+  - repo: content/repos/arrow-function-problems.md
+    blob: class-methods.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       and the function stays bound to the class instance. None of this really
@@ -69,5 +79,3 @@ tags:
   - reference: content/tags/object-oriented-programming.md
 _template: standard
 ---
-
-
