@@ -70,13 +70,13 @@ body:
       sharing the `babel` configuration between the server and client, we need a
       `.babelrc` file, which `babel` uses to register presets and plugins:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/chatr-boilerplate/babelrc-2/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/chatr-boilerplate.md
+    blob: .babelrc
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       Finally, add `nodemon server.js --exec babel-node` to the `package.json`'s
       scripts key as `"start"`, so we can run `npm start` to run the server.
@@ -90,13 +90,13 @@ body:
       and serve our static assets. Let's create the `server.js` file and get
       some simple routes going:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/chatr-boilerplate/server-js-2/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/chatr-boilerplate.md
+    blob: server.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       Pretty basic express server; run `npm start` in your terminal and then go
       to [localhost:3000](http://localhost:3000/). You should see a big "Hello
@@ -110,26 +110,26 @@ body:
       Fortunately, the configuration isn't that complicated for a simple setup
       like this:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/chatr-boilerplate/webpack-config-js-2/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/chatr-boilerplate.md
+    blob: webpack.config.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       We're not going to worry about getting any of the really complicated
       features setup, like hot reloading or dev servers or anything like that.
       Instead, we're going start with to create a simple script that uses some
       ES6 to ensure that we're compiling our scripts correctly.
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/chatr-boilerplate/client-js-2/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/chatr-boilerplate.md
+    blob: client.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       If you've `npm install`ed `webpack`, you can just run `webpack` in your
       terminal and it should spit out a `main.min.js` file in your `public`
@@ -143,13 +143,13 @@ body:
       for this project, as I like their mixin-only approach for its flexibility
       and control. Here's the very basic `styles.scss` file:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/chatr-boilerplate/styles-scss-2/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/chatr-boilerplate.md
+    blob: styles.scss
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       I'd love to get this setup with [Eyeglass](http://eyeglass.rocks/) as
       well, but we'll start with this. Install `node-sass` and run `node-sass
@@ -163,23 +163,23 @@ body:
       [Handlebars](http://handlebarsjs.com/) using
       [`express-handlebars`](https://github.com/ericf/express-handlebars):
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/chatr-boilerplate/handlebars-2/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/chatr-boilerplate.md
+    blob: handlebars
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       which we're going to use to render a very simple template:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/chatr-boilerplate/main-hbs-2/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/chatr-boilerplate.md
+    blob: main.hbs
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       This is set up this way in preparation for implementing is server-side
       rendering! The `app` variable in the template context will become the
@@ -214,5 +214,3 @@ categories:
   - reference: content/categories/web-development.md
 _template: standard
 ---
-
-
