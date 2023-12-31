@@ -41,13 +41,13 @@ body:
       setup with a simple `App` component that takes a required `headline` as
       its props.
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/server-side-rendering-with-react/app.js/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/server-side-rendering-with-react.md
+    blob: app.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       If this is your first introduction to React, you'll notice the XML-like
       JSX syntax in the `render` function. This is transpiled by `babel`'s JSX
@@ -59,13 +59,13 @@ body:
       node a `class`. If we were to render it with `headline` as "Hello World!",
       the resulting HTML would look like this:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/server-side-rendering-with-react/rendered.html/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/server-side-rendering-with-react.md
+    blob: rendered.html
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       As for the other two props on the object: both them (`displayName` and
       `propTypes`) are primarily useful for development. One of React's greatest
@@ -95,13 +95,13 @@ body:
       render this component instead of the static string we provided earlier.
       Here's the new `server.js` code:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/server-side-rendering-with-react/server.js/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/server-side-rendering-with-react.md
+    blob: server.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       [`react-dom`](https://www.npmjs.com/package/react-dom) is React's DOM
       rendering tools. These used to be bundled with React but they were split
@@ -141,13 +141,13 @@ body:
       On the client-side, we just need to bootstrap off the DOM node and state
       object we originally rendered with:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/chatr-boilerplate/client-js-2/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/server-side-rendering-with-react.md
+    blob: client.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       On the client side, we call the `render` method with the component as well
       as the DOM element to render onto. React will automatically pick up the
@@ -176,5 +176,3 @@ categories:
   - reference: content/categories/web-development.md
 _template: standard
 ---
-
-
