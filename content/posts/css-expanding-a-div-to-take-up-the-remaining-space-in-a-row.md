@@ -15,13 +15,13 @@ body:
 
       Here's some dummy markup to get the idea:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/expanding-a-div-to-take-up-the-space-in-a-row/original.html/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/expanding-a-div-to-take-up-the-space-in-a-row.md
+    blob: original.html
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       The problem is, when I was using `float` left and right, I was setting the
       width of the second element manually using media queries, which worked at
@@ -45,23 +45,23 @@ body:
 
       First, I needed to add an extra wrapper, so our HTML now looks like this:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/expanding-a-div-to-take-up-the-space-in-a-row/updated.html/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/expanding-a-div-to-take-up-the-space-in-a-row.md
+    blob: updated.html
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       And our CSS looks like this:
 
-
-      <Embed
-      url="https://jamesdigioia.com/gistpens/expanding-a-div-to-take-up-the-space-in-a-row/styles.css/"
-      provider="twitter" />
-
-
-
+    _template: richText
+  - repo: content/repos/expanding-a-div-to-take-up-the-space-in-a-row.md
+    blob: styles.css
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       The nifty thing to notice is the `.contained` CSS. We set the width to be
       impossibly small, but tell the cell not wrap its contents. This has the
@@ -83,5 +83,3 @@ categories:
   - reference: content/categories/web-development.md
 _template: standard
 ---
-
-
