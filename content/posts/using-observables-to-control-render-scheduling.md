@@ -52,8 +52,13 @@ body:
       I'm using [Kefir](http://rpominov.github.io/kefir/), but the same concepts
       apply any other Observable implementation. Here's how I solved this:
 
-
-      \[gistpen id=5272]
+    _template: richText
+  - repo: content/repos/observable-rendering.md
+    blob: component.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       This problem is obviously solvable in a stateful way, with the view being
@@ -110,5 +115,3 @@ categories:
   - reference: content/categories/web-development.md
 _template: standard
 ---
-
-
