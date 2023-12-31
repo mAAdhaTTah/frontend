@@ -57,5 +57,17 @@ blobs:
           });
       });
     language: js
----
+  - filename: client.js
+    code: |-
+      import ReactDOM from 'react-dom';
 
+      const state = window.__INITIAL_STATE__ || {};
+
+      document.addEventListener('DOMContentLoaded', () => {
+          ReactDOM.render(
+              <App {...state} />,
+              document.getElementById('app')
+          );
+      });
+    language: js
+---
