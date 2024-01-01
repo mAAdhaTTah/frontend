@@ -18,12 +18,6 @@ blobs:
       const newObj = { ...arr };
       console.log(newObj); // {0: 1, 1: 2, 2: 3}
     language: js
-  - filename: spread-update.js
-    code: |-
-      const arr = [1, 2, 3];
-      const newObj = { ...arr, 1: 3 };
-      console.log(newObj); // {0: 1, 1: 3, 2: 3}
-    language: js
 commits:
   - committedAt: '2018-11-10T18:06:17.000Z'
     description: Update Array Hack
@@ -80,4 +74,3 @@ commits:
           console.log(newArr2); // [1, 3, 3]
         language: js
 ---
-
