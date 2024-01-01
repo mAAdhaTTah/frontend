@@ -21,9 +21,13 @@ body:
       Assuming we have array `arr` with three element, `[1, 2, 3]`, and we want
       to update index `1`, here's how we could do it:
 
-
-      \[gistpen id="5676]
-
+    _template: richText
+  - repo: content/repos/update-array-hack.md
+    blob: update-array.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       ## The explanation
 
@@ -41,16 +45,16 @@ body:
       into a new object with numeric keys. An array's keys are own properties,
       so doing a spread keeps them in the resulting object:
 
-
-      \[gistpen id="5694"]
-
+    _template: richText
+  - repo: content/repos/update-array-hack.md
+    blob: spread-array.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       When you spread, you can update keys by placing them after the spread, so
-      we can do the below to update the object with new keys.
-
-
-      \[gistpen id="5697"]
-
+      we can update the object with new keys this way.
 
       However, if we attempted to pass this into `Array.from`, it would produce
       an empty array, because the object is neither iterable nor array-like.
@@ -68,9 +72,13 @@ body:
 
       The final result again:
 
-
-      \[gistpen id="5676]
-
+    _template: richText
+  - repo: content/repos/update-array-hack.md
+    blob: update-array.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       Immutable array updates can be annoying. Hopefully this little trick will
       make them easier for you.
@@ -85,5 +93,3 @@ categories:
   - reference: content/categories/web-development.md
 _template: standard
 ---
-
-
