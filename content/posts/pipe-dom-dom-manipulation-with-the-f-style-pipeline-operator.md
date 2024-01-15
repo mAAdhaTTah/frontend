@@ -38,9 +38,13 @@ body:
       operator, allowing users to import the exact DOM methods they want and let
       bundlers remove the rest. Here's what that might look like:
 
-
-      \[gistpen id="5890"]
-
+    _template: richText
+  - repo: content/repos/pipe-dom.md
+    blob: example.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       With this, your bundler can include just the code for `query`, `addClass`,
       `append` and `on`, and discard the rest of the library.
@@ -67,5 +71,3 @@ categories:
   - reference: content/categories/web-development.md
 _template: standard
 ---
-
-
