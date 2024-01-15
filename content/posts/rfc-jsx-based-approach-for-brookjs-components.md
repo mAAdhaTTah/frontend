@@ -71,9 +71,13 @@ body:
       This is our first component, and highlights the first two APIs we'll move
       into JSX:
 
-
-      \[gistpen id="5418"]
-
+    _template: richText
+  - repo: content/repos/brookjs-components-strawman-proposal.md
+    blob: TodoItem.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       The first thing to note is the text of the element is expressed a stream
       embedded in the JSX. Any changes in the element **must** be expressed as
@@ -101,9 +105,13 @@ body:
 
       This is an example of a component using a child component:
 
-
-      \[gistpen id="5463"]
-
+    _template: richText
+  - repo: content/repos/brookjs-components-strawman-proposal.md
+    blob: App.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       Even attributes on a component **must** be expressed as an Observable.
       Again, *anything dynamic **must** be expressed as an Observable*. This
@@ -129,8 +137,13 @@ body:
       `props$` stream can be mapped to an array of children components to embed
       a list in the JSX:
 
-
-      \[gistpen id="5462"]
+    _template: richText
+  - repo: content/repos/brookjs-components-strawman-proposal.md
+    blob: TodoList.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       As described in the comment, the `todos` passed into the `TodoList`
@@ -161,8 +174,13 @@ body:
       even that case should provide a stream of `order` / `dict` objects. That
       would simplify list rendering to this:
 
-
-      \[gistpen id="5487"]
+    _template: richText
+  - repo: content/repos/brookjs-components-strawman-proposal.md
+    blob: TodoListWithIterationHelper.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       The parent component is thus responsible only for putting the child
@@ -184,8 +202,13 @@ body:
       To those ends, we could update the application bootstrapping step to look
       like this:
 
-
-      \[gistpen id="5464"]
+    _template: richText
+  - repo: content/repos/brookjs-components-strawman-proposal.md
+    blob: client.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
 
       This makes the application startup look functionally similar to React,
@@ -202,9 +225,13 @@ body:
       If the `domDelta` is currently in use, then no modifications need to be
       made. Bootstrapping would continue to look like this:
 
-
-      \[gistpen id="5498"]
-
+    _template: richText
+  - repo: content/repos/brookjs-components-strawman-proposal.md
+    blob: client-with-domDelta.js
+    highlight: ''
+    offset: 0
+    _template: gistpenEmbed
+  - content: >
 
       This is how `brookjs-cli` currently scaffolds a new app, so we might not
       need to change much in userland to ensure backwards compatibility. This is
@@ -339,5 +366,3 @@ categories:
   - reference: content/categories/web-development.md
 _template: standard
 ---
-
-
