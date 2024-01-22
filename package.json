@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.495.0",
+    "@aws-sdk/client-s3": "^3.496.0",
     "@extractus/oembed-extractor": "^4.0.1",
     "@react-aria/focus": "^3.16.0",
     "@react-aria/visually-hidden": "^3.8.8",
