@@ -48,7 +48,7 @@
     "babel-eslint": "^10.1.0",
     "babel-plugin-prismjs": "^2.1.0",
     "brookjs-prettier-config": "^1.0.0-beta.9",
-    "chromatic": "^10.3.1",
+    "chromatic": "^10.6.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-react-app": "^7.0.1",
