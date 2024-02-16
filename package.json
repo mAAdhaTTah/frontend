@@ -7,7 +7,7 @@
     "@aws-sdk/client-s3": "^3.534.0",
     "@extractus/oembed-extractor": "^4.0.1",
     "@react-aria/focus": "^3.16.0",
-    "@react-aria/visually-hidden": "^3.8.8",
+    "@react-aria/visually-hidden": "^3.8.10",
     "classcat": "^5.0.4",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
