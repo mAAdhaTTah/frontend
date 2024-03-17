@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { Feed } from 'feed';
 import { parseISO } from 'date-fns';
 import {
@@ -85,7 +86,7 @@ async function* getAllFeedItems() {
   }
 }
 
-export const buildFeed = async () => {
+export const buildFeed = cache(async () => {
   const feed = new Feed({
     id: 'https://jamesdigioia.com/',
     link: 'https://jamesdigioia.com/',
@@ -104,7 +105,7 @@ export const buildFeed = async () => {
   }
 
   return feed;
-};
+});
 
 /**
  * @param {Awaited<ReturnType<typeof getAllPosts>>} post
