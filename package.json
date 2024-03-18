@@ -10,7 +10,7 @@
     "@react-aria/visually-hidden": "^3.8.10",
     "classcat": "^5.0.4",
     "date-fns": "^2.30.0",
-    "date-fns-tz": "^2.0.0",
+    "date-fns-tz": "^2.0.1",
     "feed": "^4.2.2",
     "multer": "^1.4.5-lts.1",
     "multer-s3": "^3.0.1",
