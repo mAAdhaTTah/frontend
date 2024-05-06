@@ -8,6 +8,7 @@
     "@extractus/oembed-extractor": "^4.0.2",
     "@react-aria/focus": "^3.16.0",
     "@react-aria/visually-hidden": "^3.8.10",
+    "@vercel/analytics": "^1.2.2",
     "classcat": "^5.0.4",
     "date-fns": "^3.6.0",
     "date-fns-tz": "^3.0.0",

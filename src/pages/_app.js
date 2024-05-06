@@ -4,6 +4,7 @@ import '../index.css';
 import { DefaultSeo } from 'next-seo';
 import { Mulish, Ovo, Montserrat } from 'next/font/google';
 import { Layout } from '@ui/layout';
+import { Analytics } from '@vercel/analytics/react';
 
 const mulish = Mulish({
   display: 'swap',
@@ -41,6 +42,7 @@ const App = ({ Component, pageProps }) => {
       >
         <Component {...pageProps} />
       </Layout>
+      <Analytics />
     </div>
   );
 };
