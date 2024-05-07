@@ -7,7 +7,7 @@
     "@aws-sdk/client-s3": "^3.550.0",
     "@extractus/oembed-extractor": "^4.0.4",
     "@react-aria/focus": "^3.17.0",
-    "@react-aria/visually-hidden": "^3.8.10",
+    "@react-aria/visually-hidden": "^3.8.11",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "classcat": "^5.0.4",
