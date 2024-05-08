@@ -5,7 +5,7 @@
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.569.0",
-    "@extractus/oembed-extractor": "^4.0.4",
+    "@extractus/oembed-extractor": "^4.0.5",
     "@react-aria/focus": "^3.17.0",
     "@react-aria/visually-hidden": "^3.8.11",
     "@vercel/analytics": "^1.2.2",
