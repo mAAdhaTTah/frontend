@@ -5,7 +5,6 @@ import { NextResponse, userAgent } from 'next/server';
  */
 export const middleware = req => {
   const { ua } = userAgent(req);
-  console.log('ua', ua);
 
   if (ua.includes('ClaudeBot')) {
     return new NextResponse('Access Denied', {
