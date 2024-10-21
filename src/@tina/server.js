@@ -1,6 +1,5 @@
 import 'server-only';
-import path from 'path';
-import fs from 'fs/promises';
+import { unstable_cache as cache } from 'next/cache';
 import { extract } from '@extractus/oembed-extractor';
 import { getReadingProps } from '@reading/server';
 import {
@@ -16,7 +15,7 @@ import { getPlaiceholder } from 'plaiceholder';
 import * as Prezis from '@talks/prezis';
 import { client } from '../../tina/__generated__/client';
 
-export const getLayoutProps = async () => {
+export const getLayoutProps = cache(async () => {
   const {
     data: { header, menu },
   } = await client.queries.getHeader();
@@ -34,9 +33,9 @@ export const getLayoutProps = async () => {
       })),
     },
   };
-};
+});
 
-const loadExtraFromPosts = async posts => {
+const loadExtraFromPosts = cache(async posts => {
   if (!Array.isArray(posts)) {
     posts = [posts];
   }
@@ -139,7 +138,7 @@ const loadExtraFromPosts = async posts => {
   await Promise.all(promises);
 
   return { embeds, media };
-};
+});
 
 const generatePagesPaths = (count, perPage) => {
   const numPages = Math.ceil(count / perPage) - 2;
@@ -149,7 +148,7 @@ const generatePagesPaths = (count, perPage) => {
   }));
 };
 
-export const getPagePaths = async () => {
+export const getPagePaths = cache(async () => {
   const postListData = await client.queries.getPageSlugs();
   const paths = postListData.data.pageConnection.edges
     // TODO(James) pull reading into [[...slug]]
@@ -169,16 +168,16 @@ export const getPagePaths = async () => {
     }));
 
   return paths;
-};
+});
 
-export const getWritingArchivePaths = async () => {
+export const getWritingArchivePaths = cache(async () => {
   const response = await client.queries.getPostSlugs();
   const props = await getPagePropsBySlug('writing/__archive__');
   const { perPage } = props.response.data.page;
   return generatePagesPaths(response.data.postConnection.edges.length, perPage);
-};
+});
 
-export const getWritingPaths = async () => {
+export const getWritingPaths = cache(async () => {
   const response = await client.queries.getPostSlugs();
   const paths = response.data.postConnection.edges.map(edge => ({
     params: {
@@ -186,9 +185,9 @@ export const getWritingPaths = async () => {
     },
   }));
   return paths;
-};
+});
 
-export const getGistpenPaths = async () => {
+export const getGistpenPaths = cache(async () => {
   const repoListData = await client.queries.getRepoSlugs();
   const paths = repoListData.data.repoConnection.edges.map(edge => ({
     params: {
@@ -196,16 +195,17 @@ export const getGistpenPaths = async () => {
     },
   }));
   return paths;
-};
+});
 
-export const getTalkArchivePaths = async () =>
+export const getTalkArchivePaths = cache(async () =>
   Object.keys(Prezis).map(slug => ({
     params: {
       slug: paramCase(slug),
     },
-  }));
+  })),
+);
 
-export const getGistpenArchivePaths = async () => {
+export const getGistpenArchivePaths = cache(async () => {
   const repoListData = await client.queries.getRepoSlugs();
   const props = await getPagePropsBySlug('gistpens/__archive__');
   const { perPage } = props.response.data.page;
@@ -213,9 +213,9 @@ export const getGistpenArchivePaths = async () => {
     repoListData.data.repoConnection.edges.length,
     perPage,
   );
-};
+});
 
-export const getPagePropsBySlug = async slug => {
+export const getPagePropsBySlug = cache(async slug => {
   const response = await client.queries.getPageProps({
     relativePath: `${slug}.md`,
   });
@@ -224,16 +224,17 @@ export const getPagePropsBySlug = async slug => {
   }
 
   return { response };
-};
+});
 
-export const getPageProps = async params =>
-  getPagePropsBySlug(resolveSlug(params));
+export const getPageProps = cache(async params =>
+  getPagePropsBySlug(resolveSlug(params)),
+);
 
 /**
  * @param {{ source: string; altText:string }} media
  * @returns {Promise<import('react').ComponentProps<typeof import('next/image').default>>}
  */
-const getImagePropsFromMedia = async media => {
+const getImagePropsFromMedia = cache(async media => {
   const res = await fetch(media.source);
   const buffer = Buffer.from(await res.arrayBuffer());
   const {
@@ -249,31 +250,33 @@ const getImagePropsFromMedia = async media => {
     blurDataURL: base64,
     placeholder: base64 ? 'blur' : 'empty',
   };
-};
+});
 
-export const get404PageProps = async () =>
-  getPagePropsBySlug(FOUR_OH_FOUR_SLUG);
+export const get404PageProps = cache(async () =>
+  getPagePropsBySlug(FOUR_OH_FOUR_SLUG),
+);
 
-export const get500PageProps = async () =>
-  getPagePropsBySlug(FIVE_HUNDRED_SLUG);
+export const get500PageProps = cache(async () =>
+  getPagePropsBySlug(FIVE_HUNDRED_SLUG),
+);
 
-export const getRepoBySlug = async slug => {
+export const getRepoBySlug = cache(async slug => {
   const response = await client.queries.getRepo({ relativePath: `${slug}.md` });
   if (!response.data?.repo) {
     throw new Error(`Failed to fetch ${slug} repo props`);
   }
   return response;
-};
+});
 
-export const getPostBySlug = async slug => {
+export const getPostBySlug = cache(async slug => {
   const response = await client.queries.getPost({ relativePath: `${slug}.md` });
   if (!response.data?.post) {
     throw new Error(`Failed to fetch ${slug} post props`);
   }
   return response;
-};
+});
 
-const getReposByPage = async (page, perPage) => {
+const getReposByPage = cache(async (page, perPage) => {
   const response = await client.queries.getRepos();
 
   const startIndex = (page - 1) * perPage;
@@ -289,29 +292,29 @@ const getReposByPage = async (page, perPage) => {
   };
 
   return response;
-};
+});
 
-export const getGistpenArchiveProps = async ({ page }) => {
+export const getGistpenArchiveProps = cache(async ({ page }) => {
   const props = await getPagePropsBySlug('gistpens/__archive__');
   const { perPage } = props.response.data.page;
   const repos = await getReposByPage(page, perPage);
   return { ...props, extra: { repos, page } };
-};
+});
 
-export const getGistpenSingleProps = async slug => {
+export const getGistpenSingleProps = cache(async slug => {
   const props = await getPagePropsBySlug('gistpens/__single__');
   const repo = await getRepoBySlug(slug);
   return { ...props, extra: { repo } };
-};
+});
 
-export const getReadingPageProps = async () => {
+export const getReadingPageProps = cache(async () => {
   const props = await getPagePropsBySlug('reading');
   const reading = await getReadingProps(props.response.data.page.days);
 
   return { ...props, extra: { reading } };
-};
+});
 
-export const getTalksArchivePageProps = async () => {
+export const getTalksArchivePageProps = cache(async () => {
   const props = await getPagePropsBySlug('talks/__archive__');
 
   return {
@@ -323,29 +326,15 @@ export const getTalksArchivePageProps = async () => {
       })),
     },
   };
-};
+});
 
-const cachePath = path.join(process.cwd(), 'cache.json');
+const getWritingPosts = cache(async () => {
+  const response = await client.queries.getWritingPosts();
+  return response;
+});
 
-let cache;
-
-const getCachedWritingPosts = async () => {
-  if (cache) return cache;
-  if (
-    await fs.stat(cachePath).then(
-      () => true,
-      () => false,
-    )
-  ) {
-    return (cache = JSON.parse(await fs.readFile(cachePath, 'utf-8')));
-  }
-  cache = await client.queries.getWritingPosts();
-  await fs.writeFile(cachePath, JSON.stringify(cache));
-  return cache;
-};
-
-export const getWritingByPage = async (page, perPage) => {
-  const response = await getCachedWritingPosts();
+export const getWritingByPage = cache(async (page, perPage) => {
+  const response = await getWritingPosts();
 
   const startIndex = (page - 1) * perPage;
   const endIndex = page * perPage;
@@ -365,16 +354,16 @@ export const getWritingByPage = async (page, perPage) => {
   };
 
   return response;
-};
+});
 
-export const getWritingSingleProps = async slug => {
+export const getWritingSingleProps = cache(async slug => {
   const props = await getPagePropsBySlug('writing/__single__');
   const post = await getPostBySlug(slug);
   const { embeds, media } = await loadExtraFromPosts(post.data.post);
   return { ...props, extra: { post, embeds, media } };
-};
+});
 
-export const getWritingArchiveProps = async ({ page }) => {
+export const getWritingArchiveProps = cache(async ({ page }) => {
   const props = await getPagePropsBySlug('writing/__archive__');
   const posts = await getWritingByPage(page, props.response.data.page.perPage);
   const { embeds, media } = await loadExtraFromPosts(
@@ -382,4 +371,4 @@ export const getWritingArchiveProps = async ({ page }) => {
   );
 
   return { ...props, extra: { posts, page, embeds, media } };
-};
+});
