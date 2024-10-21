@@ -62,16 +62,20 @@ export const Header = ({
 }) => {
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
+  const runningRef = useRef(false);
 
   useEffect(() => {
-    if (disableTyping) {
+    if (disableTyping || runningRef.current) {
       return;
     }
+
+    runningRef.current = true;
 
     titleRef.current.innerText = '';
     const subtitleType = new TypeIt(subtitleRef.current, {
       lifeLike: true,
       cursor: false,
+      afterComplete: () => (runningRef.current = false),
     });
 
     const titleType = new TypeIt(titleRef.current, {

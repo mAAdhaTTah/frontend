@@ -252,7 +252,7 @@ module.exports = {
       current: 'currentColor',
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-view-transitions')],
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,

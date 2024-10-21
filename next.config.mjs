@@ -7,6 +7,8 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const config = {
+  // @TODO revert this when we upgrade spectacle
+  reactStrictMode: false,
   // Timeout in seconds
   staticPageGenerationTimeout: 120,
   images: {

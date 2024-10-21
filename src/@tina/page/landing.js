@@ -2,7 +2,6 @@ import { Resume } from '@ui/resume';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { format } from 'date-fns';
 import { Main } from '@ui/box';
-import { SEO } from '@ui/seo';
 import { parseTinaDate } from './dates';
 
 const jobToPosition = job => ({
@@ -63,12 +62,10 @@ const LandingBlock = ({ block }) => {
 
 export const PageLanding = ({ data }) => {
   return (
-    <SEO>
-      <Main>
-        {data.page.body.map((block, i) => (
-          <LandingBlock key={i} block={block} />
-        ))}
-      </Main>
-    </SEO>
+    <Main>
+      {data.page.body.map((block, i) => (
+        <LandingBlock key={i} block={block} />
+      ))}
+    </Main>
   );
 };

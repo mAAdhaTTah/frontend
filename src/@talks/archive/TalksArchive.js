@@ -1,6 +1,6 @@
+'use client';
 import { Main } from '@ui/box';
-import { SEO } from '@ui/seo';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import cc from 'classcat';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 
@@ -36,14 +36,12 @@ const TalkCard = ({ title, description, slug }) => (
 
 export const TalksArchive = ({ talks }) => {
   return (
-    <SEO>
-      <Main>
-        <ul className="grid grid-cols-2	gap-4">
-          {talks.map(talk => (
-            <TalkCard key={talk.title} {...talk} />
-          ))}
-        </ul>
-      </Main>
-    </SEO>
+    <Main>
+      <ul className="grid grid-cols-2	gap-4">
+        {talks.map(talk => (
+          <TalkCard key={talk.title} {...talk} />
+        ))}
+      </ul>
+    </Main>
   );
 };

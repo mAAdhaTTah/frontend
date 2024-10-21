@@ -45,12 +45,6 @@ fragment FullPost on Post {
     title
     publishedAt
     updatedAt
-    menu {
-      ...PostMenu
-    }
-    header {
-      ...PostHeader
-    }
     status
     featuredMedia {
       ... on Media {

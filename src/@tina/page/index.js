@@ -1,3 +1,4 @@
+'use client';
 import { createContext, useContext, useRef } from 'react';
 import { Single as PostSingle, Archive as PostArchive } from '@ui/post';
 import { useTina } from 'tinacms/dist/react';
@@ -6,7 +7,6 @@ import { format, parseISO } from 'date-fns';
 import { smartypantsu as smartypants } from 'smartypants';
 import Image from 'next/image';
 import { Main } from '@ui/box';
-import { SEO } from '@ui/seo';
 import { Day, Embed, Gistpen, Pagination, Snippet } from '@ui/components';
 import { Code, Heading, Link, Paragraph, Sup } from '@ui/typography';
 import { Li, Ol, Ul } from '@ui/atoms';
@@ -149,44 +149,36 @@ const gistpenMapper = node => ({
 const PageGistpenArchive = ({ extra }) => {
   const sync = useTina(extra.repos);
   return (
-    <SEO>
-      <Main>
-        {sync.data.repoConnection.edges.map(({ node }) => (
-          <Gistpen
-            key={node._sys.filename}
-            {...gistpenMapper(node)}
-            slug={node._sys.filename}
-            linkHeader
-          />
-        ))}
-        <Pagination
-          pageNumber={extra.page}
-          hasNextPage={sync.data.repoConnection.pageInfo.hasNextPage}
-          slug="gistpens"
+    <Main>
+      {sync.data.repoConnection.edges.map(({ node }) => (
+        <Gistpen
+          key={node._sys.filename}
+          {...gistpenMapper(node)}
+          slug={node._sys.filename}
+          linkHeader
         />
-      </Main>
-    </SEO>
+      ))}
+      <Pagination
+        pageNumber={extra.page}
+        hasNextPage={sync.data.repoConnection.pageInfo.hasNextPage}
+        slug="gistpens"
+      />
+    </Main>
   );
 };
 
 const PageGistpenSingle = ({ extra }) => {
   const sync = useTina(extra.repo);
-  return (
-    <SEO>
-      <Gistpen {...gistpenMapper(sync.data.repo)} />
-    </SEO>
-  );
+  return <Gistpen {...gistpenMapper(sync.data.repo)} />;
 };
 
 const PageReadingList = ({ extra }) => {
   return (
-    <SEO>
-      <Main>
-        {extra.reading.map(({ day, links }) => (
-          <Day key={day} day={day} links={links} />
-        ))}
-      </Main>
-    </SEO>
+    <Main>
+      {extra.reading.map(({ day, links }) => (
+        <Day key={day} day={day} links={links} />
+      ))}
+    </Main>
   );
 };
 
@@ -360,26 +352,20 @@ const nodeToProps = (node, extra, mapper) =>
 const PagePostArchive = ({ extra: { posts, ...extra } }) => {
   const sync = useTina(posts);
   return (
-    <SEO>
-      <PostArchive
-        excerpts={sync.data.postConnection.edges.map(({ node }) =>
-          nodeToProps(node, extra, nodeToExcerptMapper),
-        )}
-        pageNumber={extra.page}
-        hasNextPage={sync.data.postConnection.pageInfo.hasNextPage}
-      />
-    </SEO>
+    <PostArchive
+      excerpts={sync.data.postConnection.edges.map(({ node }) =>
+        nodeToProps(node, extra, nodeToExcerptMapper),
+      )}
+      pageNumber={extra.page}
+      hasNextPage={sync.data.postConnection.pageInfo.hasNextPage}
+    />
   );
 };
 
 const PagePostSingle = ({ extra: { post, ...extra } }) => {
   const sync = useTina(post);
   return (
-    <SEO title={sync.data.post.title}>
-      <PostSingle
-        post={nodeToProps(sync.data.post, extra, nodeToSingleMapper)}
-      />
-    </SEO>
+    <PostSingle post={nodeToProps(sync.data.post, extra, nodeToSingleMapper)} />
   );
 };
 

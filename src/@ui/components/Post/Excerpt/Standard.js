@@ -1,6 +1,6 @@
 import cc from 'classcat';
 import { FaLongArrowAltRight } from 'react-icons/fa';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { Article } from '@ui/box';
 import { LinkedArticleHeader } from '../../LinkedArticleHeader';
 import EntryMeta from '../../EntryMeta';
