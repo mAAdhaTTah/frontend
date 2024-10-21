@@ -1,3 +1,4 @@
+'use client';
 import { Deck, Slide, Heading, Code, Text, List, ListItem } from 'spectacle';
 import {
   AboutMe,

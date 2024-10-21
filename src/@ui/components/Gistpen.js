@@ -1,6 +1,6 @@
 import { Article } from '@ui/box';
 import cc from 'classcat';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import EntryMeta from './EntryMeta';
 import Snippet from './Snippet';
 

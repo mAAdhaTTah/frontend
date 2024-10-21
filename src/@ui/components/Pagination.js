@@ -1,6 +1,6 @@
 import cc from 'classcat';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 const paginationClass = cc([
   'max-w-xl',

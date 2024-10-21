@@ -1,15 +1,25 @@
+'use client';
 import PropTypes from 'prop-types';
 import cc from 'classcat';
-import { createRef, useRef } from 'react';
-import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { usePathname } from 'next/navigation';
 import { Header } from './Header';
 import Nav from './Nav';
 
-export const Layout = ({ layout, header, nav, children }) => {
-  const refsMap = useRef({});
-  const key = header.pathname;
-  const nodeRef = refsMap.current[key] ?? (refsMap.current[key] = createRef());
+// @TODO(James) extract this somehwere? does this logic belong here?
+const getLayout = pathname => {
+  if (pathname === '/') return 'fullscreen';
+
+  if (pathname.startsWith('/talks/') && pathname !== '/talks/')
+    return 'headerless';
+
+  return 'standard';
+};
+
+export const Layout = ({ header, nav, children }) => {
+  const pathname = usePathname();
+  const layout = getLayout(pathname);
   const fullScreen = layout === 'fullscreen';
+
   return (
     <div
       className={cc([
@@ -20,7 +30,9 @@ export const Layout = ({ layout, header, nav, children }) => {
         'ease-[cubic-bezier(.36,.15,.44,1.25)]',
         'transform-gpu',
         {
-          'grid-cols-[0px_100vw] xl:grid-cols-[352px_1fr]': !fullScreen,
+          'grid-cols-[0px_100vw]': !fullScreen,
+          'xl:grid-cols-[352px_1fr]': !fullScreen && layout !== 'headerless',
+
           'grid-cols-[100vw_0px]': fullScreen,
         },
       ])}
@@ -33,32 +45,12 @@ export const Layout = ({ layout, header, nav, children }) => {
           </>
         )}
       </div>
-      <div className="relative">
-        <SwitchTransition mode={'out-in'}>
-          <CSSTransition
-            key={key}
-            nodeRef={nodeRef}
-            timeout={600}
-            classNames="fade"
-            unmountOnExit
-          >
-            {state =>
-              layout !== 'fullscreen' ? (
-                <div
-                  ref={nodeRef}
-                  className={cc([
-                    'absolute',
-                    'w-full',
-                    'h-screen',
-                    'overflow-auto',
-                  ])}
-                >
-                  {children}
-                </div>
-              ) : null
-            }
-          </CSSTransition>
-        </SwitchTransition>
+      <div className="relative vt-name-[content]">
+        <div
+          className={cc(['absolute', 'w-full', 'h-screen', 'overflow-auto'])}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -2,11 +2,11 @@ import { useState, useRef } from 'react';
 import { FocusScope } from '@react-aria/focus';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { useKey, useOutsideClick } from 'rooks';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { Link } from 'next-view-transitions';
 import cc from 'classcat';
 import { Icon } from '@ui/theme';
 import { Transition } from 'react-transition-group';
+import { usePathname } from 'next/navigation';
 
 const NavButton = ({ onClick, open }) => {
   return (
@@ -44,7 +44,7 @@ const headerLinkClass = cc([
 ]);
 
 const HeaderLink = ({ to, onClick, children }) => {
-  const { asPath } = useRouter();
+  const pathname = usePathname();
 
   return (
     <li className="py-2 text-center">
@@ -53,7 +53,7 @@ const HeaderLink = ({ to, onClick, children }) => {
         onClick={onClick}
         className={cc([
           headerLinkClass,
-          asPath === to && 'border-b border-primary',
+          pathname === to && 'border-b border-primary',
         ])}
       >
         {children}

@@ -1,3 +1,4 @@
+import 'server-only';
 import path from 'path';
 import fs from 'fs/promises';
 import { extract } from '@extractus/oembed-extractor';
@@ -14,6 +15,26 @@ import { paramCase } from 'param-case';
 import { getPlaiceholder } from 'plaiceholder';
 import * as Prezis from '@talks/prezis';
 import { client } from '../../tina/__generated__/client';
+
+export const getLayoutProps = async () => {
+  const {
+    data: { header, menu },
+  } = await client.queries.getHeader();
+  return {
+    header: {
+      title: header.title,
+      description: header.description,
+      backgroundImage: await getImagePropsFromMedia(header.background),
+      avatarImage: await getImagePropsFromMedia(header.avatar),
+    },
+    nav: {
+      links: menu.items.map(item => ({
+        text: item.text,
+        to: item.href,
+      })),
+    },
+  };
+};
 
 const loadExtraFromPosts = async posts => {
   if (!Array.isArray(posts)) {
@@ -202,10 +223,7 @@ export const getPagePropsBySlug = async slug => {
     throw new Error(`Failed to fetch ${slug} page props`);
   }
 
-  return {
-    response: response,
-    layout: await getPageLayoutProps(response.data.page),
-  };
+  return { response };
 };
 
 export const getPageProps = async params =>
@@ -230,29 +248,6 @@ const getImagePropsFromMedia = async media => {
     src: media.source,
     blurDataURL: base64,
     placeholder: base64 ? 'blur' : 'empty',
-  };
-};
-
-export const getPageLayoutProps = async page => {
-  return {
-    layout:
-      page.__typename === 'PageFullScreen'
-        ? 'fullscreen'
-        : page.__typename === 'PageTalkSingle'
-          ? 'headerless'
-          : 'default',
-    header: {
-      title: page.header.title,
-      description: page.header.description,
-      backgroundImage: await getImagePropsFromMedia(page.header.background),
-      avatarImage: await getImagePropsFromMedia(page.header.avatar),
-    },
-    nav: {
-      links: page.menu.items.map(item => ({
-        text: item.text,
-        to: item.href,
-      })),
-    },
   };
 };
 
@@ -332,18 +327,21 @@ export const getTalksArchivePageProps = async () => {
 
 const cachePath = path.join(process.cwd(), 'cache.json');
 
+let cache;
+
 const getCachedWritingPosts = async () => {
+  if (cache) return cache;
   if (
     await fs.stat(cachePath).then(
       () => true,
       () => false,
     )
   ) {
-    return JSON.parse(await fs.readFile(cachePath, 'utf-8'));
+    return (cache = JSON.parse(await fs.readFile(cachePath, 'utf-8')));
   }
-  const response = await client.queries.getWritingPosts();
-  await fs.writeFile(cachePath, JSON.stringify(response));
-  return response;
+  cache = await client.queries.getWritingPosts();
+  await fs.writeFile(cachePath, JSON.stringify(cache));
+  return cache;
 };
 
 export const getWritingByPage = async (page, perPage) => {

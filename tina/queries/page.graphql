@@ -27,89 +27,35 @@ fragment FullPage on Page {
   }
   ... on PageLanding {
     title
-    header {
-      ...PageHeader
-    }
-    menu {
-      ...PageMenu
-    }
     ...PageLandingBody
   }
   ... on PageFullScreen {
     title
-    header {
-      ...PageHeader
-    }
-    menu {
-      ...PageMenu
-    }
   }
   ... on PageGistpenArchive {
     title
-    header {
-      ...PageHeader
-    }
-    menu {
-      ...PageMenu
-    }
     perPage
   }
   ... on PageGistpenSingle {
     title
-    header {
-      ...PageHeader
-    }
-    menu {
-      ...PageMenu
-    }
   }
   ... on PageTalkArchive {
     title
-    header {
-      ...PageHeader
-    }
-    menu {
-      ...PageMenu
-    }
     perPage
   }
   ... on PageTalkSingle {
     title
-    header {
-      ...PageHeader
-    }
-    menu {
-      ...PageMenu
-    }
   }
   ... on PageReadingList {
     title
-    header {
-      ...PageHeader
-    }
-    menu {
-      ...PageMenu
-    }
     days
   }
   ... on PagePostArchive {
     title
-    header {
-      ...PageHeader
-    }
-    menu {
-      ...PageMenu
-    }
     perPage
   }
   ... on PagePostSingle {
     title
-    header {
-      ...PageHeader
-    }
-    menu {
-      ...PageMenu
-    }
   }
 }
 
