@@ -1,4 +1,6 @@
 import 'server-only';
+import path from 'path';
+import fs from 'fs/promises';
 import { unstable_cache as cache } from 'next/cache';
 import { extract } from '@extractus/oembed-extractor';
 import { getReadingProps } from '@reading/server';
@@ -328,9 +330,25 @@ export const getTalksArchivePageProps = cache(async () => {
   };
 });
 
+const cachePath = path.join(process.cwd(), 'cache.json');
+
+let writingPostsMem;
+
 const getWritingPosts = cache(async () => {
-  const response = await client.queries.getWritingPosts();
-  return response;
+  if (!writingPostsMem) {
+    if (
+      await fs.stat(cachePath).then(
+        () => true,
+        () => false,
+      )
+    ) {
+      writingPostsMem = JSON.parse(await fs.readFile(cachePath, 'utf-8'));
+    } else {
+      writingPostsMem = await client.queries.getWritingPosts();
+      await fs.writeFile(cachePath, JSON.stringify(writingPostsMem));
+    }
+  }
+  return writingPostsMem;
 });
 
 export const getWritingByPage = cache(async (page, perPage) => {
