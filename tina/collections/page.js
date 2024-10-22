@@ -1,5 +1,6 @@
 import {
   titleField,
+  descriptionField,
   statusField,
   updatedAtField,
   publishedAtField,
@@ -73,6 +74,7 @@ const fullScreenTemplate = {
   label: 'Full Screen Template',
   fields: [
     titleField,
+    descriptionField,
     publishedAtField,
     updatedAtField,
     menuField,
@@ -89,6 +91,7 @@ const gistpenArchiveTemplate = {
   label: 'Gistpen Archive Template',
   fields: [
     titleField,
+    descriptionField,
     publishedAtField,
     updatedAtField,
     menuField,
@@ -106,6 +109,7 @@ const gistpenSingleTemplate = {
   label: 'Gistpen Single Template',
   fields: [
     titleField,
+    descriptionField,
     publishedAtField,
     updatedAtField,
     menuField,
@@ -122,6 +126,7 @@ const talkArchiveTemplate = {
   label: 'Talk Archive Template',
   fields: [
     titleField,
+    descriptionField,
     publishedAtField,
     updatedAtField,
     menuField,
@@ -139,6 +144,7 @@ const talkSingleTemplate = {
   label: 'Talk Single Template',
   fields: [
     titleField,
+    descriptionField,
     publishedAtField,
     updatedAtField,
     menuField,
@@ -155,6 +161,7 @@ const landingTemplate = {
   label: 'Landing Template',
   fields: [
     titleField,
+    descriptionField,
     publishedAtField,
     updatedAtField,
     menuField,
@@ -178,6 +185,7 @@ const postArchiveTemplate = {
   label: 'Post Archive Template',
   fields: [
     titleField,
+    descriptionField,
     publishedAtField,
     updatedAtField,
     menuField,
@@ -195,6 +203,7 @@ const postSingleTemplate = {
   label: 'Post Single Template',
   fields: [
     titleField,
+    descriptionField,
     publishedAtField,
     updatedAtField,
     menuField,
@@ -210,6 +219,7 @@ const readingListTemplate = {
   label: 'Reading List Template',
   fields: [
     titleField,
+    descriptionField,
     publishedAtField,
     updatedAtField,
     menuField,

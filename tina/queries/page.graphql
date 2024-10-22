@@ -27,35 +27,44 @@ fragment FullPage on Page {
   }
   ... on PageLanding {
     title
+    description
     ...PageLandingBody
   }
   ... on PageFullScreen {
     title
+    description
   }
   ... on PageGistpenArchive {
     title
+    description
     perPage
   }
   ... on PageGistpenSingle {
     title
+    description
   }
   ... on PageTalkArchive {
     title
+    description
     perPage
   }
   ... on PageTalkSingle {
     title
+    description
   }
   ... on PageReadingList {
     title
+    description
     days
   }
   ... on PagePostArchive {
     title
+    description
     perPage
   }
   ... on PagePostSingle {
     title
+    description
   }
 }
 

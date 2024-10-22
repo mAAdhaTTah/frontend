@@ -17,6 +17,13 @@ export const metadata = {
     template: '%s | James DiGioia',
   },
   description: 'my little web home',
+  alternates: {
+    types: {
+      'application/rss+xml': 'https://jamesdigioia.com/feed/',
+      'application/feed+json': 'https://jamesdigioia.com/feed/json/',
+      'application/atom+xml': 'https://jamesdigioia.com/feed/atom/',
+    },
+  },
 };
 
 const mulish = Mulish({
@@ -43,26 +50,7 @@ const RootLayout = async ({ children }) => {
   return (
     <ViewTransitions>
       <html lang="en">
-        <head>
-          <link
-            rel="alternate"
-            type="application/rss+xml"
-            title="Feed (RSS) | James DiGioia"
-            href="https://jamesdigioia.com/feed/"
-          />
-          <link
-            rel="alternate"
-            type="application/feed+json"
-            title="Feed (JSON) | James DiGioia"
-            href="https://jamesdigioia.com/feed/json/"
-          />
-          <link
-            rel="alternate"
-            type="application/atom+xml"
-            title="Feed (Atom) | James DiGioia"
-            href="https://jamesdigioia.com/feed/atom/"
-          />
-        </head>
+        <head></head>
         <body
           className={cc([mulish.variable, ovo.variable, montserrat.variable])}
         >
