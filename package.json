@@ -43,7 +43,7 @@
     "@storybook/nextjs": "^7.6.10",
     "@testing-library/react": "^15.0.6",
     "@tinacms/cli": "^1.5.45",
-    "autoprefixer": "^10.4.17",
+    "autoprefixer": "^10.4.20",
     "axios": "^1.6.8",
     "babel-eslint": "^10.1.0",
     "babel-plugin-prismjs": "^2.1.0",
