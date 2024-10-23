@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "jsx": "preserve",
+    "baseUrl": "./src",
+    "paths": {
+      "@app/*": ["@app/*"],
+      "@talks/*": ["@talks/*"],
+      "@tina/*": ["@tina/*"],
+      "@ui/*": ["@ui/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "exclude": [
+    ".vercel",
+    ".vscode",
+    ".next",
+    ".swc",
+    "content",
+    "comparison",
+    "node_modules",
+    "public",
+    "storybook-static",
+    "__generated__"
+  ],
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"]
+}
