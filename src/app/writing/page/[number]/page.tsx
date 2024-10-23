@@ -1,17 +1,23 @@
 import { TinaPage } from '@tina/page';
 import { getWritingArchiveProps, getWritingArchivePaths } from '@tina/server';
+import { type Metadata } from 'next';
 
-const GistpenArchive = async ({ params }: any) => {
+type PageProps = {
+  params: {
+    number: string;
+  };
+};
+
+const GistpenArchive = async ({ params }: PageProps) => {
   const { response, extra } = await getWritingArchiveProps({
     page: Number(params.number),
   });
   return <TinaPage response={response} extra={extra} />;
 };
 
-/**
- * @returns {Promise<import('next').Metadata>}
- */
-export const generateMetadata = async ({ params }: any) => {
+export const generateMetadata = async ({
+  params,
+}: PageProps): Promise<Metadata> => {
   const { response } = await getWritingArchiveProps({
     page: Number(params.number),
   });

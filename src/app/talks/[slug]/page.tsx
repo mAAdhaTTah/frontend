@@ -1,14 +1,16 @@
 // @ts-expect-error TS(2307) FIXME: Cannot find module 'param-case' or its correspondi... Remove this comment to see the full error message
 import { paramCase } from 'param-case';
 import * as Prezis from '@talks/prezis';
-import { getPagePropsBySlug, getTalkArchivePaths } from '@tina/server';
+import { getTalkArchivePaths } from '@tina/server';
 
-const TalkSingle = async ({ params }: any) => {
-  const { slug }: any = {
-    ...params,
-    ...(await getPagePropsBySlug('talks/__single__')),
+type PageProps = {
+  params: {
+    slug: string;
   };
+};
 
+const TalkSingle = async ({ params }: PageProps) => {
+  const { slug } = params;
   const Component = (() => {
     const keys = Object.keys(Prezis);
     const paramCaseKeys = keys.map(key => paramCase(key));
@@ -23,7 +25,7 @@ const TalkSingle = async ({ params }: any) => {
 /**
  * @returns {Promise<import('next').Metadata>}
  */
-export const generateMetadata = async ({ params: { slug } }: any) => {
+export const generateMetadata = async ({ params: { slug } }: PageProps) => {
   const keys = Object.keys(Prezis);
   const paramCaseKeys = keys.map(key => paramCase(key));
   const idx = paramCaseKeys.indexOf(paramCase(slug));

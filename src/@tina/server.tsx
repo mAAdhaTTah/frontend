@@ -17,6 +17,7 @@ import { paramCase } from 'param-case';
 import { getPlaiceholder } from 'plaiceholder';
 import * as Prezis from '@talks/prezis';
 import { client } from '../../tina/__generated__/client';
+import { GetWritingPostsQuery } from '../../tina/__generated__/types';
 
 export const getLayoutProps = cache(async () => {
   const {
@@ -30,122 +31,133 @@ export const getLayoutProps = cache(async () => {
       avatarImage: await getImagePropsFromMedia(header.avatar),
     },
     nav: {
-      links: menu.items!.map((item: any) => ({
-        text: item.text,
-        to: item.href,
+      links: menu.items!.map(item => ({
+        text: item!.text,
+        to: item!.href,
       })),
     },
   };
 });
 
-const loadExtraFromPosts = cache(async posts => {
-  if (!Array.isArray(posts)) {
-    posts = [posts];
-  }
+type Unpacked<T> = T extends (infer U)[] ? U : T;
+type LoadFromPosts = NonNullable<
+  NonNullable<Unpacked<GetWritingPostsQuery['postConnection']['edges']>>['node']
+>;
 
-  const embeds = {},
-    media = {};
-  const loadEmbed = async (url: any) => {
-    try {
-      // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
-      embeds[url] = await extract(url);
-    } catch {}
-  };
-  const loadMedia = async (m: any) => {
-    try {
-      // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
-      media[m.source] = await getImagePropsFromMedia(m);
-    } catch {}
-  };
-  const processBodyBlock = async (block: any) => {
-    switch (block.__typename) {
-      case 'PostStandardBodyRichText':
-      case 'PostGalleryBodyRichText':
-      case 'PostLinkBodyRichText':
-      case 'PostStatusBodyRichText':
-      case 'PostImageBodyRichText':
-      case 'PostAudioBodyRichText':
-      case 'PostVideoBodyRichText':
-      case 'PostQuoteBodyRichText':
-        await Promise.all(
-          block.content.children.map((element: any) =>
-            processRichTextElement(element),
-          ),
+const loadExtraFromPosts = cache(
+  async (posts: LoadFromPosts | LoadFromPosts[]) => {
+    if (!Array.isArray(posts)) {
+      posts = [posts];
+    }
+
+    const embeds = {},
+      media = {};
+    const loadEmbed = async (url: string) => {
+      try {
+        // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+        embeds[url] = await extract(url);
+      } catch {}
+    };
+    const loadMedia = async (m: {
+      title: string;
+      source?: string | null;
+      altText?: string | null;
+    }) => {
+      try {
+        // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+        media[m.source] = await getImagePropsFromMedia(m);
+      } catch {}
+    };
+    const processBodyBlock = async block => {
+      switch (block.__typename) {
+        case 'PostStandardBodyRichText':
+        case 'PostGalleryBodyRichText':
+        case 'PostLinkBodyRichText':
+        case 'PostStatusBodyRichText':
+        case 'PostImageBodyRichText':
+        case 'PostAudioBodyRichText':
+        case 'PostVideoBodyRichText':
+        case 'PostQuoteBodyRichText':
+          await Promise.all(
+            block.content.children.map(element =>
+              processRichTextElement(element),
+            ),
+          );
+          break;
+        // no default
+      }
+    };
+    const processRichTextElement = async element => {
+      const promises = [];
+      if (element.type === 'p' || element.type === 'a') {
+        for (const innerElement of element.children) {
+          promises.push(processRichTextElement(innerElement));
+        }
+      }
+      if (element.type === 'img') {
+        promises.push(
+          loadMedia({
+            source: element.url,
+            altText: element.alt,
+          }),
         );
-        break;
-      // no default
-    }
-  };
-  const processRichTextElement = async (element: any) => {
+      }
+      if (element.name === 'Embed') {
+        promises.push(loadEmbed(element.props.url));
+      }
+      if (element.name === 'ExtendedQuote') {
+        for (const innerElement of element.props.children.children) {
+          promises.push(processRichTextElement(innerElement));
+        }
+      }
+      if (element.name === 'Figure') {
+        promises.push(
+          loadMedia({
+            source: element.props.url,
+            altText: element.props.alt ?? '',
+          }),
+        );
+      }
+
+      await Promise.all(promises);
+    };
     const promises = [];
-    if (element.type === 'p' || element.type === 'a') {
-      for (const innerElement of element.children) {
-        promises.push(processRichTextElement(innerElement));
+    for (const post of posts) {
+      switch (post.__typename) {
+        case 'PostVideo':
+          promises.push(loadEmbed(post!.video!.url!));
+          break;
+        case 'PostAudio':
+          promises.push(loadEmbed(post!.audio!.url!));
+          break;
+        case 'PostImage':
+        case 'PostStandard':
+          if (post.featuredMedia) {
+            await loadMedia(post.featuredMedia);
+          }
+          break;
+        case 'PostGallery':
+          for (const image of post.images!) {
+            promises.push(loadMedia(image!.reference!));
+          }
+          break;
+        // no default
       }
-    }
-    if (element.type === 'img') {
-      promises.push(
-        loadMedia({
-          source: element.url,
-          altText: element.alt,
-        }),
-      );
-    }
-    if (element.name === 'Embed') {
-      promises.push(loadEmbed(element.props.url));
-    }
-    if (element.name === 'ExtendedQuote') {
-      for (const innerElement of element.props.children.children) {
-        promises.push(processRichTextElement(innerElement));
+
+      if (Array.isArray(post.body)) {
+        for (const block of post.body) {
+          promises.push(processBodyBlock(block));
+        }
       }
-    }
-    if (element.name === 'Figure') {
-      promises.push(
-        loadMedia({
-          source: element.props.url,
-          altText: element.props.alt ?? '',
-        }),
-      );
     }
 
     await Promise.all(promises);
-  };
-  const promises = [];
-  for (const post of posts) {
-    switch (post.__typename) {
-      case 'PostVideo':
-        promises.push(loadEmbed(post.video.url));
-        break;
-      case 'PostAudio':
-        promises.push(loadEmbed(post.audio.url));
-        break;
-      case 'PostImage':
-      case 'PostStandard':
-        if (post.featuredMedia) {
-          await loadMedia(post.featuredMedia);
-        }
-        break;
-      case 'PostGallery':
-        for (const { reference: media } of post.images) {
-          promises.push(loadMedia(media));
-        }
-        break;
-      // no default
-    }
 
-    if (Array.isArray(post.body)) {
-      for (const block of post.body) {
-        promises.push(processBodyBlock(block));
-      }
-    }
-  }
+    return { embeds, media };
+  },
+);
 
-  await Promise.all(promises);
-
-  return { embeds, media };
-});
-
-const generatePagesPaths = (count: any, perPage: any) => {
+const generatePagesPaths = (count: number, perPage: number) => {
   const numPages = Math.ceil(count / perPage) - 2;
 
   return [...Array(numPages).fill(2)].map((num, idx) => ({
@@ -157,18 +169,18 @@ export const getPagePaths = cache(async () => {
   const postListData = await client.queries.getPageSlugs();
   const paths = postListData.data.pageConnection
     .edges! // TODO(James) pull reading into [[...slug]]
-    .filter((edge: any) => {
+    .filter(edge => {
       // Remove reading
-      if (edge.node._sys.filename === 'reading') return false;
+      if (edge!.node!._sys.filename === 'reading') return false;
       // Keep home
-      if (edge.node._sys.filename === HOME_SLUG) return true;
+      if (edge!.node!._sys.filename === HOME_SLUG) return true;
       // Remove all of the dunder pages
-      return !edge.node._sys.filename.includes('__');
+      return !edge!.node!._sys.filename.includes('__');
     })
-    .map((edge: any) => ({
+    .map(edge => ({
       params: {
         // TODO(James) this isn't the correct slug; folder is missing
-        slug: resolveSegments(edge.node._sys.filename),
+        slug: resolveSegments(edge!.node!._sys.filename),
       },
     }));
 
@@ -178,18 +190,24 @@ export const getPagePaths = cache(async () => {
 export const getWritingArchivePaths = cache(async () => {
   const response = await client.queries.getPostSlugs();
   const props = await getPagePropsBySlug('writing/__archive__');
-  const { perPage } = props.response.data.page as any;
-  return generatePagesPaths(
-    response.data.postConnection.edges!.length,
-    perPage,
+  if (props.response.data.page.__typename === 'PagePostArchive') {
+    const { perPage } = props.response.data.page;
+    return generatePagesPaths(
+      response.data.postConnection.edges!.length,
+      perPage!,
+    );
+  }
+
+  throw new Error(
+    `Expected PostPageArchive, got ${props.response.data.page.__typename}`,
   );
 });
 
 export const getWritingPaths = cache(async () => {
   const response = await client.queries.getPostSlugs();
-  const paths = response.data.postConnection.edges!.map((edge: any) => ({
+  const paths = response.data.postConnection.edges!.map(edge => ({
     params: {
-      slug: edge.node._sys.filename,
+      slug: edge!.node!._sys.filename,
     },
   }));
   return paths;
@@ -197,9 +215,9 @@ export const getWritingPaths = cache(async () => {
 
 export const getGistpenPaths = cache(async () => {
   const repoListData = await client.queries.getRepoSlugs();
-  const paths = repoListData.data.repoConnection.edges!.map((edge: any) => ({
+  const paths = repoListData.data.repoConnection.edges!.map(edge => ({
     params: {
-      slug: edge.node._sys.filename,
+      slug: edge!.node!._sys.filename,
     },
   }));
   return paths;
@@ -216,7 +234,7 @@ export const getTalkArchivePaths = cache(async () =>
 export const getGistpenArchivePaths = cache(async () => {
   const repoListData = await client.queries.getRepoSlugs();
   const props = await getPagePropsBySlug('gistpens/__archive__');
-  const { perPage } = props.response.data.page as any;
+  const { perPage } = props.response.data.page;
   return generatePagesPaths(
     repoListData.data.repoConnection.edges!.length,
     perPage,
@@ -242,23 +260,30 @@ export const getPageProps = cache(async params =>
  * @param {{ source: string; altText:string }} media
  * @returns {Promise<import('react').ComponentProps<typeof import('next/image').default>>}
  */
-const getImagePropsFromMedia = cache(async media => {
-  const res = await fetch(media.source);
-  const buffer = Buffer.from(await res.arrayBuffer());
-  const {
-    base64,
-    metadata: { width, height },
-  } = await getPlaiceholder(buffer);
+const getImagePropsFromMedia = cache(
+  async (media: {
+    __typename?: 'Media';
+    title: string;
+    source: string;
+    altText: string;
+  }) => {
+    const res = await fetch(media.source);
+    const buffer = Buffer.from(await res.arrayBuffer());
+    const {
+      base64,
+      metadata: { width, height },
+    } = await getPlaiceholder(buffer);
 
-  return {
-    width,
-    height,
-    alt: media.altText ?? '',
-    src: media.source,
-    blurDataURL: base64,
-    placeholder: base64 ? 'blur' : 'empty',
-  };
-});
+    return {
+      width,
+      height,
+      alt: media.altText ?? '',
+      src: media.source,
+      blurDataURL: base64,
+      placeholder: base64 ? 'blur' : 'empty',
+    };
+  },
+);
 
 export const get404PageProps = cache(async () =>
   getPagePropsBySlug(FOUR_OH_FOUR_SLUG),
@@ -304,7 +329,7 @@ const getReposByPage = cache(async (page, perPage) => {
 
 export const getGistpenArchiveProps = cache(async ({ page }) => {
   const props = await getPagePropsBySlug('gistpens/__archive__');
-  const { perPage } = props.response.data.page as any;
+  const { perPage } = props.response.data.page;
   const repos = await getReposByPage(page, perPage);
   return { ...props, extra: { repos, page } };
 });
@@ -317,9 +342,15 @@ export const getGistpenSingleProps = cache(async slug => {
 
 export const getReadingPageProps = cache(async () => {
   const props = await getPagePropsBySlug('reading');
-  const reading = await getReadingProps((props.response.data.page as any).days);
+  if (props.response.data.page.__typename === 'PageReadingList') {
+    const reading = await getReadingProps(props.response.data.page.days);
 
-  return { ...props, extra: { reading } };
+    return { ...props, extra: { reading } };
+  }
+
+  throw new Error(
+    `Expected PageReadingList, received ${props.response.data.page.__typename}`,
+  );
 });
 
 export const getTalksArchivePageProps = cache(async () => {
@@ -328,6 +359,7 @@ export const getTalksArchivePageProps = cache(async () => {
   return {
     ...props,
     extra: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       talks: Object.entries(Prezis).map(([key, { component, ...talk }]) => ({
         ...talk,
         slug: paramCase(key),
@@ -338,7 +370,7 @@ export const getTalksArchivePageProps = cache(async () => {
 
 const cachePath = path.join(process.cwd(), 'cache.json');
 
-let writingPostsMem: any;
+let writingPostsMem: Awaited<ReturnType<typeof client.queries.getWritingPosts>>;
 
 const getWritingPosts = cache(async () => {
   if (!writingPostsMem) {
@@ -357,22 +389,25 @@ const getWritingPosts = cache(async () => {
   return writingPostsMem;
 });
 
-export const getWritingByPage = cache(async (page, perPage) => {
+export const getWritingByPage = cache(async (page: number, perPage: number) => {
   const response = await getWritingPosts();
 
   const startIndex = (page - 1) * perPage;
   const endIndex = page * perPage;
 
-  const edges = response.data.postConnection.edges
-    .filter(({ node }: any) => node.status === 'publish')
-    .sort((a: any, b: any) =>
-      compareDesc(parseISO(a.node.publishedAt), parseISO(b.node.publishedAt)),
+  const edges = response.data.postConnection
+    .edges!.filter(edge => edge!.node!.status === 'publish')
+    .sort((a, b) =>
+      compareDesc(
+        parseISO(a!.node!.publishedAt!),
+        parseISO(b!.node!.publishedAt!),
+      ),
     );
   response.data.postConnection = {
     ...response.data.postConnection,
     edges: edges.slice(startIndex, endIndex),
     pageInfo: {
-      hasNextPage: endIndex <= response.data.postConnection.edges.length,
+      hasNextPage: endIndex <= response.data.postConnection.edges!.length,
       hasPreviousPage: startIndex >= 0,
     },
   };
@@ -389,13 +424,19 @@ export const getWritingSingleProps = cache(async slug => {
 
 export const getWritingArchiveProps = cache(async ({ page }) => {
   const props = await getPagePropsBySlug('writing/__archive__');
-  const posts = await getWritingByPage(
-    page,
-    (props.response.data.page as any).perPage,
-  );
-  const { embeds, media } = await loadExtraFromPosts(
-    posts.data.postConnection.edges.map(({ node }: any) => node),
-  );
+  if (props.response.data.page.__typename === 'PagePostArchive') {
+    const posts = await getWritingByPage(
+      page,
+      props.response.data.page.perPage!,
+    );
+    const { embeds, media } = await loadExtraFromPosts(
+      posts.data.postConnection.edges!.map(edge => edge!.node!),
+    );
 
-  return { ...props, extra: { posts, page, embeds, media } };
+    return { ...props, extra: { posts, page, embeds, media } };
+  }
+
+  throw new Error(
+    `Expected type PostPage Archive, receveid ${props.response.data.page.__typename}`,
+  );
 });

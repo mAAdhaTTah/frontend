@@ -5,6 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import cc from 'classcat';
 import { Mulish, Ovo, Montserrat } from 'next/font/google';
 import { ServerLayout } from '@ui/layout';
+import { FC, ReactNode } from 'react';
 
 /**
  * @typedef {import('next').Metadata} Metadata
@@ -46,7 +47,7 @@ const montserrat = Montserrat({
   subsets: ['latin'],
 });
 
-const RootLayout = async ({ children }: any) => {
+const RootLayout: FC<{ children: ReactNode }> = async ({ children }) => {
   return (
     <ViewTransitions>
       <html lang="en">

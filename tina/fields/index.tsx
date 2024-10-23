@@ -1,11 +1,6 @@
-/**
- * @typedef {import('tinacms').TinaField} TinaField
- */
+type Field = import('tinacms').TinaField;
 
-/**
- * @type TinaField
- */
-export const nameField = {
+export const nameField: Field = {
   type: 'string',
   name: 'name',
   label: 'Name',
@@ -13,10 +8,7 @@ export const nameField = {
   isTitle: true,
 };
 
-/**
- * @type TinaField
- */
-export const startDateField = {
+export const startDateField: Field = {
   type: 'datetime',
   name: 'startDate',
   label: 'Start Date',
@@ -25,77 +17,53 @@ export const startDateField = {
   required: true,
 };
 
-/**
- * @type TinaField
- */
-export const endDateField = {
+export const endDateField: Field = {
   type: 'datetime',
   name: 'endDate',
   label: 'End Date',
   // timeFormat: '',
 };
 
-/**
- * @type TinaField
- */
-export const dateField = {
+export const dateField: Field = {
   type: 'datetime',
   name: 'date',
   label: 'Date',
   // timeFormat: '',
 };
 
-/**
- * @type TinaField
- */
-export const scoreField = {
+export const scoreField: Field = {
   type: 'number',
   name: 'score',
   label: 'Score',
 };
 
-/**
- * @type TinaField
- */
-export const urlField = {
+export const urlField: Field = {
   type: 'string',
   name: 'url',
   label: 'URL',
 };
 
-/**
- * @type TinaField
- */
-export const summaryField = {
+export const summaryField: Field = {
   type: 'string',
   label: 'Summary',
   name: 'summary',
 };
 
-/**
- * @type TinaField
- */
-export const keywordsField = {
+export const keywordsField: Field = {
   type: 'string',
   name: 'keywords',
   label: 'Keywords',
   list: true,
 };
 
-/**
- * @type TinaField
- */
-export const highlightsField = {
+export const highlightsField: Field = {
   type: 'string',
   name: 'highlights',
   label: 'Highlights',
   list: true,
 };
 
-/**
- * @type TinaField
- */
-export const statusField = {
+export const statusField: Field = {
   type: 'string',
   name: 'status',
   label: 'Status',
@@ -111,28 +79,19 @@ export const statusField = {
   ],
 };
 
-/**
- * @type TinaField
- */
-export const updatedAtField = {
+export const updatedAtField: Field = {
   name: 'updatedAt',
   label: 'Updated At',
   type: 'datetime',
 };
 
-/**
- * @type TinaField
- */
-export const descriptionField = {
+export const descriptionField: Field = {
   type: 'string',
   name: 'description',
   label: 'Description',
 };
 
-/**
- * @type TinaField
- */
-export const titleField = {
+export const titleField: Field = {
   type: 'string',
   name: 'title',
   label: 'Title',
@@ -140,19 +99,13 @@ export const titleField = {
   isTitle: true,
 };
 
-/**
- * @type TinaField
- */
-export const publishedAtField = {
+export const publishedAtField: Field = {
   name: 'publishedAt',
   label: 'Published At',
   type: 'datetime',
 };
 
-/**
- * @type TinaField
- */
-export const menuField = {
+export const menuField: Field = {
   type: 'reference',
   name: 'menu',
   label: 'Menu',
@@ -160,10 +113,7 @@ export const menuField = {
   required: true,
 };
 
-/**
- * @type TinaField
- */
-export const headerField = {
+export const headerField: Field = {
   type: 'reference',
   name: 'header',
   label: 'Header',

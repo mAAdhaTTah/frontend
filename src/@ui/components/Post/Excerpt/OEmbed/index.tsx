@@ -1,9 +1,10 @@
 import { Article } from '@ui/box';
+import { FC } from 'react';
 import EntryMeta from '../../../EntryMeta';
 import { LinkedArticleHeader } from '../../../LinkedArticleHeader';
 import { Embed } from '../../../Embed';
 
-const OEmbed = ({
+const OEmbed: FC<{}> = ({
   title,
   date,
   dateTime,
@@ -11,7 +12,7 @@ const OEmbed = ({
   author,
   oembed,
   content,
-}: any) => {
+}) => {
   const { html, url } = oembed;
   return (
     <Article variant="tertiary">

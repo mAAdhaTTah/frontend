@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import UnsupportedFormat from '../../UnsupportedFormat';
 import OEmbed from './OEmbed';
 import Image from './Image';
@@ -7,7 +8,7 @@ import Link from './Link';
 import Status from './Status';
 import Quote from './Quote';
 
-const Excerpt = ({ format, ...props }: any) => {
+const Excerpt: FC<{ format: string }> = ({ format, ...props }) => {
   switch (format) {
     case 'audio':
       return <OEmbed {...props} />;

@@ -1,7 +1,7 @@
 import { TinaPage } from '@tina/page';
 import { getGistpenArchiveProps } from '@tina/server';
 
-const GistpenArchive = async ({ params }: any) => {
+const GistpenArchive = async () => {
   const { response, extra } = await getGistpenArchiveProps({ page: 1 });
   return <TinaPage response={response} extra={extra} />;
 };

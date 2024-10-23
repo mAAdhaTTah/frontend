@@ -1,4 +1,5 @@
 import { format, parseISO } from 'date-fns';
+import { Collection } from 'tinacms';
 import {
   dateField,
   endDateField,
@@ -12,14 +13,9 @@ import {
   descriptionField,
 } from '../fields';
 
-/**
- * @typedef {import('tinacms').TinaField} Field
- */
+type Field = import('tinacms').TinaField;
 
-/**
- * @type Field
- */
-const basicsField = {
+const basicsField: Field = {
   type: 'object',
   name: 'basics',
   label: 'Basics',
@@ -103,9 +99,10 @@ const basicsField = {
   ],
 };
 
-const formatDate = (startDate: any) => format(parseISO(startDate), 'MMM, yyyy');
+const formatDate = (startDate: string) =>
+  format(parseISO(startDate), 'MMM, yyyy');
 
-const displayDateRange = (item: any) => {
+const displayDateRange = (item: Record<string, string>) => {
   if (!item.startDate) {
     return '';
   }
@@ -120,16 +117,13 @@ const displayDateRange = (item: any) => {
   return s;
 };
 
-/**
- * @type Field
- */
-const workField = {
+const workField: Field = {
   type: 'object',
   name: 'work',
   label: 'Work',
   list: true,
   ui: {
-    itemProps: (item: any) => ({
+    itemProps: item => ({
       label: item
         ? `${item.name ?? 'New Work Item'}${displayDateRange(item)}`
         : 'New Work Item',
@@ -154,10 +148,7 @@ const workField = {
   ],
 };
 
-/**
- * @type Field
- */
-const volunteerField = {
+const volunteerField: Field = {
   type: 'object',
   name: 'volunteer',
   label: 'Volunteer',
@@ -192,10 +183,7 @@ const volunteerField = {
   ],
 };
 
-/**
- * @type Field
- */
-const educationField = {
+const educationField: Field = {
   type: 'object',
   name: 'education',
   label: 'Education',
@@ -229,10 +217,7 @@ const educationField = {
   ],
 };
 
-/**
- * @type Field
- */
-const awardsField = {
+const awardsField: Field = {
   type: 'object',
   name: 'awards',
   label: 'Awards',
@@ -257,10 +242,7 @@ const awardsField = {
   ],
 };
 
-/**
- * @type Field
- */
-const certificatesField = {
+const certificatesField: Field = {
   type: 'object',
   name: 'certificates',
   label: 'Certificates',
@@ -277,10 +259,7 @@ const certificatesField = {
   ],
 };
 
-/**
- * @type Field
- */
-const publicationsField = {
+const publicationsField: Field = {
   type: 'object',
   name: 'publications',
   label: 'Publications',
@@ -303,10 +282,7 @@ const publicationsField = {
   ],
 };
 
-/**
- * @type Field
- */
-const skillsField = {
+const skillsField: Field = {
   type: 'object',
   name: 'skills',
   label: 'Skills',
@@ -322,10 +298,7 @@ const skillsField = {
   ],
 };
 
-/**
- * @type Field
- */
-const languagesField = {
+const languagesField: Field = {
   type: 'object',
   name: 'languages',
   label: 'Languages',
@@ -344,10 +317,7 @@ const languagesField = {
   ],
 };
 
-/**
- * @type Field
- */
-const interestsField = {
+const interestsField: Field = {
   type: 'object',
   name: 'interests',
   label: 'Interests',
@@ -355,10 +325,7 @@ const interestsField = {
   fields: [nameField, keywordsField],
 };
 
-/**
- * @type Field
- */
-const referencesField = {
+const referencesField: Field = {
   type: 'object',
   name: 'references',
   label: 'References',
@@ -373,10 +340,7 @@ const referencesField = {
   ],
 };
 
-/**
- * @type Field
- */
-const projectsField = {
+const projectsField: Field = {
   type: 'object',
   name: 'projects',
   label: 'Projects',
@@ -408,10 +372,7 @@ const projectsField = {
   ],
 };
 
-/**
- * @type import('tinacms').Collection
- */
-export const resumeCollection = {
+export const resumeCollection: Collection = {
   label: 'Resumes',
   name: 'resume',
   path: 'content/resumes',
