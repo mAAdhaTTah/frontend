@@ -67,10 +67,4 @@ export default defineConfig({
 
     return cms;
   },
-  media: {
-    async loadCustomStore() {
-      const { S3MediaStore } = await import('./MediaStore');
-      return S3MediaStore;
-    },
-  },
 });
