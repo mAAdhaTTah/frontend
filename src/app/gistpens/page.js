@@ -6,4 +6,16 @@ const GistpenArchive = async ({ params }) => {
   return <TinaPage response={response} extra={extra} />;
 };
 
+/**
+ * @returns {Promise<import('next').Metadata>}
+ */
+export const generateMetadata = async () => {
+  const { response } = await getGistpenArchiveProps({ page: 1 });
+
+  return {
+    title: response.data.page.title,
+    description: response.data.page.description,
+  };
+};
+
 export default GistpenArchive;
