@@ -1,3 +1,4 @@
+'use client';
 import { useState, useRef } from 'react';
 import { FocusScope } from '@react-aria/focus';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
