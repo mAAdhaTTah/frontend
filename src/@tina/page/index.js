@@ -1,138 +1,12 @@
-'use client';
-import { createContext, useContext, useRef } from 'react';
 import { Single as PostSingle, Archive as PostArchive } from '@ui/post';
-import { useTina } from 'tinacms/dist/react';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { format, parseISO } from 'date-fns';
 import { smartypantsu as smartypants } from 'smartypants';
-import Image from 'next/image';
 import { Main } from '@ui/box';
-import { Day, Embed, Gistpen, Pagination, Snippet } from '@ui/components';
-import { Code, Heading, Link, Paragraph, Sup } from '@ui/typography';
-import { Li, Ol, Ul } from '@ui/atoms';
+import { Day, Gistpen, Pagination, Snippet } from '@ui/components';
 import { PageLanding } from './landing';
 import { PageFullScreen } from './fullScreen';
-
-const FootnoteContext = createContext([]);
-
-const Footnotes = () => {
-  const footnotes = useContext(FootnoteContext);
-  if (!footnotes.length) return null;
-  return (
-    <>
-      <hr />
-      <Ol>
-        {footnotes.map(({ id, content }) => (
-          <Li key={id} id={`fn:${id}`}>
-            {content}
-          </Li>
-        ))}
-      </Ol>
-    </>
-  );
-};
-
-const FootnoteProvider = ({ children }) => {
-  const footnotes = [];
-  return (
-    <FootnoteContext.Provider value={footnotes}>
-      {children}
-    </FootnoteContext.Provider>
-  );
-};
-
-const useDefineFootnote = (id, content) => {
-  const footnotes = useContext(FootnoteContext);
-  const textReference = useRef(content);
-  const indexReference = useRef(-1);
-
-  if (indexReference.current === -1) {
-    indexReference.current = footnotes.push({ id, content }) - 1;
-  } else if (textReference.current !== content) {
-    textReference.current = footnotes[indexReference.current] = { id, content };
-  }
-};
-
-const RichText = ({ content, extra, components = {} }) => {
-  return (
-    <TinaMarkdown
-      content={content}
-      components={{
-        p: Paragraph,
-        code: Code,
-        a: props => <Link href={props.url}>{props.children}</Link>,
-        img: ({ url }) => <Image {...extra.media[url]} />,
-        h1: props => (
-          <Heading level={1} variant="h-1">
-            {props.children}
-          </Heading>
-        ),
-        h2: props => (
-          <Heading level={2} variant="h-2">
-            {props.children}
-          </Heading>
-        ),
-        h3: props => (
-          <Heading level={3} variant="h-3">
-            {props.children}
-          </Heading>
-        ),
-        h4: props => (
-          <Heading level={4} variant="h-4">
-            {props.children}
-          </Heading>
-        ),
-        ol: props => <Ol>{props.children}</Ol>,
-        ul: props => <Ul>{props.children}</Ul>,
-        li: props => <Li>{props.children}</Li>,
-        lic: ({ children }) => <Paragraph>{children}</Paragraph>,
-        text: props => <>{smartypants(props.children, '2')}</>,
-        code_block: ({ lang, value }) => (
-          <Snippet language={lang || 'plaintext'} code={value} />
-        ),
-        ExtendedQuote: ({ children }) => (
-          <blockquote>
-            <RichText content={children} extra={extra} />
-          </blockquote>
-        ), // TODO style
-        Embed: ({ url, provider }) => (
-          <Embed html={extra.embeds[url]?.html} url={url} provider={provider} />
-        ),
-        Figure: ({ url, caption }) => (
-          <figure>
-            <Image {...extra.media[url]} />
-            <figcaption>{caption}</figcaption>
-          </figure>
-        ),
-        FootnoteReference: ({ id }) => {
-          return (
-            <Sup id={`fnref:${id}`}>
-              <Link href={`#fn:${id}`}>{id}</Link>
-            </Sup>
-          );
-        },
-        FootnoteDefinition: ({ id, children }) => {
-          useDefineFootnote(
-            id,
-            <RichText
-              content={children}
-              extra={extra}
-              components={{
-                p: ({ children }) => (
-                  <Paragraph>
-                    {children}&nbsp;<Link href={`#fnref:${id}`}>↩</Link>
-                  </Paragraph>
-                ),
-              }}
-            />,
-          );
-          return null;
-        },
-        ...components,
-      }}
-    />
-  );
-};
+import { FootnoteProvider, Footnotes } from './footnotes';
+import { RichText } from './RichText';
 
 const gistpenMapper = node => ({
   createdAt: format(parseISO(node.createdAt), 'MMMM do, yyyy'),
@@ -146,11 +20,10 @@ const gistpenMapper = node => ({
   })),
 });
 
-const PageGistpenArchive = ({ extra }) => {
-  const sync = useTina(extra.repos);
+const PageGistpenArchive = ({ extra: { repos, page } }) => {
   return (
     <Main>
-      {sync.data.repoConnection.edges.map(({ node }) => (
+      {repos.data.repoConnection.edges.map(({ node }) => (
         <Gistpen
           key={node._sys.filename}
           {...gistpenMapper(node)}
@@ -159,17 +32,16 @@ const PageGistpenArchive = ({ extra }) => {
         />
       ))}
       <Pagination
-        pageNumber={extra.page}
-        hasNextPage={sync.data.repoConnection.pageInfo.hasNextPage}
+        pageNumber={page}
+        hasNextPage={repos.data.repoConnection.pageInfo.hasNextPage}
         slug="gistpens"
       />
     </Main>
   );
 };
 
-const PageGistpenSingle = ({ extra }) => {
-  const sync = useTina(extra.repo);
-  return <Gistpen {...gistpenMapper(sync.data.repo)} />;
+const PageGistpenSingle = ({ extra: { repo } }) => {
+  return <Gistpen {...gistpenMapper(repo.data.repo)} />;
 };
 
 const PageReadingList = ({ extra }) => {
@@ -350,22 +222,20 @@ const nodeToProps = (node, extra, mapper) =>
   mapper[node.__typename](node, extra);
 
 const PagePostArchive = ({ extra: { posts, ...extra } }) => {
-  const sync = useTina(posts);
   return (
     <PostArchive
-      excerpts={sync.data.postConnection.edges.map(({ node }) =>
+      excerpts={posts.data.postConnection.edges.map(({ node }) =>
         nodeToProps(node, extra, nodeToExcerptMapper),
       )}
       pageNumber={extra.page}
-      hasNextPage={sync.data.postConnection.pageInfo.hasNextPage}
+      hasNextPage={posts.data.postConnection.pageInfo.hasNextPage}
     />
   );
 };
 
 const PagePostSingle = ({ extra: { post, ...extra } }) => {
-  const sync = useTina(post);
   return (
-    <PostSingle post={nodeToProps(sync.data.post, extra, nodeToSingleMapper)} />
+    <PostSingle post={nodeToProps(post.data.post, extra, nodeToSingleMapper)} />
   );
 };
 
@@ -382,10 +252,9 @@ const templates = {
 const UnknownTypeName = ({ typeName }) => <div>Unknown type {typeName}</div>;
 
 export const TinaPage = ({ response, extra }) => {
-  const sync = useTina(response);
-  const typeName = sync.data.page.__typename;
+  const typeName = response.data.page.__typename;
   const Template = templates[typeName];
 
   if (!Template) return <UnknownTypeName typeName={typeName} />;
-  return <Template data={sync.data} extra={extra} />;
+  return <Template data={response.data} extra={extra} />;
 };

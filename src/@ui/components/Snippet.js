@@ -1,3 +1,4 @@
+'use client';
 import cc from 'classcat';
 import { useReducer, useRef } from 'react';
 import Highlight from 'prism-react-renderer';
