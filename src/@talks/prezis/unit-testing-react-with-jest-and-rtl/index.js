@@ -3,12 +3,10 @@ import {
   Deck,
   Heading,
   Slide,
-  List,
+  UnorderedList,
   ListItem,
   Appear,
-  BlockQuote,
   Quote,
-  Cite,
   Text,
   CodePane,
 } from 'spectacle';
@@ -38,30 +36,30 @@ const Prezi = () => (
     {AboutMe()}
     <Slide>
       <Heading size={2}>Agenda</Heading>
-      <List>
+      <UnorderedList>
         <ListItem>What is Unit Testing?</ListItem>
         <ListItem>Why Unit Test?</ListItem>
         <ListItem>Unit Testing Principles</ListItem>
         <ListItem>Why Use RTL vs Enzyme?</ListItem>
         <ListItem>Unit Testing a Basic Form Component</ListItem>
-      </List>
+      </UnorderedList>
     </Slide>
     <Slide>
       <Heading size={3} margin={`0 0 30px`}>
         What is Unit Testing?
       </Heading>
-      <BlockQuote>
+      <blockquote>
         <Quote textSize={'1.5em'} lineHeight={30} textColor="secondary">
           Unit tests are typically automated tests written and run by software
           developers to ensure that a section of an application (known as the
           "unit") meets its design and behaves as intended.
         </Quote>
-        <Cite>Wikipedia</Cite>
-      </BlockQuote>
+        <cite>Wikipedia</cite>
+      </blockquote>
     </Slide>
     <Slide>
       <Heading size={3}>Why Unit Test?</Heading>
-      <List>
+      <UnorderedList>
         <Appear>
           <ListItem>Speed up development cycle</ListItem>
         </Appear>
@@ -74,11 +72,11 @@ const Prezi = () => (
         <Appear>
           <ListItem>Reduce regression risk</ListItem>
         </Appear>
-      </List>
+      </UnorderedList>
     </Slide>
     <Slide>
       <Heading size={3}>Unit Testing Principles</Heading>
-      <List>
+      <UnorderedList>
         <ListItem>"Units" are ill-defined, so don't stress about it.</ListItem>
         <ListItem>
           Mock/stub external dependencies as much as makes sense.
@@ -89,7 +87,7 @@ const Prezi = () => (
         <ListItem>
           Achieving 100% coverage in unit tests is rarely a worthwhile goal.
         </ListItem>
-      </List>
+      </UnorderedList>
     </Slide>
     <Slide>
       <Heading size={4} margin={'0 0 30px'}>
@@ -142,7 +140,7 @@ const Prezi = () => (
       <Heading size={3} margin={'0 0 30px'}>
         Requirements
       </Heading>
-      <List ordered>
+      <UnorderedList ordered>
         <ListItem>
           Should not submit unless valid email address is provided
         </ListItem>
@@ -152,7 +150,7 @@ const Prezi = () => (
         <ListItem>
           Should show success message after successful submission
         </ListItem>
-      </List>
+      </UnorderedList>
       <Text textSize={'3em'}>Let's live code this!</Text>
     </Slide>
     {ThankYou()}

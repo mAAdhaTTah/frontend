@@ -3,7 +3,7 @@ import {
   Deck,
   Heading,
   Slide,
-  MarkdownSlides,
+  MarkdownSlideSet,
   Markdown,
   Image,
   Text,
@@ -23,7 +23,7 @@ const Prezi = () => (
         WP-Gistpen: A Gist Clone for WordPress
       </Heading>
     </Slide>
-    {MarkdownSlides(`### About Me
+    {MarkdownSlideSet(`### About Me
 
 James DiGioia, Front-End Developer, Valtech Inc.
 
@@ -52,18 +52,18 @@ Maintainer of Kefir`)}
         and sync those code snippets with GitHub's Gist
       </Text>
     </Slide>
-    {MarkdownSlides(`### Syncs with Gist`)}
+    {MarkdownSlideSet(`### Syncs with Gist`)}
     <Slide>
       <Image src={imgExportScreen} />
     </Slide>
     <Slide>
       <Image src={imgTokenScreen} />
     </Slide>
-    {MarkdownSlides(`### Prism for Syntax Highlighting`)}
+    {MarkdownSlideSet(`### Prism for Syntax Highlighting`)}
     <Slide>
       <Image src={imgWebDisplay} />
     </Slide>
-    {MarkdownSlides(`### Custom Editor`)}
+    {MarkdownSlideSet(`### Custom Editor`)}
     <Slide>
       <Image src={imgEditorScreen} />
     </Slide>

@@ -4,10 +4,9 @@ import {
   Text,
   CodePane,
   Markdown,
-  MarkdownSlides,
-  List,
+  MarkdownSlideSet,
+  UnorderedList,
   ListItem,
-  S,
   Notes,
 } from 'spectacle';
 import mdEditorRendering from './editor-rendering.md';
@@ -19,13 +18,13 @@ export const ArraysOfEvents = () => [
       <p>"push-based" collection</p>
       <p>when you unsubscribe, event listener is removed</p>
     </Notes>
-    <List>
+    <UnorderedList>
       <ListItem>
-        An array whose values arrive <S type={'italic'}>over time</S>
+        An array whose values arrive <em>over time</em>
       </ListItem>
       <ListItem>Convert inputs into data</ListItem>
       <ListItem>Self-cleaning</ListItem>
-    </List>
+    </UnorderedList>
   </Slide>,
   <Slide>
     <Notes>
@@ -81,11 +80,11 @@ input.addEventListener('input', e => console.log('Updated value', input.value))`
 
 events$.subscribe(e => console.log('Updated value', input.value))`}
     />
-    <List>
+    <UnorderedList>
       <ListItem>Looks basically the same, right?</ListItem>
       <ListItem>What's so special about that?</ListItem>
-    </List>
+    </UnorderedList>
   </Slide>
 );
 
-export const WhatIsAnObservable = () => MarkdownSlides(mdWhatIsAnObservable);
+export const WhatIsAnObservable = () => MarkdownSlideSet(mdWhatIsAnObservable);

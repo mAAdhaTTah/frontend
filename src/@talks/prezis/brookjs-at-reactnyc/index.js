@@ -1,5 +1,5 @@
 'use client';
-import { Deck, Slide, Heading, Code, Text, List, ListItem } from 'spectacle';
+import { Deck, Slide, Heading, Text, UnorderedList, ListItem } from 'spectacle';
 import {
   AboutMe,
   ReactPlusCycleJs,
@@ -26,7 +26,7 @@ import { DarkTheme } from '../../themes';
 const Title = () => (
   <Slide transition={['slide']}>
     <Heading size={1}>
-      Meet <Code>brookjs</Code>
+      Meet <code>brookjs</code>
     </Heading>
     <Text>A framework for building streaming web applications.</Text>
   </Slide>
@@ -34,23 +34,23 @@ const Title = () => (
 
 const Agenda = () => (
   <Slide transition={['slide']}>
-    <List>
+    <UnorderedList>
       <ListItem>
         React/Redux: Declarative DOM & one-way data
-        <List>
+        <UnorderedList>
           <ListItem>Functional programming</ListItem>
-        </List>
+        </UnorderedList>
       </ListItem>
       <ListItem>
         Cycle.js: Everything is a stream
-        <List>
+        <UnorderedList>
           <ListItem>streams/observables</ListItem>
-        </List>
+        </UnorderedList>
       </ListItem>
       <ListItem>
-        Meet <Code>brookjs</Code>
+        Meet <code>brookjs</code>
       </ListItem>
-    </List>
+    </UnorderedList>
   </Slide>
 );
 

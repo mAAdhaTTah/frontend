@@ -1,4 +1,4 @@
-import { Slide, Markdown, CodePane, Text, Code, S } from 'spectacle';
+import { Slide, Markdown, CodePane, Text } from 'spectacle';
 import mdEverythingIsAStream from './everything-is-a-stream.md';
 
 export const EverythingIsAStream = () => (
@@ -28,14 +28,14 @@ export const PureFunctionOfObservables = () => [
   </Slide>,
   <Slide transition={['slide']}>
     <Text>
-      Observables are passed to <Code>main</Code>
+      Observables are passed to <code>main</code>
     </Text>
     <Text>
-      Observables are returned from <Code>main</Code>
+      Observables are returned from <code>main</code>
     </Text>
     <Text>Observables wrap side effects</Text>
     <Text>
-      <S type={`italic`}>Observables all the way down</S>
+      <em>Observables all the way down</em>
     </Text>
   </Slide>,
 ];
