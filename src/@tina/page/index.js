@@ -139,7 +139,7 @@ const extractOembed = (url, embeds) => {
   return oembed;
 };
 
-const nodeToExcerptMapper = {
+export const nodeToExcerptMapper = {
   PostAudio: (node, extra) => ({
     format: 'audio',
     ...nodeToCommonExcerptProps(node),
@@ -218,7 +218,7 @@ const nodeToSingleMapper = {
   }),
 };
 
-const nodeToProps = (node, extra, mapper) =>
+export const nodeToProps = (node, extra, mapper) =>
   mapper[node.__typename](node, extra);
 
 const PagePostArchive = ({ extra: { posts, ...extra } }) => {
