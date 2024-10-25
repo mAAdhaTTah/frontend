@@ -3,7 +3,7 @@ import {
   Deck,
   Heading,
   Slide,
-  MarkdownSlides,
+  MarkdownSlideSet,
   Markdown,
   CodePane,
   Text,
@@ -140,7 +140,7 @@ Page can be a mix, depending on needs of the component`}</Markdown>
 </div>`}
       />
     </Slide>
-    {MarkdownSlides(`Pass in content to defined locations
+    {MarkdownSlideSet(`Pass in content to defined locations
 
 * Back-end renders important content
 * Front-end structures content
@@ -239,7 +239,7 @@ export default {
 };`}
       />
     </Slide>
-    {MarkdownSlides(`* Keep logic centralized and easy to test
+    {MarkdownSlideSet(`* Keep logic centralized and easy to test
 * Wire up individual components to store
 * Provide context needed and getters to use it
 

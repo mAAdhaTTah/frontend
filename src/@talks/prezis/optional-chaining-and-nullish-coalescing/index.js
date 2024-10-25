@@ -3,9 +3,8 @@ import {
   Slide,
   Deck,
   Heading,
-  List,
+  UnorderedList,
   ListItem,
-  Code,
   Text,
   CodePane,
   Appear,
@@ -54,8 +53,8 @@ const Prezi = () => {
     <Deck transitionDuration={500} theme={DarkTheme} transition={['slide']}>
       <Slide>
         <Heading size={1} lineHeight={1} textColor={'secondary'}>
-          Optional Chaining (<Code>?.</Code>) and Nullish Coalescing (
-          <Code>??</Code>)
+          Optional Chaining (<code>?.</code>) and Nullish Coalescing (
+          <code>??</code>)
         </Heading>
       </Slide>
       {AboutMe()}
@@ -63,11 +62,11 @@ const Prezi = () => {
         <Heading size={2} lineHeight={1} textColor={'secondary'}>
           Agenda
         </Heading>
-        <List>
+        <UnorderedList>
           <ListItem>What is this new syntax?</ListItem>
           <ListItem>How do they work together?</ListItem>
           <ListItem>What's the best way to use them?</ListItem>
-        </List>
+        </UnorderedList>
       </Slide>
       <Slide>
         <Heading size={2} lineHeight={1} textColor={'secondary'}>
@@ -77,7 +76,7 @@ const Prezi = () => {
           <em>adj.</em>
         </Text>
         <Text>
-          <Code>null</Code> or <Code>undefined</Code>
+          <code>null</code> or <code>undefined</code>
         </Text>
       </Slide>
       <Slide>
@@ -96,7 +95,7 @@ const Prezi = () => {
         <Appear>
           <Text>
             If the left-hand side of the operator is null or undefined, then the
-            operator "short-circuits" and returns <Code>undefined</Code>{' '}
+            operator "short-circuits" and returns <code>undefined</code>{' '}
             immediately. Otherwise, continue with the chain.
           </Text>
         </Appear>
@@ -135,8 +134,8 @@ const Prezi = () => {
         </Text>
         <Appear>
           <Text>
-            If the left-hand side of the operator is <Code>null</Code> or
-            <Code>undefined</Code>, then the right hand side of the operator is
+            If the left-hand side of the operator is <code>null</code> or
+            <code>undefined</code>, then the right hand side of the operator is
             returned.
           </Text>
         </Appear>
@@ -179,7 +178,7 @@ const Prezi = () => {
         <Heading size={3} lineHeight={1} textColor={'secondary'}>
           Best Practices
         </Heading>
-        <List>
+        <UnorderedList>
           <ListItem>
             <strong>DO</strong>: Use Optional Chaining to simplify your presence
             checks.
@@ -196,7 +195,7 @@ const Prezi = () => {
             <strong>DON'T</strong>: Expect Nullish Coalescing to provide
             defaults for empty strings and 0.
           </ListItem>
-        </List>
+        </UnorderedList>
       </Slide>
       <Slide>
         <Heading
@@ -251,7 +250,7 @@ const Prezi = () => {
         </Heading>
         <CodePane source={aptDefault} lang="js" />
         <Text>
-          An empty string should fall back. Use <Code>||</Code>.
+          An empty string should fall back. Use <code>||</code>.
         </Text>
       </Slide>
       {ThankYou()}

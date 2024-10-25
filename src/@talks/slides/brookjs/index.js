@@ -3,7 +3,6 @@ import {
   Markdown,
   Heading,
   Text,
-  Code,
   CodePane,
   Notes,
   Image,
@@ -105,7 +104,7 @@ export default ({ api }) => (actions$, state$) =>
   </Slide>,
   <Slide>
     <Text>
-      Use <Code>chai-kefir</Code> to test the resulting Observable
+      Use <code>chai-kefir</code> to test the resulting Observable
     </Text>
     <CodePane
       lang={'js'}
@@ -164,7 +163,7 @@ export const TheBigReveal = () => [
 }`}
     />
     <Text fit>
-      At its core, this is the mental model for a <Code>brookjs</Code> component
+      At its core, this is the mental model for a <code>brookjs</code> component
     </Text>
   </Slide>,
   <Slide>

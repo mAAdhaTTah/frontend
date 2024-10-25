@@ -5,9 +5,8 @@ import {
   Slide,
   Text,
   Link,
-  List,
+  UnorderedList,
   ListItem,
-  Code,
   CodePane,
   Image,
   Appear,
@@ -100,12 +99,12 @@ const Prezi = () => (
     </Slide>
     <Slide>
       <Heading size={2}>Agenda</Heading>
-      <List>
+      <UnorderedList>
         <ListItem>Lets look at Code</ListItem>
         <ListItem>Excel, the Original Reactive App</ListItem>
         <ListItem>Arrays Over Time</ListItem>
         <ListItem>Lets look at Code Again</ListItem>
-      </List>
+      </UnorderedList>
     </Slide>
     <Slide>
       <Heading size={3}>Let's Look at Code</Heading>
@@ -158,7 +157,7 @@ const Prezi = () => (
     <Slide>
       <Text fit>Cells can also be formulas dependent on other cells</Text>
       <Text margin={'30px 0'}>
-        C1 is <Code>=SUM(A1, B1)</Code>
+        C1 is <code>=SUM(A1, B1)</code>
       </Text>
       <Text fit>C1 syncs with the values from A1 & B1</Text>
     </Slide>
@@ -167,8 +166,8 @@ const Prezi = () => (
         We can consider Observables the same way
       </Text>
       <Text>
-        <Code textColor="secondary">first$</Code> &{' '}
-        <Code textColor="secondary">second$</Code> are Excel cells, holding the
+        <code textColor="secondary">first$</code> &{' '}
+        <code textColor="secondary">second$</code> are Excel cells, holding the
         value of each input field
       </Text>
     </Slide>
@@ -183,9 +182,9 @@ const Prezi = () => (
     </Slide>
     <Slide>
       <Text textSize={'1.25rem'} margin={'0 0 20px'}>
-        <Code padding={'0px'} textSize={'1.25rem'} textColor={'secondary'}>
+        <code padding={'0px'} textSize={'1.25rem'} textColor={'secondary'}>
           combine
-        </Code>{' '}
+        </code>{' '}
         represents the dependent calculation
       </Text>
       <CodePane source={combine} lang="js" textSize={'1.5rem'}></CodePane>
@@ -212,9 +211,9 @@ const Prezi = () => (
       </Text>
       <Text>
         e.g. generators (
-        <Code padding={'0px'} textColor={'secondary'}>
+        <code padding={'0px'} textColor={'secondary'}>
           next
-        </Code>
+        </code>
         )
       </Text>
     </Slide>
@@ -227,20 +226,20 @@ const Prezi = () => (
     <Slide>
       <Text>Values are discrete events</Text>
       <Text margin={'20px 0'}>
-        <Code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
+        <code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
           --1---2---3--4|
-        </Code>
+        </code>
         &nbsp;&nbsp;&nbsp;
       </Text>
       <Text margin={'20px 0'}>
-        <Code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
+        <code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
           delay(20)
-        </Code>
+        </code>
       </Text>
       <Text margin={'20px 0 40px'}>
-        <Code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
+        <code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
           ----1---2---3--4|
-        </Code>
+        </code>
       </Text>
       <Text>
         <Link href={'http://rxmarbles.com/'} target={'_blank'}>
@@ -261,24 +260,24 @@ const Prezi = () => (
     </Slide>
     <Slide>
       <Text>
-        <Code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
+        <code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
           --m--m----m------m--mmmm---m--m---
-        </Code>
+        </code>
       </Text>
       <Text>
-        <Code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
+        <code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
           takeUntilBy
-        </Code>
+        </code>
       </Text>
       <Text>
-        <Code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
+        <code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
           ------------------------u---------
-        </Code>
+        </code>
       </Text>
       <Text>
-        <Code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
+        <code padding={'10px'} textSize={'2rem'} textColor={'secondary'}>
           --m--m----m------m--mmmm|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </Code>
+        </code>
       </Text>
     </Slide>
     <Slide>
