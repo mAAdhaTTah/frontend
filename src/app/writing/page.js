@@ -1,20 +1,20 @@
-import { TinaPage } from '@tina/page';
-import { getWritingArchiveProps } from '@tina/server';
+import { VaultPage } from '@vault/page';
+import { getPageProps } from '@vault/server';
 
-const GistpenArchive = async ({ params }) => {
-  const { response, extra } = await getWritingArchiveProps({ page: 1 });
-  return <TinaPage response={response} extra={extra} />;
+const GistpenArchive = async () => {
+  const { content } = await getPageProps('writing');
+  return <VaultPage content={content} />;
 };
 
 /**
  * @returns {Promise<import('next').Metadata>}
  */
 export const generateMetadata = async () => {
-  const { response } = await getWritingArchiveProps({ page: 1 });
+  const { frontmatter } = await getPageProps('writing');
 
   return {
-    title: response.data.page.title,
-    description: response.data.page.description,
+    title: frontmatter.title,
+    description: frontmatter.description,
   };
 };
 
