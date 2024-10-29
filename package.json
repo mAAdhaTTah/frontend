@@ -33,7 +33,7 @@
     "tailwindcss": "^3.4.3",
     "tailwindcss-view-transitions": "^0.1.1",
     "tinacms": "^2.3.0",
-    "typeit": "^8.8.3"
+    "typeit": "^8.8.7"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.2.3",
