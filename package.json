@@ -32,7 +32,7 @@
     "spectacle": "^4.0.5",
     "tailwindcss": "^3.4.3",
     "tailwindcss-view-transitions": "^0.1.1",
-    "tinacms": "^2.3.0",
+    "tinacms": "^2.4.0",
     "typeit": "^8.8.7"
   },
   "devDependencies": {
@@ -44,7 +44,7 @@
     "@storybook/cli": "^7.6.20",
     "@storybook/nextjs": "^7.6.20",
     "@testing-library/react": "^16.0.1",
-    "@tinacms/cli": "^1.6.10",
+    "@tinacms/cli": "^1.6.11",
     "autoprefixer": "^10.4.20",
     "babel-eslint": "^10.1.0",
     "babel-plugin-prismjs": "^2.1.0",
