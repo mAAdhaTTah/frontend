@@ -14,7 +14,7 @@
     "date-fns": "^3.6.0",
     "date-fns-tz": "^3.2.0",
     "feed": "^4.2.2",
-    "next": "^14.2.15",
+    "next": "^15.0.2",
     "next-mdx-remote": "^5.0.0",
     "next-view-transitions": "^0.3.2",
     "param-case": "^4.0.0",
