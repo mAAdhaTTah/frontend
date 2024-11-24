@@ -1,4 +1,0 @@
----
-name: higher education funding
----
-

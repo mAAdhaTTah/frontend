@@ -1,5 +1,5 @@
 import cc from 'classcat';
-import NextLink from 'next/link';
+import { Link as NextLink } from 'next-view-transitions';
 
 export const EM = ({ children }) => {
   return <em>{children}</em>;

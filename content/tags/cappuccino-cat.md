@@ -1,4 +1,0 @@
----
-name: cappuccino cat
----
-

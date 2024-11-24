@@ -1,26 +1,27 @@
-import { TinaPage } from '@tina/page';
-import { getPagePaths, getPageProps } from '@tina/server';
+import { VaultPage } from '@vault/page';
+import { getPagePaths, getPageProps } from '@vault/server';
 
 const RootPage = async ({ params }) => {
-  const { response, extra } = await getPageProps(params);
-  return <TinaPage response={response} extra={extra} />;
+  const { content, frontmatter } = await getPageProps(
+    params.slug?.join('/') ?? '',
+  );
+  return <VaultPage content={content} frontmatter={frontmatter} />;
 };
 
 /**
  * @returns {Promise<import('next').Metadata>}
  */
 export const generateMetadata = async ({ params }) => {
-  const { response } = await getPageProps(params);
+  const { frontmatter } = await getPageProps(params.slug?.join('/') ?? '');
 
   return {
-    title: response.data.page.title,
-    description: response.data.page.description,
+    title: frontmatter.web.title,
+    description: frontmatter.web.description,
   };
 };
 
 export const generateStaticParams = async () => {
-  const paths = await getPagePaths();
-  return paths.map(value => value.params);
+  return await getPagePaths();
 };
 
 export default RootPage;

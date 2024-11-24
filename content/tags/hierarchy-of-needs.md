@@ -1,4 +1,0 @@
----
-name: hierarchy of needs
----
-

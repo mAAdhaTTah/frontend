@@ -1,0 +1,16 @@
+---
+tags:
+  - inbox
+  - web
+  - reference
+title: Creating Your Own WordPress Unit Test Factories
+description: ""
+slug: writing/creating-wordpress-unit-test-factories
+published_at: 2014-09-29T19:32:52.000Z
+updated_at: 2014-09-29T19:37:09.000Z
+status: publish
+url: http://codesymphony.co/creating-your-own-wordpress-unit-test-factories/
+---
+I did something like this in developing the tests for WP-Gistpen. In my case, I took the default `post` factory, as he details it, and changed the `post_type` to 'gistpen'. I was actually going to write a thing about it myself, but he got to it first, so I'm just going to repost his. You can see my factory [here](https://github.com/mAAdhaTTah/WP-Gistpen/blob/develop/test/includes/factory.php).
+
+One of the things I'll add that wasn't mentioned in the original article is that you might want to add your new factory as part of the test unit's general factory, which is what the first class does. I then extend the [testunit case](https://github.com/mAAdhaTTah/WP-Gistpen/blob/develop/test/includes/testcase.php) to insert my new factory, as well as add a few helper functions I used throughout the test.

@@ -1,4 +1,0 @@
----
-name: share everything plan
----
-

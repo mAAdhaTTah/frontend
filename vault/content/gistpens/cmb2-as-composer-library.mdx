@@ -1,0 +1,31 @@
+---
+tags:
+  - inbox
+  - web
+  - snippet
+title: CMB2 as Composer Library
+description: ""
+slug: gistpens/cmb2-as-composer-library
+published_at: 2015-11-17T12:36:53.000Z
+updated_at: 2015-11-17T12:36:53.000Z
+status: publish
+---
+```js title="composer.json"
+{
+ "require": {
+    "php": ">=5.3.0",
+    "composer/installers": "v1.0.12",
+    "webdevstudios/cmb2": "dev-master",
+  },
+  "autoload": {
+    "files": ["vendor/cmb2/init.php"]
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/{$name}/": ["webdevstudios/cmb2"]
+    }
+  }
+}
+```
+
+^composer-json
