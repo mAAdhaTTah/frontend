@@ -1,4 +1,0 @@
----
-name: jeff jarvis
----
-

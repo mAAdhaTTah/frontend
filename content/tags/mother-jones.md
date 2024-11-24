@@ -1,4 +1,0 @@
----
-name: mother jones
----
-

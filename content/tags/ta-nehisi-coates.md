@@ -1,4 +1,0 @@
----
-name: ta-nehisi coates
----
-
