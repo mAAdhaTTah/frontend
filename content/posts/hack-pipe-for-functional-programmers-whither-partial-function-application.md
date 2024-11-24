@@ -33,7 +33,7 @@ body:
 
       For starters, the PFA proposal is a separate proposal with its own
       strengths and issues that would need to be addressed before
-      advancing.&#x20;
+      advancing.&
 
 
       ### Hack doesn't kill PFA
@@ -52,7 +52,7 @@ body:
 
 
       One of the significant objections to Hack is that you can't name the
-      placeholder.&#x20;
+      placeholder.
 
 
       ## PFA + F# doesn't address debugging issues
@@ -69,5 +69,3 @@ categories:
   - reference: content/categories/uncategorized.md
 _template: standard
 ---
-
-

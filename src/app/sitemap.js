@@ -1,4 +1,4 @@
-import { getAllSitemapItems } from '@tina/sitemap';
+import { getAllSitemapItems } from '@vault/sitemap';
 
 export default async function Sitemap() {
   const items = [];

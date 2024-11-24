@@ -72,7 +72,7 @@ body:
 
       Note that for now, Webpack doesn't require the `.js` extension, and Node
       also doesn't for Commonjs modules, but the ES Module implementation in
-      Node will require&#x20;
+      Node will require it.
 
 
       ### Other modules must import through a barrel
@@ -162,5 +162,3 @@ categories:
   - reference: content/categories/uncategorized.md
 _template: standard
 ---
-
-

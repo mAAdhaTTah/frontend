@@ -1,5 +1,5 @@
 ---
-title: Gistpens | James DiGioia
+title: Gistpens
 menu: content/menus/main.md
 header: content/headers/main.md
 status: publish

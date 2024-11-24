@@ -1,0 +1,25 @@
+---
+tags:
+  - inbox
+  - web
+  - snippet
+title: PHP Version check for WP Boilerplate
+description: ""
+slug: gistpens/php-version-check-for-wp-boilerplate
+published_at: 2015-02-14T18:35:32.000Z
+updated_at: 2015-02-14T18:35:32.000Z
+status: publish
+---
+```php title="5-3-or-greater.php"
+public static function activate() {
+	if ( ! version_compare( PHP_VERSION, '5.3', '<' ) ) {
+		return;
+	}
+
+	deactivate_plugins( 'url-embedlifier' );
+	wp_die('<p>The <strong>URL Embedlifier</strong> plugin requires PHP version 5.3 or greater.</p>',
+		'Plugin Activation Error',  array( 'response' => 200, 'back_link' => true ) );
+}
+```
+
+^5-3-or-greater-php

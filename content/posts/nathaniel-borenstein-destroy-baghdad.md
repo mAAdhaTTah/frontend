@@ -1,5 +1,5 @@
 ---
-title: “It should be noted that no ethically-trained so...
+title: It should be noted that no ethically-trained so...
 publishedAt: '2018-02-05T03:34:30.000Z'
 updatedAt: '2019-07-21T02:00:02.000Z'
 status: publish
@@ -18,5 +18,3 @@ categories:
   - reference: content/categories/uncategorized.md
 _template: quote
 ---
-
-

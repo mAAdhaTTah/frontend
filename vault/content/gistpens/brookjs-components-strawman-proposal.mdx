@@ -1,0 +1,171 @@
+---
+tags:
+  - inbox
+  - web
+  - snippet
+title: Brookjs components strawman proposal
+description: ""
+slug: gistpens/brookjs-components-strawman-proposal
+published_at: 2017-12-20T13:15:23.000Z
+updated_at: 2018-01-09T12:22:54.000Z
+status: publish
+---
+```jsx title="TodoItem.js"
+import { h, component } from "brookjs";
+import { editClick } from "../actions";
+
+// Changes only occur when bound to a stream
+export default component({
+  render: (props$) => (
+    <li>
+      {/* Text changes when a value is emitted. */}
+      <p class="todo__name">{props$.map((props) => props.text)}</p>
+      {/* Maps a stream of events to actions. */}
+      <button onClick={(event$) => event$.map(editClick)}>{"Edit todo"}</button>
+    </li>
+  ),
+});
+```
+
+^TodoItem-js
+
+```jsx title="TodoList.js"
+import { h, component } from 'brookjs'
+import TodoItem from './TodoItem'
+
+export default component({
+    render: props$ => (
+        <div>
+            <h2>My Todos</h2>
+            {/**
+              * `order` provides sequence todos should appear
+              * `dict` provides a performant instance lookup
+              */}
+            <ul>
+                {props$.map(todos => todos.order.map(key => (
+                    <TodoItem
+                        props$={props$.map(todos => todos.dict[key])}
+                        key={key}
+                        preplug={instance$ => instance$.map(action => ({
+                            ...action,
+                            meta: { key }
+                        })} />
+                )))}
+            <ul>
+        </div>
+    )
+})
+```
+
+^TodoList-js
+
+```jsx title="App.js"
+import { h, component } from "brookjs";
+import TodoList from "./TodoList";
+
+export default component({
+  render: (props$) => (
+    <div>
+      <h1>Todo App</h1>
+      {/**
+       * Individual attributes respond to observables
+       * Performance optimized inline
+       */}
+      <input
+        value={props$.map((props) => props.editing).skipDuplicates()}
+        onInput={(event$) =>
+          event$.map((event) => editTodo(event.target.value))
+        }
+      />
+      <button onClick={(event$) => event$.map(addTodo)}>Add Todo</button>
+      <TodoList props$={props$.map((props) => props.todos)} />
+    </div>
+  ),
+});
+```
+
+^App-js
+
+```jsx title="client.js"
+import { createStore, applyMiddleware } from 'redux'
+import { h, observeDelta, Kefir } from brookjs
+import { App } from './components'
+import { selectProps } from './selectors'
+
+const store = createStore(
+    (state, action) => state, // reducer
+    window.__INITIAL_STATE__ || {},
+    applyMiddleware(observeDelta(
+        /* register deltas here */
+    )
+)
+const state$ = Kefir.fromESObservable(store)
+
+/**
+ * `mount` thus takes the DOM to mount
+ * and the element to bind it to, and
+ * returns a stream. Note that because
+ * of how streams work, nothing happens
+ * until the stream is observed.
+ */
+const view$ = mount(
+    <App props$={selectProps(state$)} />,
+    document.getElementById('app')
+)
+
+view$.observe(store.dispatch)
+```
+
+^client-js
+
+```jsx title="TodoListWithIterationHelper.js"
+import { h, component, list } from 'brookjs'
+import TodoItem from './TodoItem'
+
+export default component({
+    render: props$ => (
+        <div>
+            <h2>My Todos</h2>
+            <ul>
+                {/* Must be a stream of objects with `order` & `dict` */}
+                {list(props$, (props$, key) => (
+                    <TodoItem
+                        props$={props$}
+                        key={key}
+                        preplug={instance$ => instance$.map(action => ({
+                            ...action,
+                            meta: { key }
+                        })} />
+                )}
+            <ul>
+        </div>
+    )
+})
+```
+
+^TodoListWithIterationHelper-js
+
+```jsx title="client-with-domDelta.js"
+import { createStore, applyMiddleware } from 'redux'
+import { h, observeDelta, Kefir } from brookjs
+import { App } from './components'
+import { selectProps } from './selectors'
+
+const el = document.getElementById('app')
+
+const store = createStore(
+    (state, action) => state,
+    window.__INITIAL_STATE__ || {},
+    applyMiddleware(observeDelta(
+        /* register deltas here */
+        domDelta({ el, selectProps, view: App })
+    )
+)
+
+// Everything is bound to the store immediately,
+// but an init action makes sure everything waits
+// until the store is fully instantiated.
+store.dispatch(init())
+```
+
+^client-with-domDelta-js
