@@ -1,4 +1,4 @@
-import { buildFeed } from '@tina/sitemap';
+import { buildFeed } from '@vault/sitemap';
 
 export async function GET() {
   const feed = await buildFeed();

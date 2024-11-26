@@ -1,5 +1,5 @@
 ---
-title: Resume | James DiGioia
+title: Resume
 menu: content/menus/main.md
 header: content/headers/main.md
 body:

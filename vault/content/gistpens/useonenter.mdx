@@ -1,0 +1,38 @@
+---
+tags:
+  - inbox
+  - web
+  - snippet
+title: useOnEnter
+description: ""
+slug: gistpens/useonenter
+published_at: 2019-03-10T20:36:51.000Z
+updated_at: 2019-03-10T20:51:01.000Z
+status: publish
+---
+```js title="useOnEnter.js"
+import React, { useContext, useEffect } from "react";
+import { StdinContext } from "ink";
+
+export default function useOnEnter(onEnter) {
+  const { stdin } = useContext(StdinContext);
+
+  useEffect(() => {
+    const onData = (data) => {
+      const s = data.toString();
+
+      if (s === "\r") {
+        onEnter();
+      }
+    };
+
+    stdin.on("data", onData);
+
+    return () => {
+      stdin.off("data", onData);
+    };
+  });
+}
+```
+
+^useOnEnter-js

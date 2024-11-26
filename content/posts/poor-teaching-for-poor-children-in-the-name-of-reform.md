@@ -1,5 +1,5 @@
 ---
-title: "Poor Teaching for Poor Children\N in the Name of Reform"
+title: 'Poor Teaching for Poor Children in the Name of Reform'
 publishedAt: 2013-05-03T21:01:50.000Z
 updatedAt: 2014-01-26T15:52:35.000Z
 status: publish
@@ -34,5 +34,3 @@ tags:
   - reference: content/tags/testing.md
 _template: link
 ---
-
-

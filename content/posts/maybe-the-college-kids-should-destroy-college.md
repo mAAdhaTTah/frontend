@@ -1,5 +1,5 @@
 ---
-title: "Maybe the College Kids Should Destroy College?\_"
+title: 'Maybe the College Kids Should Destroy College?'
 publishedAt: '2015-11-13T17:22:13.000Z'
 updatedAt: '2015-11-13T17:22:13.000Z'
 status: publish
@@ -20,5 +20,3 @@ categories:
   - reference: content/categories/social-justice.md
 _template: link
 ---
-
-

@@ -1,0 +1,28 @@
+---
+tags:
+  - inbox
+  - web
+  - snippet
+title: Does this get garbage collected?
+description: ""
+slug: gistpens/does-this-get-garbage-collected
+published_at: 2016-03-09T10:38:28.000Z
+updated_at: 2016-03-09T10:38:28.000Z
+status: publish
+---
+```js title="gc.js"
+var el = (function () {
+  var templateString = template.render();
+  var wrapper = document.createElement("div");
+  wrapper.innerHTML = templateString;
+
+  var result = wrapper.firstChild;
+  // Zero out the innerHTML to ensure
+  // no reference to the resulting node.
+  wrapper.innerHTML = "";
+
+  return result;
+})();
+```
+
+^gc-js
