@@ -113,7 +113,6 @@ const PageFMSchema = z.object({
     title: z.string(),
     description: z.string(),
     slug: z.string(),
-    status: z.union([z.literal('draft'), z.literal('publish')]),
     updated_at: ISODateSchema,
     published_at: ISODateSchema,
   }),
@@ -198,7 +197,7 @@ const readAllVaaultPage = unstable_cache(async () => {
   const walkDir = async (/** @type {string} */ dir) => {
     const entries = await readdir(dir, { withFileTypes: true });
     for (const entry of entries) {
-      if (entry.isFile() && entry.name.endsWith('.mdx')) {
+      if (entry.isFile() && entry.name.endsWith('.md')) {
         const mdFilePath = path.join(dir, entry.name);
         const source = await readFile(mdFilePath, 'utf8');
         const vfile = new VFile(source);
@@ -290,7 +289,7 @@ export const getPagePaths = async () => {
 
 const getData = async (/** @type {string} */ target) => {
   const source = await readFile(
-    path.join(vaultDirectory, 'data', `${target}.mdx`),
+    path.join(vaultDirectory, 'data', `${target}.md`),
     'utf8',
   );
 

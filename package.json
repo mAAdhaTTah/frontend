@@ -79,7 +79,7 @@
     "start": "next start",
     "dev": "next dev",
     "dev:storybook": "storybook dev -p 6006",
-    "build": "next build",
+    "build": "rm -rf vault && git clone git@github.com:mAAdhaTTah/frontend-content.git vault && next build",
     "build:storybook": "storybook build",
     "fix": "prettier --write \"{src,.storybook,bin}/**/*.{js,ts,md}\" && eslint --fix \"{src,.storybook,bin}/**/*.{js,ts}\"",
     "test": "npm run test:check && npm run test:lint && npm run test:unit",

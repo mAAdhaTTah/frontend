@@ -20,7 +20,7 @@ const config = {
   },
   trailingSlash: true,
   async redirects() {
-    const files = await fs.readdir(`${__dirname}/content/posts`);
+    const files = await fs.readdir(`${__dirname}vault/content/writing`);
     return [
       ...files.map(file => {
         const basename = file.replace('.md', '');
