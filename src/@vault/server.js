@@ -84,7 +84,7 @@ const MediaReferenceSchema = z
   .regex(REFERENCE_REGEX)
   .transform(async value => {
     const [, , filename] = REFERENCE_REGEX.exec(value);
-    const source = await readFile(path.join(vaultDirectory, filename), 'utf8');
+    const source = await readFile(path.join(CWD, filename), 'utf8');
     const { frontmatter } = await compile(source);
     return frontmatter;
   })
@@ -104,7 +104,7 @@ const ContentReferenceSchema = z
     const [, , filename] = REFERENCE_REGEX.exec(value);
     const source = await readFile(
       // TODO fix path
-      path.join(vaultDirectory, `${filename}`),
+      path.join(CWD, `${filename}`),
       'utf8',
     );
     const { frontmatter } = await compile(source);
@@ -168,7 +168,7 @@ const PageFMSchema = z.object({
     .optional(),
 });
 
-const vaultDirectory = path.join(process.cwd(), 'vault');
+const CWD = process.cwd();
 
 /**
  * @typedef {{
@@ -192,10 +192,9 @@ const parseFrontmatter = async (
   ).catch(err => {
     if (err instanceof z.ZodError) {
       console.error(err);
-      throw new Error(
-        `Error parsing ${mdFilePath.replace(vaultDirectory, 'vault')}`,
-        { cause: err },
-      );
+      throw new Error(`Error parsing ${mdFilePath.replace(CWD, '')}`, {
+        cause: err,
+      });
     }
 
     throw err;
@@ -240,7 +239,7 @@ const readAllVaultPages = unstable_cache(async () => {
       }
     }
   };
-  await walkDir(vaultDirectory);
+  await walkDir(CWD);
 
   return { sources, bySlug };
 });
@@ -302,7 +301,7 @@ export const getPagePaths = async () => {
 
 const getData = async (/** @type {string} */ target) => {
   const source = await readFile(
-    path.join(vaultDirectory, 'vault/_data', `${target}.md`),
+    path.join(CWD, 'vault/_data', `${target}.md`),
     'utf8',
   );
 
