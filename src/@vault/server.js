@@ -15,6 +15,9 @@ import { matter } from 'vfile-matter';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import { ReadingList } from '@reading/server';
 
+// TODO
+const InternalEmbed = () => null;
+
 const compile = (/** @type {string} */ source) =>
   compileMDX({
     source,
@@ -70,16 +73,17 @@ const compile = (/** @type {string} */ source) =>
       },
       RecentEssays,
       ReadingList,
+      InternalEmbed,
     },
   });
 
-const REFERENCE_REGEX = /\[\[(.*)\]\]/;
+const REFERENCE_REGEX = /\[(.*)\]\((.*)\)/;
 
 const MediaReferenceSchema = z
   .string()
   .regex(REFERENCE_REGEX)
   .transform(async value => {
-    const [filename] = REFERENCE_REGEX.exec(value);
+    const [, , filename] = REFERENCE_REGEX.exec(value);
     const source = await readFile(path.join(vaultDirectory, filename), 'utf8');
     const { frontmatter } = await compile(source);
     return frontmatter;
@@ -97,8 +101,12 @@ const ContentReferenceSchema = z
   .string()
   .regex(REFERENCE_REGEX)
   .transform(async value => {
-    const [filename] = REFERENCE_REGEX.exec(value);
-    const source = await readFile(path.join(vaultDirectory, filename), 'utf8');
+    const [, , filename] = REFERENCE_REGEX.exec(value);
+    const source = await readFile(
+      // TODO fix path
+      path.join(vaultDirectory, `${filename}`),
+      'utf8',
+    );
     const { frontmatter } = await compile(source);
     return frontmatter;
   })
@@ -115,7 +123,7 @@ const ISODateSchema = z
 const PageFMSchema = z.object({
   web: z.object({
     title: z.string(),
-    description: z.string(),
+    description: z.string().nullable(),
     slug: z.string(),
     updated_at: ISODateSchema,
     published_at: ISODateSchema,
@@ -134,7 +142,7 @@ const PageFMSchema = z.object({
     .optional(),
   essay: z
     .object({
-      featuredMedia: MediaReferenceSchema.optional(),
+      featuredMedia: MediaReferenceSchema.nullable(),
     })
     .optional(),
   gallery: z
@@ -232,7 +240,7 @@ const readAllVaultPages = unstable_cache(async () => {
       }
     }
   };
-  await walkDir(path.join(vaultDirectory, 'content'));
+  await walkDir(vaultDirectory);
 
   return { sources, bySlug };
 });
@@ -294,7 +302,7 @@ export const getPagePaths = async () => {
 
 const getData = async (/** @type {string} */ target) => {
   const source = await readFile(
-    path.join(vaultDirectory, 'data', `${target}.md`),
+    path.join(vaultDirectory, 'vault/_data', `${target}.md`),
     'utf8',
   );
 
