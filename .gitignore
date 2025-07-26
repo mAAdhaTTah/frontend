@@ -12,7 +12,6 @@ public/sitemap.xml
 public/feed
 .vercel
 /cache.json
-vault
 
 # Environment variables
 .env

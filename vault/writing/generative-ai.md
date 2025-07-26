@@ -1,0 +1,27 @@
+---
+tags:
+  - concept
+  - web
+parent: "[Software Engineering](/vault/writing/software-engineering.md)"
+previous:
+next:
+slug: writing/generative-ai
+title: Generative AI
+description:
+published_at: 2025-07-26 16:39
+updated_at: 2025-07-26 16:39
+share: true
+---
+
+# Generative AI
+
+## References
+
+- writing/my-ai-skeptic-friends-are-all-nuts
+  - writing/my-ai-fanatic-friends-are-all-myopic
+- [1hr Talk] Intro to Large Language Models
+- Hugging Face + Langchain in 5 Mins  Access 200k+ FREE AI Models for Your AI Apps
+- I Want Llama3 to Perform 10x With My Private Knowledge - Local Agentic RAG W Llama3
+- Hack Your Life (With Demos) and Get Superpowers!
+- The Black Box Myth What the Industry Pretends Not to Know About AI
+- GPTZero Is Useless
