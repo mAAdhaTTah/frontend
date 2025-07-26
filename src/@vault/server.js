@@ -32,7 +32,11 @@ const compile = (/** @type {string} */ source) =>
     components: {
       p: Paragraph,
       code: Code,
-      a: props => <Link href={props.href}>{props.children}</Link>,
+      a: props => (
+        <Link href={props.href.replace('/vault', '').replace('.md', '/')}>
+          {props.children}
+        </Link>
+      ),
       img: ServerEmbed,
       h1: props => (
         <Heading level={1} variant="h-1">
