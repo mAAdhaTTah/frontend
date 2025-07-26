@@ -8,15 +8,33 @@ import { Code, Heading, Link, Paragraph } from '@ui/typography';
 import { smartypants } from 'smartypants';
 import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
 import { z } from 'zod';
-import { isValid, parseISO } from 'date-fns';
+import { format, formatISO, isValid, parseISO } from 'date-fns';
 import { unstable_cache } from 'next/cache';
 import { VFile } from 'vfile';
 import { matter } from 'vfile-matter';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import { ReadingList } from '@reading/server';
 
-// TODO
-const InternalEmbed = () => null;
+const InternalEmbedBefore = ({ page }) => {
+  return null;
+};
+
+const InternalEmbedAfter = ({ page }) => {
+  return null;
+};
+
+const InternalEmbed = async ({ url, children }) => {
+  const { bySlug } = await getAllVaultPages();
+  const page = bySlug[url.replace('/vault/', '').replace('.md', '')];
+
+  return (
+    <>
+      <InternalEmbedBefore page={page} />
+      {children}
+      <InternalEmbedAfter page={page} />
+    </>
+  );
+};
 
 const compile = (/** @type {string} */ source) =>
   compileMDX({
@@ -146,6 +164,7 @@ const PageFMSchema = z.object({
     .optional(),
   essay: z
     .object({
+      excerpt: z.string(),
       featuredMedia: MediaReferenceSchema.nullable(),
     })
     .optional(),
@@ -378,11 +397,37 @@ export const getLayoutProps = async () => {
 };
 
 export const getRecentEssayExcerpts = async () => {
-  // TODO
-  return [];
+  const { pages } = await getAllVaultPages();
+  const essays = [];
+  for (const page of pages) {
+    if (page.frontmatter.essay) {
+      essays.push({
+        id: page.frontmatter.web.slug,
+        format: 'standard',
+        slug: '/' + page.frontmatter.web.slug,
+        title: page.frontmatter.web.title,
+        date: format(page.frontmatter.web.published_at, 'MMMM do, yyyy'),
+        dateTime: formatISO(page.frontmatter.web.published_at),
+        commentCount: 0,
+        author: {
+          name: 'James DiGioia',
+        },
+        excerpt: <Paragraph>{page.frontmatter.essay.excerpt}</Paragraph>,
+      });
+    }
+  }
+  return essays;
 };
 
 export const getRecentEssays = async () => {
-  // TODO
-  return [];
+  const { pages } = await getAllVaultPages();
+  const essays = [];
+
+  for (const page of pages) {
+    if (page.frontmatter.essay) {
+      essays.push(page);
+    }
+  }
+
+  return essays;
 };

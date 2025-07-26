@@ -27,7 +27,7 @@ While Obsidian manages the core of each part of my system, there are also a few 
   - I also integrate Obsidian with marc0l92obsidian-jira-issue This plugin allows you to track the progress of Atlassian Jira issues from your Obsidian notes. to pull those into my notes.
     - This is really useful for 1:1s & meeting notes, connecting discussions back to the tickets we discussed.
 - **Calendar**
-  - Google Calendar alongside the [links/obsidian-google-calendar-plugin](/vault/links/obsidian-google-calendar-plugin.md).
+  - Google Calendar alongside the [Obsidian Google Calendar Plugin](/vault/links/obsidian-google-calendar-plugin.md).
     - I don't _love_ Google Calendar but it functions well enough.
     - I do love the calendar plugin though. I integrate it into my daily notes so I can look at my day while I'm journaling.
 - **Efforts**
