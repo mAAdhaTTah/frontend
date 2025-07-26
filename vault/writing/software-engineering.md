@@ -18,7 +18,7 @@ share: true
 
 ## Concepts
 
-- [writing/generative-ai](/vault/writing/generative-ai.md)
+- [Generative AI](/vault/writing/generative-ai.md)
 
 ## References
 
