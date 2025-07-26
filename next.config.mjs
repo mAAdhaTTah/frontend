@@ -20,58 +20,8 @@ const config = {
   },
   trailingSlash: true,
   async redirects() {
-    const files = await fs.readdir(`${__dirname}vault/content/writing`);
-    return [
-      ...files.map(file => {
-        const basename = file.replace('.md', '');
-        return {
-          source: `/${basename}/`,
-          destination: `/writing/${basename}/`,
-          permanent: true,
-        };
-      }),
-      {
-        source: '/gistpens/page/',
-        destination: '/gistpens/',
-        permanent: true,
-      },
-      {
-        source: '/gistpens/page/1/',
-        destination: '/gistpens/',
-        permanent: true,
-      },
-      {
-        source: '/writing/page/',
-        destination: '/writing/',
-        permanent: true,
-      },
-      {
-        source: '/writing/page/1/',
-        destination: '/writing/',
-        permanent: true,
-      },
-      {
-        source: '/feed/rss/',
-        destination: '/feed/',
-        permanent: true,
-      },
-      {
-        source: '/feed/rss2/',
-        destination: '/feed/',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'talks.jamesdigioia.com',
-          },
-        ],
-        destination: 'https://jamesdigioia.com/talks/:path*',
-        permanent: false,
-      },
-    ];
+    const redirects = await fs.readFile(`${__dirname}/redirects.json`, 'utf-8');
+    return JSON.parse(redirects);
   },
   experimental: {
     scrollRestoration: true,
