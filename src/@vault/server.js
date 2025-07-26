@@ -73,11 +73,14 @@ const compile = (/** @type {string} */ source) =>
     },
   });
 
+const REFERENCE_REGEX = /\[\[(.*)\]\]/;
+
 const MediaReferenceSchema = z
   .string()
-  .startsWith('data/media/')
+  .regex(REFERENCE_REGEX)
   .transform(async value => {
-    const source = await readFile(path.join(vaultDirectory, value), 'utf8');
+    const [filename] = REFERENCE_REGEX.exec(value);
+    const source = await readFile(path.join(vaultDirectory, filename), 'utf8');
     const { frontmatter } = await compile(source);
     return frontmatter;
   })
@@ -92,9 +95,10 @@ const MediaReferenceSchema = z
 
 const ContentReferenceSchema = z
   .string()
-  .startsWith('content/')
+  .regex(REFERENCE_REGEX)
   .transform(async value => {
-    const source = await readFile(path.join(vaultDirectory, value), 'utf8');
+    const [filename] = REFERENCE_REGEX.exec(value);
+    const source = await readFile(path.join(vaultDirectory, filename), 'utf8');
     const { frontmatter } = await compile(source);
     return frontmatter;
   })
@@ -189,7 +193,7 @@ const parseFrontmatter = async (
     throw err;
   });
 
-const readAllVaaultPage = unstable_cache(async () => {
+const readAllVaultPages = unstable_cache(async () => {
   /** @type Source[] */
   const sources = [];
   /** @type Record<string, Source> */
@@ -210,7 +214,8 @@ const readAllVaaultPage = unstable_cache(async () => {
           typeof fm === 'object' &&
           'tags' in fm &&
           Array.isArray(fm.tags) &&
-          fm.tags.every(tag => typeof tag === 'string')
+          fm.tags.every(tag => typeof tag === 'string') &&
+          fm.tags.includes('web')
         ) {
           const frontmatter = await parseFrontmatter(fm, mdFilePath);
           sources.push(
@@ -246,7 +251,7 @@ export const getAllVaultPages = async () => {
   /** @type Record<string, Page> */
   const bySlug = {};
 
-  const { sources } = await readAllVaaultPage();
+  const { sources } = await readAllVaultPages();
   for (const { source, mdFilePath } of sources) {
     const { content, frontmatter } = await compile(source);
     const page = {
@@ -260,7 +265,7 @@ export const getAllVaultPages = async () => {
 };
 
 export const getPageProps = async (/** @type {string} */ slug) => {
-  const { bySlug } = await readAllVaaultPage();
+  const { bySlug } = await readAllVaultPages();
 
   const source = bySlug[slug];
   if (!source) return notFound();

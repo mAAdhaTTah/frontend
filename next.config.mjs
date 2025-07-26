@@ -73,14 +73,6 @@ const config = {
       },
     ];
   },
-  async rewrites() {
-    return [
-      {
-        source: '/admin',
-        destination: '/admin/index.html',
-      },
-    ];
-  },
   experimental: {
     scrollRestoration: true,
     webpackBuildWorker: true,
