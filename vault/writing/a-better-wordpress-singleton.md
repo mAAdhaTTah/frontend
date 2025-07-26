@@ -8,7 +8,7 @@ slug: writing/a-better-wordpress-singleton
 published_at: 2015-08-06T14:30:40.000Z
 updated_at: 2015-08-07T16:14:23.000Z
 excerpt: "If you look at any WordPress plugin of significant size, you’ll probably find most of them boot the same way. From BuddyPress, to PressForward, to JetPack, all of these boot the same way: with singletons. JetPack in particular is interesting, as many of its modules are also singletons themselves. It’s an extremely common pattern in \\[…]"
-featuredMedia: ""
+featuredMedia:
 share: true
 ---
 
