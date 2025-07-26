@@ -14,7 +14,36 @@ share: true
 
 If you look at any WordPress plugin of significant size, you'll probably find most of them boot the same way. From [BuddyPress](https://github.com/buddypress/BuddyPress/blob/master/src/bp-loader.php#L134-L153), to [PressForward](https://github.com/PressForward/pressforward/blob/master/pressforward.php#L54-L62), to [JetPack](https://github.com/Automattic/jetpack/blob/master/class.jetpack.php#L291-L307), all of these boot the same way: with singletons. JetPack in particular is interesting, as many of its modules are [also](https://github.com/Automattic/jetpack/blob/master/modules/markdown/easy-markdown.php#L54-L58) [singletons](https://github.com/Automattic/jetpack/blob/master/class.jetpack-admin.php#L17-L22) [themselves](https://github.com/Automattic/jetpack/blob/master/modules/custom-post-types/portfolios.php#L21-L29). It's an extremely common pattern in WordPress plugin development, wrapping the main plugin class in a singleton and instantiating it through a static method, which then enforces only a single instance of the class exists and _can ever exist_. The prototypical example looks like this in PHP:
 
-!gistpens/a-better-wordpress-singleton
+<InternalEmbed title="gistpens/a-better-wordpress-singleton" url="/vault/gistpens/a-better-wordpress-singleton.md">
+```php title="normal-singleton-and-boot.php"
+class PluginClass
+{
+    public static $instance = null;
+
+    public static function init()
+    {
+        if ( null === self::$instance ) {
+            self::$instance = new PluginClass();
+            self::$instance->boot();
+        }
+
+        return self::$instance;
+    }
+
+    protected function __construct()
+    {
+        // Startup
+    }
+
+    protected function boot()
+    {
+        // Boot
+    }
+}
+
+PluginClass::init();
+```
+</InternalEmbed>
 
 Note the `protected` constructor: This means that the class can only be instantiated by itself (in this case, by the static `init` method), so no other code can create a new instance of the class. That same `init` method saves the . The second time, the instance already exists statically and is returned directly.
 
@@ -32,13 +61,38 @@ I've spent a little bit of time playing around with Laravel, Pimple, and some of
 
 Instead of through static methods, you can enforce the class's _singleton-ness_ the class's constructor:
 
-!gistpens/a-better-wordpress-singleton
+<InternalEmbed title="gistpens/a-better-wordpress-singleton" url="/vault/gistpens/a-better-wordpress-singleton.md">
+```php title="improved-singleton.php"
+class PluginClass
+{
+    protected static $instance = null;
+
+    public function __construct($file)
+    {
+        if (static::$instance !== null) {
+            throw new Exception;
+        }
+
+        static::$instance = $this;
+    }
+
+    public static function get()
+    {
+        return static::$instance;
+    }
+}
+```
+</InternalEmbed>
 
 Now, if an instance already exists, an Exception is thrown, so another developer would not be able to instantiate a new instance of the main plugin class. The constructor its is now exposed, so any dependencies, even if it's just the boot file location, can be passed into the main class, and the class's singleton-ness is still maintained.
 
 Now, you might think you just throw `$app = new PluginClass(__FILE__);` into your main plugin file and you're good to go, but you'd be wrong. We're doing all this work to minimize the number of global variables, so that would be a bad idea. You could wrap it in a function so no global variables are leaked, but then you've added a global function (less of a problem, but still a problem). So there's one more trick I'd like to share:
 
-!gistpens/a-better-wordpress-singleton
+<InternalEmbed title="gistpens/a-better-wordpress-singleton" url="/vault/gistpens/a-better-wordpress-singleton.md">
+```php title="improved-boot.php"
+call_user_func(array(new PluginClass(__FILE__), 'boot'));
+```
+</InternalEmbed>
 
 This was pulled from a suggestion in a pull request on the [WordPress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate/pull/321), so I can't claim credit for it, but it is a great way of solving the global problem. Now, the class is instantiated, its boot method is run, access to its constructor is preserved, no globals are leaked, and you still enforce it as a singleton.
 
