@@ -1,6 +1,5 @@
 import { Feed } from 'feed';
-import { parseISO } from 'date-fns';
-import { getAllVaultPages, getRecentEssays } from '@vault/server';
+import { getAllVaultPages } from '@vault/server';
 
 /**
  * @typedef {import('sitemap').SitemapItem} SitemapItem
