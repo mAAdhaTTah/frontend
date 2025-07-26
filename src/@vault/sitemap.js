@@ -53,34 +53,17 @@ const pageToSitemapItem = (
 };
 
 async function* getAllFeedItems() {
-  const posts = await getRecentEssays();
-  for (const post of posts) {
-    /** @type {import('feed').Item} */
-    const item = {
-      title: '',
-      link: `https://jamesdigioia.com/writing/${post._sys.filename}`,
-      date: parseISO(post.publishedAt),
-    };
-    switch (post.__typename) {
-      case 'PostAudio':
-        item.audio = {
-          url: post.audio.url,
-        };
-        break;
-      case 'PostLink':
-      case 'PostGallery':
-      case 'PostAside':
-      case 'PostImage':
-      case 'PostQuote':
-      case 'PostStatus':
-      case 'PostVideo':
-        break;
-      case 'PostStandard':
-        item.title = post.title;
-        break;
-      // no default
+  const { pages } = await getAllVaultPages();
+  for (const page of pages) {
+    if (page.frontmatter.essay) {
+      /** @type {import('feed').Item} */
+      const item = {
+        title: page.frontmatter.web.title,
+        link: `https://jamesdigioia.com/${page.frontmatter.web.slug}`,
+        date: page.frontmatter.web.published_at,
+      };
+      yield item;
     }
-    yield item;
   }
 }
 
