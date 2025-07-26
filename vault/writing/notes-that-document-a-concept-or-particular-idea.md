@@ -3,10 +3,10 @@ tags:
   - concept
   - interpretation
   - web
-parent: "[Second Brain](/vault/writing/second-brain.md)"
+parent: '[Second Brain](/vault/writing/second-brain.md)'
 previous:
 next:
-slug: writing/second-brain/notes-that-document-a-concept-or-particular-idea
+slug: writing/notes-that-document-a-concept-or-particular-idea
 title: Notes that document a concept or particular idea
 description: Concept notes are like evergreen notes but larger, things or statements about things that are embedded in my notebook.
 published_at: 2025-01-04 20:49

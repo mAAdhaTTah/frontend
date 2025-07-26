@@ -2,7 +2,7 @@
 tags:
   - concept
   - web
-parent: "[Second Brain](/vault/writing/second-brain.md)"
+parent: '[Second Brain](/vault/writing/second-brain.md)'
 previous:
 next:
 slug: writing/design-maintenance-of-my-second-brain
@@ -21,7 +21,7 @@ This focuses on my note & folder layout in Obsidian.
 
 I use my Second Brain to represent & connect my ideas & thinking in a way that feels reflective of how my brain works. I'm a [Software Engineer](/vault/writing/software-engineering.md), so everything in Obsidian is extremely structured. I define types by the structure of the metadata on those markdown files and (sometimes) how the content relates to the content type. I can then compose these types together to express what a particular note represents.
 
-I have a lot of different note types because I imported a bunch of data from a bunch of different sources into the vault. This includes things like Pinboard and my contacts & LinkedIn connections (which I ironically pulled in by testing a different program then exporting my data before pulling the plug). As a result, I have a _lot_ of different note types representing all the different object types I've imported into this system. With the expressive power of [writing/obsidian](/vault/writing/obsidian.md), combined with Dataview and other plugins, I build little apps on top of these notes, making it a really powerful tool.
+I have a lot of different note types because I imported a bunch of data from a bunch of different sources into the vault. This includes things like Pinboard and my contacts & LinkedIn connections (which I ironically pulled in by testing a different program then exporting my data before pulling the plug). As a result, I have a _lot_ of different note types representing all the different object types I've imported into this system. With the expressive power of [Obsidian](/vault/writing/obsidian.md), combined with Dataview and other plugins, I build little apps on top of these notes, making it a really powerful tool.
 
 The folder structure is a 1:1 mapping of types. I do "compose" types because the properties are mapped by tag, so each tag leverages Metadata Menu to add a UI for the properties of that type. In that case, I just pick a relevant folder and roll with it. I have a bunch of templates the all me to create these different files and automatically move those files into the right folders.
 
@@ -31,14 +31,14 @@ These views are inspired by the ACE System by Nick Milo. The Previous note folde
 
 There is some overengineering involved here that I need to work out. I currently use several plugins to provide editing capabilities: the aforementioned Metadata Menu, Meta Bind Docs, GitHub - danielo515obsidian-modal-form Define forms for filling data that you will be able to open from anywhere you can run JS, and blacksmithgudatacore Work-in-progress successor to Dataview with a focus on UX and speed. all provide some form of editing UI for notes. Meta Bind we could probably do away with, as there isn't that much usage remaining and it is easily replaced by Datacore.
 
-The other others are more difficult. Metadata Menu also provides the field definitions for the various note types, while Modal Form is used by the templates for creation. I could provide some way of defining note types in code that flows into Datacore, building out an app of sorts to create & edit new pages. That's a lot of work, and it sort of reminds me of Home  Obsidian Typing, which was a very cool & ambitious idea that has been largely abandoned. The beauty of open source is you can cobble together multiple parts to accomplish your goal. The result may not be the cleanest thing, but it gets the job done for a lot less work.
+The other others are more difficult. Metadata Menu also provides the field definitions for the various note types, while Modal Form is used by the templates for creation. I could provide some way of defining note types in code that flows into Datacore, building out an app of sorts to create & edit new pages. That's a lot of work, and it sort of reminds me of Home Obsidian Typing, which was a very cool & ambitious idea that has been largely abandoned. The beauty of open source is you can cobble together multiple parts to accomplish your goal. The result may not be the cleanest thing, but it gets the job done for a lot less work.
 
 ### Note types
 
 - Temporary notes to keep fleeting thoughts
 - Notes on media & learning materials
 - Notes that digest a Reference Notes
-- [writing/second-brain/notes-that-document-a-concept-or-particular-idea](/vault/writing/second-brain/notes-that-document-a-concept-or-particular-idea.md)
+- [Notes that document a concept or particular idea](/vault/writing/notes-that-document-a-concept-or-particular-idea.md)
 - Entrypoint notes into broader concepts or areas
 - Notes containing a review of a poker hand
 - Notes of URL bookmarks
@@ -54,4 +54,4 @@ The other others are more difficult. Metadata Menu also provides the field defin
 
 ## Maintenance
 
-Now that I have this imported, this is how I am [writing/second-brain/processing-my-inbox](/vault/writing/second-brain/processing-my-inbox.md). I am also working on these Imported Notes.
+Now that I have this imported, this is how I am [Processing my inbox](/vault/writing/processing-my-inbox.md). I am also working on these Imported Notes.

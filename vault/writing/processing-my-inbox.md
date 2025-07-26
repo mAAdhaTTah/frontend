@@ -2,10 +2,10 @@
 tags:
   - concept
   - web
-parent: "[Second Brain](/vault/writing/second-brain.md)"
+parent: '[Second Brain](/vault/writing/second-brain.md)'
 previous:
 next:
-slug: writing/second-brain/processing-my-inbox
+slug: writing/processing-my-inbox
 title: Processing my inbox
 description: This is my plan to integrate the massive amount of content I have imported.
 published_at: 2024-07-04 21:47
