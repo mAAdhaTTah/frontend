@@ -418,16 +418,3 @@ export const getRecentEssayExcerpts = async () => {
   }
   return essays;
 };
-
-export const getRecentEssays = async () => {
-  const { pages } = await getAllVaultPages();
-  const essays = [];
-
-  for (const page of pages) {
-    if (page.frontmatter.essay) {
-      essays.push(page);
-    }
-  }
-
-  return essays;
-};
