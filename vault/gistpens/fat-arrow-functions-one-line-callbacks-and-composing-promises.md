@@ -1,6 +1,5 @@
 ---
 tags:
-  - inbox
   - web
   - snippet
 title: Fat Arrow Functions, One-Line Callbacks, and Composing Promises
