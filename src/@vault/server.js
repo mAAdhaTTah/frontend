@@ -8,7 +8,7 @@ import { Code, Heading, Link, Paragraph } from '@ui/typography';
 import { smartypants } from 'smartypants';
 import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
 import { z } from 'zod';
-import { format, formatISO, isValid, parseISO } from 'date-fns';
+import { compareDesc, format, formatISO, isValid, parseISO } from 'date-fns';
 import { unstable_cache } from 'next/cache';
 import { VFile } from 'vfile';
 import { matter } from 'vfile-matter';
@@ -103,13 +103,18 @@ const REFERENCE_REGEX = /\[(.*)\]\((.*)\)/;
 
 const MediaReferenceSchema = z
   .string()
-  .regex(REFERENCE_REGEX)
-  .transform(async value => {
-    const [, , filename] = REFERENCE_REGEX.exec(value);
-    const source = await readFile(path.join(CWD, filename), 'utf8');
-    const { frontmatter } = await compile(source);
-    return frontmatter;
-  })
+  .transform(val => (val === '' ? null : val))
+  .pipe(
+    z
+      .string()
+      .regex(REFERENCE_REGEX)
+      .transform(async value => {
+        const [, , filename] = REFERENCE_REGEX.exec(value);
+        const source = await readFile(path.join(CWD, filename), 'utf8');
+        const { frontmatter } = await compile(source);
+        return frontmatter;
+      }),
+  )
   .pipe(
     z.object({
       title: z.string(),
@@ -406,6 +411,7 @@ export const getRecentEssayExcerpts = async () => {
         format: 'standard',
         slug: '/' + page.frontmatter.web.slug,
         title: page.frontmatter.web.title,
+        publishedAt: page.frontmatter.web.published_at,
         date: format(page.frontmatter.web.published_at, 'MMMM do, yyyy'),
         dateTime: formatISO(page.frontmatter.web.published_at),
         commentCount: 0,
@@ -416,5 +422,6 @@ export const getRecentEssayExcerpts = async () => {
       });
     }
   }
+  essays.sort((a, b) => compareDesc(a.publishedAt, b.publishedAt));
   return essays;
 };
