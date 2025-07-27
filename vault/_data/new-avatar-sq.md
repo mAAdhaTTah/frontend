@@ -7,4 +7,6 @@ source: https://static.jamesdigioia.com/uploads/2015/02/new-avatar-sq.jpg
 alt: avatar
 caption: ""
 share: true
+path: vault/_data
+slug: new-avatar-sq
 ---
