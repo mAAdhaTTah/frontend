@@ -85,10 +85,20 @@ const compile = (/** @type {string} */ source) =>
         // TODO This logic kinda sucks, can we improve?
         if (props.children?.type !== Code) return <pre {...props} />;
 
+        const language = props.children.props.className.replace(
+          'language-',
+          '',
+        );
+
+        // TODO is this what we want to do here?
+        if (language === 'datacorejsx') {
+          return null;
+        }
+
         return (
           <Snippet
             filename={props.title}
-            language={props.children.props.className.replace('language-', '')}
+            language={language}
             code={props.children.props.children.trim()}
           />
         );
@@ -194,6 +204,8 @@ const PageFMSchema = z.object({
       interpretations: z.array(ContentReferenceSchema).optional(),
     })
     .optional(),
+  view: z.object({}).optional(),
+  snippet: z.object({}).optional(),
 });
 
 const CWD = process.cwd();
@@ -295,6 +307,10 @@ export const getAllVaultPages = async () => {
     };
     pages.push((bySlug[page.frontmatter.web.slug] = page));
   }
+
+  pages.sort((a, b) =>
+    compareDesc(a.frontmatter.web.published_at, b.frontmatter.web.published_at),
+  );
 
   return { bySlug, pages };
 };
@@ -411,7 +427,6 @@ export const getRecentEssayExcerpts = async () => {
         format: 'standard',
         slug: '/' + page.frontmatter.web.slug,
         title: page.frontmatter.web.title,
-        publishedAt: page.frontmatter.web.published_at,
         date: format(page.frontmatter.web.published_at, 'MMMM do, yyyy'),
         dateTime: formatISO(page.frontmatter.web.published_at),
         commentCount: 0,
@@ -422,6 +437,6 @@ export const getRecentEssayExcerpts = async () => {
       });
     }
   }
-  essays.sort((a, b) => compareDesc(a.publishedAt, b.publishedAt));
+
   return essays;
 };

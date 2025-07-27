@@ -4,6 +4,7 @@ import { ServerImage } from '@ui/server';
 import { Heading } from '@ui/typography';
 import EntryMeta from '@ui/components/EntryMeta';
 import { format } from 'date-fns';
+import { getAllVaultPages } from './server';
 
 /** @type {import('react').FC<{
  *  content: import('react').ReactNode;
@@ -14,6 +15,27 @@ export const VaultPage = async ({ content, frontmatter }) => {
   const featuredMedia = frontmatter.essay?.featuredMedia;
   const date = format(frontmatter.web.published_at, 'MMMM do, yyyy');
   const dateTime = frontmatter.web.published_at.toISOString();
+
+  const before = await (async () => {
+    if (frontmatter.view) {
+      const { pages } = await getAllVaultPages();
+
+      return pages.reduce((output, page) => {
+        if (page.frontmatter.snippet) {
+          output.push(
+            <>
+              <Heading level={1} variant="article">
+                {page.frontmatter.web.title}
+              </Heading>
+              {page.content}
+            </>,
+          );
+        }
+        return output;
+      }, []);
+    }
+    return null;
+  })();
   return (
     <Main>
       <header className="relative mb-5">
@@ -52,6 +74,7 @@ export const VaultPage = async ({ content, frontmatter }) => {
           </div>
         </div>
       </header>
+      {before}
       {content}
     </Main>
   );
