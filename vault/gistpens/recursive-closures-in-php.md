@@ -1,0 +1,55 @@
+---
+tags:
+  - web
+  - snippet
+title: Recursive Closures in PHP
+description: ""
+slug: gistpens/recursive-closures-in-php
+published_at: 2015-10-26T21:37:38.000Z
+updated_at: 2015-10-26T21:37:38.000Z
+share: true
+---
+
+```plaintext title="graph"
+          "kind"
+          /
+        "type"
+    /     |     \
+widget widget widget
+```
+
+^graph
+
+```js title="recursion.js"
+var widgets = [...arrayOfWidgets];
+
+var remove = function (widgetId) {
+  widgets[widgetId].getChildWidgetIds().forEach(function (childWidgetId) {
+    // `remove` is defined and accessible
+    // at the time this is called
+    remove(widgets[childWidgetId]);
+  });
+
+  delete widgets[$pageId];
+};
+
+remove(widgets[pageId]);
+```
+
+^recursion-js
+
+```php title="recursion.php"
+$widgets = [...arrayOfWidgets];
+
+$remove = function($widgetId) use (&$widgets, &$remove) {
+    foreach ($widgets[$widgetId]->getChildWidgetIds() as $childWidgetId) {
+        $remove($widgets[$childWidgetId]);
+    }
+
+    unset($widgets[$widgetId]);
+};
+
+$remove($widgets[widgetId]);
+```
+
+^recursion-php
