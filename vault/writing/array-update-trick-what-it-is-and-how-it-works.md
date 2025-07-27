@@ -10,7 +10,7 @@ published_at: 2018-11-12T18:06:07.000Z
 updated_at: 2018-11-12T18:06:07.000Z
 excerpt: The other day, I was looking at some code that did an immutable update of an array, replacing the value at one index with a new value. It used a slice-based method, which took 2 spreads and several lines of code after prettier was done with it. After looking at it for a bit, I came up with a new method for doing this update.
 share: true
-featuredMedia: ""
+featuredMedia:
 ---
 
 The other day, I was looking at some code that did an immutable update of an array, replacing the value at one index with a new value. It used a `slice`-based method, which took 2 spreads and several lines of code after prettier was done with it. After looking at it for a bit, I came up with a new method for doing this update. Let's take a look at the code and walk through how it works:
