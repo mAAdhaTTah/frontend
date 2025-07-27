@@ -9,7 +9,6 @@ slug: writing/array-update-trick-what-it-is-and-how-it-works
 published_at: 2018-11-12T18:06:07.000Z
 updated_at: 2018-11-12T18:06:07.000Z
 excerpt:
-featuredMedia:
 share: true
 ---
 
