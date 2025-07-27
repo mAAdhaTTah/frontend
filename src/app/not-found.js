@@ -1,13 +1,16 @@
+import { Main } from '@ui/box';
+import { Heading, Paragraph } from '@ui/typography';
+
 const NotFound = () => {
   return (
-    <div>
-      <h2>Not Found</h2>
-      <p>
+    <Main>
+      <Heading level={1}>Not Found</Heading>
+      <Paragraph>
         I recently refreshed the process by which I export content to my site.
         If you landed here and expected to find something here, please reach out
         to me at: jamesorodig@gmail.com.
-      </p>
-    </div>
+      </Paragraph>
+    </Main>
   );
 };
 
