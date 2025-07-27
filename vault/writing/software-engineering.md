@@ -14,12 +14,12 @@ share: true
 
 ## Job Hunting
 
-- The Really Important Job Interview Questions Engineers Should Ask
+- [The Really Important Job Interview Questions Engineers Should Ask](The%20Really%20Important%20Job%20Interview%20Questions%20Engineers%20Should%20Ask.md)
 
 ## Concepts
 
-- [Generative AI](/vault/writing/generative-ai.md)
+- [Generative AI](Generative%20AI.md)
 
 ## References
 
-- How to Become a Product Engineer 🎨
+- [How to Become a Product Engineer 🎨](How%20to%20Become%20a%20Product%20Engineer%20%F0%9F%8E%A8.md)
