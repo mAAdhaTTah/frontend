@@ -7,7 +7,6 @@ description: ""
 slug: gistpens/elm-types-strawman
 published_at: 2018-05-11T11:23:14.000Z
 updated_at: 2018-12-02T23:42:39.000Z
-status: publish
 share: true
 ---
 
