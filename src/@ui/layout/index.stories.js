@@ -1,19 +1,28 @@
 import isChromatic from 'chromatic';
 import { Header } from './Header';
+import Image from 'next/image';
 
-const backgroundImage = {
-  src: 'https://static.jamesdigioia.com/uploads/2020/11/header-1.jpg',
-  alt: 'background image',
-  width: 1341,
-  height: 914,
-};
+const backgroundImage = (
+  <Image
+    {...{
+      src: 'https://static.jamesdigioia.com/uploads/2020/11/header-1.jpg',
+      alt: 'background image',
+      width: 1341,
+      height: 914,
+    }}
+  />
+);
 
-const avatarImage = {
-  src: 'https://static.jamesdigioia.com/uploads/2015/02/new-avatar-sq.jpg',
-  alt: 'avatar',
-  height: 783,
-  width: 783,
-};
+const avatarImage = (
+  <Image
+    {...{
+      src: 'https://static.jamesdigioia.com/uploads/2015/02/new-avatar-sq.jpg',
+      alt: 'avatar',
+      height: 783,
+      width: 783,
+    }}
+  />
+);
 
 export default {
   title: '@ui/layout',
