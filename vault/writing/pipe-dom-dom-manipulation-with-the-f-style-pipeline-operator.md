@@ -9,7 +9,7 @@ slug: writing/pipe-dom-dom-manipulation-with-the-f-style-pipeline-operator
 published_at: 2019-07-15T18:06:18.000Z
 updated_at: 2019-07-15T18:50:40.000Z
 excerpt: Last week, Babel released version 7.5.0, which included our implementation of the F#-style pipeline operator. If you're not already aware, TC39 is exploring the potential of a pipeline operator in JavaScript. You can learn more about what's going on with the operator here. At this point, we've got all 3 proposals in Babel, so the next step is to start getting feedback on them. To help with that, I've put together a small DOM manipulation library, pipe-dom, for the newly-released F#-style pipeline operator.
-featuredMedia:
+featuredMedia: "[[pipe-dom-usage-example]]"
 share: true
 ---
 
