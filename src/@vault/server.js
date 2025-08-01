@@ -111,43 +111,45 @@ const compile = (/** @type {string} */ source) =>
 
 const REFERENCE_REGEX = /\[(.*)\]\((.*)\)/;
 
-const MediaReferenceSchema = z
-  .string()
-  .transform(val => (val === '' ? null : val))
-  .pipe(
-    z
-      .string()
-      .regex(REFERENCE_REGEX)
-      .transform(async value => {
-        const [, , filename] = REFERENCE_REGEX.exec(value);
-        const source = await readFile(path.join(CWD, filename), 'utf8');
-        const { frontmatter } = await compile(source);
-        return frontmatter;
-      }),
-  )
-  .pipe(
-    z.object({
-      title: z.string(),
-      source: z.string().url(),
-      alt: z.string(),
-      caption: z.string(),
-    }),
-  );
+const EmptyToNullSchema = z
+  .any()
+  .transform(val => (val === '' || val === undefined ? null : val));
 
-const ContentReferenceSchema = z
-  .string()
-  .regex(REFERENCE_REGEX)
-  .transform(async value => {
-    const [, , filename] = REFERENCE_REGEX.exec(value);
-    const source = await readFile(
-      // TODO fix path
-      path.join(CWD, `${filename}`),
-      'utf8',
-    );
-    const { frontmatter } = await compile(source);
-    return frontmatter;
-  })
-  .pipe(z.object({}));
+const MediaReferenceSchema = EmptyToNullSchema.pipe(
+  z
+    .string()
+    .regex(REFERENCE_REGEX)
+    .transform(async value => {
+      const [, , filename] = REFERENCE_REGEX.exec(value);
+      const source = await readFile(path.join(CWD, filename), 'utf8');
+      const { frontmatter } = await compile(source);
+      return frontmatter;
+    }),
+).pipe(
+  z.object({
+    title: z.string(),
+    source: z.string().url(),
+    alt: z.string(),
+    caption: z.string(),
+  }),
+);
+
+const ContentReferenceSchema = EmptyToNullSchema.pipe(
+  z
+    .string()
+    .regex(REFERENCE_REGEX)
+    .transform(async value => {
+      const [, , filename] = REFERENCE_REGEX.exec(value);
+      const source = await readFile(
+        // TODO fix path
+        path.join(CWD, `${filename}`),
+        'utf8',
+      );
+      const { frontmatter } = await compile(source);
+      return frontmatter;
+    })
+    .pipe(z.object({})),
+);
 
 const ISODateSchema = z
   .string()
@@ -167,9 +169,9 @@ const PageFMSchema = z.object({
   }),
   concept: z
     .object({
-      parent: ContentReferenceSchema.nullable().optional(),
-      next: ContentReferenceSchema.nullable().optional(),
-      previous: ContentReferenceSchema.nullable().optional(),
+      parent: ContentReferenceSchema.nullable(),
+      next: ContentReferenceSchema.nullable(),
+      previous: ContentReferenceSchema.nullable(),
     })
     .optional(),
   embed: z
@@ -180,7 +182,8 @@ const PageFMSchema = z.object({
   essay: z
     .object({
       excerpt: z.string(),
-      featuredMedia: MediaReferenceSchema.nullable(),
+      // TODO this should just be nullable right?
+      featuredMedia: MediaReferenceSchema.optional().nullable(),
     })
     .optional(),
   gallery: z
