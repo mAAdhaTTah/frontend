@@ -109,23 +109,27 @@ const compile = (/** @type {string} */ source) =>
     },
   });
 
-const REFERENCE_REGEX = /\[(.*)\]\((.*)\)/;
+const REFERENCE_REGEX =
+  /((\[(?<title>.*)\]\((?<url>.*)\))|(\[\[(?<filename>.*)\]\]))/;
 
 const EmptyToNullSchema = z
   .any()
   .transform(val => (val === '' || val === undefined ? null : val));
 
-const MediaReferenceSchema = EmptyToNullSchema.pipe(
-  z
-    .string()
-    .regex(REFERENCE_REGEX)
-    .transform(async value => {
-      const [, , filename] = REFERENCE_REGEX.exec(value);
-      const source = await readFile(path.join(CWD, filename), 'utf8');
-      const { frontmatter } = await compile(source);
-      return frontmatter;
-    }),
-).pipe(
+const ReferenceSchema = z
+  .string()
+  .regex(REFERENCE_REGEX)
+  .transform(async value => {
+    const { filename, url = `vault/_data/${filename}.md` } =
+      REFERENCE_REGEX.exec(value).groups;
+
+    const read = path.join(CWD, url);
+    const source = await readFile(read, 'utf8');
+    const { frontmatter } = await compile(source);
+    return frontmatter;
+  });
+
+const MediaReferenceSchema = EmptyToNullSchema.pipe(ReferenceSchema).pipe(
   z.object({
     title: z.string(),
     source: z.string().url(),
@@ -134,21 +138,8 @@ const MediaReferenceSchema = EmptyToNullSchema.pipe(
   }),
 );
 
-const ContentReferenceSchema = EmptyToNullSchema.pipe(
-  z
-    .string()
-    .regex(REFERENCE_REGEX)
-    .transform(async value => {
-      const [, , filename] = REFERENCE_REGEX.exec(value);
-      const source = await readFile(
-        // TODO fix path
-        path.join(CWD, `${filename}`),
-        'utf8',
-      );
-      const { frontmatter } = await compile(source);
-      return frontmatter;
-    })
-    .pipe(z.object({})),
+const ContentReferenceSchema = EmptyToNullSchema.pipe(ReferenceSchema).pipe(
+  z.object({}),
 );
 
 const ISODateSchema = z
