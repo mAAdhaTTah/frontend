@@ -1,4 +1,0 @@
----
-name: gun control
----
-

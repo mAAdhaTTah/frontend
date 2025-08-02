@@ -1,4 +1,0 @@
----
-name: pro-internship
----
-

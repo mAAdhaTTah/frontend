@@ -33,9 +33,7 @@ const StandardFormat = ({
 }) => (
   <Article>
     <header>
-      <LinkedArticleHeader href={`/writing/${slug}/`}>
-        {title}
-      </LinkedArticleHeader>
+      <LinkedArticleHeader href={`${slug}/`}>{title}</LinkedArticleHeader>
       <EntryMeta
         date={date}
         dateTime={dateTime}
@@ -45,7 +43,7 @@ const StandardFormat = ({
     </header>
     <div>
       {excerpt}
-      <Link href={`/writing/${slug}/`} className={linkClass}>
+      <Link href={`${slug}/`} className={linkClass}>
         Read more
         <FaLongArrowAltRight className={iconClass} />
       </Link>
