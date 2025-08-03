@@ -8,7 +8,7 @@ slug: writing/useeffects-function-dependency-pitfall
 published_at: 2020-08-17T16:50:45.000Z
 updated_at: 2022-07-26T02:56:36.000Z
 excerpt: useEffect is a powerful hook provided in React 16.8, allowing you to sync data with the outside world. One of the minor annoyances with useEffect is its dependency array, which indicates to useEffect when it should rerun. Adding a function to the dependency array can cause major problems with useEffect. Let’s take a look at \[…]
-featuredMedia:
+featuredMedia: "[[pitfall-trap]]"
 share: true
 ---
 
