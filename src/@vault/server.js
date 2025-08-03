@@ -14,24 +14,93 @@ import { VFile } from 'vfile';
 import { matter } from 'vfile-matter';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import { ReadingList } from '@reading/server';
+import { Resume } from '@ui/resume';
 
-const InternalEmbedBefore = ({ page }) => {
+const jobToPosition = job => ({
+  title: job.position,
+  start: format(parseISO(job.startDate), 'MMMM yyyy'),
+  end: job.endDate && format(parseISO(job.endDate), 'MMMM yyyy'),
+  responsibilities: job.highlights,
+});
+
+const DataEmbedBefore = ({ data }) => {
+  if (data.tags.includes('resume')) {
+    const resume = data;
+    return (
+      <Resume
+        name={resume.basics.name}
+        location={`${resume.basics.location.city}, ${resume.basics.location.region}`}
+        description={resume.basics.summary}
+        experiences={resume.work.reduce((exps, job) => {
+          const lastExp = exps[exps.length - 1];
+          if (lastExp?.companyName === job.name) {
+            lastExp.positions.push(jobToPosition(job));
+          } else {
+            exps.push({
+              companyName: job.name,
+              description: job.summary,
+              positions: [jobToPosition(job)],
+            });
+          }
+          return exps;
+        }, [])}
+        projects={resume.projects.map(project => ({
+          name: project.name,
+          url: project.url,
+          role: project.roles.join(', '),
+          highlights: project.highlights,
+        }))}
+        talks={resume.publications.map(pub => ({
+          name: pub.name,
+          url: pub.url,
+        }))}
+        volunteering={resume.volunteer.map(vol => ({
+          name: vol.organization,
+          highlights: vol.highlights,
+        }))}
+        skills={resume.skills.map(skill => ({
+          name: skill.name,
+          keywords: skill.keywords,
+        }))}
+      />
+    );
+  }
   return null;
 };
 
-const InternalEmbedAfter = ({ page }) => {
+const DataEmbedAfter = ({ data }) => {
+  return null;
+};
+
+const ContentEmbedBefore = ({ page }) => {
+  return null;
+};
+
+const ContentEmbedAfter = ({ page }) => {
   return null;
 };
 
 const InternalEmbed = async ({ url, children }) => {
+  const slug = url.replace('/vault/', '').replace('.md', '');
+  if (slug.startsWith('_data/')) {
+    const data = await getData(slug.replace('_data/', ''));
+    return (
+      <>
+        <DataEmbedBefore data={data} />
+        {children}
+        <DataEmbedAfter data={data} />
+      </>
+    );
+  }
+
   const { bySlug } = await getAllVaultPages();
-  const page = bySlug[url.replace('/vault/', '').replace('.md', '')];
+  const page = bySlug[slug];
 
   return (
     <>
-      <InternalEmbedBefore page={page} />
+      <ContentEmbedBefore page={page} />
       {children}
-      <InternalEmbedAfter page={page} />
+      <ContentEmbedAfter page={page} />
     </>
   );
 };
@@ -200,6 +269,7 @@ const PageFMSchema = z.object({
     .optional(),
   view: z.object({}).optional(),
   snippet: z.object({}).optional(),
+  resume: z.any().optional(),
 });
 
 const CWD = process.cwd();
