@@ -1,3 +1,4 @@
+import { ArrowLink } from '@ui/atoms';
 import { Main } from '@ui/box';
 import { Heading, Paragraph } from '@ui/typography';
 
@@ -8,10 +9,11 @@ const NotFound = () => {
         Not Found
       </Heading>
       <Paragraph>
-        I recently refreshed the process by which I export content to my site.
-        If you landed here and expected to find something here, please reach out
-        to me at: jamesorodig@gmail.com.
+        I recently refreshed my website, and not all content that was previously
+        present has been re-uploaded. If you landed here and expected to find
+        something, please reach out to me at: jamesorodig@gmail.com.
       </Paragraph>
+      <ArrowLink slug="/writing">Return to Writing Home</ArrowLink>
     </Main>
   );
 };
