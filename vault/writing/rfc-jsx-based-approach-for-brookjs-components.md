@@ -8,7 +8,6 @@ description: |
 slug: writing/rfc-jsx-based-approach-for-brookjs-components
 published_at: 2018-01-09T16:34:23.000Z
 updated_at: 2019-07-16T03:23:38.000Z
-status: publish
 excerpt: |
   `brookjs` was originally designed to be backed with a Handlebars-based templating engine, providing a clean separation between what constitutes structure (HTML in the Handlebars template), interaction (JavaScript component declaration), & style (CSS files). Using Handlebars to back components allows them to be rendered by any backend, no JavaScript required. The display of the DOM is expressed as a Handlebars template, and behavior is mapped from the template to the component's configuration through Handlebars helpers.
 featuredMedia:
