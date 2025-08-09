@@ -9,7 +9,7 @@ slug: writing/what-yo-yos-taught-me-about-being-a-developer
 published_at: 2019-06-10T17:39:45.000Z
 updated_at: 2019-06-10T17:39:45.000Z
 excerpt: When I was in 4th grade, a yo-yo fad passed through my middle school. Because they were cheap, we all got one, and we were _obsessed_. We debated which brands were the best, which yo-yo style worked well, and how to do tricks. This was all pre-Internet and entirely word of mouth. We'd hang out in little groups at school, showing off what we'd learned and teaching each other.
-featuredMedia: "[[Kenyan YoYo Player]]"
+featuredMedia: "[Kenyan YoYo Player](/vault/_data/kenyan-yoyo-player.md)"
 share: true
 ---
 
