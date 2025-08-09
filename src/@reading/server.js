@@ -1,11 +1,28 @@
+import 'server-only';
 import axios from 'axios';
 import { subDays, endOfDay, format, parseISO, addDays } from 'date-fns';
 import { formatInTimeZone } from 'date-fns-tz';
 import { server } from '@app/config';
+import { Day } from '@ui/components';
 
+/**
+ * @typedef {Object} Link
+ * @property {string} id
+ *
+ * @typedef {Object} Day
+ * @property {string} day
+ * @property {Link[]} links
+ */
+
+/**
+ *
+ * @param {number} displayDays
+ * @returns Promise<Day[]>
+ */
 export const getReadingProps = async displayDays => {
   const now = new Date();
 
+  /** @type {Day[]} */
   const days = [];
 
   for (let i = 0; i < displayDays; i++) {
@@ -38,4 +55,16 @@ export const getReadingProps = async displayDays => {
   }
 
   return days;
+};
+
+/** @type {import('react').FC<{ days: number; }>} */
+export const ReadingList = async ({ days }) => {
+  const reading = await getReadingProps(days);
+  return (
+    <>
+      {reading.map(({ day, links }) => (
+        <Day key={day} day={day} links={links} />
+      ))}
+    </>
+  );
 };

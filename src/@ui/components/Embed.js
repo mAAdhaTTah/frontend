@@ -84,7 +84,7 @@ export const Embed = ({ html, url, provider }) => {
     );
   return (
     <>
-      <div
+      <span
         style={styles[provider]}
         dangerouslySetInnerHTML={{
           __html: html,

@@ -68,6 +68,7 @@ const transitionClasses = {
   entered: 'translate-x-0',
   exiting: '-translate-x-full',
   exited: '-translate-x-full',
+  unmounted: '',
 };
 
 const Menu = ({ links, open, onClose }) => {
@@ -124,6 +125,16 @@ const Menu = ({ links, open, onClose }) => {
   );
 };
 
+/**
+ * @typedef NavProps
+ * @property {NavLink[]} links
+ *
+ * @typedef NavLink
+ * @property {string} to
+ * @property {string} text
+ */
+
+/** @type {import('react').FC<NavProps>} */
 const Nav = ({ links }) => {
   const [open, setOpen] = useState(false);
   const navRef = useRef();

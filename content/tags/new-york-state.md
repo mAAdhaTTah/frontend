@@ -1,4 +1,0 @@
----
-name: new york state
----
-
