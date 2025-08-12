@@ -2,7 +2,7 @@ import path from 'node:path';
 import { readdir, readFile } from 'node:fs/promises';
 import { notFound } from 'next/navigation';
 import { compileMDX } from 'next-mdx-remote/rsc';
-import { Ol, Ul, Li } from '@ui/atoms';
+import { Ol, Ul, Li, Blockquote } from '@ui/atoms';
 import { Snippet } from '@ui/components';
 import { Code, Heading, Link, Paragraph } from '@ui/typography';
 import { smartypants } from 'smartypants';
@@ -172,6 +172,7 @@ const compile = (/** @type {string} */ source) =>
           />
         );
       },
+      blockquote: props => <Blockquote>{props.children}</Blockquote>,
       RecentEssays,
       ReadingList,
       InternalEmbed,
