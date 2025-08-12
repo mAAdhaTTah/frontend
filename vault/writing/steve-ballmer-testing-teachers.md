@@ -8,7 +8,7 @@ slug: writing/steve-ballmer-testing-teachers
 published_at: 2013-09-09T19:20:21.000Z
 updated_at: 2022-12-01T17:04:14.000Z
 excerpt: I actually meant to write about this much earlier, when Steve Ballmer actually quit, but alas, such is life. There was a lot of discussion about why Ballmer and Microsoft failed to keep up to the trends after he stepped down, and a number of articles I read pointed the finger at an evaluation practice \[…]
-featuredMedia: "[[Steve Ballmer and John Battelle]]"
+featuredMedia: "[Steve Ballmer and John Battelle](/vault/_data/steve-baller-and-john-battelle)"
 share: true
 ---
 
