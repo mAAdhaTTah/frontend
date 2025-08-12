@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { readdir, readFile } from 'node:fs/promises';
 import { notFound } from 'next/navigation';
+import remarkGfm from 'remark-gfm';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Ol, Ul, Li, Blockquote } from '@ui/atoms';
 import { Snippet } from '@ui/components';
@@ -15,6 +16,7 @@ import { matter } from 'vfile-matter';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import { ReadingList } from '@reading/server';
 import { Resume } from '@ui/resume';
+import NextLink from 'next/link';
 
 const jobToPosition = job => ({
   title: job.position,
@@ -114,16 +116,23 @@ const compile = (/** @type {string} */ source) =>
         rehypePlugins: [
           [rehypeMdxCodeProps, { elementAttributeNameCase: 'html' }],
         ],
+        remarkPlugins: [remarkGfm],
       },
     },
     components: {
       p: Paragraph,
       code: Code,
-      a: props => (
-        <Link href={props.href.replace('/vault', '').replace('.md', '/')}>
-          {props.children}
-        </Link>
-      ),
+      a: props => {
+        if (props.href.startsWith('#')) {
+          return <NextLink {...props} />;
+        }
+
+        return (
+          <Link href={props.href.replace('/vault', '').replace('.md', '/')}>
+            {props.children}
+          </Link>
+        );
+      },
       img: ServerEmbed,
       h1: props => (
         <Heading level={1} variant="h-1">
@@ -131,7 +140,7 @@ const compile = (/** @type {string} */ source) =>
         </Heading>
       ),
       h2: props => (
-        <Heading level={2} variant="h-2">
+        <Heading level={2} variant="h-2" className={props.className}>
           {props.children}
         </Heading>
       ),
@@ -147,7 +156,7 @@ const compile = (/** @type {string} */ source) =>
       ),
       ol: props => <Ol>{props.children}</Ol>,
       ul: props => <Ul>{props.children}</Ul>,
-      li: props => <Li>{props.children}</Li>,
+      li: props => <Li id={props.id}>{props.children}</Li>,
       lic: ({ children }) => <Paragraph>{children}</Paragraph>,
       text: props => <>{smartypants(props.children, '2')}</>,
       pre: props => {
@@ -173,6 +182,16 @@ const compile = (/** @type {string} */ source) =>
         );
       },
       blockquote: props => <Blockquote>{props.children}</Blockquote>,
+      section: props => (
+        <section
+          {...props}
+          className={
+            props.className === 'footnotes'
+              ? 'border-t border-darkg pt-3'
+              : props.className
+          }
+        />
+      ),
       RecentEssays,
       ReadingList,
       InternalEmbed,
