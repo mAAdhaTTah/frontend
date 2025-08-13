@@ -1,11 +1,27 @@
 import 'server-only';
 import { unstable_cache as cache } from 'next/cache';
 import Image from 'next/image';
+import { Suspense } from 'react';
+import { TweetSkeleton, EmbeddedTweet, TweetNotFound } from 'react-tweet';
+import { getTweet as _getTweet } from 'react-tweet/api';
 import { getPlaiceholder } from 'plaiceholder';
 import { Post } from '@ui/components';
 import { Heading } from '@ui/typography';
-import { getWritingArchiveProps } from '@tina/server';
-import { nodeToExcerptMapper, nodeToProps } from '@tina/page';
+import { getRecentEssayExcerpts } from '@vault/server';
+
+const getTweet = cache(async id => _getTweet(id), ['tweet'], {
+  revalidate: 3600 * 24,
+});
+
+const TweetPage = async ({ id }) => {
+  try {
+    const tweet = await getTweet(id);
+    return tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />;
+  } catch (error) {
+    console.error(error);
+    return <TweetNotFound error={error} />;
+  }
+};
 
 const getImageInfo = cache(async src => {
   const res = await fetch(src);
@@ -17,7 +33,29 @@ const getImageInfo = cache(async src => {
   return { base64, width, height };
 });
 
-export const ServerImage = async ({ src, altText }) => {
+const TWITTER_ID_REGEX = /https:\/\/twitter.com\/(.*)\/(.*)\/(?<twId>[0-9]+)/;
+
+export const ServerEmbed = async ({ src, ...props }) => {
+  if (src.startsWith('https://twitter.com')) {
+    const twId = TWITTER_ID_REGEX.exec(src)?.groups?.twId;
+    if (!twId) return <TweetNotFound />;
+    return (
+      // TODO Put tweet outside of `p`
+      <Suspense fallback={<TweetSkeleton />}>
+        <TweetPage id={twId} />
+      </Suspense>
+    );
+  }
+
+  return <ServerImage src={src} {...props} />;
+};
+
+export const ServerImage = async ({
+  src,
+  altText,
+  className = '',
+  priority = false,
+}) => {
   const { width, height, base64 } = await getImageInfo(src);
 
   return (
@@ -28,19 +66,14 @@ export const ServerImage = async ({ src, altText }) => {
       src={src}
       blurDataURL={base64}
       placeholder={base64 ? 'blur' : 'empty'}
+      className={className}
+      priority={priority}
     />
   );
 };
 
 export const RecentEssays = async () => {
-  const {
-    extra: { posts, ...extra },
-  } = await getWritingArchiveProps({
-    page: 1,
-  });
-  const excerpts = posts.data.postConnection.edges.map(({ node }) =>
-    nodeToProps(node, extra, nodeToExcerptMapper),
-  );
+  const excerpts = await getRecentEssayExcerpts();
 
   return (
     <>

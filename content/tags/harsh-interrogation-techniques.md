@@ -1,4 +1,0 @@
----
-name: harsh interrogation techniques
----
-

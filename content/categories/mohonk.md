@@ -1,5 +1,0 @@
----
-name: Mohonk
-parent: null
----
-

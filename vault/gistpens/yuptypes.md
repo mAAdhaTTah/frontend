@@ -1,0 +1,42 @@
+---
+tags:
+  - web
+  - snippet
+title: yuptypes
+description: ""
+slug: gistpens/yuptypes
+published_at: 2020-09-18T15:21:04.000Z
+updated_at: 2020-09-18T15:21:04.000Z
+share: true
+---
+
+```js title="yuptypes.js"
+export const yuptypes = (schema) => {
+  const propTypes = {};
+  for (const key in schema.fields) {
+    propTypes[key] = function checkYupSchema(
+      props,
+      propName,
+      componentName,
+      location,
+      propFullName,
+      secret
+    ) {
+      try {
+        schema.validateSyncAt(key, props, { strict: true });
+        return null;
+      } catch (err) {
+        return new Error(
+          `Invalid ${location} `${propName}` supplied to ${componentName};${err.message.replace(
+            key,
+            ""
+          )}`
+        );
+      }
+    };
+  }
+  return propTypes;
+};
+```
+
+^yuptypes-js
