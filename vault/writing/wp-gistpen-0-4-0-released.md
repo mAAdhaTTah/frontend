@@ -8,7 +8,7 @@ slug: writing/wp-gistpen-0-4-0-released
 published_at: 2014-10-04T17:09:44.000Z
 updated_at: 2014-10-04T17:11:25.000Z
 excerpt: I finally published version 0.4.0 of WP-Gistpen late last night. I’m still figuring out the WP.org deployment process, so there continues to be short hiccups with README updating. Really annoying. However, the MAJOR new feature of this release is the ability to include multiple Files in each Gistpen, similar to Gist. WP-Gistpen isn’t exactly like \[…]
-featuredMedia: "[[Code Snippets]]"
+featuredMedia: "[Code Snippets](/vault/_data/code-snippets.md)"
 share: true
 ---
 
