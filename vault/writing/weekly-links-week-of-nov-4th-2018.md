@@ -8,7 +8,7 @@ slug: writing/weekly-links-week-of-nov-4th-2018
 published_at: 2018-11-10T17:50:49.000Z
 updated_at: 2018-11-10T17:50:49.000Z
 excerpt: This week, I updated my James Reads site to use Gatsby, powered by a combination of Pocket & the WordPress site that currently resides on that domain. I do a lot of reading on Pocket, and I’ve been meaning to figure out a way to display both Pocket- & WP-saved links there. Initially, that was \[…]
-featuredMedia: "[[links]]"
+featuredMedia: "[links](/vault/_data/links.md)"
 share: true
 ---
 
