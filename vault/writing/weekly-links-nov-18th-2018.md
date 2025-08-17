@@ -2,40 +2,37 @@
 tags:
   - web
   - essay
-title: Weekly links - Week of Nov 11th, 2018
-description: Unit Testing When you’re working at a startup, we’re building out new features so fast that we’ve not-irregularly introduced bugs to already-complete parts. We don’t have a dedicated QA team and few tests, and we’re looking to get some backstopping going so we can continue to ship with confidence. While I’m looking at eventually integrating \[…]
+title: Weekly Links - Nov. 18th, 2018
+description: More Functional CSS I’ve been rebuilding my site into Gatsby with Tailwind, and I’ve really been quite enjoying it so far. The limitations it imposes force you to limit the amount of CSS you have to write, so I’ve been intrigued to see more articles pop up about it. This article from CSS-Tricks explores whether \[…]
 slug: writing/weekly-links-nov-18th-2018
-published_at: 2018-11-18T16:57:07.000Z
-updated_at: 2018-11-18T16:57:07.000Z
-excerpt: Unit Testing When you’re working at a startup, we’re building out new features so fast that we’ve not-irregularly introduced bugs to already-complete parts. We don’t have a dedicated QA team and few tests, and we’re looking to get some backstopping going so we can continue to ship with confidence. While I’m looking at eventually integrating \[…]
-featuredMedia: "[links](/vault/_data/links.md)"
+published_at: 2018-11-27T03:52:27.000Z
+updated_at: 2018-12-03T05:14:54.000Z
+excerpt: More Functional CSS I’ve been rebuilding my site into Gatsby with Tailwind, and I’ve really been quite enjoying it so far. The limitations it imposes force you to limit the amount of CSS you have to write, so I’ve been intrigued to see more articles pop up about it. This article from CSS-Tricks explores whether \[…]
+featuredMedia: "[[links]]"
 share: true
 ---
 
-## Unit Testing
+## More Functional CSS
 
-When you're working at a startup, we're building out new features so fast that we've not-irregularly introduced bugs to already-complete parts. We don't have a dedicated QA team and few tests, and we're looking to get some backstopping going so we can continue to ship with confidence.
+I’ve been rebuilding my site into Gatsby with [Tailwind](https://tailwindcss.com), and I’ve really been quite enjoying it so far. The limitations it imposes force you to limit the amount of CSS you have to write, so I’ve been intrigued to see more articles pop up about it. [This article](https://css-tricks.com/why-cant-we-use-functional-css-and-regular-css-at-the-same-time/) from CSS-Tricks explores whether you could combine Functional CSS with a more traditional CSS approach. While I found the article interesting, I had one minor quibble:
 
-While I'm looking at eventually integrating E2E testing with Cypress, I've been reading about unit testing to see how they could help us. Interestingly enough, I'm not sure we would. The errors we get are triggered by a series of steps that we probably wouldn't reproduce in unit tests, so they wouldn't help prevent these issues.
+> Secondly, a lot of CSS property/value pairs are written in relation to one another. Say, for example, `position: relative` and `position: absolute`. In our stylesheets, I want to be able to see these dependencies and I believe it’s harder to do that with functional CSS. CSS often depends on other bits of CSS and it’s important to see those connections with comments or groupings of properties/values.
 
-We could do some integration-type testing, bootstrapping a full or mocked store and dispatching a series of actions to see what results before we get to a full E2E integration, but it feels like unit testing will not be that helpful unless we can unit test large chunks like an entire container.
+I actually find this to be an advantage for Functional CSS. I _like_ that I have the classes `absolute`&`relative` in my HTML, where it’s _very clear_ where they are in relationship to each other.
 
-The articles this week also argue they not only don't provide a lot of coverage but make it difficult for your application to change. I agree with this to the extent that your architecture is still changing. As you settle into it, you can start to capture the corner cases in your tests in ways that allow it expand its functionality without breaking what exists. That does mean it's not useful to us yet.
+I still need more experience with it, so we’ll see how it works as I finish up my site.
 
-- [Lean Testing or Why Unit Tests are Worse than You Think](https://blog.usejournal.com/lean-testing-or-why-unit-tests-are-worse-than-you-think-b6500139a009)
-- [Confession: I don’t unit test React/Redux code](http://blog.jakoblind.no/confession-i-dont-unit-test-react-redux-code/)
+- [Why can’t we use Functional CSS and regular CSS at the same time?](https://css-tricks.com/why-cant-we-use-functional-css-and-regular-css-at-the-same-time/)
 
-## Amazon is Coming to Queens
+## Pipelines in JavaScript
 
-The big news this week was the leak that Amazon had decided on two cities for it's new HQ2(.1/.2?): Arlington & Long Island City, Queens, in New York City. Along with this announcement, we discovered the tax incentives for Amazon coming to Queens could top $3 billion dollars. I've read a couple numbers, and the totals depend on how you calculate the incentives, but even the lower end is at least $1 billion.
+If you know me, you know I’ve been working on bringing the [Pipeline Operator](https://github.com/tc39/proposal-pipeline-operator/) to JavaScript. We’re currently working on implementing the operator in the Babel parser, so things have stalled out while that work is underway. Despite that, enthusiasm in the community remains high, but with several proposals in competition, it can be difficult to keep an eye on what’s going on. That’s why I was really excited to see LogRocket [write about the proposal](https://blog.logrocket.com/adding-pipelines-to-javascript-f79ae7311574) and nail all the details. Definitely check that out if you’re wondering what the latest is.
 
-This came out on the evening before the midterms, while all eyes were on the results of the election, but even with this, we're already seeing a pretty strong reaction to the news. The process through which Amazon chose which city plays cities off each other, and there have been a couple of calls to make it illegal.
+- [Adding pipelines to JavaScript](https://blog.logrocket.com/adding-pipelines-to-javascript-f79ae7311574)
 
-More importantly, it's not even clear the city will benefit enough to offset the amount of money it's giving away. The last article below, from the conservative Washington Examiner, goes through the data on these sorts of tax breaks and argues they're not beneficial, as they don't factor in to a company's location planning (Amazon would have chosen New York City anyway) and the city will benefit more from their move if they don't give away almost $3 billion in the process.
+## Wow, Facebook
 
-It's weird to see a conservative publication agree with a socialist, but there's a shared recognition that this _does not benefit the city_. There's still time to fight this, but not much, so let's get moving.
+The other big news out of the past week is [Facebook’s execs have something pretty messed up](https://www.nytimes.com/2018/11/14/technology/facebook-data-russia-election-racism.html), hiring a firm who smeared its critics with both anti-Semitic conspiracy theories as well as charges of anti-Semitism. Obviously, the moment that was published, [they cut ties with said firm](https://www.nytimes.com/2018/11/15/technology/facebook-definers-soros.html), but the damage is already done. Not only have they been embroiled in controversy for a few years now, they have completely bungled every response to their problems. The irony of Facebook, the best platform for conspiracy theories, spreading its own conspiracy theories is too much.
 
-- [Incentives to Amazon could top $2.8 billion in NYC](https://www.washingtonpost.com/business/incentives-to-amazon-could-top-28-billion-in-nyc/2018/11/14/86ecfc8a-e85a-11e8-8449-1ff263609a31_story.html)
-- [How to Stop the Amazon Extortion From Happening Again](https://splinternews.com/how-to-stop-the-amazon-extortion-from-happening-again-1830406069)
-- [Amazon’s HQ2 Spectacle Isn’t Just Shameful—It Should Be Illegal](https://www.theatlantic.com/ideas/archive/2018/11/amazons-hq2-spectacle-should-be-illegal/575539/)
-- [Alexandria Ocasio-Cortez Is Right about Amazon’s Corporate Welfare](https://www.nationalreview.com/corner/rep-alexandria-ocasio-cortez-is-right-about-amazons-corporate-welfare/)
+- [Delay, Deny and Deflect: How Facebook’s Leaders Fought Through Crisis](https://www.nytimes.com/2018/11/14/technology/facebook-data-russia-election-racism.html)
+- [Facebook Cuts Ties With Washington Firm That Sought to Discredit Social Network’s Critics](https://www.nytimes.com/2018/11/15/technology/facebook-definers-soros.html)
