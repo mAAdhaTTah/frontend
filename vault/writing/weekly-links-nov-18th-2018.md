@@ -8,7 +8,7 @@ slug: writing/weekly-links-nov-18th-2018
 published_at: 2018-11-27T03:52:27.000Z
 updated_at: 2018-12-03T05:14:54.000Z
 excerpt: More Functional CSS I’ve been rebuilding my site into Gatsby with Tailwind, and I’ve really been quite enjoying it so far. The limitations it imposes force you to limit the amount of CSS you have to write, so I’ve been intrigued to see more articles pop up about it. This article from CSS-Tricks explores whether \[…]
-featuredMedia: "[[links]]"
+featuredMedia: "[links](/vault/_data/links.md)"
 share: true
 ---
 
