@@ -8,7 +8,7 @@ slug: writing/weekly-links-nov-25th-2018
 published_at: 2018-12-03T05:15:20.000Z
 updated_at: 2018-12-03T05:15:20.000Z
 excerpt: Transducers in JavaScript Array#reduce is one of those things that can be difficult to develop an intuition for, but if you can, what makes it powerful is how reducers (the function you pass to it) can be composed together. It’s an idea that I keep reading about in an attempt to get my head around \[…]
-featuredMedia: "[[links]]"
+featuredMedia: "[links](/vault/_data/links.md)"
 share: true
 ---
 
