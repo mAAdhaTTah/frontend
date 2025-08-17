@@ -8,7 +8,7 @@ slug: writing/weekly-links-nov-11th-2018
 published_at: 2018-11-18T16:57:07.000Z
 updated_at: 2018-11-18T16:57:07.000Z
 excerpt: Unit Testing When you’re working at a startup, we’re building out new features so fast that we’ve not-irregularly introduced bugs to already-complete parts. We don’t have a dedicated QA team and few tests, and we’re looking to get some backstopping going so we can continue to ship with confidence. While I’m looking at eventually integrating \[…]
-featuredMedia: "[[links]]"
+featuredMedia: "[links](/vault/_data/links.md)"
 share: true
 ---
 
