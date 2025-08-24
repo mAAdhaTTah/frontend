@@ -8,7 +8,7 @@ slug: writing/expect-tech-fix-society-will-fix-tech
 published_at: 2014-06-23T16:00:28.000Z
 updated_at: 2014-10-17T19:17:14.000Z
 excerpt: The other part of last week’s post that I didn’t touch on was the issues I have, often raised by Evgeny Morozov1, with the moral implications of any single piece of technology and more importantly, the collective impact of our technologies combined. In the particular case of the digital cup, the moral trade-off might be \[…]
-featuredMedia: "[[Google Glass closeup]]"
+featuredMedia: "[Google Glass closeup](/vault/_data/google-glass-closeup.md)"
 share: true
 ---
 
