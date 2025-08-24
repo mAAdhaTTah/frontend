@@ -8,7 +8,7 @@ slug: writing/vessyl-whitepeopleproblems-silicon-valleys-insularity
 published_at: 2014-06-13T21:06:38.000Z
 updated_at: 2014-06-23T16:07:26.000Z
 excerpt: "Making the rounds today is this article from Valleywag, highlighting a video from Vessyl1 with “tech’s finest thought leaders” calling the cup “indistinguishable from magic.” Because that’s just how Silicon Valley rolls. As I posted on Facebook, I basically have two problems with this device: The fact that some guy in Silicon Valley dedicated 7 \\[…]"
-featuredMedia: "[Vessyl Shadow on Black](/vault/_data/vessyl-sahdow-on-black.md)"
+featuredMedia: "[Vessyl Shadow on Black](/vault/_data/vessyl-shadow-on-black.md)"
 share: true
 ---
 
