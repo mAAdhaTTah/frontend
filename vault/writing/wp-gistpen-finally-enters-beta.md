@@ -8,7 +8,7 @@ slug: writing/wp-gistpen-finally-enters-beta
 published_at: 2017-12-09T21:53:12.000Z
 updated_at: 2017-12-31T01:52:24.000Z
 excerpt: It’s been more than 2 years in the making, but I’ve finally got WP-Gistpen, my code snippet WordPress plugin, into a state where I feel comfortable putting it out into the world, and I’m looking for beta testers. If you’re interested and have a WordPress site you can use it on, check out and comment \[…]
-featuredMedia: "[[WP-Gistpen Icon]]"
+featuredMedia: "[WP-Gistpen Icon](/vault/_data/wp-gistpen-icon.md)"
 share: true
 ---
 
