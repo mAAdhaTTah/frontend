@@ -8,7 +8,7 @@ slug: writing/virtualbox-weirdness
 published_at: 2014-02-10T17:06:03.000Z
 updated_at: 2022-12-04T23:37:48.000Z
 excerpt: I’m getting close to sharing version 0.0.1 of WP-Gitdown, a feature-incomplete version of the project. I’m going to just get something up ASAP because I’m still learning PHP (and AJAX, apparently) and would love feedback on things I’m doing right or wrong. However, I did want to share one oddity I’ve already run into using \[…]
-featuredMedia: "[[Vagrant logo]]"
+featuredMedia: "[Vagrant logo](/vault/_data/vagrant-logo.md)"
 share: true
 ---
 
