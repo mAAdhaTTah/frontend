@@ -1,5 +1,0 @@
----
-name: Politics
-parent: null
----
-

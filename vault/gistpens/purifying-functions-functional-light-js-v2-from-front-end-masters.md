@@ -1,0 +1,64 @@
+---
+tags:
+  - web
+  - snippet
+title: Purifying Functions - Functional Light JS v2 from Front-End Masters
+description: ""
+slug: gistpens/purifying-functions-functional-light-js-v2-from-front-end-masters
+published_at: 2017-12-01T12:22:41.000Z
+updated_at: 2017-12-01T12:24:06.000Z
+share: true
+---
+
+```js title="problem.js"
+function foo(x) {
+  y++;
+  z = x * y;
+}
+
+var y = 5,
+  z;
+
+foo(20);
+z; // 120
+
+foo(25);
+z; // 175
+```
+
+^problem-js
+
+```js title="wraps.js"
+function Foo(x, y) {
+  var z;
+
+  function foo(x) {
+    y++;
+    z = x * y;
+  }
+
+  foo(x);
+
+  return [y, z];
+}
+```
+
+^wraps-js
+
+```js title="adapts.js"
+function foo(x) {
+  y++;
+  z = x * y;
+}
+
+function Foo(x) {
+  var [origY, origZ] = [y, z];
+  foo(x);
+  var [newY, newZ] = [y, z];
+  [y, z] = [origY, origZ];
+
+  return [newY, newZ];
+}
+```
+
+^adapts-js

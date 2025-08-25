@@ -1,13 +1,14 @@
 import { paramCase } from 'param-case';
 import * as Prezis from '@talks/prezis';
-import { getPagePropsBySlug, getTalkArchivePaths } from '@tina/server';
 
-const TalkSingle = async ({ params }) => {
-  const { slug } = {
-    ...params,
-    ...(await getPagePropsBySlug('talks/__single__')),
-  };
+const getTalkArchivePaths = () =>
+  Object.keys(Prezis).map(slug => ({
+    params: {
+      slug: paramCase(slug),
+    },
+  }));
 
+const TalkSingle = async ({ params: { slug } }) => {
   const Component = (() => {
     const keys = Object.keys(Prezis);
     const paramCaseKeys = keys.map(key => paramCase(key));
@@ -35,7 +36,7 @@ export const generateMetadata = async ({ params: { slug } }) => {
 };
 
 export const generateStaticParams = async () => {
-  const paths = await getTalkArchivePaths();
+  const paths = getTalkArchivePaths();
   return paths.map(value => value.params);
 };
 

@@ -1,7 +1,5 @@
-import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import cc from 'classcat';
-import Image from 'next/image';
 import TypeIt from 'typeit';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { PrimaryHeading, Icon, SecondaryHeading } from '@ui/theme';
@@ -52,6 +50,17 @@ const SocialIcons = ({ fullScreen }) => (
   </div>
 );
 
+/**
+ * @typedef HeaderProps
+ * @property {string} title
+ * @property {string} description
+ * @property {boolean} fullScreen
+ * @property {import('react').ReactElement} backgroundImage
+ * @property {import('react').ReactElement} avatarImage
+ * @property {boolean} [disableTyping]
+ */
+
+/** @type {import('react').FC<HeaderProps>} */
 export const Header = ({
   title,
   description,
@@ -100,11 +109,7 @@ export const Header = ({
     >
       <header className={cc(['relative', 'print:hidden'])}>
         <div className="h-screen overflow-hidden relative">
-          <Image
-            {...backgroundImage}
-            priority
-            className="absolute h-full w-full top-0 left-0 right-0 bottom-0 object-cover object-center"
-          />
+          {backgroundImage}
         </div>
         <div
           className={cc([
@@ -157,7 +162,7 @@ export const Header = ({
                 },
               ])}
             >
-              <Image {...avatarImage} priority />
+              {avatarImage}
             </div>
             <div className={cc(['font-muli', 'lg:ml-5', 'grow'])}>
               <PrimaryHeading
@@ -179,13 +184,4 @@ export const Header = ({
       </header>
     </div>
   );
-};
-
-Header.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  backgroundImage: PropTypes.object.isRequired,
-  avatarImage: PropTypes.object.isRequired,
-  fullScreen: PropTypes.bool.isRequired,
-  disableTyping: PropTypes.bool,
 };
