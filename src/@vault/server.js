@@ -157,7 +157,7 @@ const compile = (/** @type {string} */ source) =>
       ol: props => <Ol>{props.children}</Ol>,
       ul: props => <Ul>{props.children}</Ul>,
       li: props => <Li id={props.id}>{props.children}</Li>,
-      lic: ({ children }) => <Paragraph>{children}</Paragraph>,
+      lic: ({ children }) => <Paragraph className="pb-0">{children}</Paragraph>,
       text: props => <>{smartypants(props.children, '2')}</>,
       pre: props => {
         // TODO This logic kinda sucks, can we improve?
