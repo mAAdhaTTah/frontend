@@ -8,7 +8,7 @@ slug: writing/using-observables-to-control-render-scheduling
 published_at: 2016-11-07T17:17:08.000Z
 updated_at: 2016-11-07T17:17:08.000Z
 excerpt: When I talk to other developers about Observables, it’s often hard to explain their benefits because on the surface, they just look like glorified event emitters, but it’s how they compose that make handling dependencies between async events such a breeze. While working on the code snippet editor in WP-Gistpen, I came across an example \[…]
-featuredMedia: "[[Observable Universe – WikiMedia]]"
+featuredMedia: "[Observable Universe – WikiMedia](/vault/_data/observable-universe-wikimedia.md)"
 share: true
 ---
 
