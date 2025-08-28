@@ -1,0 +1,27 @@
+---
+tags:
+  - web
+  - snippet
+title: Pointed vs. Point-Free JavaScript
+description: ""
+slug: gistpens/pointed-vs-point-free-javascript
+published_at: 2018-06-13T20:25:15.000Z
+updated_at: 2018-06-13T20:25:15.000Z
+share: true
+---
+
+```js title="point-free-action.js"
+const elementToCursorMoveAction = R.converge(
+  R.unapply(editorCursorMoveAction),
+  [selectSelectionStart, selectSelectionEnd],
+);
+```
+
+^point-free-action-js
+
+```js title="pointed-action.js"
+const elementToCursorMoveAction = (e) =>
+  editorCursorMoveAction([selectSelectionStart(e), selectSelectionEnd(e)]);
+```
+
+^pointed-action-js
