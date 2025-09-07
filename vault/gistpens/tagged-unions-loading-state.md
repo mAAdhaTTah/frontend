@@ -10,6 +10,34 @@ updated_at: 2019-07-01T16:13:22.000Z
 share: true
 ---
 
+```typescript title="array-state.ts"
+type State = {
+  items: Item[];
+};
+
+const initialState: State = {
+  items: [],
+};
+```
+
+^array-state-ts
+
+```typescript title="array-state-null.ts"
+type State = {
+  items: Item[] | null;
+};
+
+const initialState: State = {
+  items: null,
+};
+
+const loadedState: State = {
+  items: response.data,
+};
+```
+
+^array-state-null-ts
+
 ```typescript title="array-error-state.ts"
 type State = {
   items: Item[] | null;
@@ -49,22 +77,6 @@ return <ErrorView error={state.error} />;
 
 ^array-error-conditional-ts
 
-```typescript title="status-state.ts"
-type State = {
-  status: "unloaded" | "loading" | "loaded" | "error";
-  items: Item[] | null;
-  error: Error | null;
-};
-
-const defaultState: State = {
-  status: "unloaded",
-  items: null,
-  error: null,
-};
-```
-
-^status-state-ts
-
 ```typescript title="array-error-loading.ts"
 type State = {
   loading: boolean;
@@ -98,6 +110,22 @@ return <ErrorView error={state.error} />;
 ```
 
 ^array-error-loading-conditional-ts
+
+```typescript title="status-state.ts"
+type State = {
+  status: "unloaded" | "loading" | "loaded" | "error";
+  items: Item[] | null;
+  error: Error | null;
+};
+
+const defaultState: State = {
+  status: "unloaded",
+  items: null,
+  error: null,
+};
+```
+
+^status-state-ts
 
 ```typescript title="status-conditional.ts"
 switch (state.status) {
@@ -194,15 +222,3 @@ type State = UnloadedState | LoadingState | LoadedState | ErrorState;
 ```
 
 ^tagged-union-state-ts
-
-```typescript title="array-state.ts"
-type State = {
-  items: Item[];
-};
-
-const defaultState: State = {
-  items: [],
-};
-```
-
-^array-state-ts
