@@ -8,7 +8,7 @@ slug: writing/wapo-piece-michelle-rhee-wrong-about-everything
 published_at: 2013-01-24T17:55:38.000Z
 updated_at: 2014-09-27T19:16:01.000Z
 excerpt: A point-by-point rebuttal to an op-ed in the Washington Post.
-featuredMedia: "[[Michelle Rhee Speaking at the Commonwealth Club]]"
+featuredMedia: "[Michelle Rhee Speaking at the Commonwealth Club](/vault/_data/michelle-rhee-speaking-at-the-commonwealth-club.md)"
 share: true
 ---
 
