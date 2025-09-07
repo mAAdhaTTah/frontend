@@ -8,7 +8,7 @@ slug: writing/using-typescript-tagged-unions-loading-state-redux
 published_at: 2019-07-01T18:40:36.000Z
 updated_at: 2019-07-14T22:07:42.000Z
 excerpt: Dealing with loading state is a core requirement of most apps you build. Every app needs data, that data almost always needs to be loaded from somewhere, so you need to manage your loading state. Redux doesn’t provide any particular structure for this, but combining it with TypeScript enables some useful patterns. Let’s take a \[…]
-featuredMedia: "[[union-types-traffic-lights]]"
+featuredMedia: "[union-types-traffic-lights](/vault/_data/union-types-traffic-lights.md)"
 share: true
 ---
 
