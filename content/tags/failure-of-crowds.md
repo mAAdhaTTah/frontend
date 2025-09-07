@@ -1,4 +1,0 @@
----
-name: failure of crowds
----
-

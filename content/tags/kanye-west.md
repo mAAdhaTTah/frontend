@@ -1,4 +1,0 @@
----
-name: kanye west
----
-

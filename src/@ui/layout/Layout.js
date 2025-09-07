@@ -1,5 +1,4 @@
 'use client';
-import PropTypes from 'prop-types';
 import cc from 'classcat';
 import { usePathname } from 'next/navigation';
 import { Header } from './Header';
@@ -15,6 +14,11 @@ const getLayout = pathname => {
   return 'standard';
 };
 
+/** @type {import('react').FC<{
+ *  header: Omit<import('./Header').HeaderProps, 'fullScreen'>,
+ *  nav: import('./Nav').NavProps,
+ *  children: import('react').ReactNode
+ * }>} */
 export const Layout = ({ header, nav, children }) => {
   const pathname = usePathname();
   const layout = getLayout(pathname);
@@ -54,10 +58,4 @@ export const Layout = ({ header, nav, children }) => {
       </div>
     </div>
   );
-};
-
-Layout.propTypes = {
-  header: PropTypes.object.isRequired,
-  nav: PropTypes.object.isRequired,
-  children: PropTypes.node,
 };

@@ -1,4 +1,0 @@
----
-name: rolling stone
----
-
