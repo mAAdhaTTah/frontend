@@ -8,7 +8,7 @@ slug: writing/wapo-piece-michelle-rhee-wrong-about-everything
 published_at: 2013-01-24T17:55:38.000Z
 updated_at: 2014-09-27T19:16:01.000Z
 excerpt: A point-by-point rebuttal to an op-ed in the Washington Post.
-featuredMedia: "[Michelle Rhee Speaking at the Commonwealth Club](/vault/_data/michelle-rhee-speaking-at-the-commonwealth-club.md)"
+featuredMedia: "[[Michelle Rhee Speaking at the Commonwealth Club]]"
 share: true
 ---
 
@@ -35,5 +35,3 @@ Both are, and to fail to place the blame of cheating partially on the system tha
 While I wasn't there, so to speak, I'm inclined to think this is a major strawman. No teacher I've read has ever tried to place all the blame on poverty. Schools CAN make a difference; teachers CAN make a difference, and they do all the time. But to do the opposite (place all the blame on the teacher) makes the same mistake, and it doesn't seem like Rhee and the edreform crew want to accept the role that poverty plays, focusing all their reform efforts on teacher evaluations and merit pay without considering how these systems affect things.
 
 So that's the issue -- these are systems, and parts of systems, and they have effects on the way people act within those systems, and not looking those systems is a mistake.
-
-![SternRhee](https://static.jamesdigioia.com/uploads/2013/01/stern-michelle-rhee.jpg)
