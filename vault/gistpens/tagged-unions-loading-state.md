@@ -38,7 +38,6 @@ const loadedState: State = {
 
 ^array-state-null-ts
 
-
 ```typescript title="array-error-state.ts"
 type State = {
   items: Item[] | null;
@@ -223,5 +222,3 @@ type State = UnloadedState | LoadingState | LoadedState | ErrorState;
 ```
 
 ^tagged-union-state-ts
-
-
