@@ -8,7 +8,7 @@ slug: writing/this-is-my-website-this-is-my-space
 published_at: 2014-11-03T17:38:05.000Z
 updated_at: 2014-11-03T17:38:05.000Z
 excerpt: I finally got around to redesigning my website. It’s inspired heavily by Favepersonal, which I was using previously, and it’s the first theme I’ve built with Foundation. I bundled the same plugins that came with Favepersonal,1 so Socialwindow has the same Facebook & Twitter interoperability. This bundled functionality will eventually be replaced by SocialDen, an \[…]
-featuredMedia: "[[French Formal Garden in Loire Valley]]"
+featuredMedia: "[French Formal Garden in Loire Valley](/vault/_data/french-formal-garden-in-loire-valley.md)"
 share: true
 ---
 
