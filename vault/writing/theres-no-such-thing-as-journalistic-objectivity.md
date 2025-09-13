@@ -8,7 +8,7 @@ slug: writing/theres-no-such-thing-as-journalistic-objectivity
 published_at: 2013-04-15T19:00:55.000Z
 updated_at: 2014-01-26T16:02:18.000Z
 excerpt: Every decision made by journalists, including word choice, is a expression of bias.
-featuredMedia: "[[New York Times Building]]"
+featuredMedia: "[New York Times Building](/vault/_data/new-york-times-building.md)"
 share: true
 ---
 
