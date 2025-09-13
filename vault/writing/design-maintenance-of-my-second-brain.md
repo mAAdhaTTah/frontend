@@ -2,7 +2,7 @@
 tags:
   - concept
   - web
-parent: '[Second Brain](/vault/writing/second-brain.md)'
+parent: "[[Second Brain]]"
 previous:
 next:
 slug: writing/design-maintenance-of-my-second-brain
@@ -31,7 +31,9 @@ These views are inspired by the ACE System by Nick Milo. The Previous note folde
 
 There is some overengineering involved here that I need to work out. I currently use several plugins to provide editing capabilities: the aforementioned Metadata Menu, Meta Bind Docs, GitHub - danielo515obsidian-modal-form Define forms for filling data that you will be able to open from anywhere you can run JS, and blacksmithgudatacore Work-in-progress successor to Dataview with a focus on UX and speed. all provide some form of editing UI for notes. Meta Bind we could probably do away with, as there isn't that much usage remaining and it is easily replaced by Datacore.
 
-The other others are more difficult. Metadata Menu also provides the field definitions for the various note types, while Modal Form is used by the templates for creation. I could provide some way of defining note types in code that flows into Datacore, building out an app of sorts to create & edit new pages. That's a lot of work, and it sort of reminds me of Home Obsidian Typing, which was a very cool & ambitious idea that has been largely abandoned. The beauty of open source is you can cobble together multiple parts to accomplish your goal. The result may not be the cleanest thing, but it gets the job done for a lot less work.
+The other others are more difficult. Metadata Menu also provides the field definitions for the various note types, while Modal Form is used by the templates for creation. I could provide some way of defining note types in code that flows into Datacore, building out an app of sorts to create & edit new pages. That's a lot of work, and it sort of reminds me of Home  Obsidian Typing, which was a very cool & ambitious idea that has been largely abandoned. The beauty of open source is you can cobble together multiple parts to accomplish your goal. The result may not be the cleanest thing, but it gets the job done for a lot less work.
+
+ The overall result of this setup are Object-oriented notes.
 
 ### Note types
 
