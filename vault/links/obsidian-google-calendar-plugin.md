@@ -6,7 +6,7 @@ title: Obsidian Google Calendar Plugin
 url: https://yukigasai.github.io/obsidian-google-calendar/
 bookmarked_at: 2024-02-11 22:37:46
 related:
-  - "[Obsidian](obsidian.md)"
+  - "[Obsidian](Obsidian.md)"
 slug: links/obsidian-google-calendar-plugin
 share: true
 description:
