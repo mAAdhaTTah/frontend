@@ -3,12 +3,11 @@ tags:
   - web
   - essay
 title: "Thailand Journal: Day 6"
-description: |
-  tl;dr version: we spent another day in Bangkok, where we wandered Lumphini Park and we checked out a snake farm. We had another day in Bangkok before our second excursion. We spent the morning swimming in the pool on the roof, a refreshing way to start the day. I had initially planned on exercising, but \[…]
+description: "tl;dr version: we spent another day in Bangkok, where we wandered Lumphini Park and we checked out a snake farm. We had another day in Bangkok before our second excursion. We spent the morning swimming in the pool on the roof, a refreshing way to start the day. I had initially planned on exercising, but \\[…]"
 slug: writing/thailand-journal-day-6
 published_at: 2012-12-29T02:19:46.000Z
 updated_at: 2014-01-24T03:35:02.000Z
-excerpt:
+excerpt: "tl;dr version: we spent another day in Bangkok, where we wandered Lumphini Park and we checked out a snake farm. We had another day in Bangkok before our second excursion. We spent the morning swimming in the pool on the roof, a refreshing way to start the day. I had initially planned on exercising, but \\[…]"
 featuredMedia:
 share: true
 ---
