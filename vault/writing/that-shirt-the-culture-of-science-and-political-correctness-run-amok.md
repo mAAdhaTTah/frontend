@@ -8,7 +8,7 @@ slug: writing/that-shirt-the-culture-of-science-and-political-correctness-run-am
 published_at: 2014-11-16T00:49:01.000Z
 updated_at: 2015-01-11T06:13:35.000Z
 excerpt: "It has been an interesting week. On Wednesday, while I was helping to cover the Rosetta landing, I saw astrophysicist Katie Mack1 tweeting about the offensive shirt worn by Rosetta project scientist Matt Taylor on the livestream of the historic mission. Feeling clever, I responded thusly: This quote was picked up by the Telegraph in \\[…]"
-featuredMedia: "[[ESA Rosetta Project Scient Matt Taylor and His Shirt]]"
+featuredMedia: "[ESA Rosetta Project Scient Matt Taylor and His Shirt](/vault/_data/esa-rosetta-project-scient-matt-taylor-and-his-shirt.md)"
 share: true
 ---
 
