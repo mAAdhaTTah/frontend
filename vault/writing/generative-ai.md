@@ -15,7 +15,7 @@ share: true
 
 # Generative AI
 
-My primary theory is [writing/generative-ai-is-great-at-automating-bullshit](vaultwritinggenerative-ai-is-great-at-automating-bullshit.md). I also believe that Generative AI is driving us crazy and The unit economics of Generative AI will never work. Finally, Generative AI will never replace SWEs, and may not even augment them.
+My primary theory is [writing/generative-ai-is-great-at-automating-bullshit](/vault/writing/generative-ai-is-great-at-automating-bullshit.md). I also believe that Generative AI is driving us crazy and The unit economics of Generative AI will never work. Finally, Generative AI will never replace SWEs, and may not even augment them.
 
 ## References
 
