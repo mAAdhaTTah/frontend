@@ -268,7 +268,8 @@ const PageFMSchema = z.object({
     .optional(),
   gallery: z
     .object({
-      images: z.array(MediaReferenceSchema),
+      // TODO fix export & render
+      // images: z.array(MediaReferenceSchema),
     })
     .optional(),
   image: z
