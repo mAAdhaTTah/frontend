@@ -3,7 +3,7 @@ tags:
   - concept
   - interpretation
   - web
-parent: "[[Second Brain]]"
+parent: "[Second Brain](/vault/writing/second-brain.md)"
 previous:
 next:
 slug: writing/notes-that-document-a-concept-or-particular-idea

@@ -2,7 +2,7 @@
 tags:
   - concept
   - web
-parent: "[[Writing]]"
+parent: "[Writing](/vault/writing.md)"
 previous:
 next:
 slug: writing/thailand-journal
