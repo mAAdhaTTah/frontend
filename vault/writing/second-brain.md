@@ -16,7 +16,7 @@ share: true
 
 # Second Brain
 
-A Second Brain is a method of organizing the contents of your head externally to help you make sense of & manage it. As the inventor of GTO David Allen said, "The mind is for having ideas, not holding them". My second brain is a collection of tools centered around [Obsidian](/vault/writing/obsidian.md) that I use to manage my life as inspired by Nick Milo's ACE System. The [Design & maintenance of my second brain](/vault/writing/design-maintenance-of-my-second-brain.md) went through several iterations, but has largely settled on a "type-based" system inspired by anytype — the everything app & Capacities – A studio for your mind.
+A Second Brain is a method of organizing the contents of your head externally to help you make sense of & manage it. As the inventor of GTO David Allen said, "The mind is for having ideas, not holding them". My second brain is a collection of tools centered around [Obsidian](/vault/writing/obsidian.md) that I use to manage my life as inspired by Nick Milo's ACE System. The [Design & Maintenance of my Second Brain](/vault/writing/design-maintenance-of-my-second-brain.md) went through several iterations, but has largely settled on a "type-based" system inspired by anytype — the everything app & Capacities – A studio for your mind.
 
 While Obsidian manages the core of each part of my system, there are also a few supporting tools I also use regularly:
 
@@ -29,6 +29,7 @@ While Obsidian manages the core of each part of my system, there are also a few 
 - **Calendar**
   - Google Calendar alongside the [Obsidian Google Calendar Plugin](/vault/links/obsidian-google-calendar-plugin.md).
     - I don't _love_ Google Calendar but it functions well enough.
+      - I've looking into other calendars and never found anything that worked better.
     - I do love the calendar plugin though. I integrate it into my daily notes so I can look at my day while I'm journaling.
 - **Efforts**
   - Todoist manages my tasks & projects.
@@ -37,4 +38,4 @@ While Obsidian manages the core of each part of my system, there are also a few 
     - I don't do as much with JIRA as I used to, now that I'm a manager, but when I do, I just create the tickets as tasks in Todoist. I can then break down subtasks in Todoist if I need to do it in chunks.
       - The above plugin does let you manifest JIRA searches into your notes if you need to though.
 
-The overall goal of this system is to enable Reflection as a practice.
+The overall goal of this system is to enable [Reflection as a practice](/vault/writing/reflection-as-a-practice.md), which is expressed in regular touchpoints in my Reflective rituals.

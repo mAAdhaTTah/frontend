@@ -25,14 +25,15 @@ const pageToSitemapItem = (
       });
   }
 
-  if (page.frontmatter.gallery != null) {
-    item.img.push(
-      ...page.frontmatter.gallery?.images.map(val => ({
-        url: val,
-        title: val, // TODO
-      })),
-    );
-  }
+  // TODO fix gallery
+  // if (page.frontmatter.gallery != null) {
+  //   item.img.push(
+  //     ...page.frontmatter.gallery?.images.map(val => ({
+  //       url: val,
+  //       title: val, // TODO
+  //     })),
+  //   );
+  // }
 
   if (page.frontmatter.image != null) {
     item.img.push({
