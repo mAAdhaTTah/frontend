@@ -2,14 +2,14 @@
 tags:
   - concept
   - web
-parent: "[Generative AI](/vault/writing/generative-ai.md)"
+parent: "[[Generative AI]]"
 previous:
 next:
 slug: writing/generative-ai-is-great-at-automating-bullshit
 title: Generative AI is great at automating bullshit
 description: A theory of Generative AI & its hype
-published_at:
-updated_at:
+published_at: 2025-09-13 20:21
+updated_at: 2025-09-13 20:22
 share: true
 ---
 
