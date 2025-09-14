@@ -2,7 +2,7 @@
 tags:
   - concept
   - web
-parent: "[[Generative AI]]"
+parent: "[Generative AI](/vault/writing/generative-ai.md)"
 previous:
 next:
 slug: writing/generative-ai-is-great-at-automating-bullshit
