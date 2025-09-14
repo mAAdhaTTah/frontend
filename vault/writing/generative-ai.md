@@ -2,14 +2,14 @@
 tags:
   - concept
   - web
-parent: "[Software Engineering](/vault/writing/software-engineering.md)"
+parent: "[[Software Engineering]]"
 previous:
 next:
 slug: writing/generative-ai
 title: Generative AI
 description:
 published_at: 2025-07-26 16:39
-updated_at: 2025-09-07 16:39
+updated_at: 2025-09-07 16:39`
 share: true
 ---
 
