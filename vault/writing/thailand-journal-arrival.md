@@ -4,7 +4,7 @@ tags:
   - essay
   - gallery
 title: "Thailand Journal: Arrival"
-description: ""
+description: We arrived in Thailand without any problems.
 slug: writing/thailand-journal-arrival
 published_at: 2012-12-22T09:11:13.000Z
 updated_at: 2014-01-25T04:59:39.000Z
@@ -37,6 +37,8 @@ images:
   - "[2012-12-21 14.45.52](2012-12-21%2014.45.52.md)"
   - "[2012-12-21 14.45.26](2012-12-21%2014.45.26.md)"
 share: true
+excerpt: We did a good job packing the night before,  which is surprising for anyone who knows me, so the morning of the flight we just had to tie up a few loose ends before we departed. We had plenty of time to make it to the airport, and we managed to arrive, check in, and pass through security with a full hour and a half to kill before the flight departed. We waited patiently, listening to the alternating Chinese and English announcements of the preceding flights as we sipped our coffees and read.
+featuredMedia:
 ---
 
 _tl;dr version: We arrived in Thailand without any problems._
