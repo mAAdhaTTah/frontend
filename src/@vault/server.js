@@ -1,5 +1,6 @@
 import path from 'node:path';
 import { readdir, readFile } from 'node:fs/promises';
+import cc from 'classcat';
 import { notFound } from 'next/navigation';
 import remarkGfm from 'remark-gfm';
 import { compileMDX } from 'next-mdx-remote/rsc';
@@ -192,6 +193,18 @@ const compile = (/** @type {string} */ source) =>
           }
         />
       ),
+      table: ({ children }) => <table className="table-auto">{children}</table>,
+      thead: ({ children }) => (
+        <thead className={cc(['mb-5', 'font-muli', 'text-xl', 'text-left'])}>
+          {children}
+        </thead>
+      ),
+      tbody: ({ children }) => (
+        <tbody className={cc(['mb-5', 'font-muli', 'text-md', 'text-left'])}>
+          {children}
+        </tbody>
+      ),
+      td: ({ children }) => <td className="py-1">{children}</td>,
       RecentEssays,
       ReadingList,
       InternalEmbed,
