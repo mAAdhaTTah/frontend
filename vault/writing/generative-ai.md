@@ -2,7 +2,7 @@
 tags:
   - concept
   - web
-parent: "[[Software Engineering]]"
+parent: "[Software Engineering](/vault/writing/software-engineering.md)"
 previous:
 next:
 slug: writing/generative-ai
