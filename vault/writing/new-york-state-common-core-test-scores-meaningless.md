@@ -8,7 +8,7 @@ slug: writing/new-york-state-common-core-test-scores-meaningless
 published_at: 2013-09-05T15:32:49.000Z
 updated_at: 2014-10-17T18:42:41.000Z
 excerpt: If you know me at all, you already know the disdain I feel towards our increasing reliance on tests and test scores to make educational decisions. As the Common Core continues its slow march into our classrooms, we got to see its first effects in the test scores of New York State, and according to \[…]
-featuredMedia: "[[Exam]]"
+featuredMedia: "[Exam](/vault/_data/exam.md)"
 share: true
 ---
 
