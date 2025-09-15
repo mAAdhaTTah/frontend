@@ -2,7 +2,7 @@
 tags:
   - web
   - snippet
-title: Recursive Closures in PHP
+title: Example of Recursive Closures in PHP
 description: ""
 slug: gistpens/recursive-closures-in-php
 published_at: 2015-10-26T21:37:38.000Z
