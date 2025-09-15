@@ -8,7 +8,7 @@ slug: writing/recursive-closures-in-php
 published_at: 2015-10-26T21:37:38.000Z
 updated_at: 2015-10-26T21:37:38.000Z
 excerpt: I don’t know how often this comes up, but I recently needed to create a one-off recursive function. Here’s how I did it in PHP. In this case, I had a set of items that were both nested and could be disabled at any level. So you could have a 3 widgets, all of a \[…]
-featuredMedia: "[[Recursion]]"
+featuredMedia: "[Recursion](/vault/_data/recursion.md)"
 share: true
 ---
 
