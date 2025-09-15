@@ -8,7 +8,7 @@ slug: writing/new-york-state-common-core-test-scores-meaningless
 published_at: 2013-09-05T15:32:49.000Z
 updated_at: 2014-10-17T18:42:41.000Z
 excerpt: If you know me at all, you already know the disdain I feel towards our increasing reliance on tests and test scores to make educational decisions. As the Common Core continues its slow march into our classrooms, we got to see its first effects in the test scores of New York State, and according to \[…]
-featuredMedia: "[Exam](/vault/_data/exam.md)"
+featuredMedia: "[[Exam]]"
 share: true
 ---
 
@@ -37,8 +37,10 @@ This is the data we're going to use to make major decisions about teachers, whic
 
 On some level, what they're trying to accomplish makes a modicum of sense: they have a complicated system with varying outcomes that they're try to harmonize so it optimizes a single variable, college readiness.
 
-Fine. I guess.\[1. Although I have problems with this as well. I'm not convinced that optimizing for "college readiness" makes a lot of sense. Part of that is going to college may not really be the best path for everyone, and we've done little to provide alternate paths to middle-class life. Going to college is similar to owning a home, in that it's now pretty much a doctrine of faith that you **must** do these things in order to be middle-class. Any suggestion to the contrary is met with a level of resistance far beyond the significance of the point.]
+Fine. I guess.[^1]
 
 But we've then placed additional emphasis on what that data means in achieving that objective that it does not deserve and we end up with an absurd and unworkable system.
 
 When will the madness end?
+
+[^1]: Although I have problems with this as well. I'm not convinced that optimizing for "college readiness" makes a lot of sense. Part of that is going to college may not really be the best path for everyone, and we've done little to provide alternate paths to middle-class life. Going to college is similar to owning a home, in that it's now pretty much a doctrine of faith that you **must** do these things in order to be middle-class. Any suggestion to the contrary is met with a level of resistance far beyond the significance of the point.
