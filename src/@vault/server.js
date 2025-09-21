@@ -309,6 +309,18 @@ const PageFMSchema = z.object({
 const CWD = process.cwd();
 
 /**
+ * Remove Obsidian anchors from markdown content
+ * @param {string} content - The markdown content
+ * @returns {string} - Content with anchors removed
+ */
+const removeObsidianAnchors = content =>
+  // Remove inline anchors (space followed by ^anchor)
+  // Remove standalone anchors (^anchor on its own line)
+  content
+    .replace(/ \^[a-zA-Z0-9-_]+/g, '') // inline anchors
+    .replace(/^\^[a-zA-Z0-9-_]+$/gm, ''); // standalone anchors
+
+/**
  * @typedef {{
  *  source: string;
  *  mdFilePath: string;
@@ -348,7 +360,8 @@ const readAllVaultPages = unstable_cache(async () => {
     for (const entry of entries) {
       if (entry.isFile() && entry.name.endsWith('.md')) {
         const mdFilePath = path.join(dir, entry.name);
-        const source = await readFile(mdFilePath, 'utf8');
+        let source = await readFile(mdFilePath, 'utf8');
+        source = removeObsidianAnchors(source);
         const vfile = new VFile(source);
 
         // makes frontmatter available via vfile.data.matter
