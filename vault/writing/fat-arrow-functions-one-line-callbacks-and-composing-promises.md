@@ -8,7 +8,7 @@ slug: writing/fat-arrow-functions-one-line-callbacks-and-composing-promises
 published_at: 2015-12-09T18:04:58.000Z
 updated_at: 2015-12-09T18:16:56.000Z
 excerpt: "I’m not really a fan of fat arrow functions in ES2015 for the same reason I don’t like the introduction of class: JavaScript is a prototypal language, so attempting to cram class-based inheritance is squeezing a round peg into a square hole. The prototype chain and closure scoping make for a number of interesting patterns \\[…]"
-featuredMedia: "[[Fat Arrow Functions]]"
+featuredMedia: "[Fat Arrow Functions](/vault/_data/fat-arrow-functions.md)"
 share: true
 ---
 
