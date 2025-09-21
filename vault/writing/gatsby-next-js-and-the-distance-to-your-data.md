@@ -8,7 +8,8 @@ description: |
 slug: writing/gatsby-next-js-and-the-distance-to-your-data
 published_at: 2020-11-01T23:48:13.000Z
 updated_at: 2020-11-01T23:49:02.000Z
-excerpt:
+excerpt: |
+  At work, we recently decided to adopt Next.js to decouple our React front-end application from our Django API, so I’ve been working with it extensively over the past few weeks. In parallel, I’ve been working to migrate this very site to Gatsby, pulling in my reading list and my resume onto a new foundation, since \[…]
 featuredMedia: "[Dog in pool](/vault/_data/dog-fetching-ball-in-pool.md)"
 share: true
 ---
