@@ -1,6 +1,5 @@
 ---
 tags:
-  - inbox
   - web
   - essay
 title: Gatsby, Next.js, and the distance to your data
@@ -9,7 +8,6 @@ description: |
 slug: writing/gatsby-next-js-and-the-distance-to-your-data
 published_at: 2020-11-01T23:48:13.000Z
 updated_at: 2020-11-01T23:49:02.000Z
-status: publish
 excerpt:
 featuredMedia: "[[Dog in pool]]"
 share: true
