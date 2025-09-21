@@ -9,7 +9,7 @@ slug: writing/arrow-functions-are-not-the-solution-youve-been-looking-for
 published_at: 2018-01-30T22:46:45.000Z
 updated_at: 2018-01-30T22:46:45.000Z
 excerpt: "JavaScript’s Arrow functions were supposed to solve all our this-related problems but instead just replaced those this-related problems with other this-related problems. A friend of mine posted this in our local Slack channel, and I’ve seen a variation of this problem a number of times already: Note the \\<- Fails here. Can you spot why? \\[…]"
-featuredMedia: "[[airport function (not really a function)]]"
+featuredMedia: "[airport function (not really a function)](/vault/_data/airport-function-not-really-a-function.md)"
 share: true
 ---
 
