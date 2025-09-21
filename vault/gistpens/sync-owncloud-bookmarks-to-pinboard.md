@@ -7,7 +7,6 @@ description: ""
 slug: gistpens/sync-owncloud-bookmarks-to-pinboard
 published_at: 2018-12-02T22:03:34.000Z
 updated_at: 2018-12-02T22:03:34.000Z
-status: publish
 share: true
 ---
 
@@ -172,7 +171,7 @@ if __name__ == "__main__":
     send_request()
 ```
 
-^**main**-py
+^dunder-main-py
 
 ```plaintext title=".env"
 PINBOARD_AUTH_TOKEN=username:token
