@@ -8,7 +8,7 @@ slug: writing/fat-arrow-functions-one-line-callbacks-and-composing-promises
 published_at: 2015-12-09T18:04:58.000Z
 updated_at: 2015-12-09T18:16:56.000Z
 excerpt: "I’m not really a fan of fat arrow functions in ES2015 for the same reason I don’t like the introduction of class: JavaScript is a prototypal language, so attempting to cram class-based inheritance is squeezing a round peg into a square hole. The prototype chain and closure scoping make for a number of interesting patterns \\[…]"
-featuredMedia: "[Fat Arrow Functions](/vault/_data/fat-arrow-functions.md)"
+featuredMedia: "[[Fat Arrow Functions]]"
 share: true
 ---
 
@@ -20,17 +20,33 @@ I am, however, a huge fan of Promises, and I've been working on a project recent
 
 When you're composing together a chain of Promises to retrieve a particular value, you'll often find yourself doing these one-off transformations:
 
-![objects/essays/Fat Arrow Functions, One-Line Callbacks, and Composing Promises-style-js](fat-arrow-functions-one-line-callbacks-and-composing-promises.md#^old-style-js)
+<InternalEmbed title="gistpens/fat-arrow-functions-one-line-callbacks-and-composing-promises" url="/vault/gistpens/fat-arrow-functions-one-line-callbacks-and-composing-promises.md">
+```js title="old-style.js"
+doSomething().then(function (value) {
+  return value.prop;
+});
+```
+</InternalEmbed>
 
 This is a really simple example, but something that comes up all the time when composing Promise chains: You need to take the value from a previous function and do some small manipulation to it to get the value you're looking for.
 
 With fat-arrow functions, the above 3 lines become a single line:
 
-![objects/essays/Fat Arrow Functions, One-Line Callbacks, and Composing Promises-style-js](fat-arrow-functions-one-line-callbacks-and-composing-promises.md#^new-style-js)
+<InternalEmbed title="gistpens/fat-arrow-functions-one-line-callbacks-and-composing-promises" url="/vault/gistpens/fat-arrow-functions-one-line-callbacks-and-composing-promises.md">
+```js title="new-style.js"
+doSomething().then((value) => value.prop);
+```
+</InternalEmbed>
 
 Fat arrow functions, when written as a one-liner, automatically returns the value, so any function that works as simply as this does are vastly improved by writing them this way. This comes up all the time, especially when using libraries that depend on Promise chains. You'll often find yourself calling asynchronous methods on asynchronously returned objects, so chaining together a set of Promise methods become really clean:
 
-![objects/essays/Fat Arrow Functions, One-Line Callbacks, and Composing Promises-promises-js](fat-arrow-functions-one-line-callbacks-and-composing-promises.md#^composing-promises-js)
+<InternalEmbed title="gistpens/fat-arrow-functions-one-line-callbacks-and-composing-promises" url="/vault/gistpens/fat-arrow-functions-one-line-callbacks-and-composing-promises.md">
+```js title="composing-promises.js"
+doSomething()
+  .then((value) => value.asyncMethod())
+  .then((asyncMethodValue) => asyncMethodValue.prop);
+```
+</InternalEmbed>
 
 If you have 3 or 4 of these steps, you can see how writing these becomes an absolute joy.
 
