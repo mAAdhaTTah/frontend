@@ -2,7 +2,7 @@
 tags:
   - concept
   - web
-parent: "[Second Brain](/vault/writing/second-brain.md)"
+parent: "[[Second Brain]]"
 previous:
 next:
 slug: writing/design-maintenance-of-my-second-brain
