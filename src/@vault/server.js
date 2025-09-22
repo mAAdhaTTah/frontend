@@ -208,6 +208,23 @@ const compile = (/** @type {string} */ source) =>
       RecentEssays,
       ReadingList,
       InternalEmbed,
+      Snippets: async () => {
+        const { pages } = await getAllVaultPages();
+
+        return pages.reduce((output, page) => {
+          if (page.frontmatter.snippet) {
+            output.push(
+              <>
+                <Heading level={1} variant="article">
+                  {page.frontmatter.web.title}
+                </Heading>
+                {page.content}
+              </>,
+            );
+          }
+          return output;
+        }, []);
+      },
     },
   });
 
