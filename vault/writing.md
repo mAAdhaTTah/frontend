@@ -18,3 +18,5 @@ I am building a [Second Brain](/vault/writing/second-brain.md) in [Obsidian](/va
 In 2012, I took a trip to Thailand, which I wrote about in my [Thailand Journal](/vault/writing/thailand-journal.md).
 
 <RecentEssays />
+
+![Essays.base > Recent Essays](/vault/objects/bases/Essays.base.md#Recent%20Essays)
