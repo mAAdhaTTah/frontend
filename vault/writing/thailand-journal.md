@@ -2,7 +2,7 @@
 tags:
   - concept
   - web
-parent: "[Writing](/vault/writing.md)"
+parent: "[[Writing]]"
 previous:
 next:
 slug: writing/thailand-journal
@@ -18,7 +18,7 @@ share: true
 ## Journal Entries
 
 - [Thailand Journal_ Arrival](/vault/writing/thailand-journal-arrival.md)
-- Thailand Journal_ Days 1 & 2
+- [Thailand Journal_ Days 1 & 2](/vault/writing/thailand-journal-days-1-2.md)
 - Thailand Journal_ Days 3, 4, & 5
 - [Thailand Journal Day 6](/vault/writing/thailand-journal-day-6.md)
 - Thailand Journal_ Day 7, 8, & 9
