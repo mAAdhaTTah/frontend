@@ -9,6 +9,8 @@ updated_at: 2024-11-17T14:44:15.886Z
 share: true
 ---
 
+<ReadingList days={7}>
+
 ## 09/22/2025
 
 - [Yes, It’s Censorship – Pluralistic: Daily links from Cory Doctorow](https://pluralistic.net/2022/12/04/yes-its-censorship/)
@@ -150,3 +152,5 @@ share: true
 - [You and Kelsea vs. The Money - YouTube](https://www.youtube.com/watch?v=YxWBl5cQviY)
     
 - [He Thought He HAD Nik Airball Until... @HustlerCasinoLive - YouTube](https://www.youtube.com/watch?v=Zhvgoglgyfs)
+
+</ReadingList>
