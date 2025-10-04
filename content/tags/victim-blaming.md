@@ -1,4 +1,0 @@
----
-name: victim-blaming
----
-

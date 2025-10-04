@@ -46,6 +46,7 @@ const montserrat = Montserrat({
   subsets: ['latin'],
 });
 
+/** @type {import('react').FC<{children: import('react').ReactNode}>} */
 const RootLayout = async ({ children }) => {
   return (
     <ViewTransitions>

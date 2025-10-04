@@ -1,4 +1,0 @@
----
-name: sabastian thrun
----
-

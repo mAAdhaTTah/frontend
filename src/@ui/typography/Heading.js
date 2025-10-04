@@ -9,9 +9,13 @@ const variants = {
   'h-4': cc(['mb-3', 'font-muli', 'inline-block', 'border-b-2', 'text-xl']),
 };
 
-export const Heading = ({ level, variant, children }) => {
+export const Heading = ({ level, variant, className, children }) => {
   const Component = `h${level}`;
-  return <Component className={variants[variant]}>{children}</Component>;
+  return (
+    <Component className={cc([variants[variant], className])}>
+      {children}
+    </Component>
+  );
 };
 
 Heading.propTypes = {

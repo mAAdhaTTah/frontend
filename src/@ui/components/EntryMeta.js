@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import cc from 'classcat';
 import Spacer from './Spacer';
 
@@ -18,13 +19,23 @@ const EntryMeta = ({ className = '', date, dateTime, author }) => (
     <time className={cc([metaClass, 'published'])} dateTime={dateTime}>
       {date}
     </time>
-    <Spacer />
-    <p className={metaClass}>{author}</p>
+    {author && (
+      <>
+        <Spacer />
+        <p className={metaClass}>{author}</p>
+      </>
+    )}
     {/* @TODO(mAAdhaTTah) comments aren't retreived */}
     {/* <Spacer /> <p className={metaClass}>
       {commentCount ? `${commentCount} comments` : 'No comments'}
     </p> */}
   </div>
 );
+
+export function dateDateTimeDisplay(sourceDate) {
+  const date = format(sourceDate, 'MMMM do, yyyy');
+  const dateTime = sourceDate.toISOString();
+  return { date, dateTime };
+}
 
 export default EntryMeta;

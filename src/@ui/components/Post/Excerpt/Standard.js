@@ -1,26 +1,7 @@
-import cc from 'classcat';
-import { FaLongArrowAltRight } from 'react-icons/fa';
-import { Link } from 'next-view-transitions';
+import { ArrowLink } from '@ui/atoms';
 import { Article } from '@ui/box';
 import { LinkedArticleHeader } from '../../LinkedArticleHeader';
 import EntryMeta from '../../EntryMeta';
-
-const linkClass = cc([
-  'font-ovo',
-  'flex',
-  'flex-row',
-  'items-center',
-  'float-right',
-  'no-underline',
-  'bg-darkg',
-  'p-2',
-  'text-primary',
-  'rounded',
-  'mt-3',
-  'text-xl',
-  'leading-normal',
-]);
-const iconClass = cc(['ml-2']);
 
 const StandardFormat = ({
   slug,
@@ -33,9 +14,7 @@ const StandardFormat = ({
 }) => (
   <Article>
     <header>
-      <LinkedArticleHeader href={`/writing/${slug}/`}>
-        {title}
-      </LinkedArticleHeader>
+      <LinkedArticleHeader href={`${slug}/`}>{title}</LinkedArticleHeader>
       <EntryMeta
         date={date}
         dateTime={dateTime}
@@ -45,10 +24,7 @@ const StandardFormat = ({
     </header>
     <div>
       {excerpt}
-      <Link href={`/writing/${slug}/`} className={linkClass}>
-        Read more
-        <FaLongArrowAltRight className={iconClass} />
-      </Link>
+      <ArrowLink slug={slug}>Read more</ArrowLink>
     </div>
   </Article>
 );

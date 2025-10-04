@@ -1,4 +1,0 @@
----
-name: front page sources
----
-

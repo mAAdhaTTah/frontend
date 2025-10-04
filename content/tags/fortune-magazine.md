@@ -1,4 +1,0 @@
----
-name: fortune magazine
----
-

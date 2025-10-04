@@ -1,5 +1,0 @@
----
-name: Technology
-parent: null
----
-

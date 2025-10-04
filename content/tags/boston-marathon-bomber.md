@@ -1,4 +1,0 @@
----
-name: boston marathon bomber
----
-

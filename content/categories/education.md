@@ -1,5 +1,0 @@
----
-name: Education
-parent: null
----
-

@@ -1,0 +1,37 @@
+---
+tags:
+  - web
+  - snippet
+title: Module References in CommonJS
+description: ""
+slug: gistpens/module-references-in-commonjs
+published_at: 2016-02-04T16:07:24.000Z
+updated_at: 2016-02-04T16:07:24.000Z
+share: true
+---
+
+```js title="index.js"
+var mod1 = require("./mod1");
+var mod2 = require("./mod2");
+
+mod1.impactMod2();
+console.log(mod2.prop);
+```
+
+^index-js
+
+```js title="mod1.js"
+var mod2 = require("./mod2");
+
+exports.impactMod2 = function () {
+  mod2.prop = "Changed from mod1";
+};
+```
+
+^mod1-js
+
+```js title="mod2.js"
+exports.prop = "Defaulted in mod2";
+```
+
+^mod2-js

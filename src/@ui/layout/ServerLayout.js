@@ -1,10 +1,8 @@
-import { unstable_cache as cache } from 'next/cache';
-import { getLayoutProps } from '@tina/server';
+import { getLayoutProps } from '@vault/server';
 import { Layout } from './Layout';
 
-const getProps = cache(getLayoutProps);
-
+/** @type {import('react').FC<{children: import('react').ReactNode}>} */
 export const ServerLayout = async ({ children }) => {
-  const layout = await getProps();
+  const layout = await getLayoutProps();
   return <Layout {...layout}>{children}</Layout>;
 };
