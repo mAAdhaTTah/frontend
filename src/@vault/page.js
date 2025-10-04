@@ -17,32 +17,21 @@ export const VaultPage = async ({ content, frontmatter }) => {
 
   return (
     <Main>
-      <header className="relative mb-5">
-        {featuredMedia && (
-          <ServerImage
-            src={featuredMedia.source}
-            altText={featuredMedia.alt}
-            priority
-          />
-        )}
-        <div
-          className={cc([
-            {
-              absolute: !!featuredMedia,
-              'pin-x-center': !!featuredMedia,
-              'pin-y-bottom': !!featuredMedia,
-            },
-            'w-full',
-            'bg-etched',
-            'rounded',
-            'p-5',
-          ])}
-        >
-          <div className="text-center">
-            <Heading level={1} variant="article">
-              {frontmatter.web.title}
-            </Heading>
-          </div>
+      <header className="mb-8">
+        <div className={cc(['w-full', 'bg-etched', 'rounded', 'p-5', 'mb-4'])}>
+          {featuredMedia && (
+            <div className="relative overflow-hidden rounded w-full h-80">
+              <ServerImage
+                src={featuredMedia.source}
+                altText={featuredMedia.alt}
+                className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+                priority
+              />
+            </div>
+          )}
+          <Heading level={1} variant="article" className="text-center">
+            {frontmatter.web.title}
+          </Heading>
           <div className="flex justify-center">
             <EntryMeta
               date={date}
