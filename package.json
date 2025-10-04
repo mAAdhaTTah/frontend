@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
-    "@extractus/oembed-extractor": "^4.0.5",
+    "@extractus/oembed-extractor": "^4.0.9",
     "@react-aria/focus": "^3.17.0",
     "@react-aria/visually-hidden": "^3.8.17",
     "@types/react": "^18.3.12",
@@ -24,6 +24,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.0.0",
+    "react-error-boundary": "^6.0.0",
     "react-icons": "^5.2.1",
     "react-transition-group": "^4.4.5",
     "react-tweet": "^3.2.1",
