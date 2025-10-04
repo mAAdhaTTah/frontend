@@ -107,6 +107,16 @@ const EssayHeader = ({ featuredMedia, frontmatter, date, dateTime }) => {
   );
 };
 
+const GalleryFooter = ({ gallery }) => {
+  return (
+    <div className="grid grid-cols-3 grid-rows-auto gap-4">
+      {gallery.images.map((image, i) => (
+        <ServerImage key={i} src={image.source} altText={image.alt} />
+      ))}
+    </div>
+  );
+};
+
 /** @type {import('react').FC<{
  *  content: import('react').ReactNode;
  *  frontmatter: import('./server').PageFMSchema}>
@@ -124,6 +134,9 @@ export const VaultPage = async ({ content, frontmatter }) => {
       ) : null}
       {frontmatter.link ? <LinkHeader link={frontmatter.link} /> : null}
       {content}
+      {frontmatter.gallery ? (
+        <GalleryFooter gallery={frontmatter.gallery} />
+      ) : null}
       {frontmatter.link ? <LinkFooter link={frontmatter.link} /> : null}
     </Main>
   );

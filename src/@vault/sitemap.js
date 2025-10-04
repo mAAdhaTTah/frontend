@@ -20,32 +20,31 @@ const pageToSitemapItem = (
   if (page.frontmatter.essay != null) {
     if (page.frontmatter.essay?.featuredMedia)
       item.img.push({
-        url: page.frontmatter.essay?.featuredMedia,
-        title: page.frontmatter.essay?.featuredMedia, // TODO
+        url: page.frontmatter.essay?.featuredMedia.source,
+        title: page.frontmatter.essay?.featuredMedia.title,
       });
   }
 
-  // TODO fix gallery
-  // if (page.frontmatter.gallery != null) {
-  //   item.img.push(
-  //     ...page.frontmatter.gallery?.images.map(val => ({
-  //       url: val,
-  //       title: val, // TODO
-  //     })),
-  //   );
-  // }
+  if (page.frontmatter.gallery != null) {
+    item.img.push(
+      ...page.frontmatter.gallery?.images.map(val => ({
+        url: val.source,
+        title: val.title,
+      })),
+    );
+  }
 
   if (page.frontmatter.image != null) {
     item.img.push({
-      url: page.frontmatter.image?.media,
-      title: page.frontmatter.image?.media, // TODO
+      url: page.frontmatter.image?.media.source,
+      title: page.frontmatter.image?.media.title,
     });
   }
 
   if (page.frontmatter.reference != null) {
     item.img.push({
       url: page.frontmatter.reference?.image,
-      title: page.frontmatter.reference?.image, // TODO
+      title: 'Article cover',
     });
   }
 
