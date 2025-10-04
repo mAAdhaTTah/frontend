@@ -235,7 +235,7 @@ const EmptyToNullSchema = z
   .any()
   .transform(val => (val === '' || val === undefined ? null : val));
 
-const ReferenceSchema = z
+const DataSchema = z
   .string()
   .regex(REFERENCE_REGEX)
   .transform(async value => {
@@ -248,7 +248,20 @@ const ReferenceSchema = z
     return frontmatter;
   });
 
-const MediaReferenceSchema = EmptyToNullSchema.pipe(ReferenceSchema).pipe(
+const ContentSchema = z
+  .string()
+  .regex(REFERENCE_REGEX)
+  .transform(async value => {
+    const { url } = REFERENCE_REGEX.exec(value).groups;
+
+    const read = path.join(CWD, url);
+    const source = await readFile(read, 'utf8');
+    const { frontmatter } = await compile(source);
+    console.log({ frontmatter });
+    return parseFrontmatter(frontmatter, read);
+  });
+
+const MediaReferenceSchema = EmptyToNullSchema.pipe(DataSchema).pipe(
   z.object({
     title: z.string(),
     source: z.string().url(),
@@ -257,9 +270,7 @@ const MediaReferenceSchema = EmptyToNullSchema.pipe(ReferenceSchema).pipe(
   }),
 );
 
-const ContentReferenceSchema = EmptyToNullSchema.pipe(ReferenceSchema).pipe(
-  z.object({}),
-);
+const ContentReferenceSchema = EmptyToNullSchema.pipe(ContentSchema);
 
 const ISODateSchema = z
   .string()
@@ -320,6 +331,14 @@ const PageFMSchema = z.object({
     .optional(),
   view: z.object({}).optional(),
   snippet: z.object({}).optional(),
+  link: z
+    .object({
+      title: z.string(),
+      url: z.string().url(),
+      bookmarked_at: ISODateSchema,
+      related: z.array(ContentReferenceSchema).optional(),
+    })
+    .optional(),
   resume: z.any().optional(),
 });
 
