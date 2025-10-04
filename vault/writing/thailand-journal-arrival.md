@@ -9,39 +9,40 @@ slug: writing/thailand-journal-arrival
 published_at: 2012-12-22T09:11:13.000Z
 updated_at: 2014-01-25T04:59:39.000Z
 images:
-  - "[IMG_1121_2](IMG_1121_2.md)"
-  - "[IMG_1120_2](IMG_1120_2.md)"
-  - "[IMG_1119_2](IMG_1119_2.md)"
-  - "[IMG_1118](IMG_1118.md)"
-  - "[IMG_1117_2](IMG_1117_2.md)"
-  - "[IMG_1116](IMG_1116.md)"
-  - "[IMG_1115](IMG_1115.md)"
-  - "[IMG_1114](IMG_1114.md)"
-  - "[IMG_1113](IMG_1113.md)"
-  - "[IMG_1112](IMG_1112.md)"
-  - "[IMG_1111](IMG_1111.md)"
-  - "[IMG_1110](IMG_1110.md)"
-  - "[IMG_1109](IMG_1109.md)"
-  - "[IMG_1108](IMG_1108.md)"
-  - "[IMG_1107](IMG_1107.md)"
-  - "[IMG_1106](IMG_1106.md)"
-  - "[IMG_1105](IMG_1105.md)"
-  - "[IMG_1104](IMG_1104.md)"
-  - "[FB_IMG_13562727153952741](FB_IMG_13562727153952741.md)"
-  - "[FB_IMG_13562726914022338](FB_IMG_13562726914022338.md)"
-  - "[FB_IMG_13562726613794474](FB_IMG_13562726613794474.md)"
-  - "[FB_IMG_13562726255346312](FB_IMG_13562726255346312.md)"
-  - "[FB_IMG_13562726122636651](FB_IMG_13562726122636651.md)"
-  - "[FB_IMG_1356272674150438](FB_IMG_1356272674150438.md)"
-  - "[FB_IMG_135627272997025](FB_IMG_135627272997025.md)"
-  - "[2012-12-21 14.45.52](2012-12-21%2014.45.52.md)"
   - "[2012-12-21 14.45.26](2012-12-21%2014.45.26.md)"
+  - "[2012-12-21 14.45.52](2012-12-21%2014.45.52.md)"
+  - "[FB_IMG_135627272997025](FB_IMG_135627272997025.md)"
+  - "[FB_IMG_1356272674150438](FB_IMG_1356272674150438.md)"
+  - "[FB_IMG_13562726122636651](FB_IMG_13562726122636651.md)"
+  - "[FB_IMG_13562726255346312](FB_IMG_13562726255346312.md)"
+  - "[FB_IMG_13562726613794474](FB_IMG_13562726613794474.md)"
+  - "[FB_IMG_13562726914022338](FB_IMG_13562726914022338.md)"
+  - "[FB_IMG_13562727153952741](FB_IMG_13562727153952741.md)"
+  - "[IMG_1104](IMG_1104.md)"
+  - "[IMG_1105](IMG_1105.md)"
+  - "[IMG_1106](IMG_1106.md)"
+  - "[IMG_1107](IMG_1107.md)"
+  - "[IMG_1108](IMG_1108.md)"
+  - "[IMG_1109](IMG_1109.md)"
+  - "[IMG_1110](IMG_1110.md)"
+  - "[IMG_1111](IMG_1111.md)"
+  - "[IMG_1112](IMG_1112.md)"
+  - "[IMG_1113](IMG_1113.md)"
+  - "[IMG_1114](IMG_1114.md)"
+  - "[IMG_1115](IMG_1115.md)"
+  - "[IMG_1116](IMG_1116.md)"
+  - "[IMG_1117_2](IMG_1117_2.md)"
+  - "[IMG_1118](IMG_1118.md)"
+  - "[IMG_1119_2](IMG_1119_2.md)"
+  - "[IMG_1120_2](IMG_1120_2.md)"
+  - "[IMG_1121_2](IMG_1121_2.md)"
 share: true
 excerpt: We did a good job packing the night before,  which is surprising for anyone who knows me, so the morning of the flight we just had to tie up a few loose ends before we departed. We had plenty of time to make it to the airport, and we managed to arrive, check in, and pass through security with a full hour and a half to kill before the flight departed. We waited patiently, listening to the alternating Chinese and English announcements of the preceding flights as we sipped our coffees and read.
 featuredMedia:
 ---
 
-_tl;dr version: We arrived in Thailand without any problems._
+> [!tldr]
+> We arrived in Thailand without any problems.
 
 We did a good job packing the night before,  which is surprising for anyone who knows me, so the morning of the flight we just had to tie up a few loose ends before we departed. We had plenty of time to make it to the airport, and we managed to arrive, check in, and pass through security with a full hour and a half to kill before the flight departed. We waited patiently, listening to the alternating Chinese and English announcements of the preceding flights as we sipped our coffees and read.
 
