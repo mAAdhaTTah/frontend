@@ -9,7 +9,7 @@ slug: writing/tc39-rest-spread-to-stage-4-debating-semicolons-and-other-proposal
 published_at: 2018-01-22T21:25:09.000Z
 updated_at: 2018-01-24T18:15:47.000Z
 excerpt: This week, the TC39, the standards body behind the JavaScript language, will be meeting at Google this week, January 23-25, for their first meeting of 2018. They'll be discussing several proposals to add new features to ECMAScript, the JavaScript standard. Their full agenda can be found here, but I wanted to take a quick look at some of the important proposals they'll be discussing.
-featuredMedia: "[[TC39 Logo]]"
+featuredMedia: "[TC39 Logo](/vault/_data/tc39-logo.md)"
 share: true
 ---
 
