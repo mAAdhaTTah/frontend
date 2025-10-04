@@ -41,8 +41,7 @@ excerpt: We did a good job packing the night before,  which is surprising for an
 featuredMedia:
 ---
 
-> [!tldr]
-> We arrived in Thailand without any problems.
+_tl;dr version: We arrived in Thailand without any problems._
 
 We did a good job packing the night before,  which is surprising for anyone who knows me, so the morning of the flight we just had to tie up a few loose ends before we departed. We had plenty of time to make it to the airport, and we managed to arrive, check in, and pass through security with a full hour and a half to kill before the flight departed. We waited patiently, listening to the alternating Chinese and English announcements of the preceding flights as we sipped our coffees and read.
 
