@@ -29,7 +29,7 @@ const Embed = async ({ url }) => {
  *  link: import('./server').PageFMSchema['link'];
  * }>
  */
-const LinkHeader = async ({ link }) => {
+const LinkHeader = ({ link }) => {
   const { date, dateTime } = dateDateTimeDisplay(link.bookmarked_at);
 
   return (
