@@ -86,7 +86,7 @@ const EssayHeader = ({ featuredMedia, frontmatter, date, dateTime }) => {
             <ServerImage
               src={featuredMedia.source}
               altText={featuredMedia.alt}
-              className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+              className="absolute pin-y-50 pin-x-50 translate-x-[-50%] translate-y-[-50%]"
               priority
             />
           </div>

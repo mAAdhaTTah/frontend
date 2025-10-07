@@ -10,7 +10,7 @@ const SocialIcon = ({ icon, to }) => (
       'border-2',
       'border-transparent',
       'focus:border-primary',
-      'focus:outline-none',
+      'focus:outline-hidden',
     ])}
     href={to}
     target="_blank"

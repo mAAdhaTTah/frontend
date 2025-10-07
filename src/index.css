@@ -5,20 +5,75 @@
  * You can see the styles here:
  * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
  */
-@tailwind base;
+@import 'tailwindcss';
 
 /**
  * This injects any component classes registered by plugins.
  */
-@tailwind components;
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
  */
-@tailwind utilities;
+@config '../tailwind.config.js';
 
-/**
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility pin-y-50 {
+  top: 50%;
+}
+
+@utility pin-x-50 {
+  left: 50%;
+}
+
+@utility pin-50 {
+  @apply pin-x-50 pin-y-50;
+}
+
+@utility pin-y-center {
+  @apply pin-y-50;
+  transform: translateY(-50%);
+}
+
+@utility pin-y-bottom {
+  bottom: 0;
+  transform: translateY(-50%);
+}
+
+@utility pin-x-center {
+  @apply pin-x-50;
+  transform: translateX(-50%);
+}
+
+@utility pin-center {
+  @apply pin-50;
+  transform: translate(-50%, -50%);
+}
+
+@utility avoid-break-inside {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+@layer utilities {
+  /**
  * Here you would add any custom utilities you need that don't come out of the
  * box with Tailwind.
  *
@@ -27,64 +82,12 @@
  * .bg-pattern-graph-paper { ... }
  * .skew-45 { ... }
  */
-a {
-  color: inherit;
-}
-
-body {
-  @apply bg-primary;
-}
-
-@layer utilities {
-  @for $i from 1 to 6 {
-    .pin-b-$i {
-      bottom: $i * 1em * theme('line-height.tight');
-    }
-
-    .basis-$i {
-      flex-basis: 1em * 10 * $i;
-    }
+  a {
+    color: inherit;
   }
 
-  .basis-100 {
-    flex-basis: 100%;
-  }
-
-  .pin-y-50 {
-    top: 50%;
-  }
-
-  .pin-x-50 {
-    left: 50%;
-  }
-
-  .pin-50 {
-    @apply pin-x-50 pin-y-50;
-  }
-
-  .pin-y-center {
-    @apply pin-y-50;
-    transform: translateY(-50%);
-  }
-
-  .pin-y-bottom {
-    bottom: 0;
-    transform: translateY(-50%);
-  }
-
-  .pin-x-center {
-    @apply pin-x-50;
-    transform: translateX(-50%);
-  }
-
-  .pin-center {
-    @apply pin-50;
-    transform: translate(-50%, -50%);
-  }
-
-  .avoid-break-inside {
-    page-break-inside: avoid;
-    break-inside: avoid;
+  body {
+    @apply bg-primary;
   }
 }
 
