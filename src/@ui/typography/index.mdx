@@ -1,0 +1,34 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Heading } from './Heading';
+import { Paragraph } from './Paragraph';
+import {
+  EM,
+  Strong,
+  Small,
+  Abbr,
+  Acronym,
+  Del,
+  Ins,
+  Kbd,
+  Code,
+  Samp,
+  Var,
+  Q,
+  Sub,
+  Sup,
+} from './inline';
+import * as IndexStories from './index.stories';
+
+<Meta of={IndexStories} />
+
+# Header Typographies
+
+<Canvas>
+  <Story of={IndexStories.HeaderTypographies} />
+</Canvas>
+
+# Body Typographies (TODO: Fix Link)
+
+<Canvas>
+  <Story of={IndexStories.BodyTypographies} />
+</Canvas>

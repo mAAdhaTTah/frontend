@@ -1,16 +1,13 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { Blockquote } from './Blockquote';
+import { Blockquote as BlockquoteAtom } from './Blockquote';
 import { Ul, Ol, Li } from './lists';
 
-<Meta title="@ui/atoms" />
+export default {
+  title: '@ui/atoms',
+};
 
-# Blockquote
-
-Basic blockquote element for sharing long quotes.
-
-<Canvas>
-  <Story name="Blockquote">
-    <Blockquote>
+export const Blockquote = {
+  render: () => (
+    <BlockquoteAtom>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       Lorem Ipsum has been the industry's standard dummy text ever since the
       1500s, when an unknown printer took a galley of type and scrambled it to
@@ -20,25 +17,23 @@ Basic blockquote element for sharing long quotes.
       sheets containing Lorem Ipsum passages, and more recently with desktop
       publishing software like Aldus PageMaker including versions of Lorem
       Ipsum.
-    </Blockquote>
-  </Story>
-</Canvas>
+    </BlockquoteAtom>
+  ),
+};
 
-# List elements
-
-Element for displaying different types of lists.
-
-<Canvas>
-  <Story name="Lists">
-    <Ol>
-      <Li>Ordered item 1</Li>
-      <Li>Ordered item 2</Li>
-      <Li>Ordered item 3</Li>
-    </Ol>
-    <Ul>
-      <Li>Unordered item 1</Li>
-      <Li>Unordered item 2</Li>
-      <Li>Unordered item 3</Li>
-    </Ul>
-  </Story>
-</Canvas>
+export const Lists = {
+  render: () => (
+    <>
+      <Ol>
+        <Li>Ordered item 1</Li>
+        <Li>Ordered item 2</Li>
+        <Li>Ordered item 3</Li>
+      </Ol>
+      <Ul>
+        <Li>Unordered item 1</Li>
+        <Li>Unordered item 2</Li>
+        <Li>Unordered item 3</Li>
+      </Ul>
+    </>
+  ),
+};
