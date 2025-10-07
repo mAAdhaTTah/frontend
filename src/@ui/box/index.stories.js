@@ -1,18 +1,13 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Paragraph } from '@ui/typography';
 import { Article } from './Article';
 import { Main } from './Main';
 
-<Meta title="@ui/box" />
+export default {
+  title: '@ui/box',
+};
 
-# Boxes
-
-## Article box
-
-Renders an `article` element with the default box wrapper. Example with body typography.
-
-<Canvas>
-  <Story name="Article box">
+export const ArticleBox = {
+  render: () => (
     <Article>
       <Paragraph>
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -26,15 +21,13 @@ Renders an `article` element with the default box wrapper. Example with body typ
         of Lorem Ipsum.
       </Paragraph>
     </Article>
-  </Story>
-</Canvas>
+  ),
 
-## Main box
+  name: 'Article box',
+};
 
-Renders a `main` element with the default box wrapper. Example with body typography.
-
-<Canvas>
-  <Story name="Main box">
+export const MainBox = {
+  render: () => (
     <Main>
       <Paragraph>
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -48,5 +41,7 @@ Renders a `main` element with the default box wrapper. Example with body typogra
         of Lorem Ipsum.
       </Paragraph>
     </Main>
-  </Story>
-</Canvas>
+  ),
+
+  name: 'Main box',
+};

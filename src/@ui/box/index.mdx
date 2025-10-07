@@ -1,0 +1,25 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Paragraph } from '@ui/typography';
+import { Article } from './Article';
+import { Main } from './Main';
+import * as IndexStories from './index.stories';
+
+<Meta of={IndexStories} />
+
+# Boxes
+
+## Article box
+
+Renders an `article` element with the default box wrapper. Example with body typography.
+
+<Canvas>
+  <Story of={IndexStories.ArticleBox} />
+</Canvas>
+
+## Main box
+
+Renders a `main` element with the default box wrapper. Example with body typography.
+
+<Canvas>
+  <Story of={IndexStories.MainBox} />
+</Canvas>
