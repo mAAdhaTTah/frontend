@@ -14,6 +14,7 @@ import {
 } from 'spectacle';
 import { DarkTheme } from '../../themes';
 import { ThankYou } from '../../slides';
+import blockchainImg from './blockchain.jpg';
 
 const Prezi = () => (
   <Deck transitionDuration={500} theme={DarkTheme} transition={['slide']}>
@@ -74,12 +75,10 @@ const Prezi = () => (
         </ListItem>
       </List>
     </Slide>
-    <Slide>
-      <Image src={require('./blockchain-build.png')} />
-    </Slide>
+    <Slide>{/* <Image src={require('./blockchain-build.png')} /> */}</Slide>
     <Slide>
       <List>
-        <Image width={960} height={536} src={require('./network.gif')} />
+        {/* <Image width={960} height={536} src={require('./network.gif')} /> */}
       </List>
     </Slide>
     <Slide>
@@ -163,9 +162,7 @@ const Prezi = () => (
     <Slide>
       <Heading size={3}>So where does bitcoin come from?</Heading>
     </Slide>
-    <Slide>
-      <Image src={require('./miners.jpg')} />
-    </Slide>
+    <Slide>{/* <Image src={require('./miners.jpg')} /> */}</Slide>
     <Slide>
       <List>
         <ListItem>
@@ -188,7 +185,7 @@ const Prezi = () => (
       </Heading>
     </Slide>
     <Slide>
-      <Image src={require('./blockchain.jpg')} />
+      <Image src={blockchainImg} />
     </Slide>
     <Slide>
       <Text>
