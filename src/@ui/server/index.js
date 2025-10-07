@@ -65,7 +65,7 @@ export const ServerImage = async ({
       alt={altText ?? ''}
       src={src}
       blurDataURL={base64}
-      placeholder={base64 ? 'blur-sm' : 'empty'}
+      placeholder={base64 ? 'blur' : 'empty'}
       className={className}
       priority={priority}
     />

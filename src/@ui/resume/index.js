@@ -278,7 +278,7 @@ export const Resume = ({
         <p className="text-sm font-ovo">{description}</p>
       </div>
       <div className="mx-auto px-4 print:mx-2 flex max-w-2xl flex-col xl:flex-row pb-2">
-        <div className="grow basis-100">
+        <div className="grow basis-full">
           <Experience experiences={experiences} />
         </div>
         <div className="shrink lg:mx-3">

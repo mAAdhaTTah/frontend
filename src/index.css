@@ -35,10 +35,6 @@
   }
 }
 
-@utility basis-100 {
-  flex-basis: 100%;
-}
-
 @utility pin-y-50 {
   top: 50%;
 }
