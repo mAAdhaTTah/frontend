@@ -8,7 +8,11 @@ const getTalkArchivePaths = () =>
     },
   }));
 
-const TalkSingle = async ({ params: { slug } }) => {
+const TalkSingle = async props => {
+  const params = await props.params;
+
+  const { slug } = params;
+
   const Component = (() => {
     const keys = Object.keys(Prezis);
     const paramCaseKeys = keys.map(key => paramCase(key));
@@ -22,7 +26,8 @@ const TalkSingle = async ({ params: { slug } }) => {
 /**
  * @returns {Promise<import('next').Metadata>}
  */
-export const generateMetadata = async ({ params: { slug } }) => {
+export const generateMetadata = async props => {
+  const { sluge } = await props.params;
   const keys = Object.keys(Prezis);
   const paramCaseKeys = keys.map(key => paramCase(key));
   const idx = paramCaseKeys.indexOf(paramCase(slug));

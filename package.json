@@ -8,7 +8,7 @@
     "@react-aria/focus": "^3.17.0",
     "@react-aria/visually-hidden": "^3.8.17",
     "@tailwindcss/postcss": "^4.1.14",
-    "@types/react": "^18.3.12",
+    "@types/react": "19.2.1",
     "@vercel/analytics": "^1.3.2",
     "@vercel/speed-insights": "^1.0.14",
     "axios": "^1.7.7",
@@ -16,15 +16,15 @@
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "feed": "^4.2.2",
-    "next": "^14.2.17",
+    "next": "15.5.4",
     "next-mdx-remote": "^5.0.0",
     "next-view-transitions": "^0.3.2",
     "param-case": "^4.0.0",
     "plaiceholder": "^3.0.0",
     "prism-react-renderer": "^1.3.5",
     "prop-types": "^15.8.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.0.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "react-error-boundary": "^6.0.0",
     "react-icons": "^5.2.1",
     "react-transition-group": "^4.4.5",
@@ -42,7 +42,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.0.1",
+    "@next/eslint-plugin-next": "15.5.4",
     "@plaiceholder/next": "^3.0.0",
     "@storybook/addon-actions": "^7.6.20",
     "@storybook/addon-docs": "^7.6.20",
@@ -76,7 +76,7 @@
   },
   "scripts": {
     "start": "next start",
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "dev:storybook": "storybook dev -p 6006",
     "build": "next build",
     "build:storybook": "storybook build",
@@ -95,6 +95,7 @@
     },
     "react-live": {
       "prismjs": "1.29.0"
-    }
+    },
+    "@types/react": "19.2.1"
   }
 }

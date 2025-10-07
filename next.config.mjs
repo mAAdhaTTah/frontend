@@ -40,6 +40,14 @@ const config = {
     });
     return config;
   },
+  turbopack: {
+    rules: {
+      '*.md': {
+        loaders: ['raw-loader'],
+        as: '*.js',
+      },
+    },
+  },
 };
 
 export default withPlaiceholder(config);
