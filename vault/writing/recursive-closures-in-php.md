@@ -8,7 +8,7 @@ slug: writing/recursive-closures-in-php
 published_at: 2015-10-26T21:37:38.000Z
 updated_at: 2015-10-26T21:37:38.000Z
 excerpt: I don’t know how often this comes up, but I recently needed to create a one-off recursive function. Here’s how I did it in PHP. In this case, I had a set of items that were both nested and could be disabled at any level. So you could have a 3 widgets, all of a \[…]
-featuredMedia: "[Recursion](/vault/_data/recursion.md)"
+featuredMedia:
 share: true
 ---
 
@@ -43,17 +43,18 @@ Another option is to use a closure. In JavaScript, it's pretty easy to write one
 var widgets = [...arrayOfWidgets];
 
 var remove = function (widgetId) {
-  widgets[widgetId].getChildWidgetIds().forEach(function (childWidgetId) {
-    // `remove` is defined and accessible
-    // at the time this is called
-    remove(widgets[childWidgetId]);
-  });
+widgets[widgetId].getChildWidgetIds().forEach(function (childWidgetId) {
+// `remove` is defined and accessible
+// at the time this is called
+remove(widgets[childWidgetId]);
+});
 
-  delete widgets[$pageId];
+delete widgets[$pageId];
 };
 
 remove(widgets[pageId]);
-```
+
+````
 </InternalEmbed>
 
 But we can't do this as directly in PHP, because we don't have closure scoping, and its closest equivalent, the `use` statement will throw an error if the variable hasn't been defined when it's made available to the closure at runtime. In order to get around this, we need to pass the name of the variable _by reference_:
@@ -71,7 +72,8 @@ $remove = function($widgetId) use (&$widgets, &$remove) {
 };
 
 $remove($widgets[widgetId]);
-```
+````
+
 </InternalEmbed>
 
 This makes the `$remove` variable function kind of like JavaScript's closure scoping. At the time the closure is defined, the reference is to the value of a variable that doesn't exist yet. When the closure is executed, the reference will be the closure assigned to that variable.[^2] You're using the same variable within the closure as outside. This way, the closure can use and call itself recursively, until it's done what it needs to do.
