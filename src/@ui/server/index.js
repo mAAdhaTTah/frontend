@@ -24,7 +24,9 @@ const TweetPage = async ({ id }) => {
 };
 
 const getImageInfo = cache(async src => {
-  const res = await fetch(src);
+  const res = await fetch(src, {
+    signal: AbortSignal.timeout(60 * 1000), // <=== HERE
+  });
   const buffer = Buffer.from(await res.arrayBuffer());
   const {
     base64,
