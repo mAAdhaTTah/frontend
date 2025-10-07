@@ -37,10 +37,6 @@ body {
 
 @layer utilities {
   @for $i from 1 to 6 {
-    .pin-b-$i {
-      bottom: $i * 1em * theme('line-height.tight');
-    }
-
     .basis-$i {
       flex-basis: 1em * 10 * $i;
     }
