@@ -281,7 +281,7 @@ export const Resume = ({
         <div className="grow basis-100">
           <Experience experiences={experiences} />
         </div>
-        <div className="flex-shrink lg:mx-3">
+        <div className="shrink lg:mx-3">
           <Sidebar
             projects={projects}
             talks={talks}
