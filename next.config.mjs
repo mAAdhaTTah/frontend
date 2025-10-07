@@ -31,6 +31,14 @@ const config = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  turbopack: {
+    rules: {
+      '*.md': {
+        loaders: ['raw-loader'],
+        as: '*.js',
+      },
+    },
+  },
 };
 
 export default withPlaiceholder(config);
