@@ -5,6 +5,7 @@
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
     "@extractus/oembed-extractor": "^4.0.9",
+    "@marp-team/marp-core": "^4.1.0",
     "@react-aria/focus": "^3.21.2",
     "@react-aria/visually-hidden": "^3.8.17",
     "@tailwindcss/postcss": "^4.1.14",
@@ -36,6 +37,7 @@
     "sitemap": "^8.0.0",
     "smartypants": "^0.2.2",
     "spectacle": "^4.0.5",
+    "swiper": "^12.0.2",
     "tailwindcss": "^4.1.14",
     "tailwindcss-view-transitions": "^0.1.1",
     "typeit": "^8.8.7",

@@ -6,6 +6,7 @@
  * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
  */
 @import 'tailwindcss';
+@import 'swiper/css/bundle';
 
 /**
  * This injects any component classes registered by plugins.

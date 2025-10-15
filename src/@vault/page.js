@@ -7,7 +7,9 @@ import { extract } from '@extractus/oembed-extractor';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Ul, Li } from '@ui/atoms';
+import { Marp } from '@marp-team/marp-core';
 import { EmbedError } from './EmbedFallback';
+import { MarpSlides } from './Marp';
 
 const Embed = async ({ url }) => {
   // Throwing the error breaks static rendering so we're going to try/catch instead
@@ -25,7 +27,8 @@ const Embed = async ({ url }) => {
   }
 };
 
-/** @type {import('react').FC<{
+/**
+ * @type {import('react').FC<{
  *  link: import('./server').PageFMSchema['link'];
  * }>
  */
@@ -117,27 +120,53 @@ const GalleryFooter = ({ gallery }) => {
   );
 };
 
-/** @type {import('react').FC<{
- *  content: import('react').ReactNode;
- *  frontmatter: import('./server').PageFMSchema}>
- * }
+/**
+ * @type {import('react').FC<{
+ *  source: string;
+ * }>}
  */
-export const VaultPage = async ({ content, frontmatter }) => {
+const Talk = ({ source }) => {
+  const marp = new Marp({
+    container: false,
+    script: false,
+    printable: false,
+  });
+  const { html, css } = marp?.render(source, { htmlAsArray: true });
+
+  return <MarpSlides rendered={{ html, css }} />;
+};
+
+/**
+ * @type {import('react').FC<{
+ *  content: import('react').ReactNode;
+ *  frontmatter: import('./server').PageFMSchema;
+ *  source: string;
+ * }>}
+ */
+export const VaultPage = async ({ content, frontmatter, source }) => {
   return (
-    <Main>
-      {frontmatter.essay ? (
-        <EssayHeader
-          featuredMedia={frontmatter.essay?.featuredMedia}
-          frontmatter={frontmatter}
-          {...dateDateTimeDisplay(frontmatter.web.published_at)}
-        />
-      ) : null}
-      {frontmatter.link ? <LinkHeader link={frontmatter.link} /> : null}
-      {content}
-      {frontmatter.gallery ? (
-        <GalleryFooter gallery={frontmatter.gallery} />
-      ) : null}
-      {frontmatter.link ? <LinkFooter link={frontmatter.link} /> : null}
-    </Main>
+    <>
+      {frontmatter.talk ? (
+        <main className="h-screen bg-white">
+          <Talk source={source} />
+        </main>
+      ) : (
+        <Main>
+          {frontmatter.essay ? (
+            <EssayHeader
+              featuredMedia={frontmatter.essay?.featuredMedia}
+              frontmatter={frontmatter}
+              {...dateDateTimeDisplay(frontmatter.web.published_at)}
+            />
+          ) : null}
+          {frontmatter.link ? <LinkHeader link={frontmatter.link} /> : null}
+          {content}
+          {frontmatter.gallery ? (
+            <GalleryFooter gallery={frontmatter.gallery} />
+          ) : null}
+          {frontmatter.link ? <LinkFooter link={frontmatter.link} /> : null}
+        </Main>
+      )}
+    </>
   );
 };
