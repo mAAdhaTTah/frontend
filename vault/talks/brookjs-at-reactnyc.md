@@ -10,6 +10,8 @@ updated_at: 2017-07-02T17:43:22.000Z
 share: true
 ---
 
+--- { "layout": "center" }
+
 # Meet `brookjs`
 
 A framework for building streaming web applications.
@@ -23,7 +25,11 @@ Enterprise ecommerce system (Java & .NET)
 Developer of brookjs framework
 Maintainer of kefir & prism.js
 
----
+--- { "layout": "center" }
+
+## React + Cyclejs
+
+--- { "layout": "center" }
 
 ## Agenda
 
@@ -33,11 +39,11 @@ Maintainer of kefir & prism.js
   - streams/observables
 - Meet `brookjs`
 
----
+--- { "layout": "center" }
 
 ## Let's talk about React
 
----
+--- { "layout": "center" }
 
 ### I love declarative views!
 
@@ -59,12 +65,12 @@ and functions are awesome.
 Pure functions are testable
 
 ```jsx
-import { pureFunction } from "../";
+import { pureFunction } from '../';
 
-describe("pure function", () => {
-  it("should just use its arguments", () => {
-    expect(pureFunction("arg1", "arg2")).to.deep.equal({
-      my: "value",
+describe('pure function', () => {
+  it('should just use its arguments', () => {
+    expect(pureFunction('arg1', 'arg2')).to.deep.equal({
+      my: 'value',
     });
   });
 });
@@ -78,7 +84,7 @@ Works for views too.
 
 Want to reduce bugs? Prevent regressions? Test your code!
 
----
+--- { "layout": "center" }
 
 ### Thinking in React means thinking declaratively and functionally
 
@@ -196,8 +202,8 @@ building blocks of functional programming
 ```js
 const numbers = [1, 2, 3];
 
-console.log(numbers.map((x) => x * x)); // [1, 4, 9]
-console.log(numbers.filter((x) => x > 1)); // [2, 3]
+console.log(numbers.map(x => x * x)); // [1, 4, 9]
+console.log(numbers.filter(x => x > 1)); // [2, 3]
 console.log(numbers.reduce((total, next) => total + next)); // 6
 
 console.log(numbers); // [1, 2, 3]
@@ -207,7 +213,7 @@ New array is returned from each call
 
 -- Immutable! Pure!
 
----
+--- { "layout": "center" }
 
 ## Redux & Unidirectional Data
 
@@ -220,7 +226,7 @@ No surprises!
 ```js
 function reducer(state = 0, action) {
   switch (action.type) {
-    case "CLICK":
+    case 'CLICK':
       return state + 1;
     default:
       return state;
@@ -230,17 +236,17 @@ function reducer(state = 0, action) {
 
 Pure function and testable!
 
----
+--- { "layout": "center" }
 
 ## Cycle.js
 
----
+--- { "layout": "center" }
 
 ### Streams/Observables
 
 functional reactive programming (frp)
 
----
+--- { "layout": "center" }
 
 ### What are Observables?
 
@@ -255,25 +261,23 @@ functional reactive programming (frp)
 Standard event listener:
 
 ```js
-const input = document.querySelector("input");
+const input = document.querySelector('input');
 
-input.addEventListener("input", (e) =>
-  console.log("Updated value", input.value),
-);
+input.addEventListener('input', e => console.log('Updated value', input.value));
 ```
 
 Observable:
 
 ```js
-const events$ = Observable.fromEvent(document.querySelector("input"), "input");
+const events$ = Observable.fromEvent(document.querySelector('input'), 'input');
 
-events$.subscribe((e) => console.log("Updated value", input.value));
+events$.subscribe(e => console.log('Updated value', input.value));
 ```
 
 - Looks basically the same, right?
 - What"s so special about that?
 
----
+--- { "layout": "center" }
 
 ### Arrays of Events
 
@@ -285,23 +289,23 @@ when you unsubscribe, event listener is removed
 - Convert inputs into data
 - Self-cleaning
 
----
+--- { "layout": "center" }
 
 ```js
-const values$ = events$.map((e) => e.target.value);
-values$.subscribe((value) => console.log("Updated value", value));
+const values$ = events$.map(e => e.target.value);
+values$.subscribe(value => console.log('Updated value', value));
 
-const long$ = values$.filter((value) => value.length > 10);
-long$.subscribe((value) => console.log(`${value} is long enough`));
+const long$ = values$.filter(value => value.length > 10);
+long$.subscribe(value => console.log(`${value} is long enough`));
 
-const short$ = values$.filter((value) => value.length <= 10);
-short$.subscribe((value) => console.log(`${value} is too short`));
+const short$ = values$.filter(value => value.length <= 10);
+short$.subscribe(value => console.log(`${value} is too short`));
 
-const reduce$ = events$.scan((acc, e) => acc + e.target.value, "");
-reduce$.subscribe((value) => console.log(value));
+const reduce$ = events$.scan((acc, e) => acc + e.target.value, '');
+reduce$.subscribe(value => console.log(value));
 ```
 
----
+--- { "layout": "center" }
 
 Observables simplify dealing with events over time
 
@@ -313,14 +317,14 @@ Cycle.js is a pure function
 
 ```js
 function main(sources) {
-  const input$ = sources.DOM.select(".field").events("input");
-  const name$ = input$.map((ev) => ev.target.value).startWith("");
-  const vdom$ = name$.map((name) =>
+  const input$ = sources.DOM.select('.field').events('input');
+  const name$ = input$.map(ev => ev.target.value).startWith('');
+  const vdom$ = name$.map(name =>
     div([
-      label("Name:"),
-      input(".field", { attrs: { type: "text" } }),
+      label('Name:'),
+      input('.field', { attrs: { type: 'text' } }),
       hr(),
-      h1("Hello " + name),
+      h1('Hello ' + name),
     ]),
   );
 
@@ -328,7 +332,7 @@ function main(sources) {
 }
 ```
 
----
+--- { "layout": "center" }
 
 Observables are passed to `main`
 
@@ -338,11 +342,11 @@ Observables wrap side effects
 
 _Observables all the way down_
 
----
+--- { "layout": "center" }
 
 ## Drumroll Please
 
----
+--- { "layout": "center" }
 
 ```js
 export default function MyComponent(el, props$) {
@@ -364,13 +368,13 @@ export default component({
   children: children({
     button: {
       factory: ButtonComponent,
-      preplug: (instance$) => instance$.map(() => ({ type: "FORM_CLICK" })),
+      preplug: instance$ => instance$.map(() => ({ type: 'FORM_CLICK' })),
     },
   }),
   events: events({
-    onInput: (event$) =>
-      event$.map((event) => ({
-        type: "FORM_TEXT_CHANGE",
+    onInput: event$ =>
+      event$.map(event => ({
+        type: 'FORM_TEXT_CHANGE',
         payload: { value: event.target.value },
       })),
   }),
@@ -378,7 +382,7 @@ export default component({
 });
 ```
 
----
+--- { "layout": "center" }
 
 Templates are defined with handlebars:
 
@@ -389,29 +393,29 @@ Templates are defined with handlebars:
 </div>
 ```
 
----
+--- { "layout": "center" }
 
 How do we handle side effects, e.g. APIs, localStorage, cookies, etc.?
 
 _Observables all the way down._
 
----
+--- { "layout": "center" }
 
-#### Example Delta
+### Example Delta
 
 ```js
-import { ofType, Kefir } from "brookjs";
-import { SAVE_BUTTON_CLICK } from "../actions";
-import { api } from "../services";
+import { ofType, Kefir } from 'brookjs';
+import { SAVE_BUTTON_CLICK } from '../actions';
+import { api } from '../services';
 
 export default function apiDelta(actions$, state$) {
   return state$
     .sampledBy(actions$.thru(ofType(SAVE_BUTTON_CLICK)))
-    .flatMapLatest((state) =>
+    .flatMapLatest(state =>
       api
         .saveUser(state.user)
         .map(saveUserSuccess)
-        .flatMapErrors((err) => Kefir.constant(saveUserFail(err))),
+        .flatMapErrors(err => Kefir.constant(saveUserFail(err))),
     );
 }
 ```
@@ -420,7 +424,7 @@ export default function apiDelta(actions$, state$) {
 - Error handling
 - Testable?
 
----
+--- { "layout": "center" }
 
 Deltas can be tested if you mock the services
 
@@ -441,8 +445,8 @@ export default ({ api }) => (actions$, state$) =>
 Use `chai-kefir` to test the resulting Observable
 
 ```js
-describe("apiDelta", () => {
-  it("should save user", () => {
+describe('apiDelta', () => {
+  it('should save user', () => {
     const services = {
       api: { saveUser: sinon.spy(() => Kefir.constant(response)) },
     };
@@ -460,17 +464,17 @@ describe("apiDelta", () => {
 });
 ```
 
----
+--- { "layout": "center" }
 
 ```js
-import { createStore, combineReducers } from "redux";
-import { domDelta } from "brookjs";
-import { init } from "./actions";
-import { userDelta } from "./delta";
-import { el, view } from "./dom";
-import { user } from "./reducer";
-import { selectProps } from "./selector";
-import { api } from "./service";
+import { createStore, combineReducers } from 'redux';
+import { domDelta } from 'brookjs';
+import { init } from './actions';
+import { userDelta } from './delta';
+import { el, view } from './dom';
+import { user } from './reducer';
+import { selectProps } from './selector';
+import { api } from './service';
 
 const { __INITIAL_STATE__ } = global;
 
@@ -483,13 +487,13 @@ const store = createStore(
 store.dispatch(init());
 ```
 
----
+--- { "layout": "center" }
 
 ### Application Architecture
 
 [Application Architecture](/vault/_meta/attachments/architecture.png)
 
----
+--- { "layout": "center" }
 
 ### Current Status
 
@@ -497,7 +501,7 @@ store.dispatch(init());
 - Complete documentation
 - Full architecture
 
----
+--- { "layout": "center" }
 
 ### Future Features
 
@@ -517,7 +521,7 @@ Let me know your experience with it!
 [On GitHub: https://github.com/valtech-nyc/brookjs](https://github.com/valtech-nyc/brookjs)
 [Documentation: https://valtech-nyc.github.io/brookjs/](https://valtech-nyc.github.io/brookjs/)
 
----
+--- { "layout": "center" }
 
 # Thank You
 
