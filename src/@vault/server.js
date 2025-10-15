@@ -338,6 +338,7 @@ const PageFMSchema = z.object({
     })
     .optional(),
   resume: z.any().optional(),
+  talk: z.any().optional(),
 });
 
 const CWD = process.cwd();
@@ -449,6 +450,7 @@ export const getAllVaultPages = async () => {
     const page = {
       frontmatter: await parseFrontmatter(frontmatter, mdFilePath),
       content,
+      source,
     };
     pages.push((bySlug[page.frontmatter.web.slug] = page));
   }
@@ -469,6 +471,7 @@ export const getPageProps = async (/** @type {string} */ slug) => {
   const page = {
     frontmatter: await parseFrontmatter(frontmatter, source.mdFilePath),
     content,
+    source: source.source,
   };
   return page;
 };
