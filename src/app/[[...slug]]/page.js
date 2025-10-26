@@ -2,10 +2,12 @@ import { VaultPage } from '@vault/page';
 import { getPagePaths, getPageProps } from '@vault/server';
 
 const RootPage = async ({ params }) => {
-  const { content, frontmatter } = await getPageProps(
+  const { content, frontmatter, source } = await getPageProps(
     params.slug?.join('/') ?? '',
   );
-  return <VaultPage content={content} frontmatter={frontmatter} />;
+  return (
+    <VaultPage content={content} frontmatter={frontmatter} source={source} />
+  );
 };
 
 /**
