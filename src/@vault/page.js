@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Ul, Li } from '@ui/atoms';
 import { Marp } from '@marp-team/marp-core';
+import { unstable_noStore } from 'next/cache';
 import { EmbedError } from './EmbedFallback';
 import { MarpSlides } from './Marp';
 
@@ -125,13 +126,15 @@ const GalleryFooter = ({ gallery }) => {
  *  source: string;
  * }>}
  */
-const Talk = ({ source }) => {
+const Talk = async ({ source }) => {
+  unstable_noStore();
+
   const marp = new Marp({
     container: false,
     script: false,
     printable: false,
   });
-  const { html, css } = marp?.render(source, { htmlAsArray: true });
+  const { html, css } = marp.render(source, { htmlAsArray: true });
 
   return <MarpSlides rendered={{ html, css }} />;
 };
@@ -147,8 +150,10 @@ export const VaultPage = async ({ content, frontmatter, source }) => {
   return (
     <>
       {frontmatter.talk ? (
-        <main className="h-screen bg-white">
-          <Talk source={source} />
+        <main className="h-screen w-screen bg-white">
+          <Suspense>
+            <Talk source={source} />
+          </Suspense>
         </main>
       ) : (
         <Main>
