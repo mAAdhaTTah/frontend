@@ -7,3 +7,4 @@ export { default as Snippet } from './Snippet';
 export { default as Pagination } from './Pagination';
 export { default as Gistpen } from './Gistpen';
 export { Embed } from './Embed';
+export { TalksArchive } from './TalksArchive';

@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import remarkGfm from 'remark-gfm';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Ol, Ul, Li, Blockquote } from '@ui/atoms';
-import { Snippet } from '@ui/components';
+import { Snippet, TalksArchive } from '@ui/components';
 import { Code, Heading, Link, Paragraph } from '@ui/typography';
 import { smartypants } from 'smartypants';
 import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
@@ -224,6 +224,25 @@ const compile = (/** @type {string} */ source) =>
           }
           return output;
         }, []);
+      },
+      TalksServerArchive: async () => {
+        const { pages } = await getAllVaultPages();
+
+        const talks = pages
+          .filter(page => page.frontmatter.talk)
+          .map(
+            ({
+              frontmatter: {
+                web: { title, description, slug },
+              },
+            }) => ({
+              title,
+              description,
+              slug,
+            }),
+          );
+
+        return <TalksArchive talks={talks} />;
       },
     },
   });

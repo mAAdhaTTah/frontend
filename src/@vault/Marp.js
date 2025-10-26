@@ -2,13 +2,9 @@
 import cc from 'classcat';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import marpBrowser from '@marp-team/marp-core/browser';
 
-const MarpSlide = ({
-  border = true,
-  className,
-  rendered: { css, html },
-  page = 1,
-}) => {
+const MarpSlide = ({ rendered: { css, html }, page = 1 }) => {
   const element = useRef(null);
 
   useEffect(() => {
@@ -23,16 +19,10 @@ const MarpSlide = ({
       html[page - 1] +
       `<style>${css}</style><style>:host{all:initial;}:host>[data-marpit-svg]{vertical-align:top;}</style>`;
 
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    return require('@marp-team/marp-core/browser').browser(root);
+    return marpBrowser(root);
   }, [css, html, page]);
 
-  return (
-    <div
-      className={cc([border && 'border shadow-lg', className])}
-      ref={element}
-    ></div>
-  );
+  return <div ref={element}></div>;
 };
 
 export const MarpSlides = ({ rendered: { css, html } }) => {
@@ -40,16 +30,16 @@ export const MarpSlides = ({ rendered: { css, html } }) => {
   const swiper = useRef();
   const multiple = html.length > 1;
 
-  const handleActiveIndexChange = useCallback(instance => {
+  const onActiveIndexChange = useCallback(instance => {
     setActivePageIdx(instance.activeIndex);
   }, []);
 
-  const handleSwiper = useCallback(
+  const onSwiper = useCallback(
     instance => {
       swiper.current = instance;
-      handleActiveIndexChange(instance);
+      onActiveIndexChange(instance);
     },
-    [handleActiveIndexChange],
+    [onActiveIndexChange],
   );
 
   return (
@@ -74,8 +64,8 @@ export const MarpSlides = ({ rendered: { css, html } }) => {
         enabled={multiple}
         allowTouchMove={multiple}
         speed={200}
-        onActiveIndexChange={handleActiveIndexChange}
-        onSwiper={handleSwiper}
+        onActiveIndexChange={onActiveIndexChange}
+        onSwiper={onSwiper}
         className="h-full"
       >
         {html.map((h, i) => (
@@ -84,7 +74,7 @@ export const MarpSlides = ({ rendered: { css, html } }) => {
               inert={activePageIdx !== i}
               className="h-full flex flex-col justify-center"
             >
-              <MarpSlide border={false} rendered={{ html, css }} page={i + 1} />
+              <MarpSlide rendered={{ html, css }} page={i + 1} />
             </div>
           </SwiperSlide>
         ))}
