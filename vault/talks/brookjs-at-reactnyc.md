@@ -389,7 +389,7 @@ store.dispatch(init());
 
 Application architecture
 
-![architecture.png](/_meta/attachments/architecture.png)
+![architecture.png](/_attachments/architecture.png)
 
 ---
 
