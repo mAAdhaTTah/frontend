@@ -15,16 +15,4 @@ share: true
 
 # Processing my inbox
 
-I have imported a lot of content into my Obsidian vault, so I need to plan how to nurture the core of vault while integrating the new content.
-
-## Updated: 2024-10-28
-
-I've started integrating
-
-## Updated: 2024-08-04
-
-Interactions are fully processed and I've got a process for beginning to integrate my reference notes.
-
-## Initial
-
-Right now, I'm primarily processing my inbox. The first thing I'm working on is old interactions and people, because having the people in circles is extremely useful. I'm also starting to flesh out and bring my notes together, but I really need to figure out how I'm going to start processing my reading because that's a more time-consuming
+I imported a lot of content into my Obsidian vault, so I needed a plan on how to nurture the core of vault while integrating the new content. One idea that I've adopted from [How to Process Notes in Obsidian with the Readwise Official Obsidian Plugin](/vault/writing/how-to-process-notes-in-obsidian-readwise-official-obsidian-plugin.md) is the split between [Notes that digest a reference note](/vault/writing/notes-that-digest-a-reference-note.md) (interpretation notes) and Notes on media & learning materials. 

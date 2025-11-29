@@ -39,7 +39,7 @@ The other others are more difficult. Metadata Menu also provides the field defin
 
 - Temporary notes to keep fleeting thoughts
 - Notes on media & learning materials
-- Notes that digest a Reference Notes
+- [Notes that digest a reference note](/vault/writing/notes-that-digest-a-reference-note.md)
 - [Notes that document a concept or particular idea](/vault/writing/notes-that-document-a-concept-or-particular-idea.md)
 - Entrypoint notes into broader concepts or areas
 - Notes containing a review of a poker hand
