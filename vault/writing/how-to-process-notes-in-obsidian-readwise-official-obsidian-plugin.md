@@ -8,7 +8,7 @@ authors:
 summary: This video tutorial discusses how to process notes in Obsidian using the Readwise Official Obsidian plugin. The presenter explains that Readwise acts as a middle layer between the raw information and the distilled learnings in Obsidian. By using Readwise, users can sync their highlights and notes from various sources such as books, articles, tweets, and PDFs into their Obsidian vault. The video walks through the process of installing the Readwise plugin, connecting it to a Readwise account, and configuring the settings for importing and organizing the highlights in the Obsidian vault. The presenter also demonstrates how Readwise can be used to save and sync highlights from Kindle books and tweets, and how to further process and analyze the collected notes in Obsidian.
 url: https://www.youtube.com/watch?v=Rw1L5sxlnuU
 image: https://i.ytimg.com/vi/Rw1L5sxlnuU/hqdefault.jpg
-interpretations:
+interpretations: []
 parent: "[Processing my inbox](/vault/writing/processing-my-inbox.md)"
 slug: writing/how-to-process-notes-in-obsidian-readwise-official-obsidian-plugin
 description:
