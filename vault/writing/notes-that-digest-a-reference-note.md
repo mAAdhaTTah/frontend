@@ -2,7 +2,7 @@
 tags:
   - concept
   - web
-parent: "[[Design & Maintenance of my Second Brain]]"
+parent: "[Design & Maintenance of my Second Brain](/vault/writing/design-maintenance-of-my-second-brain.md)"
 previous:
 next:
 slug: writing/notes-that-digest-a-reference-note
