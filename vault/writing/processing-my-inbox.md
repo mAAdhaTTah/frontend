@@ -2,7 +2,7 @@
 tags:
   - concept
   - web
-parent: "[[Second Brain]]"
+parent: "[Second Brain](/vault/writing/second-brain.md)"
 previous:
 next:
 slug: writing/processing-my-inbox

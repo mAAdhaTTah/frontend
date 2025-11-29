@@ -3,7 +3,7 @@ tags:
   - concept
   - web
 name: Reflection as a practice
-parent: "[[Second Brain]]"
+parent: "[Second Brain](/vault/writing/second-brain.md)"
 previous:
 next:
 slug: writing/reflection-as-a-practice

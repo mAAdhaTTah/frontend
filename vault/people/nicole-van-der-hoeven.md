@@ -5,7 +5,7 @@ tags:
 first_name: Nicole
 last_name: van der Hoeven
 circles:
-  - "[Authors](Authors.md)"
+  - "[Authors](/vault/circles/authors.md)"
 slug: people/nicole-van-der-hoeven
 title: Nicole van der Hoeven
 description:
