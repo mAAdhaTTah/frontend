@@ -16,6 +16,7 @@ const config = {
       'static.jamesdigioia.com',
       'www.poynter.org',
       '4.bp.blogspot.com',
+      'i.ytimg.com',
     ],
   },
   trailingSlash: true,
