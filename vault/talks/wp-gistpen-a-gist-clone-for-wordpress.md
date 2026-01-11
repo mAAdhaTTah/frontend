@@ -62,8 +62,6 @@ and sync those code snippets with GitHub's Gist
 
 TODO IMAGE
 
-<!-- ![Commit Pulse](src/@talks/prezis/wp-gistpen-a-gist-clone-for-wordpress/commit-pulse.png) -->
-
 ---
 
 ### Facebook et al collect an **immense** amount of data
@@ -109,8 +107,6 @@ and sync those code snippets with GitHub's Gist
 
 TODO IMAGE
 
-<!-- ![Export Screen](src/@talks/prezis/wp-gistpen-a-gist-clone-for-wordpress/export-screen.png) -->
-
 ---
 
 ### Syncs with Gist
@@ -118,8 +114,6 @@ TODO IMAGE
 ---
 
 TODO IMAGE
-
-<!-- ![Token Screen](src/@talks/prezis/wp-gistpen-a-gist-clone-for-wordpress/token-screen.png) -->
 
 ---
 
@@ -129,8 +123,6 @@ TODO IMAGE
 
 TODO IMAGE
 
-<!-- ![Web Display](src/@talks/prezis/wp-gistpen-a-gist-clone-for-wordpress/web-display.png) -->
-
 ---
 
 ## Custom Editor
@@ -138,8 +130,6 @@ TODO IMAGE
 ---
 
 TODO IMAGE
-
-<!-- ![Editor Screen](src/@talks/prezis/wp-gistpen-a-gist-clone-for-wordpress/editor-screen.png) -->
 
 ---
 

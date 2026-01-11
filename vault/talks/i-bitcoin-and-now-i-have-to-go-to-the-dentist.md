@@ -52,13 +52,9 @@ Daryl - ~$850 in bitcoin currently
 
 TODO IMAGE
 
-<!-- ![Blockchain Building](src/@talks/prezis/i-bitcoin-and-now-i-have-to-go-to-the-dentist/blockchain-build.png) -->
-
 ---
 
 TODO IMAGE
-
-<!-- ![Network](src/@talks/prezis/i-bitcoin-and-now-i-have-to-go-to-the-dentist/network.gif) -->
 
 ---
 
@@ -115,8 +111,6 @@ The network validates the block, cryptographically linking it to the previous bl
 
 TODO IMAGE
 
-<!-- ![Miners](src/@talks/prezis/i-bitcoin-and-now-i-have-to-go-to-the-dentist/miners.jpg) -->
-
 ---
 
 - Miners are computers that compute the cryptographic link between blocks
@@ -130,8 +124,6 @@ TODO IMAGE
 ---
 
 TODO IMAGE
-
-<!-- ![Blockchain](src/@talks/prezis/i-bitcoin-and-now-i-have-to-go-to-the-dentist/blockchain.jpg) -->
 
 ---
 

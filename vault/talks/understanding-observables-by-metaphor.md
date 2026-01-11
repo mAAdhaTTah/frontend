@@ -204,8 +204,6 @@ position$.observe(pos => {
 
 TODO IMAGE
 
-<!-- ![Excel](src/@talks/prezis/understanding-observables-by-metaphor/excel.png) -->
-
 ---
 
 ## Cells are independent values
