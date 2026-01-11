@@ -489,7 +489,7 @@ store.dispatch(init());
 
 ### Application Architecture
 
-![Application Architecture](/vault/_attachments/architecture.png)
+[Application Architecture](/vault/_meta/attachments/architecture.png)
 
 ---
 
