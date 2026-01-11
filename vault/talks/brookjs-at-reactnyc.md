@@ -19,20 +19,9 @@ A framework for building streaming web applications.
 ## About Me
 
 James DiGioia, Front-End Tech Lead, Ollie Pets Inc.
-
 Enterprise ecommerce system (Java & .NET)
-
 Developer of brookjs framework
-
 Maintainer of kefir & prism.js
-
----
-
-## React
-
-## +
-
-## Cycle.js
 
 ---
 
@@ -46,15 +35,15 @@ Maintainer of kefir & prism.js
 
 ---
 
-## Let"s talk about React
+## Let's talk about React
 
 ---
 
-## I love declarative views!
+### I love declarative views!
 
 What do I want? vs. How do I get there?
 
-```js
+```jsx
 export default ({ handleOnClick, text }) => (
   <button className="button" onClick={handleOnClick}>
     {text}
@@ -63,14 +52,13 @@ export default ({ handleOnClick, text }) => (
 ```
 
 Views as pure functions,
-
 and functions are awesome.
 
 ---
 
-## Pure functions are testable
+Pure functions are testable
 
-```js
+```jsx
 import { pureFunction } from "../";
 
 describe("pure function", () => {
@@ -86,13 +74,13 @@ Works for views too.
 
 ---
 
-## Tests are the best!
+### Tests are the best!
 
 Want to reduce bugs? Prevent regressions? Test your code!
 
 ---
 
-## Thinking in React means thinking declaratively and functionally
+### Thinking in React means thinking declaratively and functionally
 
 ---
 
@@ -126,13 +114,13 @@ Note:
 
 ---
 
-## Coordinating events with callbacks requires state
+Coordinating events with callbacks requires state
 
 e.g. `isRunning`
 
 ---
 
-## We can start simple ...
+We can start simple ...
 
 ```js
 export default ({ props }) => (
@@ -142,7 +130,7 @@ export default ({ props }) => (
 
 ---
 
-## ... but now we have to thread the callback ...
+... but now we have to thread the callback ...
 
 ```js
 export default ({ props }) => (
@@ -159,7 +147,7 @@ export default ({ props }) => (
 
 ---
 
-## ... across a couple levels.
+... across a couple levels.
 
 ```js
 export default ({ props }) => (
@@ -174,7 +162,7 @@ export default ({ props }) => (
 
 ---
 
-## **Passing around callbacks is painful.**
+### Passing around callbacks is painful.
 
 - Manual
 - Tedious
@@ -187,7 +175,7 @@ Event emitters have the same problem - need to wire up each intermediate step
 
 ---
 
-## Immutable Data
+### Immutable Data
 
 ```js
 const admins = [luigi, mario, peach, toad];
@@ -202,15 +190,15 @@ Make a copy instead
 
 ---
 
-## Map, Filter, Reduce
+### Map, Filter, Reduce
 
 building blocks of functional programming
 
 ```js
 const numbers = [1, 2, 3];
 
-console.log(numbers.map(x => x * x)); // [1, 4, 9]
-console.log(numbers.filter(x => x > 1)); // [2, 3]
+console.log(numbers.map((x) => x * x)); // [1, 4, 9]
+console.log(numbers.filter((x) => x > 1)); // [2, 3]
 console.log(numbers.reduce((total, next) => total + next)); // 6
 
 console.log(numbers); // [1, 2, 3]
@@ -226,7 +214,7 @@ New array is returned from each call
 
 ---
 
-## Functional state changes make me happy
+Functional state changes make me happy
 
 No surprises!
 
@@ -247,17 +235,15 @@ Pure function and testable!
 
 ## Cycle.js
 
-![](https://camo.githubusercontent.com/e581baffb3db3e4f749350326af32de8d5ba4363/687474703a2f2f692e696d6775722e636f6d2f4149696d5138432e6a7067)
-
 ---
 
-## Streams/Observables
+### Streams/Observables
 
 functional reactive programming (frp)
 
 ---
 
-## What are Observables?
+### What are Observables?
 
 > The Observable object represents a push based collection.
 
@@ -265,14 +251,16 @@ functional reactive programming (frp)
 
 ---
 
-## Real-World Example: Stream of Events
+### Real-World Example: Stream of Events
 
 Standard event listener:
 
 ```js
 const input = document.querySelector("input");
 
-input.addEventListener("input", e => console.log("Updated value", input.value));
+input.addEventListener("input", (e) =>
+  console.log("Updated value", input.value),
+);
 ```
 
 Observable:
@@ -280,7 +268,7 @@ Observable:
 ```js
 const events$ = Observable.fromEvent(document.querySelector("input"), "input");
 
-events$.subscribe(e => console.log("Updated value", input.value));
+events$.subscribe((e) => console.log("Updated value", input.value));
 ```
 
 - Looks basically the same, right?
@@ -288,7 +276,7 @@ events$.subscribe(e => console.log("Updated value", input.value));
 
 ---
 
-## Arrays of Events
+### Arrays of Events
 
 "push-based" collection
 
@@ -316,13 +304,13 @@ reduce$.subscribe(value => console.log(value));
 
 ---
 
-## Observables simplify dealing with events over time
+Observables simplify dealing with events over time
 
 JavaScript is **all about** events over time
 
 ---
 
-## Cycle.js is a pure function
+Cycle.js is a pure function
 
 ```js
 function main(sources) {
@@ -343,7 +331,7 @@ function main(sources) {
 
 ---
 
-## Observables are passed to `main`
+Observables are passed to `main`
 
 Observables are returned from `main`
 
@@ -353,9 +341,7 @@ _Observables all the way down_
 
 ---
 
-## Drumroll
-
-## Please
+## Drumroll Please
 
 ---
 
@@ -375,19 +361,19 @@ At its core, this is the mental model for a `brookjs` component
 
 ---
 
-## Example Component
+### Example Component
 
 ```js
 export default component({
   children: children({
     button: {
       factory: ButtonComponent,
-      preplug: instance$ => instance$.map(() => ({ type: "FORM_CLICK" })),
+      preplug: (instance$) => instance$.map(() => ({ type: "FORM_CLICK" })),
     },
   }),
   events: events({
-    onInput: event$ =>
-      event$.map(event => ({
+    onInput: (event$) =>
+      event$.map((event) => ({
         type: "FORM_TEXT_CHANGE",
         payload: { value: event.target.value },
       })),
@@ -407,13 +393,13 @@ Templates are defined with handlebars:
 
 ---
 
-## How do we handle side effects, e.g. APIs, localStorage, cookies, etc.?
+How do we handle side effects, e.g. APIs, localStorage, cookies, etc.?
 
 _Observables all the way down._
 
 ---
 
-## Example Delta
+#### Example Delta
 
 ```js
 import { ofType, Kefir } from "brookjs";
@@ -423,11 +409,11 @@ import { api } from "../services";
 export default function apiDelta(actions$, state$) {
   return state$
     .sampledBy(actions$.thru(ofType(SAVE_BUTTON_CLICK)))
-    .flatMapLatest(state =>
+    .flatMapLatest((state) =>
       api
         .saveUser(state.user)
         .map(saveUserSuccess)
-        .flatMapErrors(err => Kefir.constant(saveUserFail(err))),
+        .flatMapErrors((err) => Kefir.constant(saveUserFail(err))),
     );
 }
 ```
@@ -503,7 +489,7 @@ store.dispatch(init());
 
 ### Application Architecture
 
-![Application Architecture](/vault/_attachments/architecture.png)
+[Application Architecture](/vault/_meta/attachments/architecture.png)
 
 ---
 
@@ -528,11 +514,9 @@ store.dispatch(init());
 ---
 
 Try it out, play with it, report bugs
-
 Let me know your experience with it!
 
 [On GitHub: https://github.com/valtech-nyc/brookjs](https://github.com/valtech-nyc/brookjs)
-
 [Documentation: https://valtech-nyc.github.io/brookjs/](https://valtech-nyc.github.io/brookjs/)
 
 ---
