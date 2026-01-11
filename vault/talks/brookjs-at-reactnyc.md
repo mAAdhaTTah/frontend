@@ -19,11 +19,24 @@ A framework for building streaming web applications.
 ## About Me
 
 James DiGioia, Front-End Tech Lead, Ollie Pets Inc.
+
 Enterprise ecommerce system (Java & .NET)
+
 Developer of brookjs framework
+
 Maintainer of kefir & prism.js
 
 ---
+
+## React
+
+## +
+
+## Cycle.js
+
+---
+
+## Agenda
 
 - React/Redux: Declarative DOM & one-way data
   - Functional programming
@@ -33,15 +46,15 @@ Maintainer of kefir & prism.js
 
 ---
 
-## Let's talk about React
+## Let"s talk about React
 
 ---
 
-### I love declarative views!
+## I love declarative views!
 
 What do I want? vs. How do I get there?
 
-```jsx
+```js
 export default ({ handleOnClick, text }) => (
   <button className="button" onClick={handleOnClick}>
     {text}
@@ -50,13 +63,14 @@ export default ({ handleOnClick, text }) => (
 ```
 
 Views as pure functions,
+
 and functions are awesome.
 
 ---
 
-Pure functions are testable
+## Pure functions are testable
 
-```jsx
+```js
 import { pureFunction } from "../";
 
 describe("pure function", () => {
@@ -72,17 +86,108 @@ Works for views too.
 
 ---
 
-### Tests are the best!
+## Tests are the best!
 
 Want to reduce bugs? Prevent regressions? Test your code!
 
 ---
 
-### Thinking in React means thinking declaratively and functionally
+## Thinking in React means thinking declaratively and functionally
 
 ---
 
-### Immutable Data
+## The Problem with React
+
+`React | Streams === false`
+
+Have to pass callbacks around your application
+
+---
+
+From the Redux docs:
+
+```js
+export default ({ props: { todos, dispatch } }) => {
+  const boundActionCreators = bindActionCreators(TodoActionCreators, dispatch);
+
+  return <TodoList todos={todos} {...boundActionCreators} />;
+  // return <TodoList todos={todos} dispatch={dispatch} />
+};
+```
+
+Note:
+
+- Injected by react-redux
+- Here"s a good use case for bindActionCreators:
+  You want a child component to be completely unaware of Redux.
+- An alternative to bindActionCreators is to pass
+  just the dispatch function down, but then your child component
+  needs to import action creators and know about them.
+
+---
+
+## Coordinating events with callbacks requires state
+
+e.g. `isRunning`
+
+---
+
+## We can start simple ...
+
+```js
+export default ({ props }) => (
+  <button onClick={props.onButtonClick}>{props.text}</button>
+);
+```
+
+---
+
+## ... but now we have to thread the callback ...
+
+```js
+export default ({ props }) => (
+  <div className="subscribe">
+    <InputField
+      type="email"
+      value={props.email}
+      onTextChange={props.onEmailChange}
+    />
+    <Button text="Submit" onButtonClick={props.onSubscribeClick} />
+  </div>
+);
+```
+
+---
+
+## ... across a couple levels.
+
+```js
+export default ({ props }) => (
+  <div className="modal">
+    <Content>
+    <Subscription onEmailChange={dispatchModalEmailChange}
+        onSubscribeClick={dispatchModalSubscribeClick}
+        email={prop.subscribeEmail} />
+  </div>
+)
+```
+
+---
+
+## **Passing around callbacks is painful.**
+
+- Manual
+- Tedious
+- Prone to user error & refactoring woes
+  - Or every component has a direct line into the store
+
+Component composition: bottom up or top down? Both :(
+
+Event emitters have the same problem - need to wire up each intermediate step
+
+---
+
+## Immutable Data
 
 ```js
 const admins = [luigi, mario, peach, toad];
@@ -97,13 +202,15 @@ Make a copy instead
 
 ---
 
-### Map, Filter Reduce
+## Map, Filter, Reduce
+
+building blocks of functional programming
 
 ```js
 const numbers = [1, 2, 3];
 
-console.log(numbers.map((x) => x * x)); // [1, 4, 9]
-console.log(numbers.filter((x) => x > 1)); // [2, 3]
+console.log(numbers.map(x => x * x)); // [1, 4, 9]
+console.log(numbers.filter(x => x > 1)); // [2, 3]
 console.log(numbers.reduce((total, next) => total + next)); // 6
 
 console.log(numbers); // [1, 2, 3]
@@ -111,7 +218,7 @@ console.log(numbers); // [1, 2, 3]
 
 New array is returned from each call
 
-– Immutable! Pure!
+-- Immutable! Pure!
 
 ---
 
@@ -119,7 +226,7 @@ New array is returned from each call
 
 ---
 
-Functional state changes make me happy
+## Functional state changes make me happy
 
 No surprises!
 
@@ -140,15 +247,17 @@ Pure function and testable!
 
 ## Cycle.js
 
+![](https://camo.githubusercontent.com/e581baffb3db3e4f749350326af32de8d5ba4363/687474703a2f2f692e696d6775722e636f6d2f4149696d5138432e6a7067)
+
 ---
 
-### Streams/Observables
+## Streams/Observables
 
 functional reactive programming (frp)
 
 ---
 
-### What are Observables?
+## What are Observables?
 
 > The Observable object represents a push based collection.
 
@@ -156,16 +265,14 @@ functional reactive programming (frp)
 
 ---
 
-### Real-World Example: Stream of Events
+## Real-World Example: Stream of Events
 
 Standard event listener:
 
 ```js
 const input = document.querySelector("input");
 
-input.addEventListener("input", (e) =>
-  console.log("Updated value", input.value),
-);
+input.addEventListener("input", e => console.log("Updated value", input.value));
 ```
 
 Observable:
@@ -173,48 +280,55 @@ Observable:
 ```js
 const events$ = Observable.fromEvent(document.querySelector("input"), "input");
 
-events$.subscribe((e) => console.log("Updated value", input.value));
+events$.subscribe(e => console.log("Updated value", input.value));
 ```
 
-Looks basically the same, right?
+- Looks basically the same, right?
+- What"s so special about that?
 
 ---
 
-- An array whose values arrive over time
+## Arrays of Events
+
+"push-based" collection
+
+when you unsubscribe, event listener is removed
+
+- An array whose values arrive _over time_
 - Convert inputs into data
 - Self-cleaning
 
 ---
 
 ```js
-const values$ = events$.map((e) => e.target.value);
-values$.subscribe((value) => console.log("Updated value", value));
+const values$ = events$.map(e => e.target.value);
+values$.subscribe(value => console.log("Updated value", value));
 
-const long$ = values$.filter((value) => value.length > 10);
-long$.subscribe((value) => console.log(`${value} is long enough`));
+const long$ = values$.filter(value => value.length > 10);
+long$.subscribe(value => console.log(`${value} is long enough`));
 
-const short$ = values$.filter((value) => value.length <= 10);
-short$.subscribe((value) => console.log(`${value} is too short`));
+const short$ = values$.filter(value => value.length <= 10);
+short$.subscribe(value => console.log(`${value} is too short`));
 
-const reduce$ = events$.scan((acc, e) => acc + e.target.value, "");
-reduce$.subscribe((value) => console.log(value));
+const reduce$ = events$.scan((acc, e) => acc + e.target.value, ");
+reduce$.subscribe(value => console.log(value));
 ```
 
 ---
 
-Observables simplify dealing with events over time
+## Observables simplify dealing with events over time
 
 JavaScript is **all about** events over time
 
 ---
 
-Cycle.js is a pure function
+## Cycle.js is a pure function
 
 ```js
 function main(sources) {
   const input$ = sources.DOM.select(".field").events("input");
-  const name$ = input$.map((ev) => ev.target.value).startWith("");
-  const vdom$ = name$.map((name) =>
+  const name$ = input$.map(ev => ev.target.value).startWith(");
+  const vdom$ = name$.map(name =>
     div([
       label("Name:"),
       input(".field", { attrs: { type: "text" } }),
@@ -229,9 +343,9 @@ function main(sources) {
 
 ---
 
-Observables are passed to `main`
+## Observables are passed to `main`
 
-Observables are returned from `main`
+Observables are returned from `main`
 
 Observables wrap side effects
 
@@ -239,13 +353,15 @@ _Observables all the way down_
 
 ---
 
-## Drumroll Please
+## Drumroll
+
+## Please
 
 ---
 
 ```js
 export default function MyComponent(el, props$) {
-  const events$ = Kefir.fromEvent('click', el).map(() => ({ type: 'CLICK' })))
+  const events$ = Kefir.fromEvent("click", el).map(() => ({ type: "CLICK" })))
   const render$ = props$.flatMapLatest(props => render(el, props))
 
   return Kefir.merge([
@@ -255,23 +371,23 @@ export default function MyComponent(el, props$) {
 }
 ```
 
-At its core, this is the mental model for a `brookjs` component
+At its core, this is the mental model for a `brookjs` component
 
 ---
 
-### Example Component
+## Example Component
 
 ```js
 export default component({
   children: children({
     button: {
       factory: ButtonComponent,
-      preplug: (instance$) => instance$.map(() => ({ type: "FORM_CLICK" })),
+      preplug: instance$ => instance$.map(() => ({ type: "FORM_CLICK" })),
     },
   }),
   events: events({
-    onInput: (event$) =>
-      event$.map((event) => ({
+    onInput: event$ =>
+      event$.map(event => ({
         type: "FORM_TEXT_CHANGE",
         payload: { value: event.target.value },
       })),
@@ -280,11 +396,9 @@ export default component({
 });
 ```
 
----
-
 Templates are defined with handlebars:
 
-```js
+```handlebars
 <div class="form" {{#container "form"}}>
     <input type="text" value="{{{text}}}" {{#event "onInput"}}>
     {{> button/index }}
@@ -293,13 +407,13 @@ Templates are defined with handlebars:
 
 ---
 
-How do we handle side effects, e.g. APIs, localStorage, cookies, etc.?
+## How do we handle side effects, e.g. APIs, localStorage, cookies, etc.?
 
 _Observables all the way down._
 
 ---
 
-#### Example Delta
+## Example Delta
 
 ```js
 import { ofType, Kefir } from "brookjs";
@@ -309,11 +423,11 @@ import { api } from "../services";
 export default function apiDelta(actions$, state$) {
   return state$
     .sampledBy(actions$.thru(ofType(SAVE_BUTTON_CLICK)))
-    .flatMapLatest((state) =>
+    .flatMapLatest(state =>
       api
         .saveUser(state.user)
         .map(saveUserSuccess)
-        .flatMapErrors((err) => Kefir.constant(saveUserFail(err))),
+        .flatMapErrors(err => Kefir.constant(saveUserFail(err))),
     );
 }
 ```
@@ -327,7 +441,7 @@ export default function apiDelta(actions$, state$) {
 Deltas can be tested if you mock the services
 
 ```js
-import { SAVE_BUTTON_CLICK } from '../actions'
+import { SAVE_BUTTON_CLICK } from "../actions"
 
 export default ({ api }) => (actions$, state$) =>
   state$.sampledBy(actions$.thru(ofType(SAVE_BUTTON_CLICK)))
@@ -387,9 +501,9 @@ store.dispatch(init());
 
 ---
 
-Application architecture
+### Application Architecture
 
-![architecture.png](/vault/_attachments/architecture.png)
+![Application Architecture](/vault/_attachments/architecture.png)
 
 ---
 
@@ -398,6 +512,18 @@ Application architecture
 - Stable API
 - Complete documentation
 - Full architecture
+
+---
+
+### Future Features
+
+- CLI
+  - Scaffold components & tests
+- Demo application
+- realworld.io
+- Testing tools
+  - Can test w/ Karma & Mocha currently
+- Performance improvements
 
 ---
 
@@ -411,6 +537,6 @@ Let me know your experience with it!
 
 ---
 
-# Thank You
+## Thank You
 
 Any questions?
