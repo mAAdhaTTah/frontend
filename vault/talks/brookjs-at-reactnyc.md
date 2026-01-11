@@ -235,8 +235,6 @@ Pure function and testable!
 
 ## Cycle.js
 
-TODO IMAGE
-
 ---
 
 ### Streams/Observables
