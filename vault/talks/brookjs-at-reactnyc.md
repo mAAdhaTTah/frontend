@@ -154,7 +154,7 @@ export default (props) => (
     <Content>
     <Subscription onEmailChange={props.dispatchModalEmailChange}
         onSubscribeClick={props.dispatchModalSubscribeClick}
-        email={prop.subscribeEmail} />
+        email={props.subscribeEmail} />
   </div>
 )
 ```
@@ -288,17 +288,17 @@ when you unsubscribe, event listener is removed
 ---
 
 ```js
-const values$ = events$.map(e => e.target.value);
-values$.subscribe(value => console.log("Updated value", value));
+const values$ = events$.map((e) => e.target.value);
+values$.subscribe((value) => console.log("Updated value", value));
 
-const long$ = values$.filter(value => value.length > 10);
-long$.subscribe(value => console.log(`${value} is long enough`));
+const long$ = values$.filter((value) => value.length > 10);
+long$.subscribe((value) => console.log(`${value} is long enough`));
 
-const short$ = values$.filter(value => value.length <= 10);
-short$.subscribe(value => console.log(`${value} is too short`));
+const short$ = values$.filter((value) => value.length <= 10);
+short$.subscribe((value) => console.log(`${value} is too short`));
 
-const reduce$ = events$.scan((acc, e) => acc + e.target.value, ");
-reduce$.subscribe(value => console.log(value));
+const reduce$ = events$.scan((acc, e) => acc + e.target.value, "");
+reduce$.subscribe((value) => console.log(value));
 ```
 
 ---
@@ -314,8 +314,8 @@ Cycle.js is a pure function
 ```js
 function main(sources) {
   const input$ = sources.DOM.select(".field").events("input");
-  const name$ = input$.map(ev => ev.target.value).startWith(");
-  const vdom$ = name$.map(name =>
+  const name$ = input$.map((ev) => ev.target.value).startWith("");
+  const vdom$ = name$.map((name) =>
     div([
       label("Name:"),
       input(".field", { attrs: { type: "text" } }),
@@ -346,13 +346,10 @@ _Observables all the way down_
 
 ```js
 export default function MyComponent(el, props$) {
-  const events$ = Kefir.fromEvent("click", el).map(() => ({ type: "CLICK" })))
-  const render$ = props$.flatMapLatest(props => render(el, props))
+  const events$ = Kefir.fromEvent("click", el).map(() => ({ type: "CLICK" }));
+  const render$ = props$.flatMapLatest((props) => render(el, props));
 
-  return Kefir.merge([
-    events$,
-    render$
-  ])
+  return Kefir.merge([events$, render$]);
 }
 ```
 
