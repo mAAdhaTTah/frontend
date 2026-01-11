@@ -378,6 +378,8 @@ export default component({
 });
 ```
 
+---
+
 Templates are defined with handlebars:
 
 ```handlebars
@@ -517,6 +519,6 @@ Let me know your experience with it!
 
 ---
 
-## Thank You
+# Thank You
 
 Any questions?
