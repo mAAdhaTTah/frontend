@@ -95,11 +95,10 @@ Have to pass callbacks around your application
 From the Redux docs:
 
 ```js
-export default ({ props: { todos, dispatch } }) => {
+export default ({ todos, dispatch }) => {
   const boundActionCreators = bindActionCreators(TodoActionCreators, dispatch);
 
   return <TodoList todos={todos} {...boundActionCreators} />;
-  // return <TodoList todos={todos} dispatch={dispatch} />
 };
 ```
 
@@ -123,7 +122,7 @@ e.g. `isRunning`
 We can start simple ...
 
 ```js
-export default ({ props }) => (
+export default (props) => (
   <button onClick={props.onButtonClick}>{props.text}</button>
 );
 ```
@@ -133,7 +132,7 @@ export default ({ props }) => (
 ... but now we have to thread the callback ...
 
 ```js
-export default ({ props }) => (
+export default (props) => (
   <div className="subscribe">
     <InputField
       type="email"
@@ -150,11 +149,11 @@ export default ({ props }) => (
 ... across a couple levels.
 
 ```js
-export default ({ props }) => (
+export default (props) => (
   <div className="modal">
     <Content>
-    <Subscription onEmailChange={dispatchModalEmailChange}
-        onSubscribeClick={dispatchModalSubscribeClick}
+    <Subscription onEmailChange={props.dispatchModalEmailChange}
+        onSubscribeClick={props.dispatchModalSubscribeClick}
         email={prop.subscribeEmail} />
   </div>
 )
