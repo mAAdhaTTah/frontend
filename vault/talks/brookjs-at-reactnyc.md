@@ -378,6 +378,8 @@ export default component({
 });
 ```
 
+---
+
 Templates are defined with handlebars:
 
 ```handlebars
