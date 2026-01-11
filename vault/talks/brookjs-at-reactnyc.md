@@ -152,9 +152,9 @@ export default (props) => (
 export default (props) => (
   <div className="modal">
     <Content>
-    <Subscription onEmailChange={dispatchModalEmailChange}
-        onSubscribeClick={dispatchModalSubscribeClick}
-        email={prop.subscribeEmail} />
+    <Subscription onEmailChange={props.dispatchModalEmailChange}
+        onSubscribeClick={props.dispatchModalSubscribeClick}
+        email={props.subscribeEmail} />
   </div>
 )
 ```
