@@ -1,49 +1,49 @@
 import { Feed } from 'feed';
-import { getAllVaultPages } from '@vault/server';
+import { getAllVaultPages, readAllVaultPages } from '@vault/server';
 
 /**
  * @typedef {import('sitemap').SitemapItem} SitemapItem
  */
 
-const pageToSitemapItem = (
-  /** @type {import("@vault/server").Page} */ page,
+const sourceToSitemapItem = (
+  /** @type {import("@vault/server").Source} */ { frontmatter },
 ) => {
   /** @type {SitemapItem} */
   const item = {
     img: [],
     video: [],
     links: [],
-    url: `/${page.frontmatter.web.slug}/`,
-    lastmod: page.frontmatter.web.updated_at.toISOString(),
+    url: `/${frontmatter.web.slug}/`,
+    lastmod: frontmatter.web.updated_at.toISOString(),
   };
 
-  if (page.frontmatter.essay != null) {
-    if (page.frontmatter.essay?.featuredMedia)
+  if (frontmatter.essay != null) {
+    if (frontmatter.essay?.featuredMedia)
       item.img.push({
-        url: page.frontmatter.essay?.featuredMedia.source,
-        title: page.frontmatter.essay?.featuredMedia.title,
+        url: frontmatter.essay?.featuredMedia.source,
+        title: frontmatter.essay?.featuredMedia.title,
       });
   }
 
-  if (page.frontmatter.gallery != null) {
+  if (frontmatter.gallery != null) {
     item.img.push(
-      ...page.frontmatter.gallery?.images.map(val => ({
+      ...frontmatter.gallery?.images.map(val => ({
         url: val.source,
         title: val.title,
       })),
     );
   }
 
-  if (page.frontmatter.image != null) {
+  if (frontmatter.image != null) {
     item.img.push({
-      url: page.frontmatter.image?.media.source,
-      title: page.frontmatter.image?.media.title,
+      url: frontmatter.image.media.source,
+      title: frontmatter.image.media.title,
     });
   }
 
-  if (page.frontmatter.reference != null) {
+  if (frontmatter.reference != null && frontmatter.reference.image != null) {
     item.img.push({
-      url: page.frontmatter.reference?.image,
+      url: frontmatter.reference.image,
       title: 'Article cover',
     });
   }
@@ -88,8 +88,8 @@ export const buildFeed = async () => {
 };
 
 export async function* getAllSitemapItems() {
-  const { pages } = await getAllVaultPages();
-  for (const page of pages) {
-    yield pageToSitemapItem(page);
+  const { sources } = await readAllVaultPages();
+  for (const source of sources) {
+    yield sourceToSitemapItem(source);
   }
 }

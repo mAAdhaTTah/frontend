@@ -25,6 +25,8 @@ Maintainer of kefir & prism.js
 
 ---
 
+## Agenda
+
 - React/Redux: Declarative DOM & one-way data
   - Functional programming
 - Cycle.js: Everything is a stream
@@ -82,6 +84,96 @@ Want to reduce bugs? Prevent regressions? Test your code!
 
 ---
 
+## The Problem with React
+
+`React | Streams === false`
+
+Have to pass callbacks around your application
+
+---
+
+From the Redux docs:
+
+```js
+export default ({ todos, dispatch }) => {
+  const boundActionCreators = bindActionCreators(TodoActionCreators, dispatch);
+
+  return <TodoList todos={todos} {...boundActionCreators} />;
+};
+```
+
+Note:
+
+- Injected by react-redux
+- Here"s a good use case for bindActionCreators:
+  You want a child component to be completely unaware of Redux.
+- An alternative to bindActionCreators is to pass
+  just the dispatch function down, but then your child component
+  needs to import action creators and know about them.
+
+---
+
+Coordinating events with callbacks requires state
+
+e.g. `isRunning`
+
+---
+
+We can start simple ...
+
+```js
+export default (props) => (
+  <button onClick={props.onButtonClick}>{props.text}</button>
+);
+```
+
+---
+
+... but now we have to thread the callback ...
+
+```js
+export default (props) => (
+  <div className="subscribe">
+    <InputField
+      type="email"
+      value={props.email}
+      onTextChange={props.onEmailChange}
+    />
+    <Button text="Submit" onButtonClick={props.onSubscribeClick} />
+  </div>
+);
+```
+
+---
+
+... across a couple levels.
+
+```js
+export default (props) => (
+  <div className="modal">
+    <Content>
+    <Subscription onEmailChange={props.dispatchModalEmailChange}
+        onSubscribeClick={props.dispatchModalSubscribeClick}
+        email={props.subscribeEmail} />
+  </div>
+)
+```
+
+---
+
+### Passing around callbacks is painful.
+
+- Manual
+- Tedious
+- Prone to user error & refactoring woes
+  - Or every component has a direct line into the store
+
+Component composition: bottom up or top down? Both :(
+
+Event emitters have the same problem - need to wire up each intermediate step
+
+---
+
 ### Immutable Data
 
 ```js
@@ -97,7 +189,9 @@ Make a copy instead
 
 ---
 
-### Map, Filter Reduce
+### Map, Filter, Reduce
+
+building blocks of functional programming
 
 ```js
 const numbers = [1, 2, 3];
@@ -111,7 +205,7 @@ console.log(numbers); // [1, 2, 3]
 
 New array is returned from each call
 
-– Immutable! Pure!
+-- Immutable! Pure!
 
 ---
 
@@ -176,11 +270,18 @@ const events$ = Observable.fromEvent(document.querySelector("input"), "input");
 events$.subscribe((e) => console.log("Updated value", input.value));
 ```
 
-Looks basically the same, right?
+- Looks basically the same, right?
+- What"s so special about that?
 
 ---
 
-- An array whose values arrive over time
+### Arrays of Events
+
+"push-based" collection
+
+when you unsubscribe, event listener is removed
+
+- An array whose values arrive _over time_
 - Convert inputs into data
 - Self-cleaning
 
@@ -229,9 +330,9 @@ function main(sources) {
 
 ---
 
-Observables are passed to `main`
+Observables are passed to `main`
 
-Observables are returned from `main`
+Observables are returned from `main`
 
 Observables wrap side effects
 
@@ -245,17 +346,14 @@ _Observables all the way down_
 
 ```js
 export default function MyComponent(el, props$) {
-  const events$ = Kefir.fromEvent('click', el).map(() => ({ type: 'CLICK' })))
-  const render$ = props$.flatMapLatest(props => render(el, props))
+  const events$ = Kefir.fromEvent("click", el).map(() => ({ type: "CLICK" }));
+  const render$ = props$.flatMapLatest((props) => render(el, props));
 
-  return Kefir.merge([
-    events$,
-    render$
-  ])
+  return Kefir.merge([events$, render$]);
 }
 ```
 
-At its core, this is the mental model for a `brookjs` component
+At its core, this is the mental model for a `brookjs` component
 
 ---
 
@@ -284,7 +382,7 @@ export default component({
 
 Templates are defined with handlebars:
 
-```js
+```handlebars
 <div class="form" {{#container "form"}}>
     <input type="text" value="{{{text}}}" {{#event "onInput"}}>
     {{> button/index }}
@@ -327,7 +425,7 @@ export default function apiDelta(actions$, state$) {
 Deltas can be tested if you mock the services
 
 ```js
-import { SAVE_BUTTON_CLICK } from '../actions'
+import { SAVE_BUTTON_CLICK } from "../actions"
 
 export default ({ api }) => (actions$, state$) =>
   state$.sampledBy(actions$.thru(ofType(SAVE_BUTTON_CLICK)))
@@ -387,9 +485,9 @@ store.dispatch(init());
 
 ---
 
-Application architecture
+### Application Architecture
 
-![architecture.png](/vault/_attachments/architecture.png)
+[Application Architecture](/vault/_meta/attachments/architecture.png)
 
 ---
 
@@ -401,12 +499,22 @@ Application architecture
 
 ---
 
-Try it out, play with it, report bugs
+### Future Features
 
+- CLI
+  - Scaffold components & tests
+- Demo application
+- realworld.io
+- Testing tools
+  - Can test w/ Karma & Mocha currently
+- Performance improvements
+
+---
+
+Try it out, play with it, report bugs
 Let me know your experience with it!
 
 [On GitHub: https://github.com/valtech-nyc/brookjs](https://github.com/valtech-nyc/brookjs)
-
 [Documentation: https://valtech-nyc.github.io/brookjs/](https://valtech-nyc.github.io/brookjs/)
 
 ---

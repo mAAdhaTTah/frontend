@@ -358,6 +358,7 @@ const removeObsidianAnchors = content =>
  * @typedef {{
  *  source: string;
  *  mdFilePath: string;
+ *  frontmatter: PageFMSchema
  * }} Source
  */
 
@@ -384,7 +385,7 @@ const parseFrontmatter = async (
     throw err;
   });
 
-const readAllVaultPages = unstable_cache(async () => {
+export const readAllVaultPages = unstable_cache(async () => {
   /** @type Source[] */
   const sources = [];
   /** @type Record<string, Source> */
@@ -414,6 +415,7 @@ const readAllVaultPages = unstable_cache(async () => {
             (bySlug[frontmatter.web.slug] = {
               source,
               mdFilePath,
+              frontmatter,
             }),
           );
         }
