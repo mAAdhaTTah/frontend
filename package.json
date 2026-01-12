@@ -65,7 +65,7 @@
     "jsconfig-paths-jest-mapper": "^1.0.0",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
-    "storybook": "9.1.15",
+    "storybook": "9.1.17",
     "typescript": "^5.9.3"
   },
   "optionalDependencies": {
