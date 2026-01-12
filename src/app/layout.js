@@ -5,6 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import cc from 'classcat';
 import { Mulish, Ovo, Montserrat } from 'next/font/google';
 import { ServerLayout } from '@ui/layout';
+import { Suspense } from 'react';
 
 /**
  * @typedef {import('next').Metadata} Metadata
@@ -55,7 +56,9 @@ const RootLayout = async ({ children }) => {
         <body
           className={cc([mulish.variable, ovo.variable, montserrat.variable])}
         >
-          <ServerLayout>{children}</ServerLayout>
+          <Suspense>
+            <ServerLayout>{children}</ServerLayout>
+          </Suspense>
           <Analytics />
           <SpeedInsights />
         </body>

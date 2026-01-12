@@ -11,7 +11,6 @@ import { smartypants } from 'smartypants';
 import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
 import { z } from 'zod';
 import { compareDesc, format, formatISO, isValid, parseISO } from 'date-fns';
-import { unstable_cache } from 'next/cache';
 import { VFile } from 'vfile';
 import { matter } from 'vfile-matter';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
@@ -407,7 +406,8 @@ const parseFrontmatter = async (
     throw err;
   });
 
-export const readAllVaultPages = unstable_cache(async () => {
+export const readAllVaultPages = async () => {
+  'use cache';
   /** @type Source[] */
   const sources = [];
   /** @type Record<string, Source> */
@@ -451,7 +451,7 @@ export const readAllVaultPages = unstable_cache(async () => {
   await walkDir(CWD);
 
   return { sources, bySlug };
-});
+};
 
 /**
  * @typedef {{
@@ -514,6 +514,7 @@ export const getPagePaths = async () => {
 };
 
 const getData = async (/** @type {string} */ target) => {
+  'use cache';
   const source = await readFile(
     path.join(CWD, 'vault/_data', `${target}.md`),
     'utf8',
