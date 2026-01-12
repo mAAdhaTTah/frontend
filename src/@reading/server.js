@@ -4,6 +4,7 @@ import { subDays, endOfDay, format, parseISO, addDays } from 'date-fns';
 import { formatInTimeZone } from 'date-fns-tz';
 import { server } from '@app/config';
 import { Day } from '@ui/components';
+import { cacheLife } from 'next/cache';
 
 /**
  * @typedef {Object} Link
@@ -20,6 +21,9 @@ import { Day } from '@ui/components';
  * @returns Promise<Day[]>
  */
 export const getReadingProps = async displayDays => {
+  'use cache';
+  cacheLife('hours');
+
   const now = new Date();
 
   /** @type {Day[]} */
@@ -34,6 +38,7 @@ export const getReadingProps = async displayDays => {
           read_at_lte: format(addDays(endOfDay(targetDay), 1), 'yyyy-MM-dd'),
           read_at_gt: format(endOfDay(targetDay), 'yyyy-MM-dd'),
         },
+        timeout: 1200000,
       },
     );
 

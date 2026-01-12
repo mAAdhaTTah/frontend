@@ -11,13 +11,13 @@ import { smartypants } from 'smartypants';
 import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
 import { z } from 'zod';
 import { compareDesc, format, formatISO, isValid, parseISO } from 'date-fns';
-import { unstable_cache } from 'next/cache';
 import { VFile } from 'vfile';
 import { matter } from 'vfile-matter';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import { ReadingList } from '@reading/server';
 import { Resume } from '@ui/resume';
 import NextLink from 'next/link';
+import { cacheLife } from 'next/cache';
 
 const jobToPosition = job => ({
   title: job.position,
@@ -407,7 +407,9 @@ const parseFrontmatter = async (
     throw err;
   });
 
-export const readAllVaultPages = unstable_cache(async () => {
+export const readAllVaultPages = async () => {
+  'use cache';
+  cacheLife('max');
   /** @type Source[] */
   const sources = [];
   /** @type Record<string, Source> */
@@ -451,7 +453,7 @@ export const readAllVaultPages = unstable_cache(async () => {
   await walkDir(CWD);
 
   return { sources, bySlug };
-});
+};
 
 /**
  * @typedef {{
@@ -486,6 +488,8 @@ export const getAllVaultPages = async () => {
 };
 
 export const getPageProps = async (/** @type {string} */ slug) => {
+  'use cache';
+
   const { bySlug } = await readAllVaultPages();
 
   const page = bySlug[slug];
@@ -499,6 +503,8 @@ export const getPageProps = async (/** @type {string} */ slug) => {
 };
 
 export const getPagePaths = async () => {
+  'use cache';
+
   const { pages } = await getAllVaultPages();
   /**
    * @type {{slug: string[];}[]}
@@ -514,6 +520,8 @@ export const getPagePaths = async () => {
 };
 
 const getData = async (/** @type {string} */ target) => {
+  'use cache';
+
   const source = await readFile(
     path.join(CWD, 'vault/_data', `${target}.md`),
     'utf8',
@@ -583,12 +591,15 @@ const LayoutSchema = z
   });
 
 export const getLayoutProps = async () => {
+  'use cache';
   return await LayoutSchema.parseAsync(
     await Promise.all([getData('header'), getData('menu')]),
   );
 };
 
 export const getRecentEssayExcerpts = async () => {
+  'use cache';
+
   const { pages } = await getAllVaultPages();
   const essays = [];
   for (const page of pages) {
@@ -606,6 +617,10 @@ export const getRecentEssayExcerpts = async () => {
         },
         excerpt: <Paragraph>{page.frontmatter.essay.excerpt}</Paragraph>,
       });
+    }
+
+    if (essays.length >= 10) {
+      break;
     }
   }
 

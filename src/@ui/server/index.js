@@ -1,5 +1,4 @@
 import 'server-only';
-import { unstable_cache as cache } from 'next/cache';
 import Image from 'next/image';
 import { Suspense } from 'react';
 import { TweetSkeleton, EmbeddedTweet, TweetNotFound } from 'react-tweet';
@@ -8,10 +7,14 @@ import { getPlaiceholder } from 'plaiceholder';
 import { Post } from '@ui/components';
 import { Heading } from '@ui/typography';
 import { getRecentEssayExcerpts } from '@vault/server';
+import { cacheLife, cacheTag } from 'next/cache';
 
-const getTweet = cache(async id => _getTweet(id), ['tweet'], {
-  revalidate: 3600 * 24,
-});
+const getTweet = async id => {
+  'use cache';
+  cacheTag('tweet');
+  cacheLife({ revalidate: 3600 * 24 });
+  return _getTweet(id);
+};
 
 const TweetPage = async ({ id }) => {
   try {
@@ -23,11 +26,10 @@ const TweetPage = async ({ id }) => {
   }
 };
 
-const getImageInfo = cache(async src => {
+const getImageInfo = async src => {
+  'use cache';
   const res = await fetch(src, {
-    next: {
-      revalidate: false,
-    },
+    cache: 'no-store',
   });
   const buffer = Buffer.from(await res.arrayBuffer());
   const {
@@ -35,7 +37,7 @@ const getImageInfo = cache(async src => {
     metadata: { width, height },
   } = await getPlaiceholder(buffer);
   return { base64, width, height };
-});
+};
 
 const TWITTER_ID_REGEX = /https:\/\/twitter.com\/(.*)\/(.*)\/(?<twId>[0-9]+)/;
 
@@ -60,26 +62,20 @@ export const ServerImage = async ({
   className = '',
   priority = false,
 }) => {
-  try {
-    const { width, height, base64 } = await getImageInfo(src);
+  const { width, height, base64 } = await getImageInfo(src);
 
-    return (
-      <Image
-        width={width}
-        height={height}
-        alt={altText ?? ''}
-        src={src}
-        blurDataURL={base64}
-        placeholder={base64 ? 'blur' : 'empty'}
-        className={className}
-        priority={priority}
-      />
-    );
-  } catch (err) {
-    // TODO revisit this in next 16
-    console.log('Error loading src ' + src, err);
-    return null;
-  }
+  return (
+    <Image
+      width={width}
+      height={height}
+      alt={altText ?? ''}
+      src={src}
+      blurDataURL={base64}
+      placeholder={base64 ? 'blur' : 'empty'}
+      className={className}
+      priority={priority}
+    />
+  );
 };
 
 export const RecentEssays = async () => {

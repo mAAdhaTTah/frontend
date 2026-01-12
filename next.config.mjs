@@ -1,6 +1,5 @@
 import * as url from 'url';
 import fs from 'fs/promises';
-import withPlaiceholder from '@plaiceholder/next';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -9,12 +8,13 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const config = {
   // Timeout in seconds
   staticPageGenerationTimeout: 120,
+  cacheComponents: true,
   images: {
-    domains: [
-      'static.jamesdigioia.com',
-      'www.poynter.org',
-      '4.bp.blogspot.com',
-      'i.ytimg.com',
+    remotePatterns: [
+      new URL('https://static.jamesdigioia.com/**'),
+      new URL('https://www.poynter.org/**'),
+      new URL('https://4.bp.blogspot.com/**'),
+      new URL('https://i.ytimg.com/**'),
     ],
   },
   trailingSlash: true,
@@ -26,11 +26,6 @@ const config = {
     scrollRestoration: true,
     webpackBuildWorker: true,
   },
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
 };
 
-export default withPlaiceholder(config);
+export default config;
