@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import remarkGfm from 'remark-gfm';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Ol, Ul, Li, Blockquote } from '@ui/atoms';
-import { Snippet } from '@ui/components';
+import { Snippet, TalksArchive } from '@ui/components';
 import { Code, Heading, Link, Paragraph } from '@ui/typography';
 import { smartypants } from 'smartypants';
 import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
@@ -110,7 +110,9 @@ const InternalEmbed = async ({ url, children }) => {
 
 const compile = (/** @type {string} */ source) =>
   compileMDX({
-    source,
+    source: source
+      .replaceAll(` { "layout": "center" }`, '')
+      .replaceAll(` { "layout": "columns" }`, ''),
     options: {
       parseFrontmatter: true,
       mdxOptions: {
@@ -225,6 +227,25 @@ const compile = (/** @type {string} */ source) =>
           return output;
         }, []);
       },
+      TalksServerArchive: async () => {
+        const { pages } = await getAllVaultPages();
+
+        const talks = pages
+          .filter(page => page.frontmatter.talk)
+          .map(
+            ({
+              frontmatter: {
+                web: { title, description, slug },
+              },
+            }) => ({
+              title,
+              description,
+              slug,
+            }),
+          );
+
+        return <TalksArchive talks={talks} />;
+      },
     },
   });
 
@@ -338,6 +359,7 @@ const PageFMSchema = z.object({
     })
     .optional(),
   resume: z.any().optional(),
+  talk: z.any().optional(),
 });
 
 const CWD = process.cwd();
@@ -451,6 +473,7 @@ export const getAllVaultPages = async () => {
     const page = {
       frontmatter: await parseFrontmatter(frontmatter, mdFilePath),
       content,
+      source,
     };
     pages.push((bySlug[page.frontmatter.web.slug] = page));
   }
@@ -465,14 +488,14 @@ export const getAllVaultPages = async () => {
 export const getPageProps = async (/** @type {string} */ slug) => {
   const { bySlug } = await readAllVaultPages();
 
-  const source = bySlug[slug];
-  if (!source) return notFound();
-  const { content, frontmatter } = await compile(source.source);
-  const page = {
-    frontmatter: await parseFrontmatter(frontmatter, source.mdFilePath),
+  const page = bySlug[slug];
+  if (!page) return notFound();
+  const { content, frontmatter } = await compile(page.source);
+  return {
+    frontmatter: await parseFrontmatter(frontmatter, page.mdFilePath),
     content,
+    source: page.source,
   };
-  return page;
 };
 
 export const getPagePaths = async () => {
@@ -519,7 +542,8 @@ const MenuSchema = z.object({
 const LayoutSchema = z
   .tuple([HeaderSchema, MenuSchema])
   .transform(([header, nav]) => {
-    /** @type {{
+    /**
+     * @type {{
      *  header: Omit<import('@ui/layout/Header').HeaderProps, 'fullScreen'>
      *  nav: import('@ui/layout/Nav').NavProps
      * }} */

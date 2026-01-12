@@ -7,6 +7,7 @@ import { extract } from '@extractus/oembed-extractor';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Ul, Li } from '@ui/atoms';
+import { Talk } from '@ui/components';
 import { EmbedError } from './EmbedFallback';
 
 const Embed = async ({ url }) => {
@@ -25,7 +26,8 @@ const Embed = async ({ url }) => {
   }
 };
 
-/** @type {import('react').FC<{
+/**
+ * @type {import('react').FC<{
  *  link: import('./server').PageFMSchema['link'];
  * }>
  */
@@ -117,27 +119,39 @@ const GalleryFooter = ({ gallery }) => {
   );
 };
 
-/** @type {import('react').FC<{
+/**
+ * @type {import('react').FC<{
  *  content: import('react').ReactNode;
- *  frontmatter: import('./server').PageFMSchema}>
- * }
+ *  frontmatter: import('./server').PageFMSchema;
+ *  source: string;
+ * }>}
  */
-export const VaultPage = async ({ content, frontmatter }) => {
+export const VaultPage = async ({ content, frontmatter, source }) => {
   return (
-    <Main>
-      {frontmatter.essay ? (
-        <EssayHeader
-          featuredMedia={frontmatter.essay?.featuredMedia}
-          frontmatter={frontmatter}
-          {...dateDateTimeDisplay(frontmatter.web.published_at)}
-        />
-      ) : null}
-      {frontmatter.link ? <LinkHeader link={frontmatter.link} /> : null}
-      {content}
-      {frontmatter.gallery ? (
-        <GalleryFooter gallery={frontmatter.gallery} />
-      ) : null}
-      {frontmatter.link ? <LinkFooter link={frontmatter.link} /> : null}
-    </Main>
+    <>
+      {frontmatter.talk ? (
+        <main className="h-screen w-screen bg-white">
+          <Suspense>
+            <Talk source={source.replace(/^---\s*[\s\S]*?\s*---/, '')} />
+          </Suspense>
+        </main>
+      ) : (
+        <Main>
+          {frontmatter.essay ? (
+            <EssayHeader
+              featuredMedia={frontmatter.essay?.featuredMedia}
+              frontmatter={frontmatter}
+              {...dateDateTimeDisplay(frontmatter.web.published_at)}
+            />
+          ) : null}
+          {frontmatter.link ? <LinkHeader link={frontmatter.link} /> : null}
+          {content}
+          {frontmatter.gallery ? (
+            <GalleryFooter gallery={frontmatter.gallery} />
+          ) : null}
+          {frontmatter.link ? <LinkFooter link={frontmatter.link} /> : null}
+        </Main>
+      )}
+    </>
   );
 };

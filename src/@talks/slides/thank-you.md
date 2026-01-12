@@ -1,3 +1,0 @@
-# Thank You
-
-Any questions?
