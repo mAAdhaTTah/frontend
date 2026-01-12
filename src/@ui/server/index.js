@@ -29,9 +29,7 @@ const TweetPage = async ({ id }) => {
 const getImageInfo = async src => {
   'use cache';
   const res = await fetch(src, {
-    next: {
-      revalidate: false,
-    },
+    cache: 'no-store',
   });
   const buffer = Buffer.from(await res.arrayBuffer());
   const {
