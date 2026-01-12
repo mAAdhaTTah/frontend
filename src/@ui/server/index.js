@@ -62,26 +62,20 @@ export const ServerImage = async ({
   className = '',
   priority = false,
 }) => {
-  try {
-    const { width, height, base64 } = await getImageInfo(src);
+  const { width, height, base64 } = await getImageInfo(src);
 
-    return (
-      <Image
-        width={width}
-        height={height}
-        alt={altText ?? ''}
-        src={src}
-        blurDataURL={base64}
-        placeholder={base64 ? 'blur' : 'empty'}
-        className={className}
-        priority={priority}
-      />
-    );
-  } catch (err) {
-    // TODO revisit this in next 16
-    console.log('Error loading src ' + src, err);
-    return null;
-  }
+  return (
+    <Image
+      width={width}
+      height={height}
+      alt={altText ?? ''}
+      src={src}
+      blurDataURL={base64}
+      placeholder={base64 ? 'blur' : 'empty'}
+      className={className}
+      priority={priority}
+    />
+  );
 };
 
 export const RecentEssays = async () => {
