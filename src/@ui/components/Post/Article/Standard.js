@@ -1,8 +1,8 @@
 import cc from 'classcat';
 import Image from 'next/image';
+import EntryMeta from '../../EntryMeta';
 import { Heading } from '@ui/typography';
 import { Article } from '@ui/box';
-import EntryMeta from '../../EntryMeta';
 
 const StandardFormat = ({
   media,

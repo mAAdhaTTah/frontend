@@ -1,7 +1,7 @@
 import NextImage from 'next/image';
+import EntryMeta from '../../EntryMeta';
 import { Heading } from '@ui/typography';
 import { Article } from '@ui/box';
-import EntryMeta from '../../EntryMeta';
 
 const Image = ({
   title,

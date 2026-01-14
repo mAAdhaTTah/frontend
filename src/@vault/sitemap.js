@@ -27,7 +27,7 @@ const sourceToSitemapItem = (
 
   if (frontmatter.gallery != null) {
     item.img.push(
-      ...frontmatter.gallery?.images.map(val => ({
+      ...frontmatter.gallery.images.map(val => ({
         url: val.source,
         title: val.title,
       })),

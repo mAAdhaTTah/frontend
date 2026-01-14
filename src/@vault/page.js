@@ -1,29 +1,31 @@
 import cc from 'classcat';
+import { extract } from '@extractus/oembed-extractor';
+import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { EmbedError } from './EmbedFallback';
 import { Main } from '@ui/box';
 import { ServerImage } from '@ui/server';
 import { Heading, Link } from '@ui/typography';
 import EntryMeta, { dateDateTimeDisplay } from '@ui/components/EntryMeta';
-import { extract } from '@extractus/oembed-extractor';
-import { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
 import { Ul, Li } from '@ui/atoms';
 import { Talk } from '@ui/components';
-import { EmbedError } from './EmbedFallback';
 
-const Embed = async ({ url }) => {
-  // Throwing the error breaks static rendering so we're going to try/catch instead
-  // I would love to use the custom error boundary for this
-  try {
-    const embed = await extract(url);
+const EmbedInternal = async ({ url }) => {
+  const embed = await extract(url);
 
-    return (
-      <div>
-        <ServerImage src={embed.thumbnail_url} />
-      </div>
-    );
-  } catch (error) {
-    return <EmbedError message={error.message} />;
-  }
+  return (
+    <div>
+      <ServerImage src={embed.thumbnail_url} />
+    </div>
+  );
+};
+
+const Embed = ({ url }) => {
+  return (
+    <ErrorBoundary FallbackComponent={EmbedError}>
+      <EmbedInternal url={url} />
+    </ErrorBoundary>
+  );
 };
 
 /**

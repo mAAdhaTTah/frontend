@@ -1,5 +1,5 @@
-import { getLayoutProps } from '@vault/server';
 import { Layout } from './Layout';
+import { getLayoutProps } from '@vault/server';
 
 /** @type {import('react').FC<{children: import('react').ReactNode}>} */
 export const ServerLayout = async ({ children }) => {

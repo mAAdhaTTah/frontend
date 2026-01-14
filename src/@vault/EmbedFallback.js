@@ -1,9 +1,9 @@
 'use client';
 
-export const EmbedError = ({ message }) => {
+export const EmbedError = ({ error }) => {
   return (
     <div className="font-ovo text-xl font-bold">
-      Error loading embed: {message}
+      Error loading embed: {error.message}
     </div>
   );
 };

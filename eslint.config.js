@@ -7,9 +7,15 @@ import globals from 'globals';
 
 export default [
   js.configs.recommended,
+  // eslint-disable-next-line import/no-named-as-default-member
   nextPlugin.configs.recommended,
+  // eslint-disable-next-line import/no-named-as-default-member
   nextPlugin.configs['core-web-vitals'],
+  // eslint-disable-next-line import/no-named-as-default-member
   ...storybookPlugin.configs['flat/recommended'],
+  importPlugin.flatConfigs.recommended,
+  importPlugin.flatConfigs.typescript,
+  reactHooksPlugin.configs.flat.recommended,
   {
     files: ['**/*.{js,ts,jsx,tsx}'],
     languageOptions: {
@@ -25,9 +31,8 @@ export default [
         ...globals.node,
       },
     },
-    plugins: {
-      import: importPlugin,
-      'react-hooks': reactHooksPlugin,
+    settings: {
+      'import/resolver': 'typescript',
     },
     rules: {
       'no-unused-vars': 'off',
@@ -49,13 +54,6 @@ export default [
           'newlines-between': 'never',
         },
       ],
-      'no-unsafe-optional-chaining': 'off',
-      'react-hooks/error-boundaries': 'off',
-      ...Object.fromEntries(
-        Object.entries(reactHooksPlugin.configs.recommended.rules).filter(
-          ([key]) => key !== 'react-hooks/error-boundaries',
-        ),
-      ),
     },
   },
   {

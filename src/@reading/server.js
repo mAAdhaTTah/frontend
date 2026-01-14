@@ -2,9 +2,9 @@ import 'server-only';
 import axios from 'axios';
 import { subDays, endOfDay, format, parseISO, addDays } from 'date-fns';
 import { formatInTimeZone } from 'date-fns-tz';
+import { cacheLife } from 'next/cache';
 import { server } from '@app/config';
 import { Day } from '@ui/components';
-import { cacheLife } from 'next/cache';
 
 /**
  * @typedef {Object} Link

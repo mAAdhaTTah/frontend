@@ -1,5 +1,5 @@
-import { Heading } from '@ui/typography';
 import { Link } from 'next-view-transitions';
+import { Heading } from '@ui/typography';
 
 export const LinkedArticleHeader = ({ href, children }) => {
   return (

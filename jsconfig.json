@@ -4,7 +4,8 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "checkJs": true,
     "allowSyntheticDefaultImports": true,
-    "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {

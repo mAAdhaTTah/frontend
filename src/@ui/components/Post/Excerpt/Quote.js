@@ -1,7 +1,7 @@
+import EntryMeta from '../../EntryMeta';
 import { Link } from '@ui/typography';
 import { Blockquote } from '@ui/atoms';
 import { Article } from '@ui/box';
-import EntryMeta from '../../EntryMeta';
 
 const Quote = ({ content, date, dateTime, commentCount, author, source }) => {
   return (

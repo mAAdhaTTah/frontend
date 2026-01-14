@@ -1,6 +1,6 @@
-import { Paragraph } from '@ui/typography';
 import { Article } from './Article';
 import { Main } from './Main';
+import { Paragraph } from '@ui/typography';
 
 export default {
   title: '@ui/box',

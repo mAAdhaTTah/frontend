@@ -1,7 +1,7 @@
-import { ArrowLink } from '@ui/atoms';
-import { Article } from '@ui/box';
 import { LinkedArticleHeader } from '../../LinkedArticleHeader';
 import EntryMeta from '../../EntryMeta';
+import { ArrowLink } from '@ui/atoms';
+import { Article } from '@ui/box';
 
 const StandardFormat = ({
   slug,

@@ -1,6 +1,6 @@
-import { Link, Paragraph } from '@ui/typography';
 import Script from 'next/script';
 import { useMemo } from 'react';
+import { Link, Paragraph } from '@ui/typography';
 
 const EXTERNAL_SCRIPT = /<script[^>]+src=(['"])(.*?)\1/i;
 const INJECTED_SCRIPT =

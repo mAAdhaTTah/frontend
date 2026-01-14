@@ -4,10 +4,10 @@ import { Suspense } from 'react';
 import { TweetSkeleton, EmbeddedTweet, TweetNotFound } from 'react-tweet';
 import { getTweet as _getTweet } from 'react-tweet/api';
 import { getPlaiceholder } from 'plaiceholder';
+import { cacheLife, cacheTag } from 'next/cache';
 import { Post } from '@ui/components';
 import { Heading } from '@ui/typography';
 import { getRecentEssayExcerpts } from '@vault/server';
-import { cacheLife, cacheTag } from 'next/cache';
 
 const getTweet = async id => {
   'use cache';
@@ -19,6 +19,7 @@ const getTweet = async id => {
 const TweetPage = async ({ id }) => {
   try {
     const tweet = await getTweet(id);
+    // eslint-disable-next-line react-hooks/error-boundaries
     return tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />;
   } catch (error) {
     console.error(error);

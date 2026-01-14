@@ -1,8 +1,8 @@
 import cc from 'classcat';
 import { FaLink } from 'react-icons/fa';
+import EntryMeta from '../../EntryMeta';
 import { Link } from '@ui/typography';
 import { Article } from '@ui/box';
-import EntryMeta from '../../EntryMeta';
 
 const iconClass = cc(['mr-3', 'link-info']);
 
