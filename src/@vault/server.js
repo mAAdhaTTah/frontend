@@ -9,7 +9,7 @@ import { Snippet, TalksArchive } from '@ui/components';
 import { Code, Heading, Link, Paragraph } from '@ui/typography';
 import { smartypants } from 'smartypants';
 import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
-import { z } from 'zod';
+import * as z from 'zod';
 import { compareDesc, format, formatISO, isValid, parseISO } from 'date-fns';
 import { VFile } from 'vfile';
 import { matter } from 'vfile-matter';
@@ -284,7 +284,7 @@ const ContentSchema = z
 const MediaReferenceSchema = EmptyToNullSchema.pipe(DataSchema).pipe(
   z.object({
     title: z.string(),
-    source: z.string().url(),
+    source: z.url(),
     alt: z.string(),
     caption: z.string(),
   }),
@@ -317,7 +317,7 @@ const PageFMSchema = z.object({
     .optional(),
   embed: z
     .object({
-      url: z.string().url(),
+      url: z.url(),
     })
     .optional(),
   essay: z
@@ -339,9 +339,9 @@ const PageFMSchema = z.object({
     .optional(),
   reference: z
     .object({
-      image: z.string().url().optional(),
+      image: z.url().optional(),
       summary: z.string().optional(),
-      url: z.string().url(),
+      url: z.url(),
       title: z.string(),
       authors: z.array(ContentReferenceSchema).optional(),
       parent: ContentReferenceSchema.optional(),
@@ -353,7 +353,7 @@ const PageFMSchema = z.object({
   link: z
     .object({
       title: z.string(),
-      url: z.string().url(),
+      url: z.url(),
       bookmarked_at: ISODateSchema,
       related: z.array(ContentReferenceSchema).optional(),
     })
@@ -548,8 +548,8 @@ const MenuSchema = z.object({
 });
 
 const LayoutSchema = z
-  .tuple([HeaderSchema, MenuSchema])
-  .transform(([header, nav]) => {
+  .object({ header: HeaderSchema, nav: MenuSchema })
+  .transform(({ header, nav }) => {
     /**
      * @type {{
      *  header: Omit<import('@ui/layout/Header').HeaderProps, 'fullScreen'>
@@ -592,9 +592,8 @@ const LayoutSchema = z
 
 export const getLayoutProps = async () => {
   'use cache';
-  return await LayoutSchema.parseAsync(
-    await Promise.all([getData('header'), getData('menu')]),
-  );
+  const [header, nav] = await Promise.all([getData('header'), getData('menu')]);
+  return await LayoutSchema.parseAsync({ header, nav });
 };
 
 export const getRecentEssayExcerpts = async () => {
