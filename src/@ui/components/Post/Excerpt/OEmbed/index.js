@@ -1,7 +1,7 @@
-import { Article } from '@ui/box';
 import EntryMeta from '../../../EntryMeta';
 import { LinkedArticleHeader } from '../../../LinkedArticleHeader';
 import { Embed } from '../../../Embed';
+import { Article } from '@ui/box';
 
 const OEmbed = ({
   title,

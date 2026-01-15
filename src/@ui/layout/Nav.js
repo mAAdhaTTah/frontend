@@ -5,9 +5,9 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { useKey, useOutsideClick } from 'rooks';
 import { Link } from 'next-view-transitions';
 import cc from 'classcat';
-import { Icon } from '@ui/theme';
 import { Transition } from 'react-transition-group';
 import { usePathname } from 'next/navigation';
+import { Icon } from '@ui/theme';
 
 const NavButton = ({ onClick, open }) => {
   return (

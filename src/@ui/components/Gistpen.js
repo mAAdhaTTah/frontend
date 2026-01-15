@@ -1,8 +1,8 @@
-import { Article } from '@ui/box';
 import cc from 'classcat';
 import { Link } from 'next-view-transitions';
 import EntryMeta from './EntryMeta';
 import Snippet from './Snippet';
+import { Article } from '@ui/box';
 
 const h3Class = cc(['text-4xl', 'text-lightg', 'font-muli', 'mb-3']);
 

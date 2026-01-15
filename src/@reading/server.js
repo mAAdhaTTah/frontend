@@ -1,10 +1,9 @@
 import 'server-only';
-import axios from 'axios';
 import { subDays, endOfDay, format, parseISO, addDays } from 'date-fns';
 import { formatInTimeZone } from 'date-fns-tz';
+import { cacheLife } from 'next/cache';
 import { server } from '@app/config';
 import { Day } from '@ui/components';
-import { cacheLife } from 'next/cache';
 
 /**
  * @typedef {Object} Link
@@ -31,21 +30,23 @@ export const getReadingProps = async displayDays => {
 
   for (let i = 0; i < displayDays; i++) {
     const targetDay = subDays(now, i);
-    const response = await axios.get(
-      `${server.READING_API_HOST}/api/articles`,
-      {
-        params: {
-          read_at_lte: format(addDays(endOfDay(targetDay), 1), 'yyyy-MM-dd'),
-          read_at_gt: format(endOfDay(targetDay), 'yyyy-MM-dd'),
-        },
-        timeout: 1200000,
-      },
+    const url = new URL(`${server.READING_API_HOST}/api/articles`);
+    url.searchParams.set(
+      'read_at_lte',
+      format(addDays(endOfDay(targetDay), 1), 'yyyy-MM-dd'),
+    );
+    url.searchParams.set(
+      'read_at_gt',
+      format(endOfDay(targetDay), 'yyyy-MM-dd'),
     );
 
-    if (response.data.data.length) {
+    const resp = await fetch(url);
+    const body = await resp.json();
+
+    if (body.data.length) {
       days.push({
         day: format(targetDay, 'MMM do, yyyy'),
-        links: response.data.data.map(link => ({
+        links: body.data.map(link => ({
           id: `link-${link.id}`,
           title: link.title,
           url: link.url,

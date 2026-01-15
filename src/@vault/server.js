@@ -4,20 +4,20 @@ import cc from 'classcat';
 import { notFound } from 'next/navigation';
 import remarkGfm from 'remark-gfm';
 import { compileMDX } from 'next-mdx-remote/rsc';
-import { Ol, Ul, Li, Blockquote } from '@ui/atoms';
-import { Snippet, TalksArchive } from '@ui/components';
-import { Code, Heading, Link, Paragraph } from '@ui/typography';
 import { smartypants } from 'smartypants';
-import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
 import * as z from 'zod';
 import { compareDesc, format, formatISO, isValid, parseISO } from 'date-fns';
 import { VFile } from 'vfile';
 import { matter } from 'vfile-matter';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
-import { ReadingList } from '@reading/server';
-import { Resume } from '@ui/resume';
 import NextLink from 'next/link';
 import { cacheLife } from 'next/cache';
+import { ReadingList } from '@reading/server';
+import { Resume } from '@ui/resume';
+import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
+import { Code, Heading, Link, Paragraph } from '@ui/typography';
+import { Snippet, TalksArchive } from '@ui/components';
+import { Ol, Ul, Li, Blockquote } from '@ui/atoms';
 
 const jobToPosition = job => ({
   title: job.position,

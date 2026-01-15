@@ -1,7 +1,7 @@
-import { Main } from '@ui/box';
 import { Link } from 'next-view-transitions';
 import cc from 'classcat';
 import { FaLongArrowAltRight } from 'react-icons/fa';
+import { Main } from '@ui/box';
 
 const TalkCard = ({ title, description, slug }) => (
   <li

@@ -1,5 +1,5 @@
-import { Article } from '@ui/box';
 import EntryMeta from '../../EntryMeta';
+import { Article } from '@ui/box';
 
 const Status = ({ content, date, dateTime, commentCount, author }) => {
   return (

@@ -1,5 +1,5 @@
-import { Article } from '@ui/box';
 import PropTypes from 'prop-types';
+import { Article } from '@ui/box';
 
 const ReadLink = ({ url, title, readAt }) => (
   <li className="my-1 bg-lightg p-3 rounded text-black my-2">
