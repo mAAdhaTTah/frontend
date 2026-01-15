@@ -10,7 +10,7 @@ updated_at: 2026-01-14 19:15
 share: true
 ---
 
-```bash title=delete-branches.sh
+```bash title="delete-branches.sh"
 #!/bin/bash
 MAIN_BRANCH="main"
 git checkout "$MAIN_BRANCH" 2>/dev/null || git checkout master
