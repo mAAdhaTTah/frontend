@@ -32,7 +32,7 @@
     "react-tweet": "^3.2.1",
     "rehype-mdx-code-props": "^3.0.1",
     "remark-gfm": "^4.0.1",
-    "rooks": "^7.14.1",
+    "rooks": "^9.5.0",
     "server-only": "^0.0.1",
     "sharp": "^0.34.5",
     "sitemap": "^8.0.0",
