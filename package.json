@@ -52,7 +52,7 @@
     "@storybook/addon-docs": "10.1.11",
     "@storybook/cli": "10.1.11",
     "@storybook/nextjs": "10.1.11",
-    "@testing-library/react": "^16.3.1",
+    "@testing-library/react": "^16.3.2",
     "@typescript-eslint/parser": "^8.53.0",
     "babel-plugin-prismjs": "^2.1.0",
     "brookjs-prettier-config": "^1.0.0-beta.9",
