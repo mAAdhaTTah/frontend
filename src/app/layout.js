@@ -56,9 +56,7 @@ const RootLayout = async ({ children }) => {
         <body
           className={cc([mulish.variable, ovo.variable, montserrat.variable])}
         >
-          <Suspense>
-            <ServerLayout>{children}</ServerLayout>
-          </Suspense>
+          <ServerLayout>{children}</ServerLayout>
           <Analytics />
           <SpeedInsights />
         </body>

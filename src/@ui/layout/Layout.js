@@ -1,6 +1,7 @@
 'use client';
 import cc from 'classcat';
 import { usePathname } from 'next/navigation';
+import { Suspense, use } from 'react';
 import { Header } from './Header';
 import Nav from './Nav';
 
@@ -14,12 +15,25 @@ const getLayout = pathname => {
   return 'standard';
 };
 
+const HeaderNav = ({ fullScreen, layoutP }) => {
+  const { header, nav } = use(layoutP);
+
+  return (
+    <>
+      <Header {...header} fullScreen={fullScreen} />
+      <Nav {...nav} />
+    </>
+  );
+};
+
 /** @type {import('react').FC<{
- *  header: Omit<import('./Header').HeaderProps, 'fullScreen'>,
- *  nav: import('./Nav').NavProps,
+ * layoutP: Promise<{
+ *   header: Omit<import('./Header').HeaderProps, 'fullScreen'>,
+ *   nav: import('./Nav').NavProps,
+ * }>
  *  children: import('react').ReactNode
  * }>} */
-export const Layout = ({ header, nav, children }) => {
+export const Layout = ({ layoutP, children }) => {
   const pathname = usePathname();
   const layout = getLayout(pathname);
   const fullScreen = layout === 'fullscreen';
@@ -43,10 +57,9 @@ export const Layout = ({ header, nav, children }) => {
     >
       <div>
         {layout !== 'headerless' && (
-          <>
-            <Header {...header} fullScreen={fullScreen} />
-            <Nav {...nav} />
-          </>
+          <Suspense>
+            <HeaderNav layoutP={layoutP} fullScreen={fullScreen} />
+          </Suspense>
         )}
       </div>
       <div className="relative vt-name-[content]">
