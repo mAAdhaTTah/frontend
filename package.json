@@ -6,7 +6,7 @@
   "author": "James DiGioia <jamesorodig@gmail.com>",
   "dependencies": {
     "@extractus/oembed-extractor": "^4.0.9",
-    "@react-aria/focus": "^3.21.2",
+    "@react-aria/focus": "^3.21.3",
     "@react-aria/visually-hidden": "^3.8.17",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/react": "^19.2.8",
