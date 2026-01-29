@@ -29,7 +29,7 @@
     "react-error-boundary": "^6.1.0",
     "react-icons": "^5.5.0",
     "react-transition-group": "^4.4.5",
-    "react-tweet": "^3.2.1",
+    "react-tweet": "^3.3.0",
     "rehype-mdx-code-props": "^3.0.1",
     "remark-gfm": "^4.0.1",
     "rooks": "^9.5.0",
