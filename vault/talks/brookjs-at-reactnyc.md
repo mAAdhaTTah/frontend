@@ -493,7 +493,10 @@ store.dispatch(init());
 
 ### Application Architecture
 
-[brookjs application architecture](/vault/_data/architecture.md)
+<InternalEmbed title="architecture" url="/vault/_data/architecture.md">
+
+
+</InternalEmbed>
 
 --- { "layout": "center" }
 
