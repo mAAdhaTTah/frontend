@@ -68,6 +68,9 @@ const DataEmbedBefore = ({ data }) => {
       />
     );
   }
+  if (data.tags.includes('media')) {
+    return <ServerImage src={data.source} altText={data.alt} />;
+  }
   return null;
 };
 
