@@ -86,7 +86,7 @@ const ContentEmbedAfter = ({ page }) => {
   return null;
 };
 
-const InternalEmbed = async ({ url, children }) => {
+export const InternalEmbed = async ({ url, children }) => {
   const slug = url.replace('/vault/', '').replace('.md', '');
   if (slug.startsWith('_data/')) {
     const data = await getData(slug.replace('_data/', ''));
