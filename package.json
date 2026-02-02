@@ -55,7 +55,7 @@
     "@typescript-eslint/parser": "^8.54.0",
     "babel-plugin-prismjs": "^2.1.0",
     "brookjs-prettier-config": "^1.0.0-beta.9",
-    "chromatic": "^13.3.1",
+    "chromatic": "^14.0.0",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
