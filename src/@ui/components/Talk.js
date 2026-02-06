@@ -1,5 +1,5 @@
-'use client';
-import { Deck, DefaultTemplate, MarkdownSlideSet } from 'spectacle';
+import { Deck, DefaultTemplate, MarkdownSlideSet } from './spectacle';
+import { InternalEmbed } from '@vault/server';
 
 /**
  * @type {import('react').FC<{
@@ -24,7 +24,13 @@ export const Talk = async ({ source }) => {
         },
       }}
     >
-      <MarkdownSlideSet>{source}</MarkdownSlideSet>
+      <MarkdownSlideSet
+        componentProps={{
+          InternalEmbed,
+        }}
+      >
+        {source}
+      </MarkdownSlideSet>
     </Deck>
   );
 };
