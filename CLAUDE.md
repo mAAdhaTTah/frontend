@@ -70,6 +70,10 @@ The `@vault/` module handles vault/notes routing separately.
 - CI publishes to **Chromatic** for visual regression testing (only changed stories)
 - Jest uses `jsdom` environment with path alias mapping matching jsconfig.json
 
+### Link Metadata
+
+Link pages (`frontmatter.link`) display an embedded image fetched via `open-graph-scraper` in the `Embed` component in `src/@vault/page.js`. It throws on scraper error (caught by the `ErrorBoundary`) and returns `null` if no `og:image` is present.
+
 ### Key Config Notes
 
 - `redirects.json` — comprehensive redirect rules loaded by `next.config.js`
