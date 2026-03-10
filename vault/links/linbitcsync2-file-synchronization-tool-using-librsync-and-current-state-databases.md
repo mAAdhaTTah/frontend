@@ -6,7 +6,7 @@ tags:
 title: "LINBIT/csync2: file synchronization tool using librsync and current state databases"
 url: https://github.com/LINBIT/csync2
 related:
-  - "[[Homelab]]"
+  - "[Homelab](/vault/writing/homelab.md)"
 slug: links/linbitcsync2-file-synchronization-tool-using-librsync-and-current-state-databases
 share: true
 aliases:
