@@ -47,14 +47,14 @@ const sort = (arr, algo = 'bubble') => // ... implementation
 
 ```js title="api.js"
 const api = (
-  { url, method = "GET", body = {}, headers = {} }, // ...
-) => implementation;
+  { url, method = "GET", body = {}, headers = {} },
+) => // ... implementation
 ```
 
 ^api-js
 
 ```js title="sortCurried.js"
-const sort = curry((algo, arr) => // ... implementation );
+const sort = curry((algo, arr) => /* ... implementation */);
 sort('bubble', [5, 214, 23, 6]); // [5, 6, 23, 213]
 const sortBubble = sort('bubble');
 ```
@@ -68,13 +68,13 @@ const doubleThenAdd2 = (x) => x |> multiply(2) |> add(2);
 ^doubleThenAdd2Fsharp-js
 
 ```js title="doubleThenAdd2Hack.js"
-const doubleThenAdd2 = x => x |> multiply(2, ^) |> add(2, ^);
+const doubleThenAdd2 = x => x |> multiply(2, ^) |> add(2, %);
 ```
 
 ^doubleThenAdd2Hack-js
 
 ```js title="doubleThenAdd2HackNoFunc.js"
-const doubleThenAdd2 = x => x |> 2 * ^ |> 2 + ^;
+const doubleThenAdd2 = x => x |> 2 * ^ |> 2 + %;
 ```
 
 ^doubleThenAdd2HackNoFunc-js
@@ -91,7 +91,7 @@ const doubleThenAdd2 = x => x |> 2 * ^ |> 2 + ^;
 ```js title="deepSetRecord.js"
 // From the README, w/ Hack pipe
 const updated = state |> #{
-    ...^,
+    ...%,
     counters[0].value: 2,
     counters[1].value: 1,
     metadata.lastUpdate: 1584383011300,
