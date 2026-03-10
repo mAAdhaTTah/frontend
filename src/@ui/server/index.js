@@ -29,15 +29,30 @@ const TweetPage = async ({ id }) => {
 
 const getImageInfo = async src => {
   'use cache';
-  const res = await fetch(src, {
-    cache: 'no-store',
-  });
-  const buffer = Buffer.from(await res.arrayBuffer());
-  const {
-    base64,
-    metadata: { width, height },
-  } = await getPlaiceholder(buffer);
-  return { base64, width, height };
+
+  if (src.startsWith('/vault/_meta/attachments/')) {
+    const filename = src.replace('/vault/_meta/attachments/', '');
+    const { default: res } = await import(
+      '../../../vault/_meta/attachments/' + filename
+    );
+
+    return {
+      src: res.src,
+      base64: res.blurDataURL,
+      height: res.height,
+      width: res.width,
+    };
+  } else {
+    const res = await fetch(src, {
+      cache: 'no-store',
+    });
+    const buffer = Buffer.from(await res.arrayBuffer());
+    const {
+      base64,
+      metadata: { width, height },
+    } = await getPlaiceholder(buffer);
+    return { src, base64, width, height };
+  }
 };
 
 const TWITTER_ID_REGEX = /https:\/\/twitter.com\/(.*)\/(.*)\/(?<twId>[0-9]+)/;
@@ -63,14 +78,14 @@ export const ServerImage = async ({
   className = '',
   priority = false,
 }) => {
-  const { width, height, base64 } = await getImageInfo(src);
+  const { width, height, base64, src: srcNew } = await getImageInfo(src);
 
   return (
     <Image
       width={width}
       height={height}
       alt={altText ?? ''}
-      src={src}
+      src={srcNew}
       blurDataURL={base64}
       placeholder={base64 ? 'blur' : 'empty'}
       className={className}
