@@ -2,7 +2,7 @@
 tags:
   - web
   - effort
-parent: "[[Homelab]]"
+parent: "[Homelab](/vault/writing/homelab.md)"
 slug: writing/rebuilding-my-homelab
 title: Rebuilding my homelab
 description: My plan for rebuilding my homelab
@@ -17,9 +17,9 @@ rank: 3
 
 https://www.reddit.com/r/homelab/comments/1qqaoy8/homelab_revamp_storage_suggestions/
 
-![8p-front-2026-01-31.png](/vault/_meta/attachments/8p-front-2026-01-31.png.png)
+![8p-front-2026-01-31.png](/vault/_meta/attachments/8p-front-2026-01-31.png)
 
-Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-designer.md.md). Currently aspirational, not yet implemented.
+Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-designer.md). Currently aspirational, not yet implemented.
 [Link](https://count.racku.la/?l=eJyNkcFugzAMhl8FZZdOIl2hDCi3dNW0yyS0aqeqB0ZDQaIQhTAmId59bgINTEzbBeLfn387Tos-UYBWS2-5RiYq4OwzOHAUtDpKUWDZJmrgtzHRCQWHFglIWjXmZS0ox0nGaRPlOcBMwQnkP0qRos5U8JkWlGcxvmRFhlnck5YiE14W4g909W90M0faDmYlF5hFIk7hW9B-WneWrnElSh6dad995kZwfXaqVf5xzgSANMoTXDUZ9FSgNwGPHexTyIVWs7dJZesL5F5BM8In0GKI7hziEZ9A9AVRJVtWvz2JNnmTuYdnnZNm3tbdEr83K25mkyWAia1M9jdNFq93HnGGScR4ErUd3T3cvQ9FxHd0UaM7zj7SyOGqG-FVNxYAhwDfD56u7dnE6T3ZeJDpK2i7F9CNvdSNhT91-7mTY_cNFZrkAA)
 
 ## Current Issues
@@ -52,7 +52,7 @@ Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-desi
     - Plex
   - Solution: Ceph FS for the volatile data
     - Every node on the swarm will have an SSD for the OS and a separate SSD dedicate to Ceph
-    - Alt: Use [LINBIT/csync2](/vault/links/linbitcsync2-file-synchronization-tool-using-librsync-and-current-state-databases.md.md) to synchronize files live and run the instance on a single node
+    - Alt: Use [LINBIT/csync2](/vault/links/linbitcsync2-file-synchronization-tool-using-librsync-and-current-state-databases.md) to synchronize files live and run the instance on a single node
       - This might be easier to get started with until I open up one of the minipcs and take a look
   - Question: Does this include the fileserver?
 - Massive, expandable filestorage
@@ -97,4 +97,4 @@ Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-desi
 - Rest of the components is still being determined
   - For now, I'm running what was previously my media server as the fileserver + databases
   - Anything that runs SQLite will run off that machine
-  - I may also consider [LINBIT/csync2](/vault/links/linbitcsync2-file-synchronization-tool-using-librsync-and-current-state-databases.md.md) instead of Ceph, as it would require fewer drives
+  - I may also consider [LINBIT/csync2](/vault/links/linbitcsync2-file-synchronization-tool-using-librsync-and-current-state-databases.md) instead of Ceph, as it would require fewer drives

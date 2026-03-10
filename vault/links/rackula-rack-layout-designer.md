@@ -5,7 +5,7 @@ tags:
 title: Rackula - Rack Layout Designer
 url: https://count.racku.la/
 related:
-  - "[Homelab](Homelab.md.md)"
+  - "[Homelab](/vault/writing/homelab.md)"
 slug: links/rackula-rack-layout-designer
 share: true
 ---

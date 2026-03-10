@@ -3,7 +3,7 @@ tags:
   - effort
   - concept
   - web
-parent: "[[Household]]"
+parent:
 intensity: ongoing
 rank: 4
 previous:
@@ -22,7 +22,7 @@ My homelab has evolved a lot over the years. It started with a pretty basic HP P
 
 Over time, the number of services expanded until that little machine couldn't really handle it well. I took an old desktop out of storage, bought some large HDDs for it, and set it up as a media server. I expanded the services on it beyond plex, adding the \*arr stack for media requests and moving some of the other media apps over (e.g. calibre).
 
-When I set this up, I didn't network this media server with the original HP server, so both servers had their own instances of Traefik, Portainer, etc. running on them. I also didn't have a great mechanism for updating versions. I used [WUD](/vault/links/wud.md.md) to track versions, which I then manually updated in my Ansible configuration and reran the deployment to pull the new version. All of these issues prompted me to start looking at [Rebuilding my homelab](/vault/writing/rebuilding-my-homelab.md.md).
+When I set this up, I didn't network this media server with the original HP server, so both servers had their own instances of Traefik, Portainer, etc. running on them. I also didn't have a great mechanism for updating versions. I used [WUD](/vault/links/wud.md) to track versions, which I then manually updated in my Ansible configuration and reran the deployment to pull the new version. All of these issues prompted me to start looking at [Rebuilding my homelab](/vault/writing/rebuilding-my-homelab.md).
 
 ## Naming Scheme
 

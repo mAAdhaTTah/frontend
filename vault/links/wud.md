@@ -5,7 +5,7 @@ tags:
 title: WUD
 url: https://getwud.github.io/wud/#/
 related:
-  - "[Homelab](Homelab.md.md)"
+  - "[Homelab](/vault/writing/homelab.md)"
 slug: links/wud
 share: true
 ---
