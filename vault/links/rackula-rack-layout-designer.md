@@ -2,10 +2,14 @@
 bookmarked_at: 2026-01-26T23:03:01-05:00
 tags:
   - link
+  - web
 title: Rackula - Rack Layout Designer
 url: https://count.racku.la/
 related:
   - "[Homelab](/vault/writing/homelab.md)"
 slug: links/rackula-rack-layout-designer
 share: true
+description:
+published_at: 2026-03-10 18:24
+updated_at: 2026-03-10 18:24
 ---
