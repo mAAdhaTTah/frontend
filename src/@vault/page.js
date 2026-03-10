@@ -10,7 +10,7 @@ import EntryMeta, { dateDateTimeDisplay } from '@ui/components/EntryMeta';
 import { Ul, Li } from '@ui/atoms';
 import { Talk } from '@ui/components';
 
-const EmbedInternal = async ({ url }) => {
+const Embed = async ({ url }) => {
   const embed = await extract(url);
 
   return (
@@ -20,18 +20,10 @@ const EmbedInternal = async ({ url }) => {
   );
 };
 
-const Embed = ({ url }) => {
-  return (
-    <ErrorBoundary FallbackComponent={EmbedError}>
-      <EmbedInternal url={url} />
-    </ErrorBoundary>
-  );
-};
-
 /**
  * @type {import('react').FC<{
- *  link: import('./server').PageFMSchema['link'];
- * }>
+ *  link: NonNullable<import('./server').PageFMSchema['link']>;
+ * }>}
  */
 const LinkHeader = ({ link }) => {
   const { date, dateTime } = dateDateTimeDisplay(link.bookmarked_at);
@@ -44,7 +36,7 @@ const LinkHeader = ({ link }) => {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
+            className="hover:underline"
           >
             {link.title}
           </a>
