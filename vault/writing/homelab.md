@@ -3,7 +3,7 @@ tags:
   - effort
   - concept
   - web
-parent:
+parent: "[[Household]]"
 intensity: ongoing
 rank: 4
 previous:
