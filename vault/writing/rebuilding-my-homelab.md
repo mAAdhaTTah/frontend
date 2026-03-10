@@ -2,7 +2,7 @@
 tags:
   - web
   - effort
-parent: "[Homelab](/vault/writing/homelab.md)"
+parent: "[[Homelab]]"
 slug: writing/rebuilding-my-homelab
 title: Rebuilding my homelab
 description: My plan for rebuilding my homelab
@@ -22,14 +22,7 @@ https://www.reddit.com/r/homelab/comments/1qqaoy8/homelab_revamp_storage_suggest
 Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-designer.md). Currently aspirational, not yet implemented.
 [Link](https://count.racku.la/?l=eJyNkcFugzAMhl8FZZdOIl2hDCi3dNW0yyS0aqeqB0ZDQaIQhTAmId59bgINTEzbBeLfn387Tos-UYBWS2-5RiYq4OwzOHAUtDpKUWDZJmrgtzHRCQWHFglIWjXmZS0ox0nGaRPlOcBMwQnkP0qRos5U8JkWlGcxvmRFhlnck5YiE14W4g909W90M0faDmYlF5hFIk7hW9B-WneWrnElSh6dad995kZwfXaqVf5xzgSANMoTXDUZ9FSgNwGPHexTyIVWs7dJZesL5F5BM8In0GKI7hziEZ9A9AVRJVtWvz2JNnmTuYdnnZNm3tbdEr83K25mkyWAia1M9jdNFq93HnGGScR4ErUd3T3cvQ9FxHd0UaM7zj7SyOGqG-FVNxYAhwDfD56u7dnE6T3ZeJDpK2i7F9CNvdSNhT91-7mTY_cNFZrkAA)
 
-## Current Issues
-
-- No shared data across multiple machines
-  - If NFS isn't the answer for an all-Linux setup, what is
-- No backup of media server
-  - Want to follow the 3-2-1 backup strategy
-
-## Resolved Issues
+## Issues
 
 - ArchiveBox doesn't kill Chromium correctly so it sucks up all of the memory and locks up the server
   - This is technically still open but should be resolved in the latest version of Archivebox
@@ -42,6 +35,15 @@ Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-desi
   - The nexus server is deployed with Ansible, but everything else is deployed with Komodo
 - Running two independent swarms
   - As part of the migration to Komodo, we integrated all of the servers into a single swarm
+- No backup of media server
+  - Following the 3-2-1 backup strategy, we backup to either a 4 drive external bay for a single 8TB disk
+    - Bay for stuff we care about, disk for stuff we care less about
+  - Backblaze for offsite backup
+- No shared data across multiple machines
+  - Going to use NFS for less volatile storage, something else for more volatile storaage
+    - If NFS isn't the answer for an all-Linux setup, what is
+  - Right now, using sammonsempessyncthing4swarm Automated deployment solution for running Syncthing in Docker Swarm clusters. Simplifies installation and management of distributed file synchronization across containerized infrastructures. which works ok but currently isnt' well-optimized for restarts
+    - I opened an issue for this, but I'm going to let this ride until I can stand up a Ceph cluster
 
 ## Goals
 
@@ -50,10 +52,13 @@ Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-desi
   - Those applications include:
     - Archivebox
     - Plex
+    - \*arr stack
   - Solution: Ceph FS for the volatile data
     - Every node on the swarm will have an SSD for the OS and a separate SSD dedicate to Ceph
     - Alt: Use [LINBIT/csync2](/vault/links/linbitcsync2-file-synchronization-tool-using-librsync-and-current-state-databases.md) to synchronize files live and run the instance on a single node
       - This might be easier to get started with until I open up one of the minipcs and take a look
+      - MiniPCs seem to support NVMe drives, so I can buy a chunk of those for Ceph
+    - Alt: Use sammonsempessyncthing4swarm Automated deployment solution for running Syncthing in Docker Swarm clusters. Simplifies installation and management of distributed file synchronization across containerized infrastructures. to synchronize files live
   - Question: Does this include the fileserver?
 - Massive, expandable filestorage
   - Current storage needs are close to 20TB
@@ -64,8 +69,9 @@ Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-desi
   - Question: What other pathways to expansion should I consider besides max bays up front?
 - Backup my media
   - I only currently back up "important" things (photos, documents, etc) but would like to expand that to my media server
-  - Solution: ???
-  - Question: Where/how can I do this that doesn't cost an intense amount of money?
+  - Solution: Backblaze with Zerobyte to create restic backups
+    - Backblaze isn't crazy expensive, restic's compression is really good
+    - I also have enough
 - Redundant swarm
   - Multiple manager nodes that can shift applications around seamlessly
   - This should include being able to shift SQLite applications
@@ -74,6 +80,7 @@ Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-desi
 - Support media server
   - At least one node that's powerful enough to transcode video
   - Question: Are the minipcs going to work for this as-is? They might.
+    - For now, I'll probably just run this off whatever my fileserver is
 
 ## Plan
 
