@@ -2,7 +2,7 @@
 tags:
   - web
   - effort
-parent: "[[Homelab]]"
+parent: "[Homelab](/vault/writing/homelab.md)"
 slug: writing/rebuilding-my-homelab
 title: Rebuilding my homelab
 description: My plan for rebuilding my homelab
