@@ -89,8 +89,8 @@ Another pattern this doesn't work well with is options-bag parameters. The below
 <InternalEmbed title="gistpens/functional-hack" url="/vault/gistpens/functional-hack.md">
 ```js title="api.js"
 const api = (
-  { url, method = "GET", body = {}, headers = {} }, // ...
-) => implementation;
+  { url, method = "GET", body = {}, headers = {} },
+) => // ... implementation
 ```
 </InternalEmbed>
 
@@ -104,7 +104,7 @@ Taking the above `sort` function as an example, that's written in an mainstream 
 
 <InternalEmbed title="gistpens/functional-hack" url="/vault/gistpens/functional-hack.md">
 ```js title="sortCurried.js"
-const sort = curry((algo, arr) => // ... implementation );
+const sort = curry((algo, arr) => /* ... implementation */);
 sort('bubble', [5, 214, 23, 6]); // [5, 6, 23, 213]
 const sortBubble = sort('bubble');
 ```
@@ -157,7 +157,7 @@ But... what if it wasn't? The Hack pipe version looks like this:
 
 <InternalEmbed title="gistpens/functional-hack" url="/vault/gistpens/functional-hack.md">
 ```js title="doubleThenAdd2Hack.js"
-const doubleThenAdd2 = x => x |> multiply(2, ^) |> add(2,
+const doubleThenAdd2 = x => x |> multiply(2, ^) |> add(2, %);
 ```
 </InternalEmbed>
 
@@ -165,7 +165,7 @@ Now, we no longer even _need_ currying; we can use our base, uncurried `add` fun
 
 <InternalEmbed title="gistpens/functional-hack" url="/vault/gistpens/functional-hack.md">
 ```js title="doubleThenAdd2HackNoFunc.js"
-const doubleThenAdd2 = x => x |> 2 * ^ |> 2 +
+const doubleThenAdd2 = x => x |> 2 * ^ |> 2 + %;
 ```
 </InternalEmbed>
 
