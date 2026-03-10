@@ -15,6 +15,7 @@ const config = {
       new URL('https://www.poynter.org/**'),
       new URL('https://4.bp.blogspot.com/**'),
       new URL('https://i.ytimg.com/**'),
+      new URL('https://opengraph.githubassets.com/**'),
     ],
   },
   trailingSlash: true,

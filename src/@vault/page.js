@@ -1,5 +1,5 @@
 import cc from 'classcat';
-import { extract } from '@extractus/oembed-extractor';
+import ogs from 'open-graph-scraper';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { EmbedError } from './EmbedFallback';
@@ -11,11 +11,17 @@ import { Ul, Li } from '@ui/atoms';
 import { Talk } from '@ui/components';
 
 const Embed = async ({ url }) => {
-  const embed = await extract(url);
+  const { result, error } = await ogs({ url });
+
+  if (error) throw error;
+
+  const imageUrl = result.ogImage?.[0]?.url;
+
+  if (!imageUrl) return null;
 
   return (
     <div>
-      <ServerImage src={embed.thumbnail_url} />
+      <ServerImage src={imageUrl} />
     </div>
   );
 };
