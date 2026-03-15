@@ -50,11 +50,17 @@ Daryl - ~$850 in bitcoin currently
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="blockchain-building" url="/vault/_data/blockchain-building.md">
+
+
+</InternalEmbed>
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="network" url="/vault/_data/network.md">
+
+
+</InternalEmbed>
 
 ---
 
@@ -93,8 +99,7 @@ This validates that a user controls a particular account on the ledger
 
 ---
 
-## When I want to send money to a wallet address,
-
+When I want to send money to a wallet address,
 the software bundles that transaction with other transactions into a block.
 
 The network validates the block, cryptographically linking it to the previous block.
@@ -109,7 +114,10 @@ The network validates the block, cryptographically linking it to the previous bl
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="miners" url="/vault/_data/miners.md">
+
+
+</InternalEmbed>
 
 ---
 
@@ -123,14 +131,16 @@ TODO IMAGE
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="blockchain" url="/vault/_data/blockchain.md">
+
+
+</InternalEmbed>
 
 ---
 
 ## The difficulty calculating this link is what limits the number of bitcoin
 
 The Bitcoin network has a hard cap on number of bitcoin that can be mined
-
 This scarcity is what gives them their value
 
 ---
