@@ -17,11 +17,8 @@ share: true
 ## About Me
 
 James DiGioia, Front-End Tech Lead, Ollie Pets Inc.
-
 Enterprise ecommerce system (Java & .NET)
-
 Developer of brookjs framework
-
 Maintainer of kefir & prism.js
 
 ---
@@ -91,9 +88,9 @@ This is testing an implementation detail.
 ```javascript
 const { container, getByText } = render(<SomeComponent />);
 
-fireEvent.click(getByText('Submit'));
+fireEvent.click(getByText("Submit"));
 
-expect(getByText('Submitted')).toBeInTheDocument();
+expect(getByText("Submitted")).toBeInTheDocument();
 ```
 
 This tests how a user would see the component.
