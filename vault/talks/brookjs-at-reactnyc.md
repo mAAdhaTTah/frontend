@@ -111,7 +111,7 @@ export default ({ todos, dispatch }) => {
 Note:
 
 - Injected by react-redux
-- Here"s a good use case for bindActionCreators:
+- Here's a good use case for bindActionCreators:
   You want a child component to be completely unaware of Redux.
 - An alternative to bindActionCreators is to pass
   just the dispatch function down, but then your child component
@@ -277,7 +277,7 @@ events$.subscribe((e) => console.log("Updated value", input.value));
 ```
 
 - Looks basically the same, right?
-- What"s so special about that?
+- What's so special about that?
 
 ---
 
