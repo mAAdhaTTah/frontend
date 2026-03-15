@@ -47,7 +47,9 @@ _adj._
 
 Optional Chaining allows a developer to handle many cases of nested, potentially nullish values.
 
-If the left-hand side of the operator is null or undefined, then the operator "short-circuits" and returns `undefined` immediately. Otherwise, continue with the chain.
+- _If_: left-hand side of the operator is null or undefined
+- _Then_: return `undefined`
+- _Else_: continue evaluating right-hand side
 
 ---
 
