@@ -219,7 +219,7 @@ export default {
 
 ## Components dispatch actions/mutations and read info
 
-```javascript title=tab-header.js
+```javascript title="tab-header.js"
 export default {
   prop: {
     id: {
@@ -240,7 +240,7 @@ export default {
 
 ## Logic lives in the module
 
-```javascript title=store.js
+```javascript title="store.js"
 export default {
   state: {
     visibleTab: 0,
