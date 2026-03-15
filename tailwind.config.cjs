@@ -17,6 +17,7 @@ module.exports = {
       darkg: '#24331E',
       lightg: '#5e9639',
       black: '#000',
+      white: '#fff',
       transparent: 'transparent',
     },
     screens: {
@@ -30,6 +31,7 @@ module.exports = {
     fontFamily: {
       muli: ['var(--font-mulish)', ...fontFamily.sans],
       ovo: ['var(--font-ovo)', ...fontFamily.serif],
+      montserrat: ['var(--font-montserrat)', ...fontFamily.sans],
     },
     fontSize: {
       sm: '.875rem', // 14px

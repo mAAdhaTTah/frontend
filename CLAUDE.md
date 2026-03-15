@@ -82,6 +82,8 @@ Link pages (`frontmatter.link`) display an embedded image fetched via `open-grap
 - Prettier config: `brookjs-prettier-config`
 - ESLint: flat config (`eslint.config.js`), zero warnings enforced in CI
 
-### Commit Messages
+### Commits
+
+Always run `npm test` before committing and fix any failures before proceeding.
 
 Follow the Linus Torvalds style for git commit messages: subject line under 50 characters in imperative mood, blank line, then a prose body with lines wrapped at 72 characters that explains the *why* rather than just restating the diff. No bullet points. The 72-character line wrap applies to commit messages only, not to other files.
