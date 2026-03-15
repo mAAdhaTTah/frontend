@@ -42,7 +42,7 @@ Maintainer of Kefir & Prism.js
 
 ## What it can do?
 
-WP-Gistpen allows you to save your code snippets to your WordPress site,
+WP-Gistpen allows you to save your code snippets to your WordPress site
 and sync those code snippets with GitHub's Gist
 
 ---
