@@ -17,11 +17,8 @@ share: true
 ## About Me
 
 James DiGioia, Front-End Tech Lead, Ollie Pets Inc.
-
 Enterprise ecommerce system (Java & .NET)
-
 Developer of brookjs framework
-
 Maintainer of kefir & prism.js
 
 ---
@@ -292,7 +289,7 @@ the array
 
 ## Values are discrete events
 
-```
+```plaintext
 --1---2---3--4|
 delay(20)
 ----1---2---3--4|
@@ -326,7 +323,7 @@ Kefir.fromEvents(document.body, "mousemove")
 
 ## "Take events from A until I get an event from B"
 
-```
+```plaintext
 --m--m----m------m--mmmm---m--m---
 takeUntilBy()
 ------------------------u---------
