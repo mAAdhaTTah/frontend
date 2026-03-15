@@ -25,7 +25,7 @@ Maintainer of Kefir & Prism.js
 ## Agenda
 
 - Why I built WP-Gistpen?
-- What it can do?
+- What can it do?
 - Demo
 
 ---
@@ -37,21 +37,6 @@ Maintainer of Kefir & Prism.js
 - Wanted to learn how to program, and contribute in a small way
 - Wanted to organize code from side projects
 - Wanted something that could sync across different projects
-
----
-
-## What it can do?
-
-WP-Gistpen allows you to save your code snippets to your WordPress site
-and sync those code snippets with GitHub's Gist
-
----
-
-## Agenda
-
-- Why I built WP-Gistpen?
-- What it can do?
-- Demo
 
 ---
 
@@ -69,28 +54,21 @@ and sync those code snippets with GitHub's Gist
 
 ---
 
-## Working in social media, watching the internet centralize
+### Working in social media, watching the internet centralize
 
 - Wanted to learn how to program, and contribute in a small way
 
 ---
 
-## Wanted to organize code from side projects
+### Wanted to organize code from side projects
 
 - Wanted something that could sync across different projects
 
 ---
 
-## WP-Gistpen allows you to save your code snippets to your WordPress site
-
-and sync those code snippets with GitHub's Gist
-
----
-
-## What it can do?
+## What can it do?
 
 WP-Gistpen allows you to save your code snippets to your WordPress site
-
 and sync those code snippets with GitHub's Gist
 
 ---
