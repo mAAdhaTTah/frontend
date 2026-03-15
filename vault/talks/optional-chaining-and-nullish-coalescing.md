@@ -17,11 +17,8 @@ share: true
 ## About Me
 
 James DiGioia, Front-End Tech Lead, Ollie Pets Inc.
-
 Enterprise ecommerce system (Java & .NET)
-
 Developer of brookjs framework
-
 Maintainer of kefir & prism.js
 
 ---
@@ -128,7 +125,7 @@ These two features were tied together to enable developers to access deeply nest
 ## (Contrived) Example
 
 ```javascript
-const petCountDisplay = person.pets?.length ?? 'Pets not provided';
+const petCountDisplay = person.pets?.length ?? "Pets not provided";
 ```
 
 ---
@@ -173,7 +170,7 @@ What's "nullish" here? Not everything!
 ## DO: Use Nullish Coalescing when falsey values should be retained.
 
 ```javascript
-const petCountDisplay = person.pets?.length ?? 'Pets not provided';
+const petCountDisplay = person.pets?.length ?? "Pets not provided";
 ```
 
 We definitely want to maintain "0" here.
@@ -183,7 +180,7 @@ We definitely want to maintain "0" here.
 ## DON'T: Expect Nullish Coalescing to provide defaults for empty strings and 0.
 
 ```javascript
-const apt = person.address?.apt ?? 'No apt provided';
+const apt = person.address?.apt ?? "No apt provided";
 ```
 
 An empty string should fall back. Use `||`.
