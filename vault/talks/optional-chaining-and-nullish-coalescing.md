@@ -17,11 +17,8 @@ share: true
 ## About Me
 
 James DiGioia, Front-End Tech Lead, Ollie Pets Inc.
-
 Enterprise ecommerce system (Java & .NET)
-
 Developer of brookjs framework
-
 Maintainer of kefir & prism.js
 
 ---
@@ -50,7 +47,9 @@ _adj._
 
 Optional Chaining allows a developer to handle many cases of nested, potentially nullish values.
 
-If the left-hand side of the operator is null or undefined, then the operator "short-circuits" and returns `undefined` immediately. Otherwise, continue with the chain.
+- _If_: left-hand side of the operator is null or undefined
+- _Then_: return `undefined`
+- _Else_: continue evaluating right-hand side
 
 ---
 
@@ -105,7 +104,9 @@ person.speak?.();
 
 Nullish Coalescing allows a developer to provide a default value for potentially nullish values.
 
-If the left-hand side of the operator is `null` or `undefined`, then the right hand side of the operator is returned.
+1. _If_: left-hand side is `null` or `undefined`
+2. _Then_: evaluate the right-hand side
+3. _Else_: return the left-hand side
 
 ---
 
@@ -128,7 +129,7 @@ These two features were tied together to enable developers to access deeply nest
 ## (Contrived) Example
 
 ```javascript
-const petCountDisplay = person.pets?.length ?? 'Pets not provided';
+const petCountDisplay = person.pets?.length ?? "Pets not provided";
 ```
 
 ---
@@ -173,7 +174,7 @@ What's "nullish" here? Not everything!
 ## DO: Use Nullish Coalescing when falsey values should be retained.
 
 ```javascript
-const petCountDisplay = person.pets?.length ?? 'Pets not provided';
+const petCountDisplay = person.pets?.length ?? "Pets not provided";
 ```
 
 We definitely want to maintain "0" here.
@@ -183,7 +184,7 @@ We definitely want to maintain "0" here.
 ## DON'T: Expect Nullish Coalescing to provide defaults for empty strings and 0.
 
 ```javascript
-const apt = person.address?.apt ?? 'No apt provided';
+const apt = person.address?.apt ?? "No apt provided";
 ```
 
 An empty string should fall back. Use `||`.
