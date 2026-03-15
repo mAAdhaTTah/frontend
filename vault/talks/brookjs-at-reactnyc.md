@@ -11,6 +11,7 @@ share: true
 ---
 
 ---
+
 # Meet `brookjs`
 
 A framework for building streaming web applications.
@@ -25,9 +26,11 @@ Developer of brookjs framework
 Maintainer of kefir & prism.js
 
 ---
+
 ## React + Cyclejs
 
 ---
+
 ## Agenda
 
 - React/Redux: Declarative DOM & one-way data
@@ -37,9 +40,11 @@ Maintainer of kefir & prism.js
 - Meet `brookjs`
 
 ---
+
 ## Let's talk about React
 
 ---
+
 ### I love declarative views!
 
 What do I want? vs. How do I get there?
@@ -80,6 +85,7 @@ Works for views too.
 Want to reduce bugs? Prevent regressions? Test your code!
 
 ---
+
 ### Thinking in React means thinking declaratively and functionally
 
 ---
@@ -208,6 +214,7 @@ New array is returned from each call
 -- Immutable! Pure!
 
 ---
+
 ## Redux & Unidirectional Data
 
 ---
@@ -230,14 +237,17 @@ function reducer(state = 0, action) {
 Pure function and testable!
 
 ---
+
 ## Cycle.js
 
 ---
+
 ### Streams/Observables
 
 functional reactive programming (frp)
 
 ---
+
 ### What are Observables?
 
 > The Observable object represents a push based collection.
@@ -270,6 +280,7 @@ events$.subscribe((e) => console.log("Updated value", input.value));
 - What"s so special about that?
 
 ---
+
 ### Arrays of Events
 
 "push-based" collection
@@ -281,6 +292,7 @@ when you unsubscribe, event listener is removed
 - Self-cleaning
 
 ---
+
 ```js
 const values$ = events$.map((e) => e.target.value);
 values$.subscribe((value) => console.log("Updated value", value));
@@ -296,6 +308,7 @@ reduce$.subscribe((value) => console.log(value));
 ```
 
 ---
+
 Observables simplify dealing with events over time
 
 JavaScript is **all about** events over time
@@ -322,6 +335,7 @@ function main(sources) {
 ```
 
 ---
+
 Observables are passed to `main`
 
 Observables are returned from `main`
@@ -331,9 +345,11 @@ Observables wrap side effects
 _Observables all the way down_
 
 ---
+
 ## Drumroll Please
 
 ---
+
 ```js
 export default function MyComponent(el, props$) {
   const events$ = Kefir.fromEvent("click", el).map(() => ({ type: "CLICK" }));
@@ -369,6 +385,7 @@ export default component({
 ```
 
 ---
+
 Templates are defined with handlebars:
 
 ```handlebars
@@ -379,11 +396,13 @@ Templates are defined with handlebars:
 ```
 
 ---
+
 How do we handle side effects, e.g. APIs, localStorage, cookies, etc.?
 
 _Observables all the way down._
 
 ---
+
 ### Example Delta
 
 ```js
@@ -408,6 +427,7 @@ export default function apiDelta(actions$, state$) {
 - Testable?
 
 ---
+
 Deltas can be tested if you mock the services
 
 ```js
@@ -447,6 +467,7 @@ describe("apiDelta", () => {
 ```
 
 ---
+
 ```js
 import { createStore, combineReducers } from "redux";
 import { domDelta } from "brookjs";
@@ -469,6 +490,7 @@ store.dispatch(init());
 ```
 
 ---
+
 ### Application Architecture
 
 <InternalEmbed title="architecture" url="/vault/_data/architecture.md">
@@ -477,6 +499,7 @@ store.dispatch(init());
 </InternalEmbed>
 
 ---
+
 ### Current Status
 
 - Stable API
@@ -484,6 +507,7 @@ store.dispatch(init());
 - Full architecture
 
 ---
+
 ### Future Features
 
 - CLI
@@ -503,6 +527,7 @@ Let me know your experience with it!
 [Documentation: https://valtech-nyc.github.io/brookjs/](https://valtech-nyc.github.io/brookjs/)
 
 ---
+
 # Thank You
 
 Any questions?
