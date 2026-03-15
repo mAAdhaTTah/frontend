@@ -30,6 +30,13 @@ Maintainer of Kefir & Prism.js
 
 ---
 
+<InternalEmbed title="commit-pulse" url="/vault/_data/commit-pulse.md">
+
+
+</InternalEmbed>
+
+---
+
 ## Why I built WP-Gistpen?
 
 - Facebook et al collect an **immense** amount of data
@@ -37,13 +44,6 @@ Maintainer of Kefir & Prism.js
 - Wanted to learn how to program, and contribute in a small way
 - Wanted to organize code from side projects
 - Wanted something that could sync across different projects
-
----
-
-<InternalEmbed title="commit-pulse" url="/vault/_data/commit-pulse.md">
-
-
-</InternalEmbed>
 
 ---
 
