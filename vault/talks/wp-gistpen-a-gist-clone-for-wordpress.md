@@ -16,12 +16,8 @@ share: true
 
 ## About Me
 
-### About Me
-
 James DiGioia, Front-End Developer, Valtech Inc.
-
 Enterprise ecommerce system (Java & .NET)
-
 Maintainer of Kefir & Prism.js
 
 ---
@@ -29,8 +25,15 @@ Maintainer of Kefir & Prism.js
 ## Agenda
 
 - Why I built WP-Gistpen?
-- What it can do?
+- What can it do?
 - Demo
+
+---
+
+<InternalEmbed title="commit-pulse" url="/vault/_data/commit-pulse.md">
+
+
+</InternalEmbed>
 
 ---
 
@@ -44,26 +47,6 @@ Maintainer of Kefir & Prism.js
 
 ---
 
-## What it can do?
-
-WP-Gistpen allows you to save your code snippets to your WordPress site
-
-and sync those code snippets with GitHub's Gist
-
----
-
-## Agenda
-
-- Why I built WP-Gistpen?
-- What it can do?
-- Demo
-
----
-
-TODO IMAGE
-
----
-
 ### Facebook et al collect an **immense** amount of data
 
 - Working in social media, watching the internet centralize
@@ -71,41 +54,29 @@ TODO IMAGE
 
 ---
 
-## Working in social media, watching the internet centralize
+### Working in social media, watching the internet centralize
 
 - Wanted to learn how to program, and contribute in a small way
 
 ---
 
-## Wanted to organize code from side projects
+### Wanted to organize code from side projects
 
 - Wanted something that could sync across different projects
 
 ---
 
-## WP-Gistpen allows you to save your code snippets to your WordPress site
-
-and sync those code snippets with GitHub's Gist
-
----
-
-## What it can do?
+## What can it do?
 
 WP-Gistpen allows you to save your code snippets to your WordPress site
-
 and sync those code snippets with GitHub's Gist
 
 ---
 
-## Agenda
+<InternalEmbed title="export-screen" url="/vault/_data/export-screen.md">
 
-- Why I built WP-Gistpen?
-- What it can do?
-- Demo
 
----
-
-TODO IMAGE
+</InternalEmbed>
 
 ---
 
@@ -113,7 +84,10 @@ TODO IMAGE
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="token-screen" url="/vault/_data/token-screen.md">
+
+
+</InternalEmbed>
 
 ---
 
@@ -121,7 +95,10 @@ TODO IMAGE
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="web-display" url="/vault/_data/web-display.md">
+
+
+</InternalEmbed>
 
 ---
 
@@ -129,7 +106,10 @@ TODO IMAGE
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="editor-screen" url="/vault/_data/editor-screen.md">
+
+
+</InternalEmbed>
 
 ---
 
