@@ -16,12 +16,8 @@ share: true
 
 ## About Me
 
-### About Me
-
 James DiGioia, Front-End Developer, Valtech Inc.
-
 Enterprise ecommerce system (Java & .NET)
-
 Maintainer of Kefir & Prism.js
 
 ---
@@ -46,8 +42,7 @@ Maintainer of Kefir & Prism.js
 
 ## What it can do?
 
-WP-Gistpen allows you to save your code snippets to your WordPress site
-
+WP-Gistpen allows you to save your code snippets to your WordPress site,
 and sync those code snippets with GitHub's Gist
 
 ---
@@ -60,7 +55,10 @@ and sync those code snippets with GitHub's Gist
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="commit-pulse" url="/vault/_data/commit-pulse.md">
+
+
+</InternalEmbed>
 
 ---
 
