@@ -104,7 +104,9 @@ person.speak?.();
 
 Nullish Coalescing allows a developer to provide a default value for potentially nullish values.
 
-If the left-hand side of the operator is `null` or `undefined`, then the right hand side of the operator is returned.
+1. _If_: left-hand side is `null` or `undefined`
+2. _Then_: evaluate the right-hand side
+3. _Else_: return the left-hand side
 
 ---
 
