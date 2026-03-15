@@ -17,11 +17,8 @@ share: true
 ## About Me
 
 James DiGioia, Front-End Tech Lead, Ollie Pets Inc.
-
 Enterprise ecommerce system (Java & .NET)
-
 Developer of brookjs framework
-
 Maintainer of kefir & prism.js
 
 ---
@@ -105,7 +102,7 @@ Maintainer of kefir & prism.js
 
 ```javascript
 new Vue({
-  el: '#app',
+  el: "#app",
 });
 ```
 
@@ -210,11 +207,10 @@ The actual component does a lot more...
 
 ## Container component registers module
 
-```javascript
-// tab-container
+```javascript title="tab-container.js"
 export default {
   mounted() {
-    this.$store.registerModule('tabContainer', module);
+    this.$store.registerModule("tabContainer", module);
   },
 };
 ```
@@ -223,8 +219,7 @@ export default {
 
 ## Components dispatch actions/mutations and read info
 
-```javascript
-// tab-header
+```javascript title=tab-header.js
 export default {
   prop: {
     id: {
@@ -236,7 +231,7 @@ export default {
     isVisible: () => this.$store.getters.tabIsVisible(this.id),
   },
   methods: {
-    onClick: () => this.$store.commit('headerClick', this.id),
+    onClick: () => this.$store.commit("headerClick", this.id),
   },
 };
 ```
@@ -245,14 +240,13 @@ export default {
 
 ## Logic lives in the module
 
-```javascript
-// store.js
+```javascript title=store.js
 export default {
   state: {
     visibleTab: 0,
   },
   getters: {
-    tabIsVisible: state => id => state.visibleTab === id,
+    tabIsVisible: (state) => (id) => state.visibleTab === id,
   },
   mutations: {
     headerClick: (state, id) => {
