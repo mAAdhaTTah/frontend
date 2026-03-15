@@ -3,7 +3,7 @@ tags:
   - media
   - export
 title: Commit Pulse
-source: "[[commit-pulse.png]]"
+source: https://static.jamesdigioia.com/uploads/2023/02/commit-pulse.png
 alt:
 caption:
 slug: commit-pulse
