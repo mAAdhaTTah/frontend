@@ -6,7 +6,7 @@ slug: token-screen
 share: true
 path: vault/_data
 title: Token Screen
-source: https://static.jamesdigioia.com/uploads/2023/02/export-screen.png
+source: https://static.jamesdigioia.com/uploads/2023/02/token-screen.png
 alt:
 caption:
 ---
