@@ -423,7 +423,6 @@ position$.observe((pos) => {
 ## Interested in exploring further?
 
 kefir: [github.com/kefirjs/kefir](https://github.com/kefirjs/kefir/)
-
 brookjs: [github.com/valtech-nyc/brookjs/](https://github.com/valtech-nyc/brookjs/)
 
 ---
