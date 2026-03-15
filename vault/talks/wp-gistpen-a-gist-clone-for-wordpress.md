@@ -95,15 +95,10 @@ and sync those code snippets with GitHub's Gist
 
 ---
 
-## Agenda
+<InternalEmbed title="export-screen" url="/vault/_data/export-screen.md">
 
-- Why I built WP-Gistpen?
-- What it can do?
-- Demo
 
----
-
-TODO IMAGE
+</InternalEmbed>
 
 ---
 
@@ -111,7 +106,10 @@ TODO IMAGE
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="token-screen" url="/vault/_data/token-screen.md">
+
+
+</InternalEmbed>
 
 ---
 
@@ -119,7 +117,10 @@ TODO IMAGE
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="web-display" url="/vault/_data/web-display.md">
+
+
+</InternalEmbed>
 
 ---
 
@@ -127,7 +128,10 @@ TODO IMAGE
 
 ---
 
-TODO IMAGE
+<InternalEmbed title="editor-screen" url="/vault/_data/editor-screen.md">
+
+
+</InternalEmbed>
 
 ---
 
