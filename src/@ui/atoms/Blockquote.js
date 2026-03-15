@@ -1,10 +1,13 @@
 import { FaQuoteLeft } from 'react-icons/fa';
 
-export const Blockquote = ({ children }) => {
+/** @type {import('react').FC<{ children: import('react').ReactNode; iconClassName?: string }>} */
+export const Blockquote = ({ children, iconClassName }) => {
   return (
-    <>
-      <FaQuoteLeft className="float-left mt-1" />
+    <div>
+      <FaQuoteLeft
+        className={`float-left mt-1 ${iconClassName ? ` ${iconClassName}` : ''}`}
+      />
       <blockquote className="ml-10">{children}</blockquote>
-    </>
+    </div>
   );
 };

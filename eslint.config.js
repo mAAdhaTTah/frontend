@@ -63,4 +63,10 @@ export default [
       'import/no-default-export': 'off',
     },
   },
+  {
+    files: ['**/*.test.js', '**/*.test.ts'],
+    languageOptions: {
+      globals: globals.jest,
+    },
+  },
 ];

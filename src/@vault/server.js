@@ -3,6 +3,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import cc from 'classcat';
 import { notFound } from 'next/navigation';
 import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { smartypants } from 'smartypants';
 import * as z from 'zod';
@@ -18,6 +19,17 @@ import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
 import { Code, Heading, Link, Paragraph } from '@ui/typography';
 import { Snippet, TalksArchive } from '@ui/components';
 import { Ol, Ul, Li, Blockquote } from '@ui/atoms';
+import {
+  SlideP,
+  SlideA,
+  SlideH1,
+  SlideH2,
+  SlideH3,
+  SlideH4,
+  SlideLi,
+  SlideLic,
+  SlideBlockquote,
+} from '@ui/talks';
 
 const jobToPosition = job => ({
   title: job.position,
@@ -68,6 +80,9 @@ const DataEmbedBefore = ({ data }) => {
       />
     );
   }
+  if (data.tags.includes('media')) {
+    return <ServerImage src={data.source} altText={data.alt} />;
+  }
   return null;
 };
 
@@ -83,7 +98,8 @@ const ContentEmbedAfter = ({ page }) => {
   return null;
 };
 
-const InternalEmbed = async ({ url, children }) => {
+/** @type {import('react').FC<{ url: string; children?: import('react').ReactNode }>} */
+export const InternalEmbed = async ({ url, children }) => {
   const slug = url.replace('/vault/', '').replace('.md', '');
   if (slug.startsWith('_data/')) {
     const data = await getData(slug.replace('_data/', ''));
@@ -108,20 +124,20 @@ const InternalEmbed = async ({ url, children }) => {
   );
 };
 
-const compile = (/** @type {string} */ source) =>
+/** Strips HTML comments from MDX source. */
+const stripHtmlComments = (/** @type {string} */ source) => {
+  let previous;
+  do {
+    previous = source;
+    source = source.replace(/<!--|--!?>/g, '');
+  } while (source !== previous);
+  return source;
+};
+
+export const compile = (/** @type {string} */ source) =>
   compileMDX({
-    source: source
-      .replaceAll(` { "layout": "center" }`, '')
-      .replaceAll(` { "layout": "columns" }`, ''),
-    options: {
-      parseFrontmatter: true,
-      mdxOptions: {
-        rehypePlugins: [
-          [rehypeMdxCodeProps, { elementAttributeNameCase: 'html' }],
-        ],
-        remarkPlugins: [remarkGfm],
-      },
-    },
+    source: stripHtmlComments(source),
+    options: contentMdxOptions,
     components: {
       p: Paragraph,
       code: Code,
@@ -161,29 +177,8 @@ const compile = (/** @type {string} */ source) =>
       ul: props => <Ul>{props.children}</Ul>,
       li: props => <Li id={props.id}>{props.children}</Li>,
       lic: ({ children }) => <Paragraph className="pb-0">{children}</Paragraph>,
-      text: props => <>{smartypants(props.children, '2')}</>,
-      pre: props => {
-        // TODO This logic kinda sucks, can we improve?
-        if (props.children?.type !== Code) return <pre {...props} />;
-
-        const language = props.children.props.className.replace(
-          'language-',
-          '',
-        );
-
-        // TODO is this what we want to do here?
-        if (language === 'datacorejsx') {
-          return null;
-        }
-
-        return (
-          <Snippet
-            filename={props.title}
-            language={language}
-            code={props.children.props.children.trim()}
-          />
-        );
-      },
+      text: textComponent,
+      pre: preComponent,
       blockquote: props => <Blockquote>{props.children}</Blockquote>,
       section: props => (
         <section
@@ -247,6 +242,68 @@ const compile = (/** @type {string} */ source) =>
         return <TalksArchive talks={talks} />;
       },
     },
+  });
+
+/** @type {import('react').FC<{ children: string }>} */
+const textComponent = ({ children }) => <>{smartypants(children, '2')}</>;
+
+/** @type {import('react').FC<any>} */
+const preComponent = props => {
+  if (props.children?.type !== Code) return <pre {...props} />;
+  const language = props.children.props.className.replace('language-', '');
+  if (language === 'datacorejsx') return null;
+  return (
+    <Snippet
+      filename={props.title}
+      language={language}
+      code={props.children.props.children.trim()}
+    />
+  );
+};
+
+const contentMdxOptions = {
+  parseFrontmatter: true,
+  mdxOptions: {
+    rehypePlugins: [[rehypeMdxCodeProps, { elementAttributeNameCase: 'html' }]],
+    remarkPlugins: [remarkGfm],
+  },
+};
+
+const slideMdxOptions = {
+  ...contentMdxOptions,
+  mdxOptions: {
+    ...contentMdxOptions.mdxOptions,
+    remarkPlugins: [
+      ...contentMdxOptions.mdxOptions.remarkPlugins,
+      remarkBreaks,
+    ],
+  },
+};
+
+const slideComponents = {
+  p: SlideP,
+  code: Code,
+  a: SlideA,
+  img: ServerEmbed,
+  h1: SlideH1,
+  h2: SlideH2,
+  h3: SlideH3,
+  h4: SlideH4,
+  ol: Ol,
+  ul: Ul,
+  li: SlideLi,
+  lic: SlideLic,
+  text: textComponent,
+  pre: preComponent,
+  blockquote: SlideBlockquote,
+  InternalEmbed,
+};
+
+export const compileSlide = (/** @type {string} */ source) =>
+  compileMDX({
+    source: stripHtmlComments(source),
+    options: slideMdxOptions,
+    components: slideComponents,
   });
 
 const REFERENCE_REGEX =

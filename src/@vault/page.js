@@ -9,6 +9,8 @@ import { Heading, Link } from '@ui/typography';
 import EntryMeta, { dateDateTimeDisplay } from '@ui/components/EntryMeta';
 import { Ul, Li } from '@ui/atoms';
 import { Talk } from '@ui/components';
+import { SlideLayout } from '@ui/talks';
+import { compileTalk } from '@vault/talks';
 
 const Embed = async ({ url }) => {
   const { result, error } = await ogs({ url });
@@ -120,6 +122,24 @@ const GalleryFooter = ({ gallery }) => {
 };
 
 /**
+ * @type {import('react').FC<{ source: string }>}
+ */
+const TalkServer = async ({ source }) => {
+  const slides = await compileTalk(source);
+  return (
+    <main className="h-screen w-screen bg-black">
+      <Suspense>
+        <Talk
+          slides={slides.map((slide, i) => (
+            <SlideLayout key={i}>{slide.content}</SlideLayout>
+          ))}
+        />
+      </Suspense>
+    </main>
+  );
+};
+
+/**
  * @type {import('react').FC<{
  *  content: import('react').ReactNode;
  *  frontmatter: import('./server').PageFMSchema;
@@ -130,11 +150,7 @@ export const VaultPage = async ({ content, frontmatter, source }) => {
   return (
     <>
       {frontmatter.talk ? (
-        <main className="h-screen w-screen bg-white">
-          <Suspense>
-            <Talk source={source.replace(/^---\s*[\s\S]*?\s*---/, '')} />
-          </Suspense>
-        </main>
+        <TalkServer source={source} />
       ) : (
         <Main>
           {frontmatter.essay ? (

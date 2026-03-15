@@ -95,6 +95,12 @@
   @apply font-muli font-light;
 }
 
+/* Prism tokens may have class names (e.g. "block") that collide with
+   Tailwind utilities. Override display to keep them inline. */
+.token.block {
+  display: inline;
+}
+
 pre.prism-code.line-numbers {
   position: relative;
   counter-reset: linenumber;
@@ -161,4 +167,16 @@ pre.prism-code.line-numbers {
   clip: rect(0, 0, 0, 0);
   word-wrap: normal;
   border: 0;
+}
+
+@utility slide-content {
+  width: 100vw;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  overflow: auto;
 }
