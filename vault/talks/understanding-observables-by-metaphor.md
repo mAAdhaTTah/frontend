@@ -65,14 +65,14 @@ Maintainer of kefir & prism.js
 ---
 
 ```javascript
-const $input = document.getElementById('input');
-const $result = document.getElementById('result');
+const $input = document.getElementById("input");
+const $result = document.getElementById("result");
 
-const input$ = Kefir.fromEvents($input, 'input').map(
-  event => event.target.value,
+const input$ = Kefir.fromEvents($input, "input").map(
+  (event) => event.target.value,
 );
 
-input$.observe(result => {
+input$.observe((result) => {
   $result.textContent = result;
 });
 ```
@@ -103,46 +103,46 @@ input$.observe(result => {
 ---
 
 ```javascript
-const first$ = Kefir.fromEvents(document.getElementById('first'), 'input').map(
-  event => parseInt(event.target.value, 10),
+const first$ = Kefir.fromEvents(document.getElementById("first"), "input").map(
+  (event) => parseInt(event.target.value, 10),
 );
 
 const second$ = Kefir.fromEvents(
-  document.getElementById('second'),
-  'input',
-).map(event => parseInt(event.target.value, 10));
+  document.getElementById("second"),
+  "input",
+).map((event) => parseInt(event.target.value, 10));
 
 const operation$ = Kefir.fromEvents(
-  document.getElementById('operation'),
-  'change',
+  document.getElementById("operation"),
+  "change",
 )
-  .map(event => event.target.value)
-  .merge(Kefir.constant('+'));
+  .map((event) => event.target.value)
+  .merge(Kefir.constant("+"));
 
 const result$ = Kefir.combine(
   { f: first$, s: second$, op: operation$ },
   ({ f, s, op }) => {
     if (Number.isNaN(f) || Number.isNaN(s)) {
-      return 'ERR';
+      return "ERR";
     }
 
     switch (op) {
-      case '+':
+      case "+":
         return f + s;
-      case '-':
+      case "-":
         return f - s;
-      case '*':
+      case "*":
         return f * s;
-      case '/':
+      case "/":
         return f / s;
       default:
-        return 'ERR';
+        return "ERR";
     }
   },
 );
 
-result$.observe(result => {
-  document.getElementById('result').textContent = result;
+result$.observe((result) => {
+  document.getElementById("result").textContent = result;
 });
 ```
 
@@ -171,15 +171,15 @@ result$.observe(result => {
 ---
 
 ```javascript
-const $block = document.getElementById('block');
+const $block = document.getElementById("block");
 
-const position$ = Kefir.fromEvents($block, 'mousedown')
-  .map(e => e.target.getBoundingClientRect())
-  .map(rect => ({ top: rect.top, left: rect.left }))
-  .flatMap(start =>
-    Kefir.fromEvents(document.body, 'mousemove')
-      .takeUntilBy(Kefir.fromEvents(document.body, 'mouseup'))
-      .map(e => ({
+const position$ = Kefir.fromEvents($block, "mousedown")
+  .map((e) => e.target.getBoundingClientRect())
+  .map((rect) => ({ top: rect.top, left: rect.left }))
+  .flatMap((start) =>
+    Kefir.fromEvents(document.body, "mousemove")
+      .takeUntilBy(Kefir.fromEvents(document.body, "mouseup"))
+      .map((e) => ({
         x: e.movementX,
         y: e.movementY,
       }))
@@ -192,9 +192,9 @@ const position$ = Kefir.fromEvents($block, 'mousedown')
       ),
   );
 
-position$.observe(pos => {
-  $block.style.top = pos.top + 'px';
-  $block.style.left = pos.left + 'px';
+position$.observe((pos) => {
+  $block.style.top = pos.top + "px";
+  $block.style.left = pos.left + "px";
 });
 ```
 
@@ -202,7 +202,10 @@ position$.observe(pos => {
 
 ## Our first metaphor: Excel
 
-TODO IMAGE
+<InternalEmbed title="excel" url="/vault/_data/excel.md">
+
+
+</InternalEmbed>
 
 ---
 
@@ -214,7 +217,7 @@ A1 is "2", B1 is "10"
 
 ## Cells can also be formulas dependent on other cells
 
-C1 is `=SUM(A1, B1)`
+C1 = `SUM(A1, B1)`
 
 C1 syncs with the values from A1 & B1
 
@@ -234,29 +237,25 @@ Data can be derived from other data with functions
 
 ## Observables can be combined to create new representations of the data
 
----
-
 `combine` represents the dependent calculation
-
----
 
 ```javascript
 Kefir.combine({ f: first$, s: second$, op: operation$ }, ({ f, s, op }) => {
   if (Number.isNaN(f) || Number.isNaN(s)) {
-    return 'ERR';
+    return "ERR";
   }
 
   switch (op) {
-    case '+':
+    case "+":
       return f + s;
-    case '-':
+    case "-":
       return f - s;
-    case '*':
+    case "*":
       return f * s;
-    case '/':
+    case "/":
       return f / s;
     default:
-      return 'ERR';
+      return "ERR";
   }
 });
 ```
@@ -279,8 +278,6 @@ Any state in your application can be represented this way
 
 vs.
 
----
-
 ## Pull-based: Consumer pulls values when they can be processed
 
 e.g. generators (`next`)
@@ -295,11 +292,11 @@ the array
 
 ## Values are discrete events
 
-`--1---2---3--4|`
-
-`delay(20)`
-
-`----1---2---3--4|`
+```
+--1---2---3--4|
+delay(20)
+----1---2---3--4|
+```
 
 ---
 
@@ -309,12 +306,10 @@ the array
 
 ## "Take events from A until I get an event from B"
 
----
-
 ```javascript
-Kefir.fromEvents(document.body, 'mousemove')
-  .takeUntilBy(Kefir.fromEvents(document.body, 'mouseup'))
-  .map(e => ({
+Kefir.fromEvents(document.body, "mousemove")
+  .takeUntilBy(Kefir.fromEvents(document.body, "mouseup"))
+  .map((e) => ({
     x: e.movementX,
     y: e.movementY,
   }))
@@ -331,19 +326,12 @@ Kefir.fromEvents(document.body, 'mousemove')
 
 ## "Take events from A until I get an event from B"
 
-`--m--m----m------m--mmmm---m--m---`
-
----
-
-`takeUntilBy`
-
----
-
-`------------------------u---------`
-
----
-
-`--m--m----m------m--mmmm|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
+```
+--m--m----m------m--mmmm---m--m---
+takeUntilBy()
+------------------------u---------
+--m--m----m------m--mmmm|
+```
 
 ---
 
@@ -358,46 +346,46 @@ Kefir.fromEvents(document.body, 'mousemove')
 ## Simple Calculator
 
 ```javascript
-const first$ = Kefir.fromEvents(document.getElementById('first'), 'input').map(
-  event => parseInt(event.target.value, 10),
+const first$ = Kefir.fromEvents(document.getElementById("first"), "input").map(
+  (event) => parseInt(event.target.value, 10),
 );
 
 const second$ = Kefir.fromEvents(
-  document.getElementById('second'),
-  'input',
-).map(event => parseInt(event.target.value, 10));
+  document.getElementById("second"),
+  "input",
+).map((event) => parseInt(event.target.value, 10));
 
 const operation$ = Kefir.fromEvents(
-  document.getElementById('operation'),
-  'change',
+  document.getElementById("operation"),
+  "change",
 )
-  .map(event => event.target.value)
-  .merge(Kefir.constant('+'));
+  .map((event) => event.target.value)
+  .merge(Kefir.constant("+"));
 
 const result$ = Kefir.combine(
   { f: first$, s: second$, op: operation$ },
   ({ f, s, op }) => {
     if (Number.isNaN(f) || Number.isNaN(s)) {
-      return 'ERR';
+      return "ERR";
     }
 
     switch (op) {
-      case '+':
+      case "+":
         return f + s;
-      case '-':
+      case "-":
         return f - s;
-      case '*':
+      case "*":
         return f * s;
-      case '/':
+      case "/":
         return f / s;
       default:
-        return 'ERR';
+        return "ERR";
     }
   },
 );
 
-result$.observe(result => {
-  document.getElementById('result').textContent = result;
+result$.observe((result) => {
+  document.getElementById("result").textContent = result;
 });
 ```
 
@@ -406,15 +394,15 @@ result$.observe(result => {
 ## Drag and Drop
 
 ```javascript
-const $block = document.getElementById('block');
+const $block = document.getElementById("block");
 
-const position$ = Kefir.fromEvents($block, 'mousedown')
-  .map(e => e.target.getBoundingClientRect())
-  .map(rect => ({ top: rect.top, left: rect.left }))
-  .flatMap(start =>
-    Kefir.fromEvents(document.body, 'mousemove')
-      .takeUntilBy(Kefir.fromEvents(document.body, 'mouseup'))
-      .map(e => ({
+const position$ = Kefir.fromEvents($block, "mousedown")
+  .map((e) => e.target.getBoundingClientRect())
+  .map((rect) => ({ top: rect.top, left: rect.left }))
+  .flatMap((start) =>
+    Kefir.fromEvents(document.body, "mousemove")
+      .takeUntilBy(Kefir.fromEvents(document.body, "mouseup"))
+      .map((e) => ({
         x: e.movementX,
         y: e.movementY,
       }))
@@ -427,9 +415,9 @@ const position$ = Kefir.fromEvents($block, 'mousedown')
       ),
   );
 
-position$.observe(pos => {
-  $block.style.top = pos.top + 'px';
-  $block.style.left = pos.left + 'px';
+position$.observe((pos) => {
+  $block.style.top = pos.top + "px";
+  $block.style.left = pos.left + "px";
 });
 ```
 
