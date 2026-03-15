@@ -59,10 +59,6 @@ Maintainer of kefir & prism.js
 
 ## What makes Vue.js so good for this?
 
----
-
-### What makes Vue.js so good for this?
-
 - DOM as template
   - Back-end can render components
   - Front-end bootstraps off of it
@@ -110,13 +106,13 @@ This will use the DOM as its template.
 
 ---
 
-## Back-end can define page structure for Front-end to bootstrap from
+### Back-end can define page structure for Front-end to bootstrap from
 
 Vue.js doesn't need to take over the whole page
 
 ---
 
-## No interactivity? Don't use Vue.js
+### No interactivity? Don't use Vue.js
 
 Otherwise, "decorate" content with interactivity
 
@@ -128,7 +124,7 @@ Page can be a mix, depending on needs of the component
 
 ---
 
-### Let's zoom in on this compoennt:
+### Let's zoom in on this component:
 
 ```html
 <blog-post url="http://myblog.com/my-post-1/">
@@ -164,14 +160,14 @@ The actual component does a lot more...
 
 ---
 
-## Pass in content to defined locations
+### Pass in content to defined locations
 
 - Back-end renders important content
 - Front-end structures content
 
 ---
 
-## Benefits of Slots
+### Benefits of Slots
 
 - Faster perceived performance
   - Browser can request images before getting JavaScript
@@ -180,7 +176,7 @@ The actual component does a lot more...
 
 ---
 
-## Difficulties with Slots
+### Difficulties with Slots
 
 - Cut off from parent-child communication
 - Indirection caused by coupling not visible in template
@@ -205,7 +201,7 @@ The actual component does a lot more...
 
 ---
 
-## Container component registers module
+### Container component registers module
 
 ```javascript title="tab-container.js"
 export default {
@@ -217,7 +213,7 @@ export default {
 
 ---
 
-## Components dispatch actions/mutations and read info
+### Components dispatch actions/mutations and read info
 
 ```javascript title="tab-header.js"
 export default {
@@ -238,7 +234,7 @@ export default {
 
 ---
 
-## Logic lives in the module
+### Logic lives in the module
 
 ```javascript title="store.js"
 export default {
@@ -258,40 +254,7 @@ export default {
 
 ---
 
-- Keep logic centralized and easy to test
-- Wire up individual components to store
-- Provide context needed and getters to use it
-
----
-
-## Pass in content to defined locations
-
-- Back-end renders important content
-- Front-end structures content
-- Front-end structures content
-
----
-
-- Faster perceived performance
-  - Browser can request images before getting JavaScript
-- Improved SEO
-  - Important content doesn't need JavaScript to render
-
----
-
-## Difficulties with Slots
-
-- Cut off from parent-child communication
-- Indirection caused by coupling not visible in template
-
----
-
-## "Registering Module" Pattern
-
-- Solves the problem of parent-child communication
-- All communication happens through a Vuex store
-
----
+### Benefits
 
 - Keep logic centralized and easy to test
 - Wire up individual components to store
