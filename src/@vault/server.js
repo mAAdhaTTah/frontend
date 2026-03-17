@@ -267,6 +267,7 @@ const contentMdxOptions = {
     rehypePlugins: [[rehypeMdxCodeProps, { elementAttributeNameCase: 'html' }]],
     remarkPlugins: [remarkGfm],
   },
+  blockJS: false,
 };
 
 const slideMdxOptions = {
