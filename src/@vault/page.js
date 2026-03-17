@@ -128,13 +128,11 @@ const TalkServer = async ({ source }) => {
   const slides = await compileTalk(source);
   return (
     <main className="h-screen w-screen bg-black">
-      <Suspense>
-        <Talk
-          slides={slides.map((slide, i) => (
-            <SlideLayout key={i}>{slide.content}</SlideLayout>
-          ))}
-        />
-      </Suspense>
+      <Talk
+        slides={slides.map((slide, i) => (
+          <SlideLayout key={i}>{slide.content}</SlideLayout>
+        ))}
+      />
     </main>
   );
 };
@@ -150,7 +148,9 @@ export const VaultPage = async ({ content, frontmatter, source }) => {
   return (
     <>
       {frontmatter.talk ? (
-        <TalkServer source={source} />
+        <Suspense>
+          <TalkServer source={source} />
+        </Suspense>
       ) : (
         <Main>
           {frontmatter.essay ? (

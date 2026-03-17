@@ -6,8 +6,6 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const config = {
-  // Timeout in seconds
-  staticPageGenerationTimeout: 120,
   cacheComponents: true,
   images: {
     remotePatterns: [
@@ -25,7 +23,6 @@ const config = {
   },
   experimental: {
     scrollRestoration: true,
-    webpackBuildWorker: true,
   },
 };
 
