@@ -29,6 +29,7 @@ const TweetPage = async ({ id }) => {
 
 const getImageInfo = async src => {
   'use cache';
+  cacheLife('max');
 
   if (src.startsWith('/vault/_meta/attachments/')) {
     const filename = src.replace('/vault/_meta/attachments/', '');

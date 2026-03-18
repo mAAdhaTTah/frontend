@@ -4,7 +4,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import cc from 'classcat';
 import { Mulish, Ovo, Montserrat } from 'next/font/google';
-import { Suspense } from 'react';
 import { ServerLayout } from '@ui/layout';
 
 /**

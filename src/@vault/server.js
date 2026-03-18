@@ -650,6 +650,7 @@ const LayoutSchema = z
 
 export const getLayoutProps = async () => {
   'use cache';
+  cacheLife('max');
   const [header, nav] = await Promise.all([getData('header'), getData('menu')]);
   return await LayoutSchema.parseAsync({ header, nav });
 };
