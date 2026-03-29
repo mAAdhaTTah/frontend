@@ -106,10 +106,27 @@ export const Header = ({
 
   return (
     <div
-      className={cc(['print:hidden', 'h-screen', 'w-full', 'overflow-hidden'])}
+      className={cc([
+        'print:hidden',
+        { 'h-screen': fullScreen },
+        'w-full',
+        'overflow-hidden',
+      ])}
     >
-      <header className={cc(['relative', 'print:hidden'])}>
-        <div className="h-screen overflow-hidden relative">
+      <header
+        className={cc([
+          'relative',
+          'print:hidden',
+          { 'min-h-[16rem]': !fullScreen },
+        ])}
+      >
+        <div
+          className={cc(
+            fullScreen
+              ? 'h-screen overflow-hidden relative'
+              : 'absolute inset-0 overflow-hidden',
+          )}
+        >
           {backgroundImage}
         </div>
         <div
