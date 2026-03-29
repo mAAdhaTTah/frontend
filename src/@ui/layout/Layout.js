@@ -55,20 +55,21 @@ export const Layout = ({ layoutP, children }) => {
         },
       ])}
     >
-      <div>
+      <div
+        className={cc([
+          'lg:sticky',
+          'lg:top-0',
+          'lg:h-screen',
+          'lg:overflow-hidden',
+        ])}
+      >
         {layout !== 'headerless' && (
           <Suspense>
             <HeaderNav layoutP={layoutP} fullScreen={fullScreen} />
           </Suspense>
         )}
       </div>
-      <div className="relative vt-name-[content]">
-        <div
-          className={cc(['absolute', 'w-full', 'h-screen', 'overflow-auto'])}
-        >
-          {children}
-        </div>
-      </div>
+      <div className="vt-name-[content]">{children}</div>
     </div>
   );
 };
