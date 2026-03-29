@@ -13,7 +13,7 @@ export const Li = ({ id, className, children }) => {
   return (
     <li
       id={id}
-      className={`mb-1 font-ovo text-xl${className ? ` ${className}` : ''}`}
+      className={`mb-1 font-ovo text-lg${className ? ` ${className}` : ''}`}
     >
       {children}
     </li>

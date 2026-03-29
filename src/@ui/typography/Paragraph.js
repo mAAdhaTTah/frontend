@@ -1,6 +1,6 @@
 import cc from 'classcat';
 
-const paragraphClass = cc(['font-ovo', 'text-xl', 'leading-normal', 'pb-3']);
+const paragraphClass = cc(['font-ovo', 'text-lg', 'leading-normal', 'pb-3']);
 
 /**
  * @typedef {{
