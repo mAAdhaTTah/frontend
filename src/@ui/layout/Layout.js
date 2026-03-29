@@ -46,7 +46,7 @@ export const Layout = ({ layoutP, children }) => {
         'transition-grid-cols',
         'duration-1000',
         'ease-[cubic-bezier(.36,.15,.44,1.25)]',
-        'transform-gpu',
+
         {
           'grid-cols-[0px_100vw]': !fullScreen,
           'lg:grid-cols-[352px_1fr]': !fullScreen && layout !== 'headerless',
@@ -55,19 +55,36 @@ export const Layout = ({ layoutP, children }) => {
         },
       ])}
     >
-      <div>
+      <div
+        className={cc([
+          'lg:sticky',
+          'lg:top-0',
+          'lg:h-screen',
+          'lg:overflow-hidden',
+        ])}
+      >
         {layout !== 'headerless' && (
           <Suspense>
             <HeaderNav layoutP={layoutP} fullScreen={fullScreen} />
           </Suspense>
         )}
       </div>
-      <div className="relative vt-name-[content]">
-        <div
-          className={cc(['absolute', 'w-full', 'h-screen', 'overflow-auto'])}
-        >
-          {children}
-        </div>
+      <div
+        className={cc([
+          'vt-name-[content]',
+          'fixed',
+          'top-0',
+          'right-0',
+          'bottom-0',
+          'overflow-y-auto',
+          {
+            'left-0': !fullScreen,
+            'lg:left-[352px]': !fullScreen && layout !== 'headerless',
+            hidden: fullScreen,
+          },
+        ])}
+      >
+        {children}
       </div>
     </div>
   );
