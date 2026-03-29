@@ -69,7 +69,23 @@ export const Layout = ({ layoutP, children }) => {
           </Suspense>
         )}
       </div>
-      <div className="vt-name-[content] min-h-screen">{children}</div>
+      <div
+        className={cc([
+          'vt-name-[content]',
+          'fixed',
+          'top-0',
+          'right-0',
+          'bottom-0',
+          'overflow-y-auto',
+          {
+            'left-0': !fullScreen,
+            'lg:left-[352px]': !fullScreen && layout !== 'headerless',
+            hidden: fullScreen,
+          },
+        ])}
+      >
+        {children}
+      </div>
     </div>
   );
 };
