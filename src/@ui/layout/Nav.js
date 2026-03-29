@@ -160,18 +160,15 @@ const DesktopNav = ({ links }) => {
 
 /** @type {import('react').FC<NavProps>} */
 const Nav = ({ links }) => {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const navRef = useRef();
   const onClose = () => setOpen(false);
   useOutsideClick(navRef, onClose, open);
 
-  const isHome = pathname === '/';
-
   return (
     <>
-      {!isHome && <DesktopNav links={links} />}
-      <div ref={navRef} className={isHome ? undefined : 'lg:hidden'}>
+      <DesktopNav links={links} />
+      <div ref={navRef} className="lg:hidden">
         <NavButton onClick={() => setOpen(open => !open)} open={open} />
         <Menu open={open} onClose={onClose} links={links} />
       </div>
