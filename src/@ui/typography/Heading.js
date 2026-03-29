@@ -6,7 +6,7 @@ const variants = {
   'h-1': cc(['text-3xl', 'text-midg', 'font-muli', 'mb-5']),
   'h-2': cc(['mb-5', 'font-muli', 'text-2xl']),
   'h-3': cc(['mb-5', 'font-muli', 'text-xl']),
-  'h-4': cc(['mb-3', 'font-muli', 'inline-block', 'border-b-2', 'text-xl']),
+  'h-4': cc(['mb-3', 'font-muli', 'inline-block', 'border-b-2', 'text-lg']),
 };
 
 export const Heading = ({ level, variant, className, children }) => {
