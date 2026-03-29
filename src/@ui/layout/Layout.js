@@ -20,8 +20,12 @@ const HeaderNav = ({ fullScreen, layoutP }) => {
 
   return (
     <>
-      <Header {...header} fullScreen={fullScreen} />
-      <Nav {...nav} />
+      <Header
+        {...header}
+        fullScreen={fullScreen}
+        nav={fullScreen ? <Nav {...nav} /> : undefined}
+      />
+      {!fullScreen && <Nav {...nav} />}
     </>
   );
 };

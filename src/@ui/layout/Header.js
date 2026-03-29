@@ -59,6 +59,7 @@ const SocialIcons = ({ fullScreen }) => (
  * @property {import('react').ReactElement} backgroundImage
  * @property {import('react').ReactElement} avatarImage
  * @property {boolean} [disableTyping]
+ * @property {import('react').ReactElement} [nav]
  */
 
 /** @type {import('react').FC<HeaderProps>} */
@@ -69,6 +70,7 @@ export const Header = ({
   backgroundImage,
   avatarImage,
   disableTyping = false,
+  nav,
 }) => {
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
@@ -196,6 +198,7 @@ export const Header = ({
               >
                 {description}
               </SecondaryHeading>
+              {fullScreen && nav}
             </div>
           </div>
         </div>
