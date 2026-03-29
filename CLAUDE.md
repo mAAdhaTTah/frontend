@@ -82,6 +82,22 @@ Link pages (`frontmatter.link`) display an embedded image fetched via `open-grap
 - Prettier config: `brookjs-prettier-config`
 - ESLint: flat config (`eslint.config.js`), zero warnings enforced in CI
 
+### Color Palette
+
+Defined in `tailwind.config.cjs`. The greens in order from dark to light:
+
+- `darkg: '#24331E'` — deep forest green; used for body text, backgrounds
+- `midg: '#327820'` — mid green; used for heading text, active nav underlines
+- `lightg: '#5e9639'` — sage green; used for interactive hover/focus states
+
+### Layout Gotchas
+
+The name card in `src/@ui/layout/Header.js` uses the `pin-center` utility
+(`transform: translate(-50%, -50%)`), which creates a CSS containing block for any
+`position: fixed` descendants. Fixed elements (e.g. the hamburger button, slide-in menu)
+must be rendered outside the name card in the DOM or they will position relative to the
+card instead of the viewport.
+
 ### Commits
 
 Always run `npm test` before committing and fix any failures before proceeding.
