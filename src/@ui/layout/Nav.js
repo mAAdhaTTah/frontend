@@ -40,7 +40,7 @@ const headerLinkClass = cc([
   'focus:border-darkg',
   'text-lg',
   'text-center',
-  'font-ovo',
+  'font-muli',
   'leading-tight',
 ]);
 
@@ -125,7 +125,7 @@ const Menu = ({ links, open, onClose }) => {
   );
 };
 
-const DesktopNav = ({ links }) => {
+export const DesktopNav = ({ links }) => {
   const pathname = usePathname();
 
   return (
@@ -149,6 +149,20 @@ const DesktopNav = ({ links }) => {
   );
 };
 
+export const MobileNav = ({ links }) => {
+  const [open, setOpen] = useState(false);
+  const navRef = useRef();
+  const onClose = () => setOpen(false);
+  useOutsideClick(navRef, onClose, open);
+
+  return (
+    <div ref={navRef} className="lg:hidden">
+      <NavButton onClick={() => setOpen(open => !open)} open={open} />
+      <Menu open={open} onClose={onClose} links={links} />
+    </div>
+  );
+};
+
 /**
  * @typedef NavProps
  * @property {NavLink[]} links
@@ -159,21 +173,11 @@ const DesktopNav = ({ links }) => {
  */
 
 /** @type {import('react').FC<NavProps>} */
-const Nav = ({ links }) => {
-  const [open, setOpen] = useState(false);
-  const navRef = useRef();
-  const onClose = () => setOpen(false);
-  useOutsideClick(navRef, onClose, open);
-
-  return (
-    <>
-      <DesktopNav links={links} />
-      <div ref={navRef} className="lg:hidden">
-        <NavButton onClick={() => setOpen(open => !open)} open={open} />
-        <Menu open={open} onClose={onClose} links={links} />
-      </div>
-    </>
-  );
-};
+const Nav = ({ links }) => (
+  <>
+    <DesktopNav links={links} />
+    <MobileNav links={links} />
+  </>
+);
 
 export default Nav;

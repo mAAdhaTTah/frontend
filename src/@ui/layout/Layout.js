@@ -3,7 +3,7 @@ import cc from 'classcat';
 import { usePathname } from 'next/navigation';
 import { Suspense, use } from 'react';
 import { Header } from './Header';
-import Nav from './Nav';
+import { DesktopNav, MobileNav } from './Nav';
 
 // @TODO(James) extract this somehwere? does this logic belong here?
 const getLayout = pathname => {
@@ -20,7 +20,12 @@ const HeaderNav = ({ fullScreen, layoutP }) => {
 
   return (
     <>
-      <Header {...header} fullScreen={fullScreen} nav={<Nav {...nav} />} />
+      <Header
+        {...header}
+        fullScreen={fullScreen}
+        nav={<DesktopNav {...nav} />}
+      />
+      <MobileNav {...nav} />
     </>
   );
 };
