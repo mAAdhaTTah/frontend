@@ -33,11 +33,11 @@ const NavButton = ({ onClick, open }) => {
 
 const headerLinkClass = cc([
   'no-underline',
-  'text-lightg',
+  'text-darkg',
   'border-b',
-  'border-darkg',
-  'hover:border-lightg',
-  'focus:border-lightg',
+  'border-transparent',
+  'hover:border-darkg',
+  'focus:border-darkg',
   'text-lg',
   'text-center',
   'font-ovo',
@@ -54,7 +54,7 @@ const HeaderLink = ({ to, onClick, children }) => {
         onClick={onClick}
         className={cc([
           headerLinkClass,
-          pathname === to && 'border-b border-primary',
+          pathname === to && 'border-b border-midg',
         ])}
       >
         {children}
@@ -137,7 +137,7 @@ const DesktopNav = ({ links }) => {
               href={link.to}
               className={cc([
                 headerLinkClass,
-                pathname === link.to && 'border-b border-primary',
+                pathname === link.to && 'border-b border-midg',
               ])}
             >
               {link.text}

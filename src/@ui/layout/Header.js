@@ -108,27 +108,10 @@ export const Header = ({
 
   return (
     <div
-      className={cc([
-        'print:hidden',
-        { 'h-screen': fullScreen },
-        'w-full',
-        'overflow-hidden',
-      ])}
+      className={cc(['print:hidden', 'h-screen', 'w-full', 'overflow-hidden'])}
     >
-      <header
-        className={cc([
-          'relative',
-          'print:hidden',
-          { 'min-h-[16rem]': !fullScreen },
-        ])}
-      >
-        <div
-          className={cc(
-            fullScreen
-              ? 'h-screen overflow-hidden relative'
-              : 'absolute inset-0 overflow-hidden',
-          )}
-        >
+      <header className={cc(['relative', 'print:hidden', 'h-full'])}>
+        <div className={cc(['h-screen', 'overflow-hidden', 'relative'])}>
           {backgroundImage}
         </div>
         <div
@@ -198,7 +181,7 @@ export const Header = ({
               >
                 {description}
               </SecondaryHeading>
-              {fullScreen && nav}
+              {nav}
             </div>
           </div>
         </div>
