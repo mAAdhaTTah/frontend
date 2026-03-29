@@ -1,7 +1,4 @@
-'use client';
-import cc from 'classcat';
-import { useReducer, useRef } from 'react';
-import Highlight from 'prism-react-renderer';
+import { Highlight } from 'prism-react-renderer';
 // @TODO(mAAdhaTTah) replace this with SWC plugin
 import Prism from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
@@ -21,136 +18,30 @@ import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-ruby';
 import 'prismjs/themes/prism-twilight.css';
 import 'prismjs/plugins/toolbar/prism-toolbar.css';
+import SnippetInteractive from './SnippetInteractive.js';
 
-function fallbackCopyTextToClipboard(copyInfo) {
-  const textArea = document.createElement('textarea');
-  textArea.value = copyInfo.getText();
-
-  // Avoid scrolling to bottom
-  textArea.style.top = '0';
-  textArea.style.left = '0';
-  textArea.style.position = 'fixed';
-
-  document.body.appendChild(textArea);
-  textArea.focus();
-  textArea.select();
-
-  try {
-    const successful = document.execCommand('copy');
-    setTimeout(function () {
-      if (successful) {
-        copyInfo.success();
-      } else {
-        copyInfo.error();
-      }
-    }, 1);
-  } catch (err) {
-    setTimeout(function () {
-      copyInfo.error(err);
-    }, 1);
-  }
-
-  document.body.removeChild(textArea);
-}
-
-function copyTextToClipboard(copyInfo) {
-  if (navigator.clipboard) {
-    navigator.clipboard
-      .writeText(copyInfo.getText())
-      .then(copyInfo.success, function () {
-        // try the fallback in case `writeText` didn't work
-        fallbackCopyTextToClipboard(copyInfo);
-      });
-  } else {
-    fallbackCopyTextToClipboard(copyInfo);
-  }
-}
-
-/**
- * Selects the text content of the given element.
- *
- * @param {Element} element
- */
-function selectElementText(element) {
-  // https://stackoverflow.com/a/20079910/7595472
-  window.getSelection().selectAllChildren(element);
-}
-
-const reducer = (_state, action) => {
-  switch (action) {
-    case 'copy':
-      return 'Copy to Clipboard';
-    case 'copy-error':
-      return 'Press Ctrl+C to copy';
-    case 'copy-success':
-      return 'Copied!';
-    default:
-      throw new Error(`Unknown action ${action}`);
-  }
-};
+// Empty theme prevents prism-react-renderer's default inline styles from
+// overriding the prism-twilight.css stylesheet.
+const emptyTheme = { plain: {}, styles: [] };
 
 const Snippet = ({ code, language, filename }) => {
-  const [copyButtonText, setState] = useReducer(reducer, 'Copy to Clipboard');
-  const preRef = useRef();
-
-  function resetText() {
-    setTimeout(function () {
-      setState('copy');
-    }, 5000);
-  }
   return (
-    <Highlight Prism={Prism} code={code} language={language}>
+    <Highlight prism={Prism} code={code} language={language} theme={emptyTheme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className="code-toolbar">
-          <pre
-            className={cc([className, 'line-numbers'])}
-            style={style}
-            ref={preRef}
-          >
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-          <div className="toolbar">
-            {filename && (
-              <div className="toolbar-item">
-                <span>{filename}</span>
-              </div>
-            )}
-            <div className="toolbar-item">
-              <button
-                className="copy-to-clipboard-button"
-                onClick={() =>
-                  copyTextToClipboard({
-                    getText: function () {
-                      return code;
-                    },
-                    success: function () {
-                      setState('copy-success');
-
-                      resetText();
-                    },
-                    error: function () {
-                      setState('copy-error');
-
-                      setTimeout(function () {
-                        selectElementText(preRef.current);
-                      }, 1);
-
-                      resetText();
-                    },
-                  })
-                }
-              >
-                {copyButtonText}
-              </button>
+        <SnippetInteractive
+          className={className}
+          style={style}
+          code={code}
+          filename={filename}
+        >
+          {tokens.map((line, i) => (
+            <div key={i} {...getLineProps({ line })}>
+              {line.map((token, key) => (
+                <span key={key} {...getTokenProps({ token })} />
+              ))}
             </div>
-          </div>
-        </div>
+          ))}
+        </SnippetInteractive>
       )}
     </Highlight>
   );
