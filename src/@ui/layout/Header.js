@@ -33,6 +33,7 @@ const SocialIcons = ({ fullScreen }) => (
       'justify-center',
       { 'lg:justify-start': fullScreen },
       'text-center',
+      'text-darkg',
     ])}
   >
     <SocialIcon
