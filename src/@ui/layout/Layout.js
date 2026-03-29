@@ -69,7 +69,7 @@ export const Layout = ({ layoutP, children }) => {
           </Suspense>
         )}
       </div>
-      <div className="vt-name-[content]">{children}</div>
+      <div className="vt-name-[content] min-h-screen">{children}</div>
     </div>
   );
 };

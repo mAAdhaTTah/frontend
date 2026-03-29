@@ -150,6 +150,10 @@ pre.prism-code.line-numbers {
   }
 }
 
+::view-transition-group(content) {
+  overflow: clip;
+}
+
 ::view-transition-old(content) {
   animation: fade-exit ease-out 600ms forwards;
 }
