@@ -46,7 +46,7 @@ export const Layout = ({ layoutP, children }) => {
         'transition-grid-cols',
         'duration-1000',
         'ease-[cubic-bezier(.36,.15,.44,1.25)]',
-        'transform-gpu',
+
         {
           'grid-cols-[0px_100vw]': !fullScreen,
           'lg:grid-cols-[352px_1fr]': !fullScreen && layout !== 'headerless',
