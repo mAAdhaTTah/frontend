@@ -125,6 +125,30 @@ const Menu = ({ links, open, onClose }) => {
   );
 };
 
+const DesktopNav = ({ links }) => {
+  const pathname = usePathname();
+
+  return (
+    <nav className={cc(['hidden', 'lg:block', 'pt-4', 'px-4'])}>
+      <ul>
+        {links.map((link, i) => (
+          <li key={i} className="py-2 text-center">
+            <Link
+              href={link.to}
+              className={cc([
+                headerLinkClass,
+                pathname === link.to && 'border-b border-primary',
+              ])}
+            >
+              {link.text}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
 /**
  * @typedef NavProps
  * @property {NavLink[]} links
@@ -142,10 +166,13 @@ const Nav = ({ links }) => {
   useOutsideClick(navRef, onClose, open);
 
   return (
-    <div ref={navRef}>
-      <NavButton onClick={() => setOpen(open => !open)} open={open} />
-      <Menu open={open} onClose={onClose} links={links} />
-    </div>
+    <>
+      <DesktopNav links={links} />
+      <div ref={navRef} className="lg:hidden">
+        <NavButton onClick={() => setOpen(open => !open)} open={open} />
+        <Menu open={open} onClose={onClose} links={links} />
+      </div>
+    </>
   );
 };
 
