@@ -61,7 +61,13 @@ export const Sup = ({ id, children }) => {
   return <sup id={id}>{children}</sup>;
 };
 
-const linkClass = cc(['no-underline', 'border-b-2', 'border-darkg']);
+const linkClass = cc([
+  'no-underline',
+  'border-b-2',
+  'border-darkg',
+  'hover:border-lightg',
+  'transition-colors',
+]);
 
 export const Link = ({ children, href, title }) => {
   return (
