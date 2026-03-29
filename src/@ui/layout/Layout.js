@@ -49,7 +49,7 @@ export const Layout = ({ layoutP, children }) => {
         'transform-gpu',
         {
           'grid-cols-[0px_100vw]': !fullScreen,
-          'xl:grid-cols-[352px_1fr]': !fullScreen && layout !== 'headerless',
+          'xl:grid-cols-[280px_1fr]': !fullScreen && layout !== 'headerless',
 
           'grid-cols-[100vw_0px]': fullScreen,
         },
