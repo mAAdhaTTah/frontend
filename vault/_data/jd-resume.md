@@ -18,7 +18,7 @@ work:
   - name: Ollie Pets
     position: Senior Director, Engineering
     url: https://www.ollie.com
-    startDate: 2025-11-01
+    startDate: 2025-10-01
     summary: Pet health & fresh food subscription
     highlights:
       - Coordinate cross-functional introduction of new Feeding Recommendation ML model
@@ -28,7 +28,7 @@ work:
     position: Director, Engineering
     url: https://www.ollie.com
     startDate: 2024-01-01
-    endDate: 2025-11-01
+    endDate: 2025-10-01
     summary: Pet health & fresh food subscription
     highlights:
       - Led department through major migration to a new ecommerce vendor, managing internal, vendor, & team communications, overall timelines, & execution of year+ long project
