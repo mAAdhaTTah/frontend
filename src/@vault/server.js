@@ -321,7 +321,7 @@ const DataSchema = z
     const { filename, url = `vault/_data/${filename}.md` } =
       REFERENCE_REGEX.exec(value).groups;
 
-    const read = path.join(CWD, url);
+    const read = path.join(/*turbopackIgnore: true*/ CWD, url);
     const source = await readFile(read, 'utf8');
     const { frontmatter } = await compile(source);
     return frontmatter;
@@ -333,7 +333,7 @@ const ContentSchema = z
   .transform(async value => {
     const { url } = REFERENCE_REGEX.exec(value).groups;
 
-    const read = path.join(CWD, url);
+    const read = path.join(/*turbopackIgnore: true*/ CWD, url);
     const source = await readFile(read, 'utf8');
     const { frontmatter } = await compile(source);
     return parseFrontmatter(frontmatter, read);
@@ -508,7 +508,7 @@ export const readAllVaultPages = async () => {
       }
     }
   };
-  await walkDir(CWD);
+  await walkDir(path.join(CWD, 'vault'));
 
   return { sources, bySlug };
 };
