@@ -5,8 +5,8 @@ tags:
 slug: talks/how-i-use-claude-code
 title: How I use Claude Code
 description: Sharing with my coworkers how I've been using Claude Code
-published_at: 2026-04-23 21:30
-updated_at: 2026-04-23 21:30
+published_at: 2026-04-24 16:30
+updated_at: 2026-04-24 16:30
 share: true
 ---
 
