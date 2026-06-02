@@ -3,12 +3,11 @@ tags:
   - web
   - essay
 title: Evgeny Morozov, 'Solutionism', and the Arab Spring
-description: |
-  Having become so embedded within the ‘mind sphere’ of technology and social media, I find it quite refreshing when someone comes along to tear it all down the way Evgeny has.  Of ‘The Net Delusion’ and ‘To Save Everything, Click Here’ fame, I’m just beginning to come across his work.  I think the release of \[…]
+description: Having become so embedded within the ‘mind sphere’ of technology and social media, I find it quite refreshing when someone comes along to tear it all down the way Evgeny has.  Of ‘The Net Delusion’ and ‘To Save Everything, Click Here’ fame, I’m just beginning to come across his work.  I think the release of \[…]
 slug: writing/evgeny-morozov-solutionism-and-the-arab-spring
 published_at: 2013-04-11T15:06:17.000Z
 updated_at: 2022-12-04T01:49:30.000Z
-excerpt:
+excerpt: Having become so embedded within the ‘mind sphere’ of technology and social media, I find it quite refreshing when someone comes along to tear it all down the way Evgeny has.  Of ‘The Net Delusion’ and ‘To Save Everything, Click Here’ fame, I’m just beginning to come across his work.  I think the release of \[…]
 featuredMedia:
 share: true
 ---
