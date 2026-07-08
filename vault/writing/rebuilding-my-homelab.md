@@ -9,18 +9,23 @@ description: My plan for rebuilding my homelab
 published_at: 2026-02-01 11:32
 updated_at: 2026-02-01 11:32
 share: true
-intensity: on
+intensity: complete
 rank: 3
 ---
 
 # Rebuilding my homelab
 
-https://www.reddit.com/r/homelab/comments/1qqaoy8/homelab_revamp_storage_suggestions/
+I had a number of issues in the homelab, which I wanted to solve through some expansion of the computers in the homelab and take the opportunity to combine everything into one big swarm. We also better managed the data storage across the new machines, putting most things on the primary fileserver (currently named icanhazmedia), but with some things on the local SSDs.
 
-![8p-front-2026-01-31.png](/vault/_meta/attachments/8p-front-2026-01-31.png)
+The rebuild didn't fully solve all of them, but I made enough progress to make some significant improvements. The core of the rebuild was the introduction of 5 mini PCs. I bought these from someone on Facebook Marketplace, who had a slew of them he got from a business that was liquidating them. I got 5 for $60/ea ($300), and we verified all 5 at his place before I took them home.
 
-Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-designer.md). Currently aspirational, not yet implemented.
-[Link](https://count.racku.la/?l=eJyNkcFugzAMhl8FZZdOIl2hDCi3dNW0yyS0aqeqB0ZDQaIQhTAmId59bgINTEzbBeLfn387Tos-UYBWS2-5RiYq4OwzOHAUtDpKUWDZJmrgtzHRCQWHFglIWjXmZS0ox0nGaRPlOcBMwQnkP0qRos5U8JkWlGcxvmRFhlnck5YiE14W4g909W90M0faDmYlF5hFIk7hW9B-WneWrnElSh6dad995kZwfXaqVf5xzgSANMoTXDUZ9FSgNwGPHexTyIVWs7dJZesL5F5BM8In0GKI7hziEZ9A9AVRJVtWvz2JNnmTuYdnnZNm3tbdEr83K25mkyWAia1M9jdNFq93HnGGScR4ErUd3T3cvQ9FxHd0UaM7zj7SyOGqG-FVNxYAhwDfD56u7dnE6T3ZeJDpK2i7F9CNvdSNhT91-7mTY_cNFZrkAA)
+I installed Ubuntu on all 5, stood up Docker on each of them, and integrated 3 of them into a single Docker swarm. I then tore down the swarms on the existing servers (Nexus & icanhazmedia) and added them to the swarm as worker nodes. I did a bunch of configuration of all of the stacks to put most things in the 3 mini PCs, while pinning the rest to specific servers. Gitea, zerobyte, & pi-hole all stayed on nexus; Plex, nzbget, & databasus stayed on icanhazmedia, and the rest floated on the 3 node core of the swarm.
+
+For the 4th mini PC, I moved all of the databases onto that node. That's a postgres instance, a MariaDB instance, and MongoDB instance. This sounds like a lot, but it actually doesn't really max out the CPU that much. For the last node, I actually wanted to make that an AI workspace. My original idea was to put Claude Code into a docker container running in tmux so I could attach to it and let long-running tasks proceed. However, I quickly realized that was going to be... annoying. If I'm on a machine, what's the point of putting it on a remote machine when my local machine works so well? So I instead built it out as an autonomous agent that interacts with my gitea instance to do work.
+
+This has proven to be surprisingly effective! It's nice to be able to open an issue on a side project and wake up the next morning with a PR review. It's taking a bit of tuning to get it to a place, and I really need to get a UI going on it so I can better interact with the agent more directly. However, so fact, everything has worked pretty well and I've been able to make a lot more progress on my side projects than I otherwise might have.
+
+The mini PCs are just stacked on top of the nexus server, so I didn't really do the rack that I was hoping to do. However, this did clean up a bunch of issues and gave me a bunch more computing power to play with.
 
 ## Issues
 
@@ -40,10 +45,9 @@ Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-desi
     - Bay for stuff we care about, disk for stuff we care less about
   - Backblaze for offsite backup
 - No shared data across multiple machines
-  - Going to use NFS for less volatile storage, something else for more volatile storaage
+  - Going to use NFS for less volatile storage, something else for more volatile storage
     - If NFS isn't the answer for an all-Linux setup, what is
-  - Right now, using sammonsempessyncthing4swarm Automated deployment solution for running Syncthing in Docker Swarm clusters. Simplifies installation and management of distributed file synchronization across containerized infrastructures. which works ok but currently isnt' well-optimized for restarts
-    - I opened an issue for this, but I'm going to let this ride until I can stand up a Ceph cluster
+  - Right now, using sammonsempessyncthing4swarm Automated deployment solution for running Syncthing in Docker Swarm clusters. Simplifies installation and management of distributed file synchronization across containerized infrastructures. which works ok
 
 ## Goals
 
@@ -53,20 +57,8 @@ Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-desi
     - Archivebox
     - Plex
     - \*arr stack
-  - Solution: Ceph FS for the volatile data
-    - Every node on the swarm will have an SSD for the OS and a separate SSD dedicate to Ceph
-    - Alt: Use [LINBIT/csync2](/vault/links/linbitcsync2-file-synchronization-tool-using-librsync-and-current-state-databases.md) to synchronize files live and run the instance on a single node
-      - This might be easier to get started with until I open up one of the minipcs and take a look
-      - MiniPCs seem to support NVMe drives, so I can buy a chunk of those for Ceph
-    - Alt: Use sammonsempessyncthing4swarm Automated deployment solution for running Syncthing in Docker Swarm clusters. Simplifies installation and management of distributed file synchronization across containerized infrastructures. to synchronize files live
-  - Question: Does this include the fileserver?
-- Massive, expandable filestorage
-  - Current storage needs are close to 20TB
-    - Have an array with another 20TB spare
-    - I want to be able to continue to expand it
-  - Solution: dedicated fileserver with 8 HDD bays minimum
-  - Question: Should this node be on the swarm or should it be a pure fileserver?
-  - Question: What other pathways to expansion should I consider besides max bays up front?
+  - Solution: Use sammonsempessyncthing4swarm Automated deployment solution for running Syncthing in Docker Swarm clusters. Simplifies installation and management of distributed file synchronization across containerized infrastructures. to synchronize files live
+    - We only synchronize between the mini PCs
 - Backup my media
   - I only currently back up "important" things (photos, documents, etc) but would like to expand that to my media server
   - Solution: Backblaze with Zerobyte to create restic backups
@@ -75,33 +67,9 @@ Rack from [Rackula - Rack Layout Designer](/vault/links/rackula-rack-layout-desi
 - Redundant swarm
   - Multiple manager nodes that can shift applications around seamlessly
   - This should include being able to shift SQLite applications
-  - Solution: 3 minipc nodes with SSD for OS + SSD for Ceph
-  - Question: What component should I purchase for this?
-- Support media server
-  - At least one node that's powerful enough to transcode video
-  - Question: Are the minipcs going to work for this as-is? They might.
-    - For now, I'll probably just run this off whatever my fileserver is
-
-## Plan
-
-- Fileserver
-  - 8+ bays
-  - OS on one SSD + 2nd ssd for Ceph
-  - Otherwise, mostly avoid running software on this server
-    - Exception: backup software
-    - Do we need an exception for anything SQLite driven?
-- Primary swarm
-  - 3-5 minipcs
-  - 1 SSD for the OS + 1 SSD for Ceph
-  - This will be able to run everything else
+  - Solution: 3 minipc nodes
 
 ## Components
 
 - 5 HP EliteDesk MiniPCs
   - These are running i5 CPUs, 8GB of RAM, 256GB SSD
-  - The goal is to set them up as a single cluster
-  - I have not yet decided whether/how to configure Ceph
-- Rest of the components is still being determined
-  - For now, I'm running what was previously my media server as the fileserver + databases
-  - Anything that runs SQLite will run off that machine
-  - I may also consider [LINBIT/csync2](/vault/links/linbitcsync2-file-synchronization-tool-using-librsync-and-current-state-databases.md) instead of Ceph, as it would require fewer drives
