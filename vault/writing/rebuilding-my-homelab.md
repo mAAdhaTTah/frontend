@@ -7,7 +7,7 @@ slug: writing/rebuilding-my-homelab
 title: Rebuilding my homelab
 description: My plan for rebuilding my homelab
 published_at: 2026-02-01 11:32
-updated_at: 2026-02-01 11:32
+updated_at: 2026-07-07 11:32
 share: true
 intensity: complete
 rank: 3
