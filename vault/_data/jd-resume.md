@@ -6,7 +6,7 @@ basics:
   name: James DiGioia
   email: jamesorodig@gmail.com
   url: https://jamesdigioia.com
-  summary: I am a Architect & Engineering Leader with deep experience in ecommerce, web applications, & team execution.
+  summary: Engineering leader and hands-on architect, ~7 years scaling a DTC ecommerce platform from technical lead to Senior Director. Deep in React/Next.js, TypeScript, and the platform architecture underneath them. Currently Senior Director of Engineering at Ollie Pets.
   location:
     city: Bronx
     region: NY
@@ -21,9 +21,12 @@ work:
     startDate: 2025-10-01
     summary: Pet health & fresh food subscription
     highlights:
-      - Coordinate cross-functional introduction of new Feeding Recommendation ML model
-      - Develop quarterly capacity plans, balancing business needs, platform health, & customer experience
-      - Advanced squad model from platform-centric to full-stack, enabling independent execution and reducing coordination overhead
+      - Converted a narrow price-matching experiment into a self-service price testing capability, assessing from our homegrown pricing system that the effort was low relative to the potential value, and pushed to prioritize it to enable ongoing subscription pricing experimentation
+      - Enabled 4 of 5 squads to operate more independently by hiring 2 fullstack engineers, developing frontend engineers into fullstack ones, and investing in our Backend-for-Frontend API design, resulting in a more even distribution of backend & production support work
+      - Refined API design of an ML-backed Feeding Recommendations microservice, owned by the Data & Analytics team, for consumption by our platform, driving migration to a more data-driven calorie recommendation system that better matches customer behavior
+      - Initiated a month-long trial of 5 AI tools across the engineering team, culminating in a hackathon and survey to inform the adoption of 2 new tools, and handed control of 3 new working groups to senior engineers to drive policy, tool refinement, and skill development
+      - Developed & published a quarterly engineering scorecard, driven by my tech leads, to track productivity alongside maintainability metrics like dead code & bugs per feature to support their self-evaluation
+      - Managed & developed a team of 4 tech leads and 22 engineers across 5 squads, 3 platforms, and engineering operations & site reliability
   - name: Ollie Pets
     position: Director, Engineering
     url: https://www.ollie.com
@@ -31,11 +34,14 @@ work:
     endDate: 2025-10-01
     summary: Pet health & fresh food subscription
     highlights:
-      - Led department through major migration to a new ecommerce vendor, managing internal, vendor, & team communications, overall timelines, & execution of year+ long project
-      - Developed comprehensive plan to draw in capacity required to complex the project on the needed timeline, against strict contract-enforced deadlines
-      - Reorganized the entire department, establishing timelines, routines, & regular check-ins needed to monitor progress, identify blockers, and keep the project on track
-      - Managed platform squad in executing complex integration with Shopify, leveraging specialized consultants to shape technical approach
-      - Worked with 3rd party contract firm to develop promotion functionality, coordinating that team's work alongside our internal team
+      - Led the department through a ~1.5yr migration from BigCommerce to Shopify, completed 2mo past the contract deadline with allergies functionality deferred, preserving our onboarding flow & member experience
+      - Identified that we lacked visibility on the remaining work, broke down & planned it with the team using our current velocity & average ticket points, projected a completion date 5mo late, and reorganized the department to close the gap by 3mo
+      - Owned the BigCommerce vendor relationship and proposed a contract extension of 2mo full and 10mo storefront-disabled access, saving 50% off the cost of the 1 year minimum
+      - Stepped in as tech lead for the platform squad, directing work distribution & ownership across engineers and keeping the critical path on track
+      - Redesigned the API layer into a Backend-for-Frontend architecture across dozens of endpoints, building a new set to support Shopify customers while maintaining backwards compatibility for BigCommerce customers and making it possible for squads to own their endpoints
+      - Architected the authentication cutover from our mid-flow approach on BigCommerce to Shopify's OAuth-based login, evaluating 5 approaches for new customer onboarding before settling on guest checkout, supporting customers on both systems through a split login screen
+      - Introduced Rust through our cart transform & checkout validation Shopify Functions after TypeScript hit platform limits, supporting the engineers through the migration to Rust, and restructured failure handling with thiserror to surface error codes to the checkout
+      - As sole engineering representative in due diligence for Agrolimen's acquisition of Ollie, documented architecture, workflows, security, vendors, and team structure in parallel with the migration, under strict confidentiality
   - name: Ollie Pets
     position: Director, Front End Engineering
     url: https://www.ollie.com
@@ -43,7 +49,7 @@ work:
     endDate: 2024-01-01
     summary: Pet health & fresh food subscription
     highlights:
-      - Develop squad structure to improve management of cross-functional initiatives
+      - Mentored a Principal Engineer into her current role as Senior Tech Lead for two squads across web & mobile
   - name: Ollie Pets
     position: Senior Technical Lead, Front End
     url: https://www.ollie.com
@@ -51,25 +57,26 @@ work:
     endDate: 2023-05-01
     summary: Pet health & fresh food subscription
     highlights:
-      - Managed & mentored team of engineers in long-term platform maintenance
-      - Developed new leaders to take over squads in preparation for next step up
-      - Set standards, tooling, & approaches needed to maintain high quality React/Next.js ecommerce application
+      - Hired 4 engineers & 1 senior engineer to take over the migrated platform from the contractors, all of whom are still on the team, and reorganized them into two frontend squads, one led by the senior hire
+      - Onboarded the new team to the application, documenting the architecture and recording regular training sessions, and enforced standards on our unit testing approach, component design & layering, and API integration
+      - Increased our Lighthouse score from 20 to 50 by optimizing image size with next/image and slimming the initial JS bundle with better code splitting
+      - Established an ongoing audit and remediation program with LevelAccess, an external accessibility partner, producing continuous improvement that reduced legal exposure and enabling our onboarding flow to be fully keyboard navigable
   - name: Ollie Pets
     position: Technical Lead, Front End
     url: https://www.ollie.com
     startDate: 2019-11-12
     endDate: 2021-10-01
-    highlights:
-      - Rearchitected new platform on Nextjs, React, styled-components, useSWR
-      - Led team of contractors through launch
-      - Migrated application infrastructure from EC2 to ECS + Docker, improving deployment efficiency and overall stability
-      - Hired team of engineers to maintain platform post-launch
     summary: Pet health & fresh food subscription
+    highlights:
+      - Migrated from a homegrown React + Django application to an API-driven Next.js application, integrated with headless Django, enabling the single engineering team to split into distinct backend & frontend squads
+      - Architected and personally built or reviewed the Next.js application, including CMS integration with Storyblok, onboarding & checkout flows, and member experience, a foundation largely still in place 5 years later
+      - Led a team of contractors through launch, backfilling capacity lost to attrition while keeping the frontend delivery on track
+      - Completed infrastructure migration from EC2 to ECS + Docker, designing the pipeline with our devops contractors to replace a manual process with automated staging deploys & production releases triggered by git tag
   - name: Stella.ai
     position: Engineering Lead
     url: https://stella.jobs
     startDate: 2019-04-01
-    endDate: 2020-10-31
+    endDate: 2019-10-31
     summary: Recruiting & compensation platform
     highlights:
       - Led NYC team in coordination with Sydney, Australia team
