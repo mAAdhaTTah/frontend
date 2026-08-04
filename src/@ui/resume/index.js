@@ -4,24 +4,40 @@ import cc from 'classcat';
 const h1Class = cc([
   'font-muli',
   'text-4xl',
+  'print:text-2xl',
+  'print:leading-none',
   'py-1',
   'mb-2',
   'print:mb-1',
   'print:py-0',
 ]);
-const h2Class = cc(['font-ovo', 'text-base', 'py-1', 'mb-1']);
+const h2Class = cc(['font-ovo', 'text-base', 'py-1', 'print:py-0', 'mb-1']);
 
-const expH3Class = cc(['font-muli', 'text-center', 'py-1']);
-const expH4Class = cc(['font-muli', 'text-lg', 'py-1', 'print:text-md']);
-const expH5Class = cc(['font-ovo', 'text-base', 'py-1', 'print:text-sm']);
+const expH3Class = cc(['font-muli', 'text-center', 'py-1', 'print:py-2']);
+const expH4Class = cc([
+  'font-muli',
+  'text-lg',
+  'py-1',
+  'print:py-0',
+  'print:text-base',
+]);
+const expH5Class = cc([
+  'font-ovo',
+  'font-bold',
+  'text-base',
+  'py-1',
+  'print:py-0',
+  'print:text-sm',
+]);
 const expLiClass = cc(['font-ovo', 'text-base', 'mb-1', 'print:text-sm']);
 
 const sidebarH3Class = cc([
   'font-muli',
   'text-lg',
+  'print:text-base',
   'text-center',
   'py-3',
-  'print:py-0',
+  'print:py-2',
 ]);
 const sidebarH4Class = cc([
   'font-ovo',
@@ -30,8 +46,14 @@ const sidebarH4Class = cc([
   'py-1',
   'print:py-0',
 ]);
-const sidebarLiClass = cc(['font-ovo', 'text-sm', 'py-1', 'ml-1']);
-const sidebarSubLiClass = cc(['font-ovo', 'text-xs', 'py-1']);
+const sidebarLiClass = cc([
+  'font-ovo',
+  'text-sm',
+  'py-1',
+  'print:py-0',
+  'ml-1',
+]);
+const sidebarSubLiClass = cc(['font-ovo', 'text-xs', 'py-1', 'print:py-0']);
 
 const ExpLi = ({ children }) => <li className={expLiClass}>{children}</li>;
 
@@ -51,9 +73,9 @@ const Experience = ({ experiences }) => (
             )}
           </h4>
           {exp.positions.map(({ title, start, end, responsibilities }, key) => (
-            <div className="mb-3" key={key}>
+            <div className={cc(['mb-3', 'print:avoid-break-inside'])} key={key}>
               <h5 className={expH5Class}>{title}</h5>
-              <div className="font-ovo text-base mb-3">
+              <div className="font-ovo text-base print:text-xs mb-3">
                 {start} to {end ?? 'Present'}
               </div>
               <ul className="list-disc pl-5">
@@ -100,16 +122,19 @@ const SidebarSubLi = ({ children }) => (
   <li className={sidebarSubLiClass}>{children}</li>
 );
 
-const ExternalLink = ({ href, children }) => (
-  <a
-    href={href}
-    rel="noopener noreferrer"
-    target="_blank"
-    className="print:no-underline"
-  >
-    {children}
-  </a>
-);
+const ExternalLink = ({ href, children }) =>
+  href ? (
+    <a
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+      className="print:no-underline"
+    >
+      {children}
+    </a>
+  ) : (
+    children
+  );
 
 const SidebarItem = ({ children, className = '' }) => (
   <div
@@ -157,27 +182,28 @@ Projects.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      url: PropTypes.string,
       role: PropTypes.string.isRequired,
       highlights: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
   ).isRequired,
 };
 
-const Talks = ({ talks }) => (
-  <SidebarItem>
-    <SidebarH3>Talks</SidebarH3>
-    <SidebarUl>
-      {talks.map(({ name, url }, key) => (
-        <SidebarLi key={key}>
-          <SidebarH4 className="print:text-xs">
-            <ExternalLink href={url}>{name}</ExternalLink>
-          </SidebarH4>
-        </SidebarLi>
-      ))}
-    </SidebarUl>
-  </SidebarItem>
-);
+const Talks = ({ talks }) =>
+  talks.length === 0 ? null : (
+    <SidebarItem>
+      <SidebarH3>Talks</SidebarH3>
+      <SidebarUl>
+        {talks.map(({ name, url }, key) => (
+          <SidebarLi key={key}>
+            <SidebarH4 className="print:text-xs">
+              <ExternalLink href={url}>{name}</ExternalLink>
+            </SidebarH4>
+          </SidebarLi>
+        ))}
+      </SidebarUl>
+    </SidebarItem>
+  );
 
 Talks.propTypes = {
   talks: PropTypes.arrayOf(
@@ -271,13 +297,13 @@ export const Resume = ({
   skills,
 }) => (
   <div className="mx-4 pt-5 print:pt-0 print:mx-0 print:max-w-full">
-    <div className="bg-primary text-2xl print:text-base">
-      <div className="mx-auto text-center mb-2">
+    <div className="bg-primary print:bg-white text-2xl print:text-base">
+      <div className="mx-auto text-center mb-2 print:mb-0">
         <h1 className={h1Class}>{name}</h1>
         <h2 className={h2Class}>{location}</h2>
         <p className="text-sm font-ovo">{description}</p>
       </div>
-      <div className="mx-auto px-4 print:mx-2 flex max-w-2xl flex-col xl:flex-row pb-2">
+      <div className="mx-auto px-4 print:mx-0 print:px-2 flex max-w-2xl flex-col xl:flex-row pb-2">
         <div className="grow basis-full">
           <Experience experiences={experiences} />
         </div>
