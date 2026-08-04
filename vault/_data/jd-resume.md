@@ -6,7 +6,7 @@ basics:
   name: James DiGioia
   email: jamesorodig@gmail.com
   url: https://jamesdigioia.com
-  summary: Engineering leader and hands-on architect, ~7 years scaling a DTC ecommerce platform from technical lead to Senior Director. Deep in React/Next.js, TypeScript, and the platform architecture underneath them. Currently Senior Director of Engineering at Ollie Pets.
+  summary: Architect & engineering leader, ~7 years scaling a DTC ecommerce platform from technical lead to Senior Director. Leading from technical depth, treating system architecture and team structure as one design problem. Deep in React/Next.js & TypeScript.
   location:
     city: Bronx
     region: NY
@@ -23,7 +23,6 @@ work:
     highlights:
       - Converted a narrow price-matching experiment into a self-service price testing capability, assessing from our homegrown pricing system that the effort was low relative to the potential value, and pushed to prioritize it to enable ongoing subscription pricing experimentation
       - Enabled 4 of 5 squads to operate more independently by hiring 2 fullstack engineers, developing frontend engineers into fullstack ones, and investing in our Backend-for-Frontend API design, resulting in a more even distribution of backend & production support work
-      - Refined API design of an ML-backed Feeding Recommendations microservice, owned by the Data & Analytics team, for consumption by our platform, driving migration to a more data-driven calorie recommendation system that better matches customer behavior
       - Initiated a month-long trial of 5 AI tools across the engineering team, culminating in a hackathon and survey to inform the adoption of 2 new tools, and handed control of 3 new working groups to senior engineers to drive policy, tool refinement, and skill development
       - Developed & published a quarterly engineering scorecard, driven by my tech leads, to track productivity alongside maintainability metrics like dead code & bugs per feature to support their self-evaluation
       - Managed & developed a team of 4 tech leads and 22 engineers across 5 squads, 3 platforms, and engineering operations & site reliability
@@ -35,10 +34,9 @@ work:
     summary: Pet health & fresh food subscription
     highlights:
       - Led the department through a ~1.5yr migration from BigCommerce to Shopify, completed 2mo past the contract deadline with allergies functionality deferred, preserving our onboarding flow & member experience
-      - Identified that we lacked visibility on the remaining work, broke down & planned it with the team using our current velocity & average ticket points, projected a completion date 5mo late, and reorganized the department to close the gap by 3mo
+      - Identified that we lacked visibility on the remaining work, broke down & planned it with the team using our current velocity & average ticket points, projected a completion date 5mo late, and reorganized the department to close the gap by 3mo, including stepping in as tech lead for the platform squad
       - Owned the BigCommerce vendor relationship and proposed a contract extension of 2mo full and 10mo storefront-disabled access, saving 50% off the cost of the 1 year minimum
-      - Stepped in as tech lead for the platform squad, directing work distribution & ownership across engineers and keeping the critical path on track
-      - Redesigned the API layer into a Backend-for-Frontend architecture across dozens of endpoints, building a new set to support Shopify customers while maintaining backwards compatibility for BigCommerce customers and making it possible for squads to own their endpoints
+      - Redesigned the API layer into a Backend-for-Frontend architecture across dozens of endpoints, building a new set to support Shopify customers while maintaining backwards compatibility for BigCommerce customers
       - Architected the authentication cutover from our mid-flow approach on BigCommerce to Shopify's OAuth-based login, evaluating 5 approaches for new customer onboarding before settling on guest checkout, supporting customers on both systems through a split login screen
       - Introduced Rust through our cart transform & checkout validation Shopify Functions after TypeScript hit platform limits, supporting the engineers through the migration to Rust, and restructured failure handling with thiserror to surface error codes to the checkout
       - As sole engineering representative in due diligence for Agrolimen's acquisition of Ollie, documented architecture, workflows, security, vendors, and team structure in parallel with the migration, under strict confidentiality
@@ -73,37 +71,15 @@ work:
       - Led a team of contractors through launch, backfilling capacity lost to attrition while keeping the frontend delivery on track
       - Completed infrastructure migration from EC2 to ECS + Docker, designing the pipeline with our devops contractors to replace a manual process with automated staging deploys & production releases triggered by git tag
   - name: Stella.ai
-    position: Engineering Lead
+    position: Engineering Lead (promoted from Senior Front-End Engineer)
     url: https://stella.jobs
-    startDate: 2019-04-01
+    startDate: 2018-09-01
     endDate: 2019-10-31
     summary: Recruiting & compensation platform
     highlights:
-      - Led NYC team in coordination with Sydney, Australia team
-      - Implemented complex search & filter page with React Hooks
+      - Architected & led the front-end development of a B2B platform for firms to comply with pay equity laws, enforcing best practices through regular peer code review
+      - Refactored a buggy multi-step onboarding flow with React/Redux & TypeScript, improving app stability and performance
       - Improved search API with Flask, SQLAlchemy, & Marshmallow
-      - Rebuilt enterprise-facing dashboard for UX & stability
-  - name: Stella.ai
-    position: Senior Front-End Engineer
-    url: https://stella.jobs
-    startDate: 2018-09-01
-    endDate: 2019-04-01
-    highlights:
-      - Architected & led the front-end development of B2B platform for firms to comply with pay equity laws
-      - Refactored buggy multi-step onboarding flow, improving app stability and performance
-      - Enforced React/Redux & TypeScript best practices through regular peer code review
-      - Implemented charting and graphing with Victory library
-    summary: Compensation equity compliance & ML-driven job matching
-  - name: Stellar
-    position: Engineer (Contract)
-    summary: Support network for terminal patients
-    url: ""
-    startDate: 2018-08-01
-    endDate: 2018-11-01
-    highlights:
-      - Developed MVP patient care app with Node.js, Express, Passport, and Objection.js
-      - Managed product lifecycle, feature triage, & AWS deployments
-      - Implemented live chat feature with Redis and websockets
   - name: Valtech
     position: Senior Front-End Engineer
     url: https://www.valtech.com/en-us/
@@ -111,11 +87,8 @@ work:
     startDate: 2015-03-01
     endDate: 2018-09-01
     highlights:
-      - Junior- to mid-level in <9 months; project lead in ~2.5 years; account lead in 3 years
-      - Managed team of developers across multiple projects and brands for L’Oréal account
-      - Led development team on agile ecommerce project built with Vue.js and Sitecore
-      - Architected Hybris checkout for stability and performance with Redux, Handlebars, and Kefir
-      - Redesigned product page using vanilla JavaScript and component-based architecture
+      - Led a team of developers across multiple projects and brands for the L’Oréal digital transformation initiative, including rebuilding Essie brand site on Vue.js & Sitecore
+      - Architected the Hybris checkout for stability and performance with Redux, Handlebars, and Kefir
 volunteer:
   - organization: Code Nation
     position: Volunteer Teacher
@@ -147,7 +120,6 @@ skills:
     keywords:
       - React.js
       - Next.js
-      - React Query
       - Tanstack Query/Table/Router/Start
       - Vue.js
   - name: Functional, Reactive
@@ -182,19 +154,39 @@ skills:
       - SQLAlchemy
       - Marshmallow
       - Flask
-  - name: DevOps
-    keywords:
-      - Docker
-      - AWS
-      - Ansible
-      - PostgreSQL
   - name: Rust
     keywords:
       - Cargo
       - Tauri
       - Tokio
       - Serde
+      - Winnow
+  - name: DevOps
+    keywords:
+      - Docker
+      - AWS
+      - Ansible
+      - PostgreSQL
+      - Terraform
 projects:
+  - name: claudev
+    url: ""
+    startDate: 2026-03-21
+    endDate: ""
+    roles:
+      - Lead Engineer
+    highlights:
+      - Personal coding agent integrated with self-hosted Gitea instance for spec-driven development
+      - Built on Hono, tmux, and Claude Code, and deployed on-prem in my homelab
+  - name: strategy-builder
+    url: ""
+    startDate: 2024-12-12
+    endDate: ""
+    roles:
+      - Lead Engineer
+    highlights:
+      - Tauri desktop app building PIOSolver solution libraries for studying poker strategies
+      - Built with Rust, TypeScript, TanStack Query, TanStack Router
   - name: HoldMyCal.com
     url: https://holdmycal.com
     startDate: 2026-03-20
@@ -202,41 +194,25 @@ projects:
     roles:
       - Lead Engineer
     highlights:
-      - Built Next.js app to sync timeblocks between calendars
+      - Next.js + TypeScript app to sync timeblocks between calendars
       - Developed with Claude Code, leveraging spec-driven development
   - name: Pipeline Operator
     highlights:
-      - Advocate for new syntax into ECMAScript specification with TC39
-      - Developing babel plugins for competing proposals to gather user feedback
+      - Advocated for adding new pipeline syntax into the ECMAScript specification with TC39
+      - Developed Babel plugins for competing proposals to gather user feedback
     startDate: 2017-06-01
     url: https://github.com/tc39/proposal-pipeline-operator/
     roles:
       - Community Advocate
-  - name: brookjs
+  - name: Open-Source Maintainer & Contributor
     highlights:
-      - React/Redux framework for building streaming web applications
-      - Integrates functional reactive programming principles with Kefir
+      - Joined Kefir & Prism.js teams after repeated quality contributions & engagement
+      - Developed brookjs, a React/Redux framework built on Kefir for streaming web applications
     startDate: 2017-06-01
-    endDate: 2022-11-28
-    url: https://github.com/mAAdhaTTah/brookjs/
+    endDate: ""
+    url: ""
     roles:
-      - Lead Maintainer
-  - name: Kefir
-    highlights:
-      - Joined team after repeated quality contributions & engagement
-      - Extracted and released chai-kefir to enable unit testing Kefir streams
-    startDate: 2017-06-01
-    url: https://kefirjs.github.io/kefir/
-    roles:
-      - Maintainer
-  - name: Prism.js
-    highlights:
-      - Joined team after repeated quality contributions & engagement
-      - Implemented copy-to-clipboard plugin to copy PrismJS code snippets
-    startDate: 2017-06-01
-    url: https://prismjs.com/
-    roles:
-      - Maintainer
+      - Maintainer & Contributor
 share: true
 slug: jd-resume
 path: vault/_data
