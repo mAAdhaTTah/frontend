@@ -105,11 +105,7 @@ education:
     area: Marketing, Psychology (minor)
     startDate: 2005-09-01
     endDate: 2009-05-31
-publications:
-  - name: Meet brookjs
-    url: https://jamesdigioia.com/talks/brookjs-at-reactnyc/
-  - name: Using Vue.js in Server Rendered Environments
-    url: https://jamesdigioia.com/talks/using-vuejs-in-server-rendered-environments/
+publications: []
 skills:
   - name: JavaScript
     keywords:
