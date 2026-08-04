@@ -15,7 +15,7 @@
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "feed": "^5.2.0",
-    "next": "16.2.11",
+    "next": "16.3.0",
     "next-mdx-remote": "^6.0.0",
     "next-view-transitions": "^0.3.5",
     "open-graph-scraper": "^6.11.0",
@@ -65,7 +65,7 @@
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
     "jsconfig-paths-jest-mapper": "^1.0.0",
-    "postcss": "^8.4.38",
+    "postcss": "^8.5.23",
     "prettier": "^3.8.1",
     "storybook": "10.3.6",
     "typescript": "^6.0.0"
