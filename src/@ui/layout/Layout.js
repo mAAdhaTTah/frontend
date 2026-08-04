@@ -43,6 +43,7 @@ export const Layout = ({ layoutP, children }) => {
       className={cc([
         'relative',
         'grid',
+        'print:block',
         'transition-grid-cols',
         'duration-1000',
         'ease-[cubic-bezier(.36,.15,.44,1.25)]',
@@ -61,6 +62,7 @@ export const Layout = ({ layoutP, children }) => {
           'lg:top-0',
           'lg:h-screen',
           'lg:overflow-hidden',
+          'print:hidden',
         ])}
       >
         {layout !== 'headerless' && (
@@ -77,6 +79,8 @@ export const Layout = ({ layoutP, children }) => {
           'right-0',
           'bottom-0',
           'overflow-y-auto',
+          'print:static',
+          'print:overflow-visible',
           {
             'left-0': !fullScreen,
             'lg:left-[352px]': !fullScreen && layout !== 'headerless',

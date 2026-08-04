@@ -65,7 +65,7 @@ const DataEmbedBefore = ({ data }) => {
           role: project.roles.join(', '),
           highlights: project.highlights,
         }))}
-        talks={resume.publications.map(pub => ({
+        talks={(resume.publications ?? []).map(pub => ({
           name: pub.name,
           url: pub.url,
         }))}
@@ -197,7 +197,7 @@ export const compile = (/** @type {string} */ source) =>
         </thead>
       ),
       tbody: ({ children }) => (
-        <tbody className={cc(['mb-5', 'font-muli', 'text-md', 'text-left'])}>
+        <tbody className={cc(['mb-5', 'font-muli', 'text-base', 'text-left'])}>
           {children}
         </tbody>
       ),

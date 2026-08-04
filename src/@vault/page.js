@@ -152,7 +152,7 @@ export const VaultPage = async ({ content, frontmatter, source }) => {
           <TalkServer source={source} />
         </Suspense>
       ) : (
-        <Main>
+        <Main wide={frontmatter.web.slug === 'resume'}>
           {frontmatter.essay ? (
             <EssayHeader
               featuredMedia={frontmatter.essay?.featuredMedia}

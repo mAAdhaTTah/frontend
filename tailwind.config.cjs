@@ -35,6 +35,7 @@ module.exports = {
       montserrat: ['var(--font-montserrat)', ...fontFamily.sans],
     },
     fontSize: {
+      xs: '.75rem', // 12px
       sm: '.875rem', // 14px
       base: '1rem', // 16px
       lg: '1.125rem', // 18px
