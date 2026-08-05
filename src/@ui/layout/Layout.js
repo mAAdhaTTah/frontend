@@ -74,6 +74,11 @@ export const Layout = ({ layoutP, children }) => {
       <div
         className={cc([
           'vt-name-[content]',
+          // Margin notes size off this column, since the 352px nav makes
+          // viewport breakpoints lie about the space left. Note this makes the
+          // div a containing block for `position: fixed` descendants — see the
+          // Layout Gotchas in CLAUDE.md.
+          '@container',
           'fixed',
           'top-0',
           'right-0',
