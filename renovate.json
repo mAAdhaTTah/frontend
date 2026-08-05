@@ -3,5 +3,15 @@
   "commitBodyTable": true,
   "extends": ["config:recommended"],
   "timezone": "America/New_York",
-  "schedule": ["after 10am and before 11am"]
+  "schedule": ["after 10am and before 11am"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["lightningcss", "lightningcss-**"],
+      "groupName": "lightningcss"
+    },
+    {
+      "matchPackageNames": ["tailwindcss", "@tailwindcss/**"],
+      "groupName": "tailwindcss"
+    }
+  ]
 }
