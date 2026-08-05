@@ -176,6 +176,70 @@ pre.prism-code.line-numbers {
   border: 0;
 }
 
+/* Tufte-style margin notes. `rehype-margin-notes` splices an aria-hidden copy
+   of each footnote after its `<sup>`; `float: right` drops that copy at the
+   reference's vertical position for free and `clear: right` makes stacked notes
+   push each other down instead of overlapping — no JS, no measurement.
+
+   Width is fluid off the content column, via a container query since the 352px
+   nav means viewport width overstates the room available. The math assumes that
+   column is `max-w-lg` (800px) with `p-5`, hence the `margin-notes` class
+   `<Main>` puts on it: 800 - 20 + 24 = 804px to the note's left edge, another
+   24px of gutter at the far right. `<Main wide>` is excluded — a float hung off
+   the full-width column would land off the page. */
+.margin-note {
+  display: none;
+}
+
+@media screen {
+  @container (min-width: 1024px) {
+    main.margin-notes .margin-note {
+      /* No lower bound needed: the 1024px gate floors this at 196px. */
+      --margin-note-width: min(calc(100cqi - 828px), 300px);
+      display: block;
+      float: right;
+      clear: right;
+      width: var(--margin-note-width);
+      margin-right: calc(-1 * (var(--margin-note-width) + 24px));
+      /* Padding, not margin: a float only extends scrollable overflow to its
+         border box, so a bottom margin on the last note would be clipped. */
+      padding-bottom: 1.25rem;
+      @apply font-ovo text-sm leading-normal text-darkg;
+    }
+
+    main.margin-notes .margin-note-number {
+      @apply font-muli text-xs text-midg;
+      vertical-align: super;
+      line-height: 1;
+    }
+
+    /* Border-bottom links read as heavy underlines at this size. */
+    main.margin-notes .margin-note a {
+      border-bottom-width: 1px;
+    }
+
+    /* Clipped rather than `display: none`, so the section stays in the
+       accessibility tree as the one real copy of every note and the ref anchors
+       still resolve. `data-margin-notes="all"` is set only when every note in
+       the section made it into the margin: clipping one holding a refused note
+       would leave that note with no visual representation anywhere. */
+    main.margin-notes section[data-footnotes][data-margin-notes='all'] {
+      @apply sr-only;
+    }
+
+    /* Clicking a reference would scroll to a clipped 1x1 target, and the note
+       is already in the margin. Pointer activation only: the anchor keeps its
+       href and tab stop, so keyboard and screen reader users still jump to the
+       real note. Scoped to refs that actually got a copy, since a twice-
+       referenced footnote leaves later refs with nothing beside them. */
+    main.margin-notes:has(section[data-margin-notes='all'])
+      sup:has(+ .margin-note)
+      a[data-footnote-ref] {
+      pointer-events: none;
+    }
+  }
+}
+
 @utility slide-content {
   width: 100vw;
   flex-shrink: 0;

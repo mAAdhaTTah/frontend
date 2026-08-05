@@ -69,9 +69,14 @@ const linkClass = cc([
   'transition-colors',
 ]);
 
-export const Link = ({ children, href, title }) => {
+export const Link = ({ children, href, title, tabIndex }) => {
   return (
-    <NextLink href={href} className={linkClass} title={title}>
+    <NextLink
+      href={href}
+      className={linkClass}
+      title={title}
+      tabIndex={tabIndex}
+    >
       {children}
     </NextLink>
   );

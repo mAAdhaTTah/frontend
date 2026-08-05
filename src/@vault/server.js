@@ -13,6 +13,7 @@ import { matter } from 'vfile-matter';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import NextLink from 'next/link';
 import { cacheLife } from 'next/cache';
+import { rehypeMarginNotes } from './rehype-margin-notes';
 import { ReadingList } from '@reading/server';
 import { Resume } from '@ui/resume';
 import { RecentEssays, ServerEmbed, ServerImage } from '@ui/server';
@@ -147,7 +148,12 @@ export const compile = (/** @type {string} */ source) =>
         }
 
         return (
-          <Link href={props.href.replace('/vault', '').replace('.md', '/')}>
+          // `tabIndex` is forwarded for the margin-note copies: the copy is
+          // `aria-hidden`, so its links stay out of the tab order.
+          <Link
+            href={props.href.replace('/vault', '').replace('.md', '/')}
+            tabIndex={props.tabIndex}
+          >
             {props.children}
           </Link>
         );
@@ -264,7 +270,10 @@ const preComponent = props => {
 const contentMdxOptions = {
   parseFrontmatter: true,
   mdxOptions: {
-    rehypePlugins: [[rehypeMdxCodeProps, { elementAttributeNameCase: 'html' }]],
+    rehypePlugins: [
+      [rehypeMdxCodeProps, { elementAttributeNameCase: 'html' }],
+      rehypeMarginNotes,
+    ],
     remarkPlugins: [remarkGfm],
   },
   blockJS: false,
@@ -273,6 +282,8 @@ const contentMdxOptions = {
 const slideMdxOptions = {
   ...contentMdxOptions,
   mdxOptions: {
+    // Slides inherit `rehypeMarginNotes`, but the CSS is scoped to the article
+    // column, so a footnote in a slide keeps today's behaviour.
     ...contentMdxOptions.mdxOptions,
     remarkPlugins: [
       ...contentMdxOptions.mdxOptions.remarkPlugins,
