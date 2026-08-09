@@ -1,5 +1,3 @@
-import path from 'node:path';
-import { readdir, readFile } from 'node:fs/promises';
 import cc from 'classcat';
 import { notFound } from 'next/navigation';
 import remarkGfm from 'remark-gfm';
@@ -332,8 +330,7 @@ const DataSchema = z
     const { filename, url = `vault/_data/${filename}.md` } =
       REFERENCE_REGEX.exec(value).groups;
 
-    const read = path.join(/*turbopackIgnore: true*/ CWD, url);
-    const source = await readFile(read, 'utf8');
+    const source = readVaultFile(url);
     const { frontmatter } = await compile(source);
     return frontmatter;
   });
@@ -344,10 +341,9 @@ const ContentSchema = z
   .transform(async value => {
     const { url } = REFERENCE_REGEX.exec(value).groups;
 
-    const read = path.join(/*turbopackIgnore: true*/ CWD, url);
-    const source = await readFile(read, 'utf8');
+    const source = readVaultFile(url);
     const { frontmatter } = await compile(source);
-    return parseFrontmatter(frontmatter, read);
+    return parseFrontmatter(frontmatter, url);
   });
 
 const MediaReferenceSchema = EmptyToNullSchema.pipe(DataSchema).pipe(
@@ -431,7 +427,37 @@ const PageFMSchema = z.object({
   talk: z.any().optional(),
 });
 
-const CWD = process.cwd();
+/**
+ * Every vault markdown file as a raw string, keyed by path relative to the repo
+ * root, e.g. `vault/_data/menu.md`.
+ * @type {Record<string, string>}
+ */
+const vaultFiles = Object.fromEntries(
+  Object.entries(
+    // `base` because parent-relative patterns match nothing:
+    // https://github.com/vercel/next.js/issues/95496
+    import.meta.glob('**/*.md', {
+      base: '../../vault',
+      query: '?raw',
+      import: 'default',
+      eager: true,
+    }),
+  ).map(([key, bytes]) => [
+    key.replace('../../', ''),
+    new TextDecoder().decode(bytes),
+  ]),
+);
+
+// A mismatched glob yields an empty object, which would render as empty pages.
+if (Object.keys(vaultFiles).length === 0) {
+  throw new Error('No vault notes matched; check the import.meta.glob pattern');
+}
+
+const readVaultFile = (/** @type {string} */ file) => {
+  const source = vaultFiles[file.replace(/^\//, '')];
+  if (source == null) throw new Error(`Unresolved vault reference: ${file}`);
+  return source;
+};
 
 /**
  * Remove Obsidian anchors from markdown content
@@ -468,7 +494,7 @@ const parseFrontmatter = async (
   ).catch(err => {
     if (err instanceof z.ZodError) {
       console.error(err);
-      throw new Error(`Error parsing ${mdFilePath.replace(CWD, '')}`, {
+      throw new Error(`Error parsing ${mdFilePath}`, {
         cause: err,
       });
     }
@@ -483,43 +509,31 @@ export const readAllVaultPages = async () => {
   const sources = [];
   /** @type Record<string, Source> */
   const bySlug = {};
-  const walkDir = async (/** @type {string} */ dir) => {
-    const entries = await readdir(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      if (entry.isFile() && entry.name.endsWith('.md')) {
-        const mdFilePath = path.join(dir, entry.name);
-        let source = await readFile(mdFilePath, 'utf8');
-        source = removeObsidianAnchors(source);
-        const vfile = new VFile(source);
+  for (const [mdFilePath, raw] of Object.entries(vaultFiles)) {
+    const source = removeObsidianAnchors(raw);
+    const vfile = new VFile(source);
 
-        // makes frontmatter available via vfile.data.matter
-        matter(vfile, { strip: true });
-        const fm = vfile.data.matter;
-        if (
-          fm &&
-          typeof fm === 'object' &&
-          'tags' in fm &&
-          Array.isArray(fm.tags) &&
-          fm.tags.every(tag => typeof tag === 'string') &&
-          fm.tags.includes('web')
-        ) {
-          const frontmatter = await parseFrontmatter(fm, mdFilePath);
-          sources.push(
-            (bySlug[frontmatter.web.slug] = {
-              source,
-              mdFilePath,
-              frontmatter,
-            }),
-          );
-        }
-      }
-
-      if (entry.isDirectory()) {
-        await walkDir(path.join(dir, entry.name));
-      }
+    // makes frontmatter available via vfile.data.matter
+    matter(vfile, { strip: true });
+    const fm = vfile.data.matter;
+    if (
+      fm &&
+      typeof fm === 'object' &&
+      'tags' in fm &&
+      Array.isArray(fm.tags) &&
+      fm.tags.every(tag => typeof tag === 'string') &&
+      fm.tags.includes('web')
+    ) {
+      const frontmatter = await parseFrontmatter(fm, mdFilePath);
+      sources.push(
+        (bySlug[frontmatter.web.slug] = {
+          source,
+          mdFilePath,
+          frontmatter,
+        }),
+      );
     }
-  };
-  await walkDir(path.join(CWD, 'vault'));
+  }
 
   return { sources, bySlug };
 };
@@ -591,11 +605,7 @@ export const getPagePaths = async () => {
 const getData = async (/** @type {string} */ target) => {
   'use cache';
 
-  const source = await readFile(
-    path.join(CWD, 'vault/_data', `${target}.md`),
-    'utf8',
-  );
-
+  const source = readVaultFile(`vault/_data/${target}.md`);
   const { frontmatter } = await compile(source);
   return frontmatter;
 };
