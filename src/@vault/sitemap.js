@@ -2,7 +2,13 @@ import { Feed } from 'feed';
 import { getAllVaultPages, readAllVaultPages } from '@vault/server';
 
 /**
- * @typedef {import('sitemap').SitemapItem} SitemapItem
+ * @typedef {{
+ *   url: string;
+ *   lastmod: string;
+ *   img: { url: string; title: string }[];
+ *   video: unknown[];
+ *   links: unknown[];
+ * }} SitemapItem
  */
 
 const sourceToSitemapItem = (
