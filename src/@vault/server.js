@@ -570,8 +570,14 @@ export const getAllVaultPages = async () => {
   return { bySlug, pages };
 };
 
-export const getPageProps = async (/** @type {string} */ slug) => {
+export const getPageProps = async (
+  /** @type {string[] | undefined} */ segments,
+) => {
   'use cache';
+
+  // The homepage is `_index`, served only at `/`.
+  const slug = segments?.length ? segments.join('/') : '_index';
+  if (segments?.length && slug === '_index') return notFound();
 
   const { bySlug } = await readAllVaultPages();
 
@@ -596,7 +602,10 @@ export const getPagePaths = async () => {
 
   return pages.reduce((list, page) => {
     list.push({
-      slug: page.frontmatter.web.slug.split('/'),
+      slug:
+        page.frontmatter.web.slug === '_index'
+          ? []
+          : page.frontmatter.web.slug.split('/'),
     });
     return list;
   }, paths);

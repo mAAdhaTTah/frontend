@@ -3,9 +3,7 @@ import { getPagePaths, getPageProps } from '@vault/server';
 
 const RootPage = async props => {
   const params = await props.params;
-  const { content, frontmatter, source } = await getPageProps(
-    params.slug?.join('/') ?? '_index',
-  );
+  const { content, frontmatter, source } = await getPageProps(params.slug);
   return (
     <VaultPage content={content} frontmatter={frontmatter} source={source} />
   );
@@ -16,9 +14,7 @@ const RootPage = async props => {
  */
 export const generateMetadata = async props => {
   const params = await props.params;
-  const { frontmatter } = await getPageProps(
-    params.slug?.join('/') ?? '_index',
-  );
+  const { frontmatter } = await getPageProps(params.slug);
 
   return {
     title: frontmatter.web.title,
