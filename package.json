@@ -47,9 +47,9 @@
     "@eslint/js": "^10.0.0",
     "@next/eslint-plugin-next": "^16.1.6",
     "@plaiceholder/next": "^3.0.0",
-    "@storybook/addon-docs": "10.5.10",
-    "@storybook/cli": "10.5.10",
-    "@storybook/nextjs": "10.5.10",
+    "@storybook/addon-docs": "10.6.5",
+    "@storybook/cli": "10.6.5",
+    "@storybook/nextjs": "10.6.5",
     "@testing-library/react": "^16.3.2",
     "@typescript-eslint/parser": "^8.57.0",
     "babel-plugin-prismjs": "^2.1.0",
@@ -66,7 +66,7 @@
     "jsconfig-paths-jest-mapper": "^1.0.0",
     "postcss": "^8.4.38",
     "prettier": "^3.8.1",
-    "storybook": "10.6.2",
+    "storybook": "10.6.5",
     "typescript": "^6.0.0"
   },
   "optionalDependencies": {
