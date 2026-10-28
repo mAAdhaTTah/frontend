@@ -596,7 +596,10 @@ export const getPagePaths = async () => {
 
   return pages.reduce((list, page) => {
     list.push({
-      slug: page.frontmatter.web.slug.split('/'),
+      slug:
+        page.frontmatter.web.slug === '_index'
+          ? []
+          : page.frontmatter.web.slug.split('/'),
     });
     return list;
   }, paths);

@@ -29,7 +29,7 @@ const sourceToSitemapItem = (
 
   /** @type {SitemapItem} */
   const item = {
-    url: `/${frontmatter.web.slug}/`,
+    url: frontmatter.web.slug === '_index' ? '/' : `/${frontmatter.web.slug}/`,
     lastModified: frontmatter.web.updated_at,
     images,
   };
