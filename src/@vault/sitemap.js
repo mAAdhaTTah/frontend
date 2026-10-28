@@ -2,57 +2,37 @@ import { Feed } from 'feed';
 import { getAllVaultPages, readAllVaultPages } from '@vault/server';
 
 /**
- * @typedef {{
- *   url: string;
- *   lastmod: string;
- *   img: { url: string; title: string }[];
- *   video: unknown[];
- *   links: unknown[];
- * }} SitemapItem
+ * @typedef {import('next').MetadataRoute.Sitemap[number]} SitemapItem
  */
 
 const sourceToSitemapItem = (
   /** @type {import("@vault/server").Source} */ { frontmatter },
 ) => {
-  /** @type {SitemapItem} */
-  const item = {
-    img: [],
-    video: [],
-    links: [],
-    url: `/${frontmatter.web.slug}/`,
-    lastmod: frontmatter.web.updated_at.toISOString(),
-  };
+  /** @type {string[]} */
+  const images = [];
 
-  if (frontmatter.essay != null) {
-    if (frontmatter.essay?.featuredMedia)
-      item.img.push({
-        url: frontmatter.essay?.featuredMedia.source,
-        title: frontmatter.essay?.featuredMedia.title,
-      });
+  if (frontmatter.essay?.featuredMedia) {
+    images.push(frontmatter.essay.featuredMedia.source);
   }
 
   if (frontmatter.gallery != null) {
-    item.img.push(
-      ...frontmatter.gallery.images.map(val => ({
-        url: val.source,
-        title: val.title,
-      })),
-    );
+    images.push(...frontmatter.gallery.images.map(val => val.source));
   }
 
   if (frontmatter.image != null) {
-    item.img.push({
-      url: frontmatter.image.media.source,
-      title: frontmatter.image.media.title,
-    });
+    images.push(frontmatter.image.media.source);
   }
 
-  if (frontmatter.reference != null && frontmatter.reference.image != null) {
-    item.img.push({
-      url: frontmatter.reference.image,
-      title: 'Article cover',
-    });
+  if (frontmatter.reference?.image != null) {
+    images.push(frontmatter.reference.image);
   }
+
+  /** @type {SitemapItem} */
+  const item = {
+    url: `/${frontmatter.web.slug}/`,
+    lastModified: frontmatter.web.updated_at,
+    images,
+  };
 
   return item;
 };
