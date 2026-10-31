@@ -436,15 +436,16 @@ const vaultFiles = Object.fromEntries(
   Object.entries(
     // `base` because parent-relative patterns match nothing:
     // https://github.com/vercel/next.js/issues/95496
+    // No `import: 'default'`; it yields `undefined` with `eager`.
     import.meta.glob('**/*.md', {
       base: '../../vault',
       query: '?raw',
-      import: 'default',
       eager: true,
     }),
-  ).map(([key, bytes]) => [
-    key.replace('../../', ''),
-    new TextDecoder().decode(bytes),
+  ).map(([key, mod]) => [
+    // Keys are relative to `base`, e.g. `./_data/menu.md`.
+    key.replace(/^\.\//, 'vault/'),
+    /** @type {{ default: string }} */ (mod).default,
   ]),
 );
 
