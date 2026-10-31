@@ -23,9 +23,8 @@ const config = {
   },
   turbopack: {
     // Turbopack gives `?raw` no built-in meaning; the rule supplies it.
-    // `bytes` rather than the documented `text`, which this build rejects.
     rules: {
-      './vault/**/*.md': { condition: { query: '?raw' }, type: 'bytes' },
+      './vault/**/*.md': { condition: { query: '?raw' }, type: 'text' },
     },
   },
   experimental: {
